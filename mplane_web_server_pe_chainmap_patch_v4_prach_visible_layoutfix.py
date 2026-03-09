@@ -116,7 +116,6 @@ a:hover {{ text-decoration: underline; }}
 .mm-layout.with-selection .mm-canvas {{ border-right:1px solid #eee; }}
 .mm-side {{ padding:12px; display:none; }}
 .mm-layout.with-selection .mm-side {{ display:block; }}
-.mm-side-head {{ display:flex; align-items:center; justify-content:space-between; gap:8px; }}
 .mm-legend span {{ display:inline-block; margin-right:8px; margin-bottom:6px; padding:2px 8px; border-radius:999px; font-size:12px; border:1px solid #ddd; }}
 svg.mm-svg text {{ font-size:12px; dominant-baseline:middle; user-select:none; }}
 svg.mm-svg .edge {{ stroke:#b8bcc4; stroke-width:1.2; fill:none; }}
@@ -419,7 +418,7 @@ def render_chain_map_card(graph: dict) -> str:
         </div>
       </div>
       <div class="mm-side">
-        <div class="mm-side-head"><b>Selected Node</b><button type="button" id="mmHideSelBtn">끄기</button></div>
+        <div><b>Selected Node</b></div>
         <div id="mmSelMeta" class="muted" style="margin:6px 0 10px;">(click an object to show details)</div>
         <pre id="mmSelJson" style="max-height:560px; overflow:auto;"></pre>
         <div id="mmJumpStatus" class="muted" style="margin-top:8px;">Tip: double-click graph node to jump in report preview.</div>
