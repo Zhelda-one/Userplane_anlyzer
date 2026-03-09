@@ -143,8 +143,8 @@ small.kv {{ color:#555; }}
 def render_index(message: str = "", error: bool = False) -> bytes:
     msg_html = f'<div class="alert {"err" if error else ""}">{html.escape(message)}</div>' if message else ''
     body = f"""
-<h1>M-Plane Analyzer Web (TXT/XML Upload)</h1>
-<p class="muted">Uploads M-Plane NETCONF TXT/XML/LOG and analyzes with <code>{html.escape(ANALYZER_PATH.name)}</code> (Nokia trace supported in patched versions).</p>
+<h1>User plane configurattion Analyzer - RL1 PD US EngSupport & PoC</h1>
+
 {msg_html}
 <div class="card">
 <form method="post" action="/analyze" enctype="multipart/form-data">
@@ -939,7 +939,7 @@ def render_result(job_id: str, original_name: str, report_text: str, summary: di
     counts = summary.get("counts", {})
     graph_card = render_chain_map_card(chain_graph or {"nodes": [], "edges": []})
     body = f"""
-<h1>Analysis Result</h1>
+<h1>Analysis Result - RL1 PD US EngSupport & PoC</h1>
 <p><a href="/">← Back to upload</a></p>
 <div class="card">
   <div class="grid">
