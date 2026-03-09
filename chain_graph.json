@@ -1,0 +1,959 @@
+{
+  "nodes": [
+    {
+      "id": "TX:LINK:Low-Level-Tx-Links-000",
+      "type": "link",
+      "label": "TX Link: Low-Level-Tx-Links-000",
+      "lane": 0,
+      "data": {
+        "name": "Low-Level-Tx-Links-000",
+        "processing-element": "processing-element01",
+        "tx-array-carrier": "Tx-Array-Carrier-00",
+        "low-level-tx-endpoint": "lowLevelTxEndpoint0",
+        "_type": "TX",
+        "_meta": {
+          "last_ts": "2026-02-18T16:48:42.049472",
+          "direction": "SEND",
+          "message_id": "48",
+          "rpc_type": "edit-config",
+          "source": "user-plane-configuration"
+        }
+      },
+      "meta": {
+        "direction": "TX",
+        "name": "Low-Level-Tx-Links-000",
+        "jump_terms": [
+          "Low-Level-Tx-Links-000",
+          "TX Link: Low-Level-Tx-Links-000",
+          "[TX Link] Low-Level-Tx-Links-000",
+          "Link=Low-Level-Tx-Links-000"
+        ]
+      },
+      "_lane": 0
+    },
+    {
+      "id": "TX:EP:lowLevelTxEndpoint0",
+      "type": "endpoint",
+      "label": "TX EP: lowLevelTxEndpoint0",
+      "lane": 1,
+      "data": {
+        "name": "lowLevelTxEndpoint0",
+        "compression": {
+          "iq-bitwidth": "9",
+          "compression-type": "STATIC",
+          "compression-method": "BLOCK_FLOATING_POINT",
+          "fs-offset": "0",
+          "supported-compression-set-id": "0"
+        },
+        "frame-structure": "160",
+        "cp-type": "NORMAL",
+        "cp-length": "160",
+        "cp-length-other": "144",
+        "offset-to-absolute-frequency-center": "-624",
+        "number-of-prb-per-scs": {
+          "scs": "KHZ_15",
+          "number-of-prb": "52"
+        },
+        "e-axcid": {
+          "o-du-port-bitmask": "61440",
+          "band-sector-bitmask": "3584",
+          "ccid-bitmask": "496",
+          "ru-port-bitmask": "15",
+          "eaxc-id": "0"
+        },
+        "_endpoint_tag": "static-low-level-tx-endpoints",
+        "_meta": {
+          "last_ts": null,
+          "direction": "RECV",
+          "message_id": "raw-static-recover",
+          "rpc_type": "raw-fallback",
+          "source": "raw-static-endpoint-recovery"
+        },
+        "restricted-interfaces": [
+          "ethernetInterface0",
+          "ethernetInterface2"
+        ],
+        "array": "txArray1a",
+        "endpoint-type": "4",
+        "supported-reference-level": {
+          "id": "0",
+          "min": "-8.2082",
+          "max": "16.1055"
+        },
+        "configurable-tdd-pattern-supported": "false"
+      },
+      "meta": {
+        "direction": "TX",
+        "name": "lowLevelTxEndpoint0",
+        "jump_terms": [
+          "lowLevelTxEndpoint0",
+          "Endpoint: lowLevelTxEndpoint0",
+          "  - lowLevelTxEndpoint0:"
+        ]
+      },
+      "_lane": 1
+    },
+    {
+      "id": "TX:CAR:Tx-Array-Carrier-00",
+      "type": "carrier",
+      "label": "TX CAR: Tx-Array-Carrier-00",
+      "lane": 2,
+      "data": {
+        "name": "Tx-Array-Carrier-00",
+        "center-of-channel-bandwidth": "2140000000",
+        "channel-bandwidth": "10000000",
+        "type": "NR",
+        "gain": "31.1000",
+        "downlink-radio-frame-offset": "0",
+        "downlink-sfn-offset": "0",
+        "reference-level": "4.0000",
+        "_meta": {
+          "last_ts": "2026-02-18T16:53:22.076728",
+          "direction": "SEND",
+          "message_id": "64",
+          "rpc_type": "edit-config",
+          "source": "user-plane-configuration"
+        },
+        "active": "INACTIVE"
+      },
+      "meta": {
+        "direction": "TX",
+        "name": "Tx-Array-Carrier-00",
+        "jump_terms": [
+          "Tx-Array-Carrier-00",
+          "Carrier: Tx-Array-Carrier-00",
+          "  - Tx-Array-Carrier-00:"
+        ]
+      },
+      "_lane": 2
+    },
+    {
+      "id": "PE:processing-element01",
+      "type": "pe",
+      "label": "PE: processing-element01",
+      "lane": 3,
+      "data": {
+        "name": "processing-element01",
+        "transport-flow": {
+          "interface-name": "uc-vlan0",
+          "eth-flow": {
+            "ru-mac-address": "B8:97:7A:3F:82:CA",
+            "vlan-id": "13",
+            "o-du-mac-address": "a8:3c:a5:5d:4b:43"
+          }
+        },
+        "_meta": {
+          "last_ts": "2026-02-18T16:48:39.744927",
+          "direction": "SEND",
+          "message_id": "42",
+          "rpc_type": "edit-config",
+          "source": "processing-elements"
+        }
+      },
+      "meta": {
+        "direction": "RX",
+        "jump_terms": [
+          "processing-element01",
+          "Processing Element: processing-element01",
+          "PE=processing-element01"
+        ],
+        "orphan": false
+      },
+      "_lane": 3
+    },
+    {
+      "id": "PE:processing-element01:TF:1",
+      "type": "tf",
+      "label": "TF[1] uc-vlan0",
+      "lane": 5,
+      "data": {
+        "interface-name": "uc-vlan0",
+        "eth-flow": {
+          "ru-mac-address": "B8:97:7A:3F:82:CA",
+          "vlan-id": "13",
+          "o-du-mac-address": "a8:3c:a5:5d:4b:43"
+        }
+      },
+      "meta": {
+        "direction": "RX",
+        "pe": "processing-element01",
+        "tf_index": 1
+      },
+      "_lane": 5
+    },
+    {
+      "id": "TX:LINK:Low-Level-Tx-Links-001",
+      "type": "link",
+      "label": "TX Link: Low-Level-Tx-Links-001",
+      "lane": 0,
+      "data": {
+        "name": "Low-Level-Tx-Links-001",
+        "processing-element": "processing-element01",
+        "tx-array-carrier": "Tx-Array-Carrier-01",
+        "low-level-tx-endpoint": "lowLevelTxEndpoint10",
+        "_type": "TX",
+        "_meta": {
+          "last_ts": "2026-02-18T16:48:42.049472",
+          "direction": "SEND",
+          "message_id": "48",
+          "rpc_type": "edit-config",
+          "source": "user-plane-configuration"
+        }
+      },
+      "meta": {
+        "direction": "TX",
+        "name": "Low-Level-Tx-Links-001",
+        "jump_terms": [
+          "Low-Level-Tx-Links-001",
+          "TX Link: Low-Level-Tx-Links-001",
+          "[TX Link] Low-Level-Tx-Links-001",
+          "Link=Low-Level-Tx-Links-001"
+        ]
+      },
+      "_lane": 0
+    },
+    {
+      "id": "TX:EP:lowLevelTxEndpoint10",
+      "type": "endpoint",
+      "label": "TX EP: lowLevelTxEndpoint10",
+      "lane": 1,
+      "data": {
+        "name": "lowLevelTxEndpoint10",
+        "compression": {
+          "iq-bitwidth": "9",
+          "compression-type": "STATIC",
+          "compression-method": "BLOCK_FLOATING_POINT",
+          "fs-offset": "0",
+          "supported-compression-set-id": "0"
+        },
+        "frame-structure": "160",
+        "cp-type": "NORMAL",
+        "cp-length": "160",
+        "cp-length-other": "144",
+        "offset-to-absolute-frequency-center": "-624",
+        "number-of-prb-per-scs": {
+          "scs": "KHZ_15",
+          "number-of-prb": "52"
+        },
+        "e-axcid": {
+          "o-du-port-bitmask": "61440",
+          "band-sector-bitmask": "3584",
+          "ccid-bitmask": "496",
+          "ru-port-bitmask": "15",
+          "eaxc-id": "8"
+        },
+        "_endpoint_tag": "static-low-level-tx-endpoints",
+        "_meta": {
+          "last_ts": null,
+          "direction": "RECV",
+          "message_id": "raw-static-recover",
+          "rpc_type": "raw-fallback",
+          "source": "raw-static-endpoint-recovery"
+        },
+        "restricted-interfaces": [
+          "ethernetInterface0",
+          "ethernetInterface2"
+        ],
+        "array": "txArray2a",
+        "endpoint-type": "4",
+        "supported-reference-level": {
+          "id": "0",
+          "min": "-8.2082",
+          "max": "16.1055"
+        },
+        "configurable-tdd-pattern-supported": "false"
+      },
+      "meta": {
+        "direction": "TX",
+        "name": "lowLevelTxEndpoint10",
+        "jump_terms": [
+          "lowLevelTxEndpoint10",
+          "Endpoint: lowLevelTxEndpoint10",
+          "  - lowLevelTxEndpoint10:"
+        ]
+      },
+      "_lane": 1
+    },
+    {
+      "id": "TX:CAR:Tx-Array-Carrier-01",
+      "type": "carrier",
+      "label": "TX CAR: Tx-Array-Carrier-01",
+      "lane": 2,
+      "data": {
+        "name": "Tx-Array-Carrier-01",
+        "center-of-channel-bandwidth": "2140000000",
+        "channel-bandwidth": "10000000",
+        "type": "NR",
+        "gain": "31.1000",
+        "downlink-radio-frame-offset": "0",
+        "downlink-sfn-offset": "0",
+        "reference-level": "4.0000",
+        "_meta": {
+          "last_ts": "2026-02-18T16:53:22.076728",
+          "direction": "SEND",
+          "message_id": "64",
+          "rpc_type": "edit-config",
+          "source": "user-plane-configuration"
+        },
+        "active": "INACTIVE"
+      },
+      "meta": {
+        "direction": "TX",
+        "name": "Tx-Array-Carrier-01",
+        "jump_terms": [
+          "Tx-Array-Carrier-01",
+          "Carrier: Tx-Array-Carrier-01",
+          "  - Tx-Array-Carrier-01:"
+        ]
+      },
+      "_lane": 2
+    },
+    {
+      "id": "RX:LINK:Low-Level-Rx-Links-000",
+      "type": "link",
+      "label": "RX Link: Low-Level-Rx-Links-000",
+      "lane": 0,
+      "data": {
+        "name": "Low-Level-Rx-Links-000",
+        "processing-element": "processing-element01",
+        "rx-array-carrier": "Rx-Array-Carrier-00",
+        "low-level-rx-endpoint": "lowLevelRxEndpoint0",
+        "_type": "RX",
+        "_meta": {
+          "last_ts": "2026-02-18T16:49:33.017049",
+          "direction": "SEND",
+          "message_id": "51",
+          "rpc_type": "edit-config",
+          "source": "user-plane-configuration"
+        }
+      },
+      "meta": {
+        "direction": "RX",
+        "name": "Low-Level-Rx-Links-000",
+        "jump_terms": [
+          "Low-Level-Rx-Links-000",
+          "RX Link: Low-Level-Rx-Links-000",
+          "[RX Link] Low-Level-Rx-Links-000",
+          "Link=Low-Level-Rx-Links-000"
+        ]
+      },
+      "_lane": 0
+    },
+    {
+      "id": "RX:EP:lowLevelRxEndpoint0",
+      "type": "endpoint",
+      "label": "RX EP: lowLevelRxEndpoint0",
+      "lane": 1,
+      "data": {
+        "name": "lowLevelRxEndpoint0",
+        "compression": {
+          "iq-bitwidth": "9",
+          "compression-type": "STATIC",
+          "compression-method": "BLOCK_FLOATING_POINT",
+          "fs-offset": "0",
+          "supported-compression-set-id": "0"
+        },
+        "frame-structure": "160",
+        "cp-type": "NORMAL",
+        "cp-length": "160",
+        "cp-length-other": "144",
+        "offset-to-absolute-frequency-center": "-624",
+        "number-of-prb-per-scs": {
+          "scs": "KHZ_15",
+          "number-of-prb": "52"
+        },
+        "ul-fft-sampling-offsets": {
+          "scs": "KHZ_15",
+          "ul-fft-sampling-offset": "32"
+        },
+        "e-axcid": {
+          "o-du-port-bitmask": "61440",
+          "band-sector-bitmask": "3584",
+          "ccid-bitmask": "496",
+          "ru-port-bitmask": "15",
+          "eaxc-id": "0"
+        },
+        "eaxc-gain-correction": "-10.7918",
+        "non-time-managed-delay-enabled": "false",
+        "_endpoint_tag": "static-low-level-rx-endpoints",
+        "_meta": {
+          "last_ts": null,
+          "direction": "RECV",
+          "message_id": "raw-static-recover",
+          "rpc_type": "raw-fallback",
+          "source": "raw-static-endpoint-recovery"
+        },
+        "restricted-interfaces": [
+          "ethernetInterface0",
+          "ethernetInterface2"
+        ],
+        "array": "rxArray1a",
+        "endpoint-type": "3",
+        "static-config-supported": "NONE",
+        "configurable-tdd-pattern-supported": "false"
+      },
+      "meta": {
+        "direction": "RX",
+        "name": "lowLevelRxEndpoint0",
+        "jump_terms": [
+          "lowLevelRxEndpoint0",
+          "Endpoint: lowLevelRxEndpoint0",
+          "  - lowLevelRxEndpoint0:"
+        ]
+      },
+      "_lane": 1
+    },
+    {
+      "id": "RX:CAR:Rx-Array-Carrier-00",
+      "type": "carrier",
+      "label": "RX CAR: Rx-Array-Carrier-00",
+      "lane": 2,
+      "data": {
+        "name": "Rx-Array-Carrier-00",
+        "center-of-channel-bandwidth": "1950000000",
+        "channel-bandwidth": "10000000",
+        "type": "NR",
+        "downlink-radio-frame-offset": "0",
+        "downlink-sfn-offset": "0",
+        "gain-correction": "0.0000",
+        "n-ta-offset": "0",
+        "_meta": {
+          "last_ts": "2026-02-18T16:53:22.076728",
+          "direction": "SEND",
+          "message_id": "64",
+          "rpc_type": "edit-config",
+          "source": "user-plane-configuration"
+        },
+        "active": "INACTIVE"
+      },
+      "meta": {
+        "direction": "RX",
+        "name": "Rx-Array-Carrier-00",
+        "jump_terms": [
+          "Rx-Array-Carrier-00",
+          "Carrier: Rx-Array-Carrier-00",
+          "  - Rx-Array-Carrier-00:"
+        ]
+      },
+      "_lane": 2
+    },
+    {
+      "id": "RX:LINK:Low-Level-Rx-Links-001",
+      "type": "link",
+      "label": "RX Link: Low-Level-Rx-Links-001",
+      "lane": 0,
+      "data": {
+        "name": "Low-Level-Rx-Links-001",
+        "processing-element": "processing-element01",
+        "rx-array-carrier": "Rx-Array-Carrier-01",
+        "low-level-rx-endpoint": "lowLevelRxEndpoint10",
+        "_type": "RX",
+        "_meta": {
+          "last_ts": "2026-02-18T16:49:33.017049",
+          "direction": "SEND",
+          "message_id": "51",
+          "rpc_type": "edit-config",
+          "source": "user-plane-configuration"
+        }
+      },
+      "meta": {
+        "direction": "RX",
+        "name": "Low-Level-Rx-Links-001",
+        "jump_terms": [
+          "Low-Level-Rx-Links-001",
+          "RX Link: Low-Level-Rx-Links-001",
+          "[RX Link] Low-Level-Rx-Links-001",
+          "Link=Low-Level-Rx-Links-001"
+        ]
+      },
+      "_lane": 0
+    },
+    {
+      "id": "RX:EP:lowLevelRxEndpoint10",
+      "type": "endpoint",
+      "label": "RX EP: lowLevelRxEndpoint10",
+      "lane": 1,
+      "data": {
+        "name": "lowLevelRxEndpoint10",
+        "compression": {
+          "iq-bitwidth": "9",
+          "compression-type": "STATIC",
+          "compression-method": "BLOCK_FLOATING_POINT",
+          "fs-offset": "0",
+          "supported-compression-set-id": "0"
+        },
+        "frame-structure": "160",
+        "cp-type": "NORMAL",
+        "cp-length": "160",
+        "cp-length-other": "144",
+        "offset-to-absolute-frequency-center": "-624",
+        "number-of-prb-per-scs": {
+          "scs": "KHZ_15",
+          "number-of-prb": "52"
+        },
+        "ul-fft-sampling-offsets": {
+          "scs": "KHZ_15",
+          "ul-fft-sampling-offset": "32"
+        },
+        "e-axcid": {
+          "o-du-port-bitmask": "61440",
+          "band-sector-bitmask": "3584",
+          "ccid-bitmask": "496",
+          "ru-port-bitmask": "15",
+          "eaxc-id": "8"
+        },
+        "eaxc-gain-correction": "-10.7918",
+        "non-time-managed-delay-enabled": "false",
+        "_endpoint_tag": "static-low-level-rx-endpoints",
+        "_meta": {
+          "last_ts": null,
+          "direction": "RECV",
+          "message_id": "raw-static-recover",
+          "rpc_type": "raw-fallback",
+          "source": "raw-static-endpoint-recovery"
+        },
+        "restricted-interfaces": [
+          "ethernetInterface0",
+          "ethernetInterface2"
+        ],
+        "array": "rxArray2a",
+        "endpoint-type": "3",
+        "static-config-supported": "NONE",
+        "configurable-tdd-pattern-supported": "false"
+      },
+      "meta": {
+        "direction": "RX",
+        "name": "lowLevelRxEndpoint10",
+        "jump_terms": [
+          "lowLevelRxEndpoint10",
+          "Endpoint: lowLevelRxEndpoint10",
+          "  - lowLevelRxEndpoint10:"
+        ]
+      },
+      "_lane": 1
+    },
+    {
+      "id": "RX:CAR:Rx-Array-Carrier-01",
+      "type": "carrier",
+      "label": "RX CAR: Rx-Array-Carrier-01",
+      "lane": 2,
+      "data": {
+        "name": "Rx-Array-Carrier-01",
+        "center-of-channel-bandwidth": "1950000000",
+        "channel-bandwidth": "10000000",
+        "type": "NR",
+        "downlink-radio-frame-offset": "0",
+        "downlink-sfn-offset": "0",
+        "gain-correction": "0.0000",
+        "n-ta-offset": "0",
+        "_meta": {
+          "last_ts": "2026-02-18T16:53:22.076728",
+          "direction": "SEND",
+          "message_id": "64",
+          "rpc_type": "edit-config",
+          "source": "user-plane-configuration"
+        },
+        "active": "INACTIVE"
+      },
+      "meta": {
+        "direction": "RX",
+        "name": "Rx-Array-Carrier-01",
+        "jump_terms": [
+          "Rx-Array-Carrier-01",
+          "Carrier: Rx-Array-Carrier-01",
+          "  - Rx-Array-Carrier-01:"
+        ]
+      },
+      "_lane": 2
+    },
+    {
+      "id": "RX:LINK:Low-Level-Rx-Links-002",
+      "type": "link",
+      "label": "RX Link: Low-Level-Rx-Links-002",
+      "lane": 0,
+      "data": {
+        "name": "Low-Level-Rx-Links-002",
+        "processing-element": "processing-element01",
+        "rx-array-carrier": "Rx-Array-Carrier-00",
+        "low-level-rx-endpoint": "lowLevelRxEndpoint100",
+        "_type": "RX",
+        "_meta": {
+          "last_ts": "2026-02-18T16:49:33.017049",
+          "direction": "SEND",
+          "message_id": "51",
+          "rpc_type": "edit-config",
+          "source": "user-plane-configuration"
+        }
+      },
+      "meta": {
+        "direction": "RX",
+        "name": "Low-Level-Rx-Links-002",
+        "jump_terms": [
+          "Low-Level-Rx-Links-002",
+          "RX Link: Low-Level-Rx-Links-002",
+          "[RX Link] Low-Level-Rx-Links-002",
+          "Link=Low-Level-Rx-Links-002"
+        ]
+      },
+      "_lane": 0
+    },
+    {
+      "id": "RX:EP:lowLevelRxEndpoint100",
+      "type": "endpoint",
+      "label": "RX EP: lowLevelRxEndpoint100",
+      "lane": 1,
+      "data": {
+        "name": "lowLevelRxEndpoint100",
+        "compression": {
+          "iq-bitwidth": "9",
+          "compression-type": "STATIC",
+          "compression-method": "BLOCK_FLOATING_POINT",
+          "fs-offset": "0",
+          "supported-compression-set-id": "0"
+        },
+        "frame-structure": "188",
+        "cp-type": "NORMAL",
+        "cp-length": "160",
+        "cp-length-other": "144",
+        "offset-to-absolute-frequency-center": "-3744",
+        "number-of-prb-per-scs": {
+          "scs": "KHZ_1_25",
+          "number-of-prb": "70"
+        },
+        "ul-fft-sampling-offsets": {
+          "scs": "KHZ_1_25",
+          "ul-fft-sampling-offset": "0"
+        },
+        "e-axcid": {
+          "o-du-port-bitmask": "61440",
+          "band-sector-bitmask": "3584",
+          "ccid-bitmask": "496",
+          "ru-port-bitmask": "15",
+          "eaxc-id": "4"
+        },
+        "eaxc-gain-correction": "0.0000",
+        "non-time-managed-delay-enabled": "false",
+        "static-config-supported": "PRACH",
+        "static-prach-configuration": "0",
+        "_endpoint_tag": "static-low-level-rx-endpoints",
+        "_meta": {
+          "last_ts": null,
+          "direction": "RECV",
+          "message_id": "raw-static-recover",
+          "rpc_type": "raw-fallback",
+          "source": "raw-static-endpoint-recovery"
+        },
+        "restricted-interfaces": [
+          "ethernetInterface0",
+          "ethernetInterface2"
+        ],
+        "array": "rxArray1a",
+        "endpoint-type": "1",
+        "prach-group": "0",
+        "max-prach-patterns": "2",
+        "extended-max-prach-patterns": "2",
+        "configurable-tdd-pattern-supported": "false"
+      },
+      "meta": {
+        "direction": "RX",
+        "name": "lowLevelRxEndpoint100",
+        "jump_terms": [
+          "lowLevelRxEndpoint100",
+          "Endpoint: lowLevelRxEndpoint100",
+          "  - lowLevelRxEndpoint100:"
+        ],
+        "prach_ref": {
+          "key": "0",
+          "exists": true
+        }
+      },
+      "_lane": 1
+    },
+    {
+      "id": "PRACH:0",
+      "type": "prach",
+      "label": "PRACH: 0",
+      "lane": 4,
+      "data": {
+        "static-prach-config-id": "0",
+        "pattern-period": "4",
+        "guard-tone-low-re": "7",
+        "num-prach-re": "839",
+        "guard-tone-high-re": "18",
+        "sequence-duration": "24576",
+        "prach-patterns": {
+          "prach-pattern-id": "1",
+          "number-of-repetitions": "1",
+          "number-of-occasions": "1",
+          "re-offset": "0",
+          "occasion-parameters": {
+            "occasion-id": "1",
+            "cp-length": "3168",
+            "gp-length": "0",
+            "beam-id": "0"
+          },
+          "frame-number": "1",
+          "sub-frame-id": "7",
+          "time-offset": "0"
+        },
+        "_meta": {
+          "last_ts": "2026-02-18T16:48:40.006796",
+          "direction": "SEND",
+          "message_id": "43",
+          "rpc_type": "edit-config",
+          "source": "user-plane-configuration"
+        }
+      },
+      "meta": {
+        "direction": "RX",
+        "prach_id": "0",
+        "jump_terms": [
+          "0",
+          "PRACH 0",
+          "static-prach-config-id>0<"
+        ],
+        "orphan": true
+      },
+      "_lane": 4
+    },
+    {
+      "id": "RX:LINK:Low-Level-Rx-Links-003",
+      "type": "link",
+      "label": "RX Link: Low-Level-Rx-Links-003",
+      "lane": 0,
+      "data": {
+        "name": "Low-Level-Rx-Links-003",
+        "processing-element": "processing-element01",
+        "rx-array-carrier": "Rx-Array-Carrier-01",
+        "low-level-rx-endpoint": "lowLevelRxEndpoint104",
+        "_type": "RX",
+        "_meta": {
+          "last_ts": "2026-02-18T16:49:33.017049",
+          "direction": "SEND",
+          "message_id": "51",
+          "rpc_type": "edit-config",
+          "source": "user-plane-configuration"
+        }
+      },
+      "meta": {
+        "direction": "RX",
+        "name": "Low-Level-Rx-Links-003",
+        "jump_terms": [
+          "Low-Level-Rx-Links-003",
+          "RX Link: Low-Level-Rx-Links-003",
+          "[RX Link] Low-Level-Rx-Links-003",
+          "Link=Low-Level-Rx-Links-003"
+        ]
+      },
+      "_lane": 0
+    },
+    {
+      "id": "RX:EP:lowLevelRxEndpoint104",
+      "type": "endpoint",
+      "label": "RX EP: lowLevelRxEndpoint104",
+      "lane": 1,
+      "data": {
+        "name": "lowLevelRxEndpoint104",
+        "compression": {
+          "iq-bitwidth": "9",
+          "compression-type": "STATIC",
+          "compression-method": "BLOCK_FLOATING_POINT",
+          "fs-offset": "0",
+          "supported-compression-set-id": "0"
+        },
+        "frame-structure": "188",
+        "cp-type": "NORMAL",
+        "cp-length": "160",
+        "cp-length-other": "144",
+        "offset-to-absolute-frequency-center": "-3744",
+        "number-of-prb-per-scs": {
+          "scs": "KHZ_1_25",
+          "number-of-prb": "70"
+        },
+        "ul-fft-sampling-offsets": {
+          "scs": "KHZ_1_25",
+          "ul-fft-sampling-offset": "0"
+        },
+        "e-axcid": {
+          "o-du-port-bitmask": "61440",
+          "band-sector-bitmask": "3584",
+          "ccid-bitmask": "496",
+          "ru-port-bitmask": "15",
+          "eaxc-id": "10"
+        },
+        "eaxc-gain-correction": "0.0000",
+        "non-time-managed-delay-enabled": "false",
+        "static-config-supported": "PRACH",
+        "static-prach-configuration": "0",
+        "_endpoint_tag": "static-low-level-rx-endpoints",
+        "_meta": {
+          "last_ts": null,
+          "direction": "RECV",
+          "message_id": "raw-static-recover",
+          "rpc_type": "raw-fallback",
+          "source": "raw-static-endpoint-recovery"
+        },
+        "restricted-interfaces": [
+          "ethernetInterface0",
+          "ethernetInterface2"
+        ],
+        "array": "rxArray2a",
+        "endpoint-type": "1",
+        "prach-group": "0",
+        "max-prach-patterns": "2",
+        "extended-max-prach-patterns": "2",
+        "configurable-tdd-pattern-supported": "false"
+      },
+      "meta": {
+        "direction": "RX",
+        "name": "lowLevelRxEndpoint104",
+        "jump_terms": [
+          "lowLevelRxEndpoint104",
+          "Endpoint: lowLevelRxEndpoint104",
+          "  - lowLevelRxEndpoint104:"
+        ],
+        "prach_ref": {
+          "key": "0",
+          "exists": true
+        }
+      },
+      "_lane": 1
+    }
+  ],
+  "edges": [
+    {
+      "source": "TX:LINK:Low-Level-Tx-Links-000",
+      "target": "TX:EP:lowLevelTxEndpoint0",
+      "type": "link-endpoint",
+      "label": "EP"
+    },
+    {
+      "source": "TX:LINK:Low-Level-Tx-Links-000",
+      "target": "TX:CAR:Tx-Array-Carrier-00",
+      "type": "link-carrier",
+      "label": "CAR"
+    },
+    {
+      "source": "TX:LINK:Low-Level-Tx-Links-000",
+      "target": "PE:processing-element01",
+      "type": "link-pe",
+      "label": "PE"
+    },
+    {
+      "source": "PE:processing-element01",
+      "target": "PE:processing-element01:TF:1",
+      "type": "pe-tf",
+      "label": "TF"
+    },
+    {
+      "source": "TX:LINK:Low-Level-Tx-Links-001",
+      "target": "TX:EP:lowLevelTxEndpoint10",
+      "type": "link-endpoint",
+      "label": "EP"
+    },
+    {
+      "source": "TX:LINK:Low-Level-Tx-Links-001",
+      "target": "TX:CAR:Tx-Array-Carrier-01",
+      "type": "link-carrier",
+      "label": "CAR"
+    },
+    {
+      "source": "TX:LINK:Low-Level-Tx-Links-001",
+      "target": "PE:processing-element01",
+      "type": "link-pe",
+      "label": "PE"
+    },
+    {
+      "source": "RX:LINK:Low-Level-Rx-Links-000",
+      "target": "RX:EP:lowLevelRxEndpoint0",
+      "type": "link-endpoint",
+      "label": "EP"
+    },
+    {
+      "source": "RX:LINK:Low-Level-Rx-Links-000",
+      "target": "RX:CAR:Rx-Array-Carrier-00",
+      "type": "link-carrier",
+      "label": "CAR"
+    },
+    {
+      "source": "RX:LINK:Low-Level-Rx-Links-000",
+      "target": "PE:processing-element01",
+      "type": "link-pe",
+      "label": "PE"
+    },
+    {
+      "source": "RX:LINK:Low-Level-Rx-Links-001",
+      "target": "RX:EP:lowLevelRxEndpoint10",
+      "type": "link-endpoint",
+      "label": "EP"
+    },
+    {
+      "source": "RX:LINK:Low-Level-Rx-Links-001",
+      "target": "RX:CAR:Rx-Array-Carrier-01",
+      "type": "link-carrier",
+      "label": "CAR"
+    },
+    {
+      "source": "RX:LINK:Low-Level-Rx-Links-001",
+      "target": "PE:processing-element01",
+      "type": "link-pe",
+      "label": "PE"
+    },
+    {
+      "source": "RX:LINK:Low-Level-Rx-Links-002",
+      "target": "RX:EP:lowLevelRxEndpoint100",
+      "type": "link-endpoint",
+      "label": "EP"
+    },
+    {
+      "source": "RX:LINK:Low-Level-Rx-Links-002",
+      "target": "RX:CAR:Rx-Array-Carrier-00",
+      "type": "link-carrier",
+      "label": "CAR"
+    },
+    {
+      "source": "RX:EP:lowLevelRxEndpoint100",
+      "target": "PRACH:0",
+      "type": "endpoint-prach",
+      "label": "PRACH"
+    },
+    {
+      "source": "RX:LINK:Low-Level-Rx-Links-002",
+      "target": "PE:processing-element01",
+      "type": "link-pe",
+      "label": "PE"
+    },
+    {
+      "source": "RX:LINK:Low-Level-Rx-Links-003",
+      "target": "RX:EP:lowLevelRxEndpoint104",
+      "type": "link-endpoint",
+      "label": "EP"
+    },
+    {
+      "source": "RX:LINK:Low-Level-Rx-Links-003",
+      "target": "RX:CAR:Rx-Array-Carrier-01",
+      "type": "link-carrier",
+      "label": "CAR"
+    },
+    {
+      "source": "RX:EP:lowLevelRxEndpoint104",
+      "target": "PRACH:0",
+      "type": "endpoint-prach",
+      "label": "PRACH"
+    },
+    {
+      "source": "RX:LINK:Low-Level-Rx-Links-003",
+      "target": "PE:processing-element01",
+      "type": "link-pe",
+      "label": "PE"
+    }
+  ],
+  "stats": {
+    "nodes": 19,
+    "edges": 21,
+    "links_tx": 2,
+    "links_rx": 4,
+    "pe": 1,
+    "prach": 1
+  }
+}
