@@ -443,6 +443,7 @@ def render_chain_map_card(graph: dict) -> str:
     const mmLayout = document.getElementById('mmLayout');
     const selMeta = document.getElementById('mmSelMeta');
     const selJson = document.getElementById('mmSelJson');
+    const hideSelBtn = document.getElementById('mmHideSelBtn');
     const prachPanel = document.getElementById('mmPrachPanel');
     const prachSummary = document.getElementById('mmPrachSummary');
     const prachOccTbody = document.querySelector('#mmPrachOccTable tbody');
@@ -651,6 +652,15 @@ def render_chain_map_card(graph: dict) -> str:
         data: n.data || {{}},
         connected_to: connectedEdges(n.id)
       }}, null, 2);
+    }}
+
+    function clearSelection() {{
+      activeId = null;
+      if (mmLayout) mmLayout.classList.remove('with-selection');
+      selMeta.textContent = '(click an object to show details)';
+      selJson.textContent = '';
+      jumpStatus.textContent = 'Tip: double-click graph node to jump in report preview.';
+      render();
     }}
 
     function candidateJumpTerms(n) {{
@@ -893,6 +903,8 @@ def render_chain_map_card(graph: dict) -> str:
         drawSvg();
       }}
     }}
+
+    if (hideSelBtn) hideSelBtn.addEventListener('click', clearSelection);
 
     dlBtn.addEventListener('click', () => {{
       const blob = new Blob([JSON.stringify(graph, null, 2)], {{type:'application/json'}});
