@@ -113,7 +113,7 @@ a:hover {{ text-decoration: underline; }}
 def render_index(message: str = "", error: bool = False) -> bytes:
     msg_html = f'<div class="alert {"err" if error else ""}">{html.escape(message)}</div>' if message else ''
     body = f"""
-<h1>M-Plane Analyzer Web (TXT/XML Upload)</h1>
+<h1>User plane configurattion Analyzer - RL1 PD US EngSupport & PoC</h1>
 <p class=\"muted\">Uploads M-Plane NETCONF TXT/XML/LOG and analyzes with <code>{html.escape(ANALYZER_PATH.name)}</code> (Nokia trace supported in patched versions).</p>
 {msg_html}
 <div class=\"card\">
@@ -137,7 +137,7 @@ def render_index(message: str = "", error: bool = False) -> bytes:
   <b>Supported:</b> generic semicolon NETCONF traces, Nokia <code>Sending message:/Received message:</code> traces (patched analyzer), raw XML dumps.
 </div>
 """
-    return html_page("M-Plane Analyzer Web", body)
+    return html_page("Userplane cofig Analyzer", body)
 
 
 def render_result(job_id: str, original_name: str, report_text: str, summary: dict, txt_url: str, json_url: str) -> bytes:
@@ -146,7 +146,7 @@ def render_result(job_id: str, original_name: str, report_text: str, summary: di
     preview = report_text[:preview_limit] + ("\n\n... [TRUNCATED IN BROWSER PREVIEW] ..." if truncated else "")
     counts = summary.get("counts", {})
     body = f"""
-<h1>Analysis Result</h1>
+<h1>Analysis Result - RL1 PD US EngSupport & PoC</h1>
 <p><a href=\"/\">← Back to upload</a></p>
 <div class=\"card\">
   <div class=\"grid\">

@@ -418,7 +418,7 @@ def render_chain_map_card(graph: dict) -> str:
         </div>
       </div>
       <div class="mm-side">
-        <div><b>Selected Node</b></div>
+        <div class="mm-side-head"><b>Selected Node</b><button type="button" id="mmHideSelBtn">close</button></div>
         <div id="mmSelMeta" class="muted" style="margin:6px 0 10px;">(click an object to show details)</div>
         <pre id="mmSelJson" style="max-height:560px; overflow:auto;"></pre>
         <div id="mmJumpStatus" class="muted" style="margin-top:8px;">Tip: double-click graph node to jump in report preview.</div>
