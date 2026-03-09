@@ -322,7 +322,8 @@ def parse_processing_elements(block: str, state: StateStore, ctx: Dict[str, Any]
 def parse_notifications(body: str, state: StateStore, ctx: Dict[str, Any]):
     # Optional lightweight extraction for user-plane related notifications
     # Keep generic; store only warning-like notes instead of complex state machine.
-    if "<notification" not in body:
+    # Namespaced notifications are common (e.g. <nc:notification>).
+    if not re.search(r'<(?:[\w\-]+:)?notification\b', body):
         return
     if "rx-array-carriers-state-change" in body or "tx-array-carriers-state-change" in body:
         state.warnings.append(WarningItem(
