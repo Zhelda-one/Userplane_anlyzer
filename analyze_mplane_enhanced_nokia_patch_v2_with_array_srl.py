@@ -48,7 +48,7 @@ def clean_xml_fragment(xml_string: str) -> str:
     # Remove prefixes from element tags: <nc:foo> -> <foo>
     xml_string = re.sub(r'(</?)[a-zA-Z0-9_\-]+:([a-zA-Z0-9_\-]+)', r'\1\2', xml_string)
     # Remove prefixed attributes that become unbound after xmlns stripping, e.g. nc:operation="create"
-    xml_string = re.sub(r'\s+[A-Za-z_][\w\-\.]*:[A-Za-z_][\w\-\.]*\s*=\s*"[^"]*"', '', xml_string)
+    xml_string = re.sub(r'\s+[A-Za-z_][\w\-\.]*:([A-Za-z_][\w\-\.]*)\s*=\s*"([^"]*)"', r' \1="\2"', xml_string)
     return xml_string.strip()
 
 
@@ -79,6 +79,15 @@ def as_list(x: Any) -> List[Any]:
     if x is None:
         return []
     return x if isinstance(x, list) else [x]
+
+
+def extract_operation_attr(node: ET.Element) -> Optional[str]:
+    """Extract NETCONF operation attribute (operation / nc:operation / {ns}operation)."""
+    for k, v in node.attrib.items():
+        key = str(k)
+        if key == "operation" or key.endswith(":operation") or key.endswith("}operation"):
+            return str(v).strip().lower()
+    return None
 
 
 def deep_merge_dict(dst: Dict[str, Any], src: Dict[str, Any]) -> Dict[str, Any]:
@@ -347,7 +356,7 @@ def record_history(state: StateStore, category: str, name: str, data: Dict[str, 
     ))
 
 
-def upsert_named(target: Dict[str, Dict[str, Any]], category: str, item: Dict[str, Any], state: StateStore, ctx: Dict[str, Any], source: str):
+def upsert_named(target: Dict[str, Dict[str, Any]], category: str, item: Dict[str, Any], state: StateStore, ctx: Dict[str, Any], source: str, operation: Optional[str] = None):
     name = item.get("name")
     if not name:
         state.warnings.append(WarningItem(
@@ -356,7 +365,25 @@ def upsert_named(target: Dict[str, Dict[str, Any]], category: str, item: Dict[st
         ))
         return
     existing = target.get(name, {})
-    merged = deep_merge_dict(existing, item)
+
+    if operation in {"delete", "remove"}:
+        if name in target:
+            del target[name]
+            tombstone = add_meta({"name": name, "_operation": operation, "_deleted": True}, ctx, source)
+            record_history(state, category, name, tombstone, ctx, source)
+        else:
+            state.warnings.append(WarningItem(
+                phase="upsert", tag=category, message=f"Delete/remove for missing object '{name}'",
+                message_id=ctx.get("message_id"), ts=ctx.get("ts")
+            ))
+        return
+
+    if operation == "replace":
+        merged = deepcopy(item)
+    else:
+        merged = deep_merge_dict(existing, item)
+
+    merged["_operation"] = operation or "merge"
     merged = add_meta(merged, ctx, source)
     target[name] = merged
     record_history(state, category, name, merged, ctx, source)
@@ -388,7 +415,7 @@ def parse_user_plane_configuration(block: str, state: StateStore, ctx: Dict[str,
         for node in root.findall(tag):
             d = normalize_leaflist(xml_to_dict(node))
             if isinstance(d, dict):
-                upsert_named(store_name, cat, d, state, ctx, "user-plane-configuration")
+                upsert_named(store_name, cat, d, state, ctx, "user-plane-configuration", extract_operation_attr(node))
 
     # endpoints (support both static/non-static)
     endpoint_tags = [
@@ -402,7 +429,7 @@ def parse_user_plane_configuration(block: str, state: StateStore, ctx: Dict[str,
             d = normalize_leaflist(xml_to_dict(node))
             if isinstance(d, dict):
                 d["_endpoint_tag"] = tag
-                upsert_named(store, cat, d, state, ctx, "user-plane-configuration")
+                upsert_named(store, cat, d, state, ctx, "user-plane-configuration", extract_operation_attr(node))
 
     # links
     for tag, store, ltype, cat in [
@@ -413,7 +440,7 @@ def parse_user_plane_configuration(block: str, state: StateStore, ctx: Dict[str,
             d = normalize_leaflist(xml_to_dict(node))
             if isinstance(d, dict):
                 d["_type"] = ltype
-                upsert_named(store, cat, d, state, ctx, "user-plane-configuration")
+                upsert_named(store, cat, d, state, ctx, "user-plane-configuration", extract_operation_attr(node))
 
     # PRACH configs
     for node in root.findall("static-prach-configurations"):
@@ -429,8 +456,16 @@ def parse_user_plane_configuration(block: str, state: StateStore, ctx: Dict[str,
                 message_id=ctx.get("message_id"), ts=ctx.get("ts")
             ))
             continue
+        operation = extract_operation_attr(node)
+        if operation in {"delete", "remove"}:
+            if key in state.prach_configs:
+                del state.prach_configs[key]
+                tombstone = add_meta({"static-prach-config-id": key, "_operation": operation, "_deleted": True}, ctx, "user-plane-configuration")
+                record_history(state, "prach", key, tombstone, ctx, "user-plane-configuration")
+            continue
         existing = state.prach_configs.get(key, {})
-        merged = deep_merge_dict(existing, d)
+        merged = deepcopy(d) if operation == "replace" else deep_merge_dict(existing, d)
+        merged["_operation"] = operation or "merge"
         merged = add_meta(merged, ctx, "user-plane-configuration")
         state.prach_configs[key] = merged
         record_history(state, "prach", key, merged, ctx, "user-plane-configuration")
@@ -446,7 +481,7 @@ def parse_processing_elements(block: str, state: StateStore, ctx: Dict[str, Any]
     for node in ru_elements:
         d = normalize_leaflist(xml_to_dict(node))
         if isinstance(d, dict):
-            upsert_named(state.processing_elements, "processing_element", d, state, ctx, "processing-elements")
+            upsert_named(state.processing_elements, "processing_element", d, state, ctx, "processing-elements", extract_operation_attr(node))
 
 
 def parse_notifications(body: str, state: StateStore, ctx: Dict[str, Any]):
