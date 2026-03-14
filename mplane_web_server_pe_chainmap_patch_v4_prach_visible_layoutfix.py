@@ -109,10 +109,14 @@ a:hover {{ text-decoration: underline; }}
 .mm-wrap {{ border:1px solid #e6e6e6; border-radius:10px; background:#fff; }}
 .mm-toolbar {{ display:flex; flex-wrap:wrap; gap:10px; align-items:center; padding:10px; border-bottom:1px solid #eee; }}
 .mm-toolbar input, .mm-toolbar select {{ min-width: unset; }}
-.mm-layout {{ display:grid; grid-template-columns: minmax(600px,1fr) 380px; gap: 0; }}
-@media (max-width: 1200px) {{ .mm-layout {{ grid-template-columns: 1fr; }} }}
-.mm-canvas {{ overflow:auto; border-right:1px solid #eee; background:#fcfcfc; }}
-.mm-side {{ padding:12px; }}
+.mm-layout {{ display:grid; grid-template-columns: minmax(600px,1fr); gap: 0; }}
+.mm-layout.with-selection {{ grid-template-columns: minmax(600px,1fr) 380px; }}
+@media (max-width: 1200px) {{ .mm-layout, .mm-layout.with-selection {{ grid-template-columns: 1fr; }} }}
+.mm-canvas {{ overflow:auto; background:#fcfcfc; }}
+.mm-layout.with-selection .mm-canvas {{ border-right:1px solid #eee; }}
+.mm-side {{ padding:12px; display:none; }}
+.mm-layout.with-selection .mm-side {{ display:block; }}
+.mm-side-head {{ display:flex; align-items:center; justify-content:space-between; gap:8px; }}
 .mm-legend span {{ display:inline-block; margin-right:8px; margin-bottom:6px; padding:2px 8px; border-radius:999px; font-size:12px; border:1px solid #ddd; }}
 svg.mm-svg text {{ font-size:12px; dominant-baseline:middle; user-select:none; }}
 svg.mm-svg .edge {{ stroke:#b8bcc4; stroke-width:1.2; fill:none; }}
@@ -405,7 +409,7 @@ def render_chain_map_card(graph: dict) -> str:
       </span>
       <small class="kv" id="mmStats"></small>
     </div>
-    <div class="mm-layout">
+    <div class="mm-layout" id="mmLayout">
       <div class="mm-canvas">
         <div id="mmCanvasSvgWrap">
           <svg id="mmSvg" class="mm-svg" width="1700" height="900" viewBox="0 0 1700 900"></svg>
@@ -415,9 +419,9 @@ def render_chain_map_card(graph: dict) -> str:
         </div>
       </div>
       <div class="mm-side">
-        <div><b>Selected Node</b></div>
-        <div id="mmSelMeta" class="muted" style="margin:6px 0 10px;">(click a node)</div>
-        <pre id="mmSelJson" style="max-height:560px; overflow:auto;">{{}}</pre>
+        <div class="mm-side-head"><b>Selected Node</b><button type="button" id="mmHideSelBtn">끄기</button></div>
+        <div id="mmSelMeta" class="muted" style="margin:6px 0 10px;">(click an object to show details)</div>
+        <pre id="mmSelJson" style="max-height:560px; overflow:auto;"></pre>
         <div id="mmJumpStatus" class="muted" style="margin-top:8px;">Tip: double-click graph node to jump in report preview.</div>
       </div>
     </div>
@@ -437,8 +441,10 @@ def render_chain_map_card(graph: dict) -> str:
     const rendererEl = document.getElementById('mmRenderer');
     const dlBtn = document.getElementById('mmDownloadGraphBtn');
     const statsEl = document.getElementById('mmStats');
+    const mmLayout = document.getElementById('mmLayout');
     const selMeta = document.getElementById('mmSelMeta');
     const selJson = document.getElementById('mmSelJson');
+    const hideSelBtn = document.getElementById('mmHideSelBtn');
     const prachPanel = document.getElementById('mmPrachPanel');
     const prachSummary = document.getElementById('mmPrachSummary');
     const prachOccTbody = document.querySelector('#mmPrachOccTable tbody');
@@ -639,6 +645,7 @@ def render_chain_map_card(graph: dict) -> str:
     }}
     function showNodeDetails(n) {{
       if (!n) return;
+      if (mmLayout) mmLayout.classList.add('with-selection');
       selMeta.textContent = `${{n.label}} [${{n.type}}]${{getNodeDirection(n) ? ' / ' + getNodeDirection(n) : ''}}`;
       selJson.textContent = JSON.stringify({{
         id: n.id, type: n.type, label: n.label, lane: n.lane,
@@ -646,6 +653,15 @@ def render_chain_map_card(graph: dict) -> str:
         data: n.data || {{}},
         connected_to: connectedEdges(n.id)
       }}, null, 2);
+    }}
+
+    function clearSelection() {{
+      activeId = null;
+      if (mmLayout) mmLayout.classList.remove('with-selection');
+      selMeta.textContent = '(click an object to show details)';
+      selJson.textContent = '';
+      jumpStatus.textContent = 'Tip: double-click graph node to jump in report preview.';
+      render();
     }}
 
     function candidateJumpTerms(n) {{
@@ -888,6 +904,8 @@ def render_chain_map_card(graph: dict) -> str:
         drawSvg();
       }}
     }}
+
+    if (hideSelBtn) hideSelBtn.addEventListener('click', clearSelection);
 
     dlBtn.addEventListener('click', () => {{
       const blob = new Blob([JSON.stringify(graph, null, 2)], {{type:'application/json'}});
