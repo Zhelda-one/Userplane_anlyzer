@@ -776,6 +776,10 @@ def render_chain_map_card(graph: dict) -> str:
         g.appendChild(rect); g.appendChild(label); g.appendChild(badge);
 
         g.addEventListener('click', () => {{
+          if (activeId === n.id) {{
+            clearSelection();
+            return;
+          }}
           activeId = n.id;
           showNodeDetails(n);
           drawSvg();
@@ -873,7 +877,12 @@ def render_chain_map_card(graph: dict) -> str:
       visNetwork = new window.vis.Network(visDiv, data, options);
       visNetwork.on('click', (params) => {{
         if (params.nodes && params.nodes.length) {{
-          activeId = params.nodes[0];
+          const clickedId = params.nodes[0];
+          if (activeId === clickedId) {{
+            clearSelection();
+            return;
+          }}
+          activeId = clickedId;
           const n = findNodeById(activeId);
           showNodeDetails(n);
           render();
