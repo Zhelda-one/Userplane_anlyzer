@@ -948,7 +948,7 @@ def render_report(state: StateStore, show: str = "chain") -> str:
                 w("      (No Processing Element Details)")
 
     # Endpoint summary table (text)
-    if False and show in ("all", "endpoint"):
+    if show in ("all", "endpoint"):
         w("\n" + "=" * 120)
         w("ENDPOINT SUMMARY")
         w("=" * 120)
@@ -984,7 +984,7 @@ def render_report(state: StateStore, show: str = "chain") -> str:
             w("(No endpoints)")
 
     # Validation
-    if False and show in ("all", "validate"):
+    if show in ("all", "validate"):
         w("\n" + "=" * 120)
         w("VALIDATION / ALARMS")
         w("=" * 120)
@@ -995,7 +995,7 @@ def render_report(state: StateStore, show: str = "chain") -> str:
             w("(No validation findings)")
 
     # Warnings / parse issues
-    if False and show in ("all", "warnings"):
+    if show in ("all", "warnings"):
         w("\n" + "=" * 120)
         w("PARSER WARNINGS")
         w("=" * 120)
@@ -1008,7 +1008,7 @@ def render_report(state: StateStore, show: str = "chain") -> str:
                     w(f"   fragment: {wi.fragment}")
 
     # Optional history summary
-    if False and show in ("all", "history"):
+    if show in ("all", "history"):
         w("\n" + "=" * 120)
         w("OBJECT HISTORY SUMMARY")
         w("=" * 120)
