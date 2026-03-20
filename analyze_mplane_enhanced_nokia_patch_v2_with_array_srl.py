@@ -309,6 +309,7 @@ def extract_log_segments(content: str) -> List[Dict[str, Any]]:
                 current is not None
                 and current.get("log_format") == "nokia_dbg_session"
                 and current.get("session_id") == new_session
+                and current.get("direction") == new_direction
                 and (
                     current.get("raw_ts") == new_raw_ts
                     or _is_same_rpc_continuation(current, tail)
