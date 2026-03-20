@@ -5,7 +5,7 @@ Features
 - Upload .txt/.xml/.log NETCONF M-Plane logs/configs
 - Runs patched analyzer (Nokia NETCONF trace supported)
 - Shows HTML result preview
-- Download TXT / JSON outputs
+- Displays TXT / JSON results in-browser only (no server-side save)
 - Interactive chain map (Link -> Endpoint -> Carrier -> PE -> Transport Flow)
   * Click node to inspect details
   * PE links included
@@ -22,6 +22,7 @@ import os
 import re
 import sys
 import time
+import tempfile
 import traceback
 import uuid
 from email.parser import BytesParser
@@ -41,11 +42,9 @@ ANALYZER_CANDIDATES = [
     BASE_DIR / "analyze_mplane_enhanced.py",
 ]
 UPLOAD_DIR = BASE_DIR / "mplane_web_uploads"
-RESULT_DIR = BASE_DIR / "mplane_web_results"
 MAX_UPLOAD_MB = 50
 
 UPLOAD_DIR.mkdir(parents=True, exist_ok=True)
-RESULT_DIR.mkdir(parents=True, exist_ok=True)
 
 
 def _pick_analyzer_path() -> Path:
@@ -116,7 +115,6 @@ a:hover {{ text-decoration: underline; }}
 .mm-layout.with-selection .mm-canvas {{ border-right:1px solid #eee; }}
 .mm-side {{ padding:12px; display:none; }}
 .mm-layout.with-selection .mm-side {{ display:block; }}
-.mm-side-head {{ display:flex; align-items:center; justify-content:space-between; gap:8px; }}
 .mm-legend span {{ display:inline-block; margin-right:8px; margin-bottom:6px; padding:2px 8px; border-radius:999px; font-size:12px; border:1px solid #ddd; }}
 svg.mm-svg text {{ font-size:12px; dominant-baseline:middle; user-select:none; }}
 svg.mm-svg .edge {{ stroke:#b8bcc4; stroke-width:1.2; fill:none; }}
@@ -144,8 +142,8 @@ small.kv {{ color:#555; }}
 def render_index(message: str = "", error: bool = False) -> bytes:
     msg_html = f'<div class="alert {"err" if error else ""}">{html.escape(message)}</div>' if message else ''
     body = f"""
-<h1>M-Plane Analyzer Web (TXT/XML Upload)</h1>
-<p class="muted">Uploads M-Plane NETCONF TXT/XML/LOG and analyzes with <code>{html.escape(ANALYZER_PATH.name)}</code> (Nokia trace supported in patched versions).</p>
+<h1>User plane configurattion Analyzer - RL1 PD US EngSupport & PoC</h1>
+
 {msg_html}
 <div class="card">
 <form method="post" action="/analyze" enctype="multipart/form-data">
@@ -419,7 +417,7 @@ def render_chain_map_card(graph: dict) -> str:
         </div>
       </div>
       <div class="mm-side">
-        <div class="mm-side-head"><b>Selected Node</b><button type="button" id="mmHideSelBtn">끄기</button></div>
+        <div class="mm-side-head"><b>Selected Node</b><button type="button" id="mmHideSelBtn">close</button></div>
         <div id="mmSelMeta" class="muted" style="margin:6px 0 10px;">(click an object to show details)</div>
         <pre id="mmSelJson" style="max-height:560px; overflow:auto;"></pre>
         <div id="mmJumpStatus" class="muted" style="margin-top:8px;">Tip: double-click graph node to jump in report preview.</div>
@@ -942,14 +940,14 @@ def render_chain_map_card(graph: dict) -> str:
 """
 
 
-def render_result(job_id: str, original_name: str, report_text: str, summary: dict, txt_url: str, json_url: str, chain_graph: dict | None = None) -> bytes:
+def render_result(job_id: str, original_name: str, report_text: str, summary: dict, chain_graph: dict | None = None) -> bytes:
     preview_limit = 120000
     truncated = len(report_text) > preview_limit
     preview = report_text[:preview_limit] + ("\n\n... [TRUNCATED IN BROWSER PREVIEW] ..." if truncated else "")
     counts = summary.get("counts", {})
     graph_card = render_chain_map_card(chain_graph or {"nodes": [], "edges": []})
     body = f"""
-<h1>Analysis Result</h1>
+<h1>Analysis Result - RL1 PD US EngSupport & PoC</h1>
 <p><a href="/">← Back to upload</a></p>
 <div class="card">
   <div class="grid">
@@ -971,10 +969,7 @@ def render_result(job_id: str, original_name: str, report_text: str, summary: di
       </ul>
     </div>
   </div>
-  <p>
-    <a href="{html.escape(txt_url)}">⬇ Download TXT report</a> &nbsp; | &nbsp;
-    <a href="{html.escape(json_url)}">⬇ Download JSON report</a>
-  </p>
+  <p class="muted">Reports are rendered in-browser only. Server-side file saving and download links are disabled.</p>
 </div>
 
 {graph_card}
@@ -1004,8 +999,15 @@ def build_summary(state, show_mode: str):
     }
 
 
-def run_analysis(input_path: Path, show_mode: str):
-    state = ANALYZER.parse_mplane_log(str(input_path))
+def run_analysis(input_text: str, original_name: str, show_mode: str):
+    suffix = Path(original_name).suffix or ".txt"
+    with tempfile.NamedTemporaryFile("w", encoding="utf-8", suffix=suffix, delete=False) as tmp:
+        tmp.write(input_text)
+        temp_path = Path(tmp.name)
+    try:
+        state = ANALYZER.parse_mplane_log(str(temp_path))
+    finally:
+        temp_path.unlink(missing_ok=True)
     report = ANALYZER.render_report(state, show=show_mode)
     payload = ANALYZER.dataclass_to_jsonable_state(state)
     return state, report, payload
@@ -1065,8 +1067,6 @@ class MPlaneWebHandler(BaseHTTPRequestHandler):
         if parsed.path == "/":
             self._send_bytes(render_index())
             return
-        if parsed.path == "/download":
-            return self.handle_download(parsed)
         if parsed.path == "/healthz":
             return self._send_text("ok")
         self._send_bytes(html_page("Not Found", "<h1>404</h1><p>Not found</p>"), status=404)
@@ -1078,25 +1078,7 @@ class MPlaneWebHandler(BaseHTTPRequestHandler):
         self._send_bytes(html_page("Not Found", "<h1>404</h1><p>Not found</p>"), status=404)
 
     def handle_download(self, parsed):
-        qs = parse_qs(parsed.query)
-        job_id = (qs.get("job", [""]) or [""])[0]
-        kind = (qs.get("kind", [""]) or [""])[0]
-        if not re.fullmatch(r"[A-Za-z0-9_.-]{6,120}", job_id or ""):
-            return self._send_text("Invalid job id", status=400)
-        if kind not in {"txt", "json", "input"}:
-            return self._send_text("Invalid kind", status=400)
-        ext_map = {"txt": ".report.txt", "json": ".report.json", "input": ".input"}
-        path = RESULT_DIR / f"{job_id}{ext_map[kind]}"
-        if not path.exists() or not path.is_file():
-            return self._send_text("File not found", status=404)
-        ctype = "application/json; charset=utf-8" if kind == "json" else "text/plain; charset=utf-8"
-        data = path.read_bytes()
-        self.send_response(200)
-        self.send_header("Content-Type", ctype)
-        self.send_header("Content-Length", str(len(data)))
-        self.send_header("Content-Disposition", f'attachment; filename="{path.name}"')
-        self.end_headers()
-        self.wfile.write(data)
+        return self._send_text("Downloads are disabled; reports are no longer saved on the server.", status=410)
 
     def handle_analyze(self):
         try:
@@ -1135,27 +1117,15 @@ class MPlaneWebHandler(BaseHTTPRequestHandler):
         if job_label:
             job_id = f"{job_label}_{job_id}"
 
-        input_path = RESULT_DIR / f"{job_id}.input"
-        txt_path = RESULT_DIR / f"{job_id}.report.txt"
-        json_path = RESULT_DIR / f"{job_id}.report.json"
-        meta_path = RESULT_DIR / f"{job_id}.meta.json"
-
         try:
-            input_path.write_text(text, encoding="utf-8")
-            state, report, payload = run_analysis(input_path, show_mode)
-            txt_path.write_text(report, encoding="utf-8")
-            json_path.write_text(json.dumps(payload, ensure_ascii=False, indent=2), encoding="utf-8")
+            state, report, payload = run_analysis(text, original_name, show_mode)
             summary = build_summary(state, show_mode)
-            summary.update({"job_id": job_id, "original_name": original_name, "input_saved": input_path.name})
+            summary.update({"job_id": job_id, "original_name": original_name})
 
             chain_graph = build_chain_graph_from_payload(payload)
             summary["graph_stats"] = chain_graph.get("stats", {})
-
-            meta_path.write_text(json.dumps(summary, ensure_ascii=False, indent=2), encoding="utf-8")
             self._send_bytes(render_result(
                 job_id, original_name, report, summary,
-                f"/download?job={job_id}&kind=txt",
-                f"/download?job={job_id}&kind=json",
                 chain_graph=chain_graph,
             ))
         except Exception as e:
@@ -1187,7 +1157,6 @@ def main():
     server = ThreadingHTTPServer((args.host, args.port), MPlaneWebHandler)
     print(f"[OK] M-Plane Analyzer Web running on http://{args.host}:{args.port}")
     print(f"     Analyzer module: {ANALYZER_PATH}")
-    print(f"     Results dir     : {RESULT_DIR}")
     print(f"     Max upload size : {MAX_UPLOAD_MB} MB")
     try:
         server.serve_forever()
