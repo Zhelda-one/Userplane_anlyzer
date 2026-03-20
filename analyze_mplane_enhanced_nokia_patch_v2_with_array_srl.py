@@ -18,6 +18,9 @@ NOKIA_LINE_RE = re.compile(
     r'^(?P<ts>\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(?:\.\d+)?Z)\s+\w+:\s+\[[^\]]+\]\s+Session\s+(?P<session>\d+):\s+(?P<dir>Sending|Received)\s+message:\s*(?P<tail>.*)$',
     re.MULTILINE
 )
+NOKIA_INLINE_HEADER_RE = re.compile(
+    r'\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(?:\.\d+)?Z\s+\w+:\s+\[[^\]]+\]\s+Session\s+\d+:\s+(?:Sending|Received)\s+message:\s*'
+)
 
 
 def parse_log_timestamp(ts: str) -> Optional[str]:
@@ -162,10 +165,51 @@ def _normalize_nokia_payload_line(line: str) -> Optional[str]:
     m = NOKIA_LINE_RE.match(s.strip())
     if m:
         tail = (m.group("tail") or "")
+        tail = NOKIA_INLINE_HEADER_RE.sub("", tail)
         return tail if tail != "" else None
     # continuation lines often start with timestamp + 'Dbg:' but no Session header
     s2 = re.sub(r'^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(?:\.\d+)?Z\s+\w+:\s*', '', s.strip())
+    s2 = NOKIA_INLINE_HEADER_RE.sub("", s2)
     return s2
+
+
+def _strip_nokia_inline_headers(text: str) -> str:
+    """Remove Nokia NETCONF headers accidentally embedded inside XML fragments."""
+    return NOKIA_INLINE_HEADER_RE.sub("", text or "")
+
+
+def _looks_like_fresh_xml_message(text: str) -> bool:
+    s = (text or "").lstrip()
+    return s.startswith(("<rpc", "<notification", "<hello", "<rpc-reply"))
+
+
+def _xml_fragment_incomplete(text: str) -> bool:
+    s = (text or "").strip()
+    if not s:
+        return False
+    if s.endswith(("=", "=\"", "'", "\"", "<")):
+        return True
+    if re.search(r'<[^>]*$', s):
+        return True
+    return False
+
+
+def _is_same_rpc_continuation(current: Optional[Dict[str, Any]], tail: str) -> bool:
+    """
+    Decide whether a repeated Nokia Session header is a continuation of the same XML
+    message rather than the start of a brand-new NETCONF message.
+    """
+    if current is None:
+        return False
+    payload_lines = current.get("_payload_lines", []) or []
+    current_text = _reconstruct_xmlish_text("\n".join(payload_lines)).strip()
+    if not current_text:
+        return not _looks_like_fresh_xml_message(tail)
+    if _xml_fragment_incomplete(current_text):
+        return True
+    if tail and not _looks_like_fresh_xml_message(tail):
+        return True
+    return False
 
 
 def _reconstruct_xmlish_text(text: str) -> str:
@@ -173,12 +217,13 @@ def _reconstruct_xmlish_text(text: str) -> str:
     Best-effort repair for Nokia traces where XML tokens are split across log headers,
     e.g. '<config' on one line and '>' on the next line.
     """
+    text = _strip_nokia_inline_headers(text)
     if not text:
         return text
     lines = [ln for ln in text.splitlines() if ln is not None]
     out: List[str] = []
     for ln in lines:
-        cur = ln.strip()
+        cur = _strip_nokia_inline_headers(ln).strip()
         if cur == "":
             continue
         if out:
@@ -243,9 +288,12 @@ def extract_log_segments(content: str) -> List[Dict[str, Any]]:
             if (
                 current is not None
                 and current.get("log_format") == "nokia_dbg_session"
-                and current.get("raw_ts") == new_raw_ts
                 and current.get("session_id") == new_session
                 and current.get("direction") == new_direction
+                and (
+                    current.get("raw_ts") == new_raw_ts
+                    or _is_same_rpc_continuation(current, tail)
+                )
             ):
                 if tail:
                     current.setdefault("_payload_lines", []).append(tail)
@@ -486,28 +534,15 @@ def parse_processing_elements(block: str, state: StateStore, ctx: Dict[str, Any]
 
 def parse_notifications(body: str, state: StateStore, ctx: Dict[str, Any]):
     # Optional lightweight extraction for user-plane related notifications.
-    # Besides recording a warning, attempt to merge carrier state-change notifications
-    # back into the current carrier objects by name.
+    # Keep generic; store only warning-like notes instead of complex state machine.
     if "<notification" not in body:
         return
-    if "rx-array-carriers-state-change" not in body and "tx-array-carriers-state-change" not in body:
-        return
-
-    state.warnings.append(WarningItem(
-        phase="notification", tag="user-plane-state-change",
-        message="User-plane state-change notification observed",
-        fragment=short_fragment(body), message_id=ctx.get("message_id"), ts=ctx.get("ts")
-    ))
-
-    root = parse_xml_block(body, "notification", "notification", state, ctx)
-    if root is None:
-        return
-
-    for change_tag in ("rx-array-carriers-state-change", "tx-array-carriers-state-change"):
-        for node in root.findall(change_tag):
-            carriers = xml_to_dict(node)
-            if isinstance(carriers, dict):
-                _apply_notification_carrier_states(change_tag, carriers.get(change_tag.replace("-state-change", "")), state, ctx)
+    if "rx-array-carriers-state-change" in body or "tx-array-carriers-state-change" in body:
+        state.warnings.append(WarningItem(
+            phase="notification", tag="user-plane-state-change",
+            message="User-plane state-change notification observed (not fully merged into config state)",
+            fragment=short_fragment(body), message_id=ctx.get("message_id"), ts=ctx.get("ts")
+        ))
 
 
 def parse_mplane_log(file_path: str) -> StateStore:
