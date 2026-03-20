@@ -18,6 +18,9 @@ NOKIA_LINE_RE = re.compile(
     r'^(?P<ts>\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(?:\.\d+)?Z)\s+\w+:\s+\[[^\]]+\]\s+Session\s+(?P<session>\d+):\s+(?P<dir>Sending|Received)\s+message:\s*(?P<tail>.*)$',
     re.MULTILINE
 )
+NOKIA_INLINE_HEADER_RE = re.compile(
+    r'\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(?:\.\d+)?Z\s+\w+:\s+\[[^\]]+\]\s+Session\s+\d+:\s+(?:Sending|Received)\s+message:\s*'
+)
 
 
 def parse_log_timestamp(ts: str) -> Optional[str]:
@@ -162,10 +165,67 @@ def _normalize_nokia_payload_line(line: str) -> Optional[str]:
     m = NOKIA_LINE_RE.match(s.strip())
     if m:
         tail = (m.group("tail") or "")
+        tail = NOKIA_INLINE_HEADER_RE.sub("", tail)
         return tail if tail != "" else None
     # continuation lines often start with timestamp + 'Dbg:' but no Session header
     s2 = re.sub(r'^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(?:\.\d+)?Z\s+\w+:\s*', '', s.strip())
+    s2 = NOKIA_INLINE_HEADER_RE.sub("", s2)
     return s2
+
+
+def _strip_nokia_inline_headers(text: str) -> str:
+    """Remove Nokia NETCONF headers accidentally embedded inside XML fragments."""
+    return NOKIA_INLINE_HEADER_RE.sub("", text or "")
+
+
+def _looks_like_fresh_xml_message(text: str) -> bool:
+    s = (text or "").lstrip()
+    return s.startswith(("<rpc", "<notification", "<hello", "<rpc-reply"))
+
+
+def _xml_fragment_incomplete(text: str) -> bool:
+    s = (text or "").strip()
+    if not s:
+        return False
+    if s.endswith(("=", "=\"", "'", "\"", "<")):
+        return True
+    if re.search(r'<[^>]*$', s):
+        return True
+    stack: List[str] = []
+    for m in re.finditer(r'<(/?)([A-Za-z_][\w:\-\.]*)([^>]*)>', s):
+        is_end = m.group(1) == "/"
+        tag = m.group(2)
+        suffix = m.group(3) or ""
+        self_closing = suffix.strip().endswith("/")
+        if not is_end and not self_closing:
+            stack.append(tag)
+        elif is_end:
+            if stack and stack[-1] == tag:
+                stack.pop()
+            else:
+                return True
+    if stack:
+        return True
+    return False
+
+
+def _is_same_rpc_continuation(current: Optional[Dict[str, Any]], tail: str) -> bool:
+    """
+    Decide whether a repeated Nokia Session header is a continuation of the same XML
+    message rather than the start of a brand-new NETCONF message.
+    """
+    if current is None:
+        return False
+    payload_lines = current.get("_payload_lines", []) or []
+    recent_window = payload_lines[-12:]
+    current_text = _reconstruct_xmlish_text("\n".join(recent_window)).strip()
+    if not current_text:
+        return not _looks_like_fresh_xml_message(tail)
+    if _xml_fragment_incomplete(current_text):
+        return True
+    if tail and not _looks_like_fresh_xml_message(tail):
+        return True
+    return False
 
 
 def _reconstruct_xmlish_text(text: str) -> str:
@@ -173,12 +233,13 @@ def _reconstruct_xmlish_text(text: str) -> str:
     Best-effort repair for Nokia traces where XML tokens are split across log headers,
     e.g. '<config' on one line and '>' on the next line.
     """
+    text = _strip_nokia_inline_headers(text)
     if not text:
         return text
     lines = [ln for ln in text.splitlines() if ln is not None]
     out: List[str] = []
     for ln in lines:
-        cur = ln.strip()
+        cur = _strip_nokia_inline_headers(ln).strip()
         if cur == "":
             continue
         if out:
@@ -189,6 +250,10 @@ def _reconstruct_xmlish_text(text: str) -> str:
                 continue
             # join split close/open angle fragments (rare)
             if prev.endswith("<") and cur.startswith("/"):
+                out[-1] = prev + cur
+                continue
+            # join scalar text split from its closing tag after inline header removal
+            if cur.startswith("</") and not prev.rstrip().endswith(">"):
                 out[-1] = prev + cur
                 continue
         out.append(cur)
@@ -243,9 +308,11 @@ def extract_log_segments(content: str) -> List[Dict[str, Any]]:
             if (
                 current is not None
                 and current.get("log_format") == "nokia_dbg_session"
-                and current.get("raw_ts") == new_raw_ts
                 and current.get("session_id") == new_session
-                and current.get("direction") == new_direction
+                and (
+                    current.get("raw_ts") == new_raw_ts
+                    or _is_same_rpc_continuation(current, tail)
+                )
             ):
                 if tail:
                     current.setdefault("_payload_lines", []).append(tail)
@@ -486,28 +553,15 @@ def parse_processing_elements(block: str, state: StateStore, ctx: Dict[str, Any]
 
 def parse_notifications(body: str, state: StateStore, ctx: Dict[str, Any]):
     # Optional lightweight extraction for user-plane related notifications.
-    # Besides recording a warning, attempt to merge carrier state-change notifications
-    # back into the current carrier objects by name.
+    # Keep generic; store only warning-like notes instead of complex state machine.
     if "<notification" not in body:
         return
-    if "rx-array-carriers-state-change" not in body and "tx-array-carriers-state-change" not in body:
-        return
-
-    state.warnings.append(WarningItem(
-        phase="notification", tag="user-plane-state-change",
-        message="User-plane state-change notification observed",
-        fragment=short_fragment(body), message_id=ctx.get("message_id"), ts=ctx.get("ts")
-    ))
-
-    root = parse_xml_block(body, "notification", "notification", state, ctx)
-    if root is None:
-        return
-
-    for change_tag in ("rx-array-carriers-state-change", "tx-array-carriers-state-change"):
-        for node in root.findall(change_tag):
-            carriers = xml_to_dict(node)
-            if isinstance(carriers, dict):
-                _apply_notification_carrier_states(change_tag, carriers.get(change_tag.replace("-state-change", "")), state, ctx)
+    if "rx-array-carriers-state-change" in body or "tx-array-carriers-state-change" in body:
+        state.warnings.append(WarningItem(
+            phase="notification", tag="user-plane-state-change",
+            message="User-plane state-change notification observed (not fully merged into config state)",
+            fragment=short_fragment(body), message_id=ctx.get("message_id"), ts=ctx.get("ts")
+        ))
 
 
 def parse_mplane_log(file_path: str) -> StateStore:
@@ -699,7 +753,10 @@ def fmt(v: Any) -> str:
         return ", ".join(fmt(x) for x in v)
     if isinstance(v, dict):
         return json.dumps(v, ensure_ascii=False)
-    return str(v)
+    s = re.sub(r'[\r\n\t]+', ' ', str(v))
+    s = re.sub(r'(?<=\d)\s+(?=\d)', '', s)
+    s = re.sub(r' {2,}', ' ', s)
+    return s.strip()
 
 
 def extract_endpoint_summary(ep: Dict[str, Any]) -> Dict[str, Any]:
@@ -746,19 +803,22 @@ def extract_endpoint_summary(ep: Dict[str, Any]) -> Dict[str, Any]:
     }
 
 def _has_meaningful_endpoint_summary_row(r: Dict[str, Any]) -> bool:
-    """Suppress capability-only endpoints in ENDPOINT SUMMARY.
-
-    If all operational summary columns are empty, the row would show only '-' values,
-    so we skip it for readability.
     """
-    keys_to_check = [
-        "eaxc", "ru-port-mask", "fs-offset", "iq-bw", "method",
-        "frame-structure", "freq-offset", "prach-ref",
-    ]
-    for k in keys_to_check:
+    RX endpoints can legitimately be sparse and still be useful, especially when
+    they are tied to PRACH configs or referenced by low-level RX links.
+    """
+    for k in [
+        "eaxc", "ru-port-mask", "fs-offset", "iq-bw",
+        "method", "frame-structure", "freq-offset",
+    ]:
         v = r.get(k)
         if v not in (None, "", "-", []):
             return True
+    pr = r.get("prach-ref")
+    if pr not in (None, "", "-", []):
+        return True
+    if r.get("dir") == "RX":
+        return True
     return False
 
 
@@ -962,39 +1022,79 @@ def render_report(state: StateStore, show: str = "chain") -> str:
 
     # Endpoint summary table (text)
     if show in ("all", "endpoint"):
-        w("\n" + "=" * 120)
+        w("\n" + "=" * 160)
         w("ENDPOINT SUMMARY")
-        w("=" * 120)
+        w("=" * 160)
         rows = []
+        endpoint_to_carrier: Dict[Tuple[str, str], Any] = {}
+        for link in state.links_tx.values():
+            endpoint_to_carrier.setdefault(
+                ("TX", str(link.get("low-level-tx-endpoint", ""))),
+                link.get("tx-array-carrier"),
+            )
+        for link in state.links_rx.values():
+            endpoint_to_carrier.setdefault(
+                ("RX", str(link.get("low-level-rx-endpoint", ""))),
+                link.get("rx-array-carrier"),
+            )
+
         for direction, eps in [("TX", state.endpoints_tx), ("RX", state.endpoints_rx)]:
             for name, ep in sorted(eps.items()):
                 es = extract_endpoint_summary(ep)
+                prach_ref = es.get("static-prach-configuration")
+                if prach_ref in (None, "", []):
+                    prach_ref = es.get("prach-group")
                 row = {
                     "dir": direction,
                     "name": name,
+                    "array": es.get("array"),
+                    "carrier": endpoint_to_carrier.get((direction, name)),
                     "eaxc": es.get("eaxc.eaxc-id"),
                     "ru-port-mask": es.get("eaxc.ru-port-bitmask"),
                     "fs-offset": es.get("compression.fs-offset"),
                     "iq-bw": es.get("compression.iq-bitwidth"),
                     "method": es.get("compression.method"),
-                    "frame-structure": es.get("frame-structure"),
+                    "frame": es.get("frame-structure"),
                     "freq-offset": es.get("offset-to-absolute-frequency-center"),
-                    "prach-ref": es.get("static-prach-configuration") or es.get("prach-group"),
+                    "prach-ref": prach_ref,
                 }
-                # Hide endpoints that have no operational summary values (would be all '-').
                 if _has_meaningful_endpoint_summary_row(row):
                     rows.append(row)
         if rows:
-            header = ["DIR", "ENDPOINT", "EAXC", "RU_MASK", "FS_OFFSET", "IQ_BW", "METHOD", "FRAME", "FREQ_OFFSET", "PRACH_REF"]
-            w(" | ".join(header))
-            w("-" * 120)
+            cols = [
+                ("DIR", "dir", 3),
+                ("ENDPOINT", "name", 28),
+                ("ARRAY", "array", 12),
+                ("CARRIER", "carrier", 24),
+                ("EAXC", "eaxc", 5),
+                ("RU_MASK", "ru-port-mask", 7),
+                ("FS_OFF", "fs-offset", 6),
+                ("IQ_BW", "iq-bw", 5),
+                ("METHOD", "method", 20),
+                ("FRAME", "frame", 5),
+                ("FREQ_OFF", "freq-offset", 10),
+                ("PRACH_REF", "prach-ref", 10),
+            ]
+            widths = [max(min_w, len(header)) for header, _, min_w in cols]
             for r in rows:
-                w(" | ".join([
-                    fmt(r["dir"]), fmt(r["name"]), fmt(r["eaxc"]), fmt(r["ru-port-mask"]), fmt(r["fs-offset"]),
-                    fmt(r["iq-bw"]), fmt(r["method"]), fmt(r["frame-structure"]), fmt(r["freq-offset"]), fmt(r["prach-ref"])
-                ]))
+                for idx, (_, key, _) in enumerate(cols):
+                    widths[idx] = max(widths[idx], len(fmt(r.get(key))))
+
+            def make_row(row_values: List[str]) -> str:
+                return " | ".join(str(v).ljust(widths[idx]) for idx, v in enumerate(row_values))
+
+            sep = "-+-".join("-" * width for width in widths)
+            w(make_row([header for header, _, _ in cols]))
+            w(sep)
+
+            prev_dir = None
+            for r in rows:
+                if prev_dir is not None and prev_dir != r["dir"]:
+                    w(sep)
+                w(make_row([fmt(r.get(key)) for _, key, _ in cols]))
+                prev_dir = r["dir"]
         else:
-            w("(No endpoints)")
+            w("(No endpoints with meaningful data)")
 
     # Validation
     if show in ("all", "validate"):
