@@ -181,6 +181,21 @@ def _xml_fragment_incomplete(text: str) -> bool:
         return True
     if re.search(r'<[^>]*$', s):
         return True
+    stack: List[str] = []
+    for m in re.finditer(r'<(/?)([A-Za-z_][\w:\-\.]*)([^>]*)>', s):
+        is_end = m.group(1) == "/"
+        tag = m.group(2)
+        suffix = m.group(3) or ""
+        self_closing = suffix.strip().endswith("/")
+        if not is_end and not self_closing:
+            stack.append(tag)
+        elif is_end:
+            if stack and stack[-1] == tag:
+                stack.pop()
+            else:
+                return True
+    if stack:
+        return True
     return False
 
 
@@ -192,7 +207,8 @@ def _is_same_rpc_continuation(current: Optional[Dict[str, Any]], tail: str) -> b
     if current is None:
         return False
     payload_lines = current.get("_payload_lines", []) or []
-    current_text = _reconstruct_xmlish_text("\n".join(payload_lines)).strip()
+    recent_window = payload_lines[-12:]
+    current_text = _reconstruct_xmlish_text("\n".join(recent_window)).strip()
     if not current_text:
         return not _looks_like_fresh_xml_message(tail)
     if _xml_fragment_incomplete(current_text):
@@ -224,6 +240,10 @@ def _reconstruct_xmlish_text(text: str) -> str:
                 continue
             # join split close/open angle fragments (rare)
             if prev.endswith("<") and cur.startswith("/"):
+                out[-1] = prev + cur
+                continue
+            # join scalar text split from its closing tag after inline header removal
+            if cur.startswith("</") and not prev.rstrip().endswith(">"):
                 out[-1] = prev + cur
                 continue
         out.append(cur)
