@@ -356,36 +356,9 @@ def parse_processing_elements(block: str, state: StateStore, ctx: Dict[str, Any]
             upsert_named(state.processing_elements, "processing_element", d, state, ctx, "processing-elements", extract_operation_attr(node))
 
 
-def _apply_notification_carrier_states(change_tag: str, carriers: Any, state: StateStore, ctx: Dict[str, Any]):
-    direction = "RX" if change_tag.startswith("rx-") else "TX"
-    store = state.carriers_rx if direction == "RX" else state.carriers_tx
-    for carrier in as_list(carriers):
-        if not isinstance(carrier, dict):
-            continue
-        name = carrier.get("name")
-        notif_state = carrier.get("state")
-        if not name or notif_state in (None, ""):
-            continue
-        existing = store.get(str(name))
-        if not isinstance(existing, dict):
-            state.warnings.append(WarningItem(
-                phase="notification", tag=change_tag,
-                message=f"Notification references unknown carrier '{name}'",
-                fragment=short_fragment(json.dumps(carrier, ensure_ascii=False)),
-                message_id=ctx.get("message_id"), ts=ctx.get("ts")
-            ))
-            continue
-        updated = deepcopy(existing)
-        updated["active"] = notif_state
-        updated = add_meta(updated, ctx, "notification")
-        store[str(name)] = updated
-        record_history(state, f"carrier_{direction.lower()}", str(name), updated, ctx, "notification")
-
-
 def parse_notifications(body: str, state: StateStore, ctx: Dict[str, Any]):
-    # Optional lightweight extraction for user-plane related notifications.
-    # Besides recording a warning, attempt to merge carrier state-change notifications
-    # back into the current carrier objects by name.
+    # Optional lightweight extraction for user-plane related notifications
+    # Keep generic; store only warning-like notes instead of complex state machine.
     # Namespaced notifications are common (e.g. <nc:notification>).
     if not re.search(r'<(?:[\w\-]+:)?notification\b', body):
         return
