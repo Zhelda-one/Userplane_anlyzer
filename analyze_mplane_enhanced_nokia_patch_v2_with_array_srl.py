@@ -309,6 +309,7 @@ def extract_log_segments(content: str) -> List[Dict[str, Any]]:
                 current is not None
                 and current.get("log_format") == "nokia_dbg_session"
                 and current.get("session_id") == new_session
+                and current.get("direction") == new_direction
                 and (
                     current.get("raw_ts") == new_raw_ts
                     or _is_same_rpc_continuation(current, tail)
@@ -549,6 +550,32 @@ def parse_processing_elements(block: str, state: StateStore, ctx: Dict[str, Any]
         d = normalize_leaflist(xml_to_dict(node))
         if isinstance(d, dict):
             upsert_named(state.processing_elements, "processing_element", d, state, ctx, "processing-elements", extract_operation_attr(node))
+
+
+def _apply_notification_carrier_states(change_tag: str, carriers: Any, state: StateStore, ctx: Dict[str, Any]):
+    direction = "RX" if change_tag.startswith("rx-") else "TX"
+    store = state.carriers_rx if direction == "RX" else state.carriers_tx
+    for carrier in as_list(carriers):
+        if not isinstance(carrier, dict):
+            continue
+        name = carrier.get("name")
+        notif_state = carrier.get("state")
+        if not name or notif_state in (None, ""):
+            continue
+        existing = store.get(str(name))
+        if not isinstance(existing, dict):
+            state.warnings.append(WarningItem(
+                phase="notification", tag=change_tag,
+                message=f"Notification references unknown carrier '{name}'",
+                fragment=short_fragment(json.dumps(carrier, ensure_ascii=False)),
+                message_id=ctx.get("message_id"), ts=ctx.get("ts")
+            ))
+            continue
+        updated = deepcopy(existing)
+        updated["active"] = notif_state
+        updated = add_meta(updated, ctx, "notification")
+        store[str(name)] = updated
+        record_history(state, f"carrier_{direction.lower()}", str(name), updated, ctx, "notification")
 
 
 def parse_notifications(body: str, state: StateStore, ctx: Dict[str, Any]):
@@ -1058,10 +1085,7 @@ def render_report(state: StateStore, show: str = "chain") -> str:
                     "freq-offset": es.get("offset-to-absolute-frequency-center"),
                     "prach-ref": prach_ref,
                 }
-                if (
-                    _has_meaningful_endpoint_summary_row(row)
-                    and row.get("carrier") not in (None, "", "-")
-                ):
+                if _has_meaningful_endpoint_summary_row(row):
                     rows.append(row)
         if rows:
             cols = [
