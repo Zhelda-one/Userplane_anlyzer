@@ -19,6 +19,9 @@ NOKIA_LINE_RE = re.compile(
     r'^(?P<ts>\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(?:\.\d+)?Z)\s+\w+:\s+\[[^\]]+\]\s+Session\s+(?P<session>\d+):\s+(?P<dir>Sending|Received)\s+message:\s*(?P<tail>.*)$',
     re.MULTILINE
 )
+NOKIA_INLINE_HEADER_RE = re.compile(
+    r'\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(?:\.\d+)?Z\s+\w+:\s+\[[^\]]+\]\s+Session\s+\d+:\s+(?:Sending|Received)\s+message:\s*'
+)
 
 
 def parse_log_timestamp(ts: str) -> Optional[str]:
@@ -152,10 +155,67 @@ def _normalize_nokia_payload_line(line: str) -> Optional[str]:
     m = NOKIA_LINE_RE.match(s.strip())
     if m:
         tail = (m.group("tail") or "")
+        tail = NOKIA_INLINE_HEADER_RE.sub("", tail)
         return tail if tail != "" else None
     # continuation lines often start with timestamp + 'Dbg:' but no Session header
     s2 = re.sub(r'^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(?:\.\d+)?Z\s+\w+:\s*', '', s.strip())
+    s2 = NOKIA_INLINE_HEADER_RE.sub("", s2)
     return s2
+
+
+def _strip_nokia_inline_headers(text: str) -> str:
+    """Remove Nokia NETCONF headers accidentally embedded inside XML fragments."""
+    return NOKIA_INLINE_HEADER_RE.sub("", text or "")
+
+
+def _looks_like_fresh_xml_message(text: str) -> bool:
+    s = (text or "").lstrip()
+    return s.startswith(("<rpc", "<notification", "<hello", "<rpc-reply"))
+
+
+def _xml_fragment_incomplete(text: str) -> bool:
+    s = (text or "").strip()
+    if not s:
+        return False
+    if s.endswith(("=", "=\"", "'", "\"", "<")):
+        return True
+    if re.search(r'<[^>]*$', s):
+        return True
+    stack: List[str] = []
+    for m in re.finditer(r'<(/?)([A-Za-z_][\w:\-\.]*)([^>]*)>', s):
+        is_end = m.group(1) == "/"
+        tag = m.group(2)
+        suffix = m.group(3) or ""
+        self_closing = suffix.strip().endswith("/")
+        if not is_end and not self_closing:
+            stack.append(tag)
+        elif is_end:
+            if stack and stack[-1] == tag:
+                stack.pop()
+            else:
+                return True
+    if stack:
+        return True
+    return False
+
+
+def _is_same_rpc_continuation(current: Optional[Dict[str, Any]], tail: str) -> bool:
+    """
+    Decide whether a repeated Nokia Session header is a continuation of the same XML
+    message rather than the start of a brand-new NETCONF message.
+    """
+    if current is None:
+        return False
+    payload_lines = current.get("_payload_lines", []) or []
+    recent_window = payload_lines[-12:]
+    current_text = _reconstruct_xmlish_text("\n".join(recent_window)).strip()
+    if not current_text:
+        return not _looks_like_fresh_xml_message(tail)
+    if _xml_fragment_incomplete(current_text):
+        return True
+    if tail and not _looks_like_fresh_xml_message(tail):
+        return True
+    return False
 
 
 def _reconstruct_xmlish_text(text: str) -> str:
@@ -163,12 +223,13 @@ def _reconstruct_xmlish_text(text: str) -> str:
     Best-effort repair for Nokia traces where XML tokens are split across log headers,
     e.g. '<config' on one line and '>' on the next line.
     """
+    text = _strip_nokia_inline_headers(text)
     if not text:
         return text
     lines = [ln for ln in text.splitlines() if ln is not None]
     out: List[str] = []
     for ln in lines:
-        cur = ln.strip()
+        cur = _strip_nokia_inline_headers(ln).strip()
         if cur == "":
             continue
         if out:
@@ -179,6 +240,10 @@ def _reconstruct_xmlish_text(text: str) -> str:
                 continue
             # join split close/open angle fragments (rare)
             if prev.endswith("<") and cur.startswith("/"):
+                out[-1] = prev + cur
+                continue
+            # join scalar text split from its closing tag after inline header removal
+            if cur.startswith("</") and not prev.rstrip().endswith(">"):
                 out[-1] = prev + cur
                 continue
         out.append(cur)
@@ -233,9 +298,12 @@ def extract_log_segments(content: str) -> List[Dict[str, Any]]:
             if (
                 current is not None
                 and current.get("log_format") == "nokia_dbg_session"
-                and current.get("raw_ts") == new_raw_ts
                 and current.get("session_id") == new_session
                 and current.get("direction") == new_direction
+                and (
+                    current.get("raw_ts") == new_raw_ts
+                    or _is_same_rpc_continuation(current, tail)
+                )
             ):
                 if tail:
                     current.setdefault("_payload_lines", []).append(tail)
