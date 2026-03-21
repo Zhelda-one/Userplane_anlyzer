@@ -1,0 +1,618 @@
+========================================================================================================================
+M-PLANE USER-PLANE CONFIGURATION ANALYSIS (Enhanced)
+========================================================================================================================
+Input file       : /home/sungpark/userplane_analyzer/mplane_web_results/20260224_114513_3607541e.input
+Segments parsed  : 306
+Objects          : TX carriers=4, RX carriers=4, TX endpoints=24, RX endpoints=32, TX links=4, RX links=8, PRACH configs=0, Processing elements=1
+
+========================================================================================================================
+CHAIN VIEW  (Link -> Endpoint -> Carrier -> Processing Element/Transport)
+========================================================================================================================
+
+🔗 Chain: NR100.TLINK2_1_1 (TX)
+----------------------------------------------------------------------------------------------------
+  [Endpoint] Static-LLTE-032
+      ├── array: Tx-Array-04
+      ├── endpoint-type: 1
+      ├── restricted-interfaces: fheth0, fheth1
+      └── [meta] msg-id=24, ts=2025-06-25T20:56:08.974000+00:00, rpc=rpc-reply
+      │
+      ▼ (Link PE: NR100.PE_1_0_1)
+      │
+      ├── link.name: NR100.TLINK2_1_1
+      ├── link.low-level-tx-endpoint: Static-LLTE-032
+      ├── link.tx-array-carrier: NR100.TX2_3_1_0
+      └── [meta] msg-id=95, ts=2025-06-25T20:56:31.852000+00:00, rpc=edit-config
+  [Carrier] NR100.TX2_3_1_0
+      ├── active: ACTIVE
+      ├── type: NR
+      ├── center-of-channel-bandwidth: 1820000000 Hz
+      ├── channel-bandwidth: 20000000 Hz
+      ├── gain: 25.9551
+      ├── reference-level: 12.0449
+      ├── downlink-radio-frame-offset: 0
+      ├── downlink-sfn-offset: 0
+      └── [meta] msg-id=109, ts=2025-06-25T20:56:32.738000+00:00, rpc=edit-config
+  [Processing Element] NR100.PE_1_0_1
+      ├── name: NR100.PE_1_0_1
+      ├── transport-flow[1]
+      │   ├── interface-name: vlan_0_1
+      │   ├── eth.ru-mac-address: 34:fe:9e:3d:e0:51
+      │   ├── eth.o-du-mac-address: 00:77:e4:21:b9:cf
+      │   └── eth.vlan-id: 1
+      └── [meta] msg-id=73, ts=2025-06-25T20:56:14.891000+00:00, rpc=edit-config
+
+🔗 Chain: NR100.TLINK2_1_13 (TX)
+----------------------------------------------------------------------------------------------------
+  [Endpoint] Static-LLTE-035
+      ├── array: Tx-Array-07
+      ├── endpoint-type: 1
+      ├── restricted-interfaces: fheth0, fheth1
+      └── [meta] msg-id=24, ts=2025-06-25T20:56:08.974000+00:00, rpc=rpc-reply
+      │
+      ▼ (Link PE: NR100.PE_1_0_1)
+      │
+      ├── link.name: NR100.TLINK2_1_13
+      ├── link.low-level-tx-endpoint: Static-LLTE-035
+      ├── link.tx-array-carrier: NR100.TX2_3_1_9
+      └── [meta] msg-id=98, ts=2025-06-25T20:56:32.022000+00:00, rpc=edit-config
+  [Carrier] NR100.TX2_3_1_9
+      ├── active: ACTIVE
+      ├── type: NR
+      ├── center-of-channel-bandwidth: 1820000000 Hz
+      ├── channel-bandwidth: 20000000 Hz
+      ├── gain: 25.9551
+      ├── reference-level: 12.0449
+      ├── downlink-radio-frame-offset: 0
+      ├── downlink-sfn-offset: 0
+      └── [meta] msg-id=109, ts=2025-06-25T20:56:32.738000+00:00, rpc=edit-config
+  [Processing Element] NR100.PE_1_0_1
+      ├── name: NR100.PE_1_0_1
+      ├── transport-flow[1]
+      │   ├── interface-name: vlan_0_1
+      │   ├── eth.ru-mac-address: 34:fe:9e:3d:e0:51
+      │   ├── eth.o-du-mac-address: 00:77:e4:21:b9:cf
+      │   └── eth.vlan-id: 1
+      └── [meta] msg-id=73, ts=2025-06-25T20:56:14.891000+00:00, rpc=edit-config
+
+🔗 Chain: NR100.TLINK2_1_5 (TX)
+----------------------------------------------------------------------------------------------------
+  [Endpoint] Static-LLTE-033
+      ├── array: Tx-Array-05
+      ├── endpoint-type: 1
+      ├── restricted-interfaces: fheth0, fheth1
+      └── [meta] msg-id=24, ts=2025-06-25T20:56:08.974000+00:00, rpc=rpc-reply
+      │
+      ▼ (Link PE: NR100.PE_1_0_1)
+      │
+      ├── link.name: NR100.TLINK2_1_5
+      ├── link.low-level-tx-endpoint: Static-LLTE-033
+      ├── link.tx-array-carrier: NR100.TX2_3_1_8
+      └── [meta] msg-id=103, ts=2025-06-25T20:56:32.292000+00:00, rpc=edit-config
+  [Carrier] NR100.TX2_3_1_8
+      ├── active: ACTIVE
+      ├── type: NR
+      ├── center-of-channel-bandwidth: 1820000000 Hz
+      ├── channel-bandwidth: 20000000 Hz
+      ├── gain: 25.9551
+      ├── reference-level: 12.0449
+      ├── downlink-radio-frame-offset: 0
+      ├── downlink-sfn-offset: 0
+      └── [meta] msg-id=109, ts=2025-06-25T20:56:32.738000+00:00, rpc=edit-config
+  [Processing Element] NR100.PE_1_0_1
+      ├── name: NR100.PE_1_0_1
+      ├── transport-flow[1]
+      │   ├── interface-name: vlan_0_1
+      │   ├── eth.ru-mac-address: 34:fe:9e:3d:e0:51
+      │   ├── eth.o-du-mac-address: 00:77:e4:21:b9:cf
+      │   └── eth.vlan-id: 1
+      └── [meta] msg-id=73, ts=2025-06-25T20:56:14.891000+00:00, rpc=edit-config
+
+🔗 Chain: NR100.TLINK2_1_9 (TX)
+----------------------------------------------------------------------------------------------------
+  [Endpoint] Static-LLTE-034
+      ├── array: Tx-Array-06
+      ├── endpoint-type: 1
+      ├── restricted-interfaces: fheth0, fheth1
+      └── [meta] msg-id=24, ts=2025-06-25T20:56:08.974000+00:00, rpc=rpc-reply
+      │
+      ▼ (Link PE: NR100.PE_1_0_1)
+      │
+      ├── link.name: NR100.TLINK2_1_9
+      ├── link.low-level-tx-endpoint: Static-LLTE-034
+      ├── link.tx-array-carrier: NR100.TX2_3_1_1
+      └── [meta] msg-id=106, ts=2025-06-25T20:56:32.472000+00:00, rpc=edit-config
+  [Carrier] NR100.TX2_3_1_1
+      ├── active: ACTIVE
+      ├── type: NR
+      ├── center-of-channel-bandwidth: 1820000000 Hz
+      ├── channel-bandwidth: 20000000 Hz
+      ├── gain: 25.9551
+      ├── reference-level: 12.0449
+      ├── downlink-radio-frame-offset: 0
+      ├── downlink-sfn-offset: 0
+      └── [meta] msg-id=109, ts=2025-06-25T20:56:32.738000+00:00, rpc=edit-config
+  [Processing Element] NR100.PE_1_0_1
+      ├── name: NR100.PE_1_0_1
+      ├── transport-flow[1]
+      │   ├── interface-name: vlan_0_1
+      │   ├── eth.ru-mac-address: 34:fe:9e:3d:e0:51
+      │   ├── eth.o-du-mac-address: 00:77:e4:21:b9:cf
+      │   └── eth.vlan-id: 1
+      └── [meta] msg-id=73, ts=2025-06-25T20:56:14.891000+00:00, rpc=edit-config
+
+🔗 Chain: NR100.RLINK2_1_11 (RX)
+----------------------------------------------------------------------------------------------------
+  [Endpoint] Static-LLRE-082
+      ├── array: Rx-Array-06
+      ├── endpoint-type: 5
+      ├── restricted-interfaces: fheth0, fheth1
+      └── [meta] msg-id=25, ts=2025-06-25T20:56:10.356000+00:00, rpc=rpc-reply
+      │
+      ▼ (Link PE: NR100.PE_1_0_1)
+      │
+      ├── link.name: NR100.RLINK2_1_11
+      ├── link.low-level-rx-endpoint: Static-LLRE-082
+      ├── link.rx-array-carrier: NR100.RX2_3_1_1
+      └── [meta] msg-id=96, ts=2025-06-25T20:56:31.897000+00:00, rpc=edit-config
+  [Carrier] NR100.RX2_3_1_1
+      ├── active: ACTIVE
+      ├── type: NR
+      ├── center-of-channel-bandwidth: 1725000000 Hz
+      ├── channel-bandwidth: 20000000 Hz
+      ├── downlink-radio-frame-offset: 0
+      ├── downlink-sfn-offset: 0
+      └── [meta] msg-id=109, ts=2025-06-25T20:56:32.738000+00:00, rpc=edit-config
+  [Processing Element] NR100.PE_1_0_1
+      ├── name: NR100.PE_1_0_1
+      ├── transport-flow[1]
+      │   ├── interface-name: vlan_0_1
+      │   ├── eth.ru-mac-address: 34:fe:9e:3d:e0:51
+      │   ├── eth.o-du-mac-address: 00:77:e4:21:b9:cf
+      │   └── eth.vlan-id: 1
+      └── [meta] msg-id=73, ts=2025-06-25T20:56:14.891000+00:00, rpc=edit-config
+
+🔗 Chain: NR100.RLINK2_1_12 (RX)
+----------------------------------------------------------------------------------------------------
+  [Endpoint] Static-LLRE-086
+      ├── array: Rx-Array-06
+      ├── endpoint-type: 6
+      ├── static-config-supported: PRACH
+      ├── prach-group: 0
+      ├── restricted-interfaces: fheth0, fheth1
+      ├── PRACH ref present but config not found: 0
+      └── [meta] msg-id=25, ts=2025-06-25T20:56:10.356000+00:00, rpc=rpc-reply
+      │
+      ▼ (Link PE: NR100.PE_1_0_1)
+      │
+      ├── link.name: NR100.RLINK2_1_12
+      ├── link.low-level-rx-endpoint: Static-LLRE-086
+      ├── link.rx-array-carrier: NR100.RX2_3_1_1
+      └── [meta] msg-id=97, ts=2025-06-25T20:56:31.961000+00:00, rpc=edit-config
+  [Carrier] NR100.RX2_3_1_1
+      ├── active: ACTIVE
+      ├── type: NR
+      ├── center-of-channel-bandwidth: 1725000000 Hz
+      ├── channel-bandwidth: 20000000 Hz
+      ├── downlink-radio-frame-offset: 0
+      ├── downlink-sfn-offset: 0
+      └── [meta] msg-id=109, ts=2025-06-25T20:56:32.738000+00:00, rpc=edit-config
+  [Processing Element] NR100.PE_1_0_1
+      ├── name: NR100.PE_1_0_1
+      ├── transport-flow[1]
+      │   ├── interface-name: vlan_0_1
+      │   ├── eth.ru-mac-address: 34:fe:9e:3d:e0:51
+      │   ├── eth.o-du-mac-address: 00:77:e4:21:b9:cf
+      │   └── eth.vlan-id: 1
+      └── [meta] msg-id=73, ts=2025-06-25T20:56:14.891000+00:00, rpc=edit-config
+
+🔗 Chain: NR100.RLINK2_1_15 (RX)
+----------------------------------------------------------------------------------------------------
+  [Endpoint] Static-LLRE-083
+      ├── array: Rx-Array-07
+      ├── endpoint-type: 5
+      ├── restricted-interfaces: fheth0, fheth1
+      └── [meta] msg-id=25, ts=2025-06-25T20:56:10.356000+00:00, rpc=rpc-reply
+      │
+      ▼ (Link PE: NR100.PE_1_0_1)
+      │
+      ├── link.name: NR100.RLINK2_1_15
+      ├── link.low-level-rx-endpoint: Static-LLRE-083
+      ├── link.rx-array-carrier: NR100.RX2_3_1_9
+      └── [meta] msg-id=99, ts=2025-06-25T20:56:32.067000+00:00, rpc=edit-config
+  [Carrier] NR100.RX2_3_1_9
+      ├── active: ACTIVE
+      ├── type: NR
+      ├── center-of-channel-bandwidth: 1725000000 Hz
+      ├── channel-bandwidth: 20000000 Hz
+      ├── downlink-radio-frame-offset: 0
+      ├── downlink-sfn-offset: 0
+      └── [meta] msg-id=109, ts=2025-06-25T20:56:32.738000+00:00, rpc=edit-config
+  [Processing Element] NR100.PE_1_0_1
+      ├── name: NR100.PE_1_0_1
+      ├── transport-flow[1]
+      │   ├── interface-name: vlan_0_1
+      │   ├── eth.ru-mac-address: 34:fe:9e:3d:e0:51
+      │   ├── eth.o-du-mac-address: 00:77:e4:21:b9:cf
+      │   └── eth.vlan-id: 1
+      └── [meta] msg-id=73, ts=2025-06-25T20:56:14.891000+00:00, rpc=edit-config
+
+🔗 Chain: NR100.RLINK2_1_16 (RX)
+----------------------------------------------------------------------------------------------------
+  [Endpoint] Static-LLRE-087
+      ├── array: Rx-Array-07
+      ├── endpoint-type: 6
+      ├── static-config-supported: PRACH
+      ├── prach-group: 0
+      ├── restricted-interfaces: fheth0, fheth1
+      ├── PRACH ref present but config not found: 0
+      └── [meta] msg-id=25, ts=2025-06-25T20:56:10.356000+00:00, rpc=rpc-reply
+      │
+      ▼ (Link PE: NR100.PE_1_0_1)
+      │
+      ├── link.name: NR100.RLINK2_1_16
+      ├── link.low-level-rx-endpoint: Static-LLRE-087
+      ├── link.rx-array-carrier: NR100.RX2_3_1_9
+      └── [meta] msg-id=100, ts=2025-06-25T20:56:32.133000+00:00, rpc=edit-config
+  [Carrier] NR100.RX2_3_1_9
+      ├── active: ACTIVE
+      ├── type: NR
+      ├── center-of-channel-bandwidth: 1725000000 Hz
+      ├── channel-bandwidth: 20000000 Hz
+      ├── downlink-radio-frame-offset: 0
+      ├── downlink-sfn-offset: 0
+      └── [meta] msg-id=109, ts=2025-06-25T20:56:32.738000+00:00, rpc=edit-config
+  [Processing Element] NR100.PE_1_0_1
+      ├── name: NR100.PE_1_0_1
+      ├── transport-flow[1]
+      │   ├── interface-name: vlan_0_1
+      │   ├── eth.ru-mac-address: 34:fe:9e:3d:e0:51
+      │   ├── eth.o-du-mac-address: 00:77:e4:21:b9:cf
+      │   └── eth.vlan-id: 1
+      └── [meta] msg-id=73, ts=2025-06-25T20:56:14.891000+00:00, rpc=edit-config
+
+🔗 Chain: NR100.RLINK2_1_3 (RX)
+----------------------------------------------------------------------------------------------------
+  [Endpoint] Static-LLRE-080
+      ├── array: Rx-Array-04
+      ├── endpoint-type: 5
+      ├── restricted-interfaces: fheth0, fheth1
+      └── [meta] msg-id=25, ts=2025-06-25T20:56:10.356000+00:00, rpc=rpc-reply
+      │
+      ▼ (Link PE: NR100.PE_1_0_1)
+      │
+      ├── link.name: NR100.RLINK2_1_3
+      ├── link.low-level-rx-endpoint: Static-LLRE-080
+      ├── link.rx-array-carrier: NR100.RX2_3_1_0
+      └── [meta] msg-id=101, ts=2025-06-25T20:56:32.178000+00:00, rpc=edit-config
+  [Carrier] NR100.RX2_3_1_0
+      ├── active: ACTIVE
+      ├── type: NR
+      ├── center-of-channel-bandwidth: 1725000000 Hz
+      ├── channel-bandwidth: 20000000 Hz
+      ├── downlink-radio-frame-offset: 0
+      ├── downlink-sfn-offset: 0
+      └── [meta] msg-id=109, ts=2025-06-25T20:56:32.738000+00:00, rpc=edit-config
+  [Processing Element] NR100.PE_1_0_1
+      ├── name: NR100.PE_1_0_1
+      ├── transport-flow[1]
+      │   ├── interface-name: vlan_0_1
+      │   ├── eth.ru-mac-address: 34:fe:9e:3d:e0:51
+      │   ├── eth.o-du-mac-address: 00:77:e4:21:b9:cf
+      │   └── eth.vlan-id: 1
+      └── [meta] msg-id=73, ts=2025-06-25T20:56:14.891000+00:00, rpc=edit-config
+
+🔗 Chain: NR100.RLINK2_1_4 (RX)
+----------------------------------------------------------------------------------------------------
+  [Endpoint] Static-LLRE-084
+      ├── array: Rx-Array-04
+      ├── endpoint-type: 6
+      ├── static-config-supported: PRACH
+      ├── prach-group: 0
+      ├── restricted-interfaces: fheth0, fheth1
+      ├── PRACH ref present but config not found: 0
+      └── [meta] msg-id=25, ts=2025-06-25T20:56:10.356000+00:00, rpc=rpc-reply
+      │
+      ▼ (Link PE: NR100.PE_1_0_1)
+      │
+      ├── link.name: NR100.RLINK2_1_4
+      ├── link.low-level-rx-endpoint: Static-LLRE-084
+      ├── link.rx-array-carrier: NR100.RX2_3_1_0
+      └── [meta] msg-id=102, ts=2025-06-25T20:56:32.247000+00:00, rpc=edit-config
+  [Carrier] NR100.RX2_3_1_0
+      ├── active: ACTIVE
+      ├── type: NR
+      ├── center-of-channel-bandwidth: 1725000000 Hz
+      ├── channel-bandwidth: 20000000 Hz
+      ├── downlink-radio-frame-offset: 0
+      ├── downlink-sfn-offset: 0
+      └── [meta] msg-id=109, ts=2025-06-25T20:56:32.738000+00:00, rpc=edit-config
+  [Processing Element] NR100.PE_1_0_1
+      ├── name: NR100.PE_1_0_1
+      ├── transport-flow[1]
+      │   ├── interface-name: vlan_0_1
+      │   ├── eth.ru-mac-address: 34:fe:9e:3d:e0:51
+      │   ├── eth.o-du-mac-address: 00:77:e4:21:b9:cf
+      │   └── eth.vlan-id: 1
+      └── [meta] msg-id=73, ts=2025-06-25T20:56:14.891000+00:00, rpc=edit-config
+
+🔗 Chain: NR100.RLINK2_1_7 (RX)
+----------------------------------------------------------------------------------------------------
+  [Endpoint] Static-LLRE-081
+      ├── array: Rx-Array-05
+      ├── endpoint-type: 5
+      ├── restricted-interfaces: fheth0, fheth1
+      └── [meta] msg-id=25, ts=2025-06-25T20:56:10.356000+00:00, rpc=rpc-reply
+      │
+      ▼ (Link PE: NR100.PE_1_0_1)
+      │
+      ├── link.name: NR100.RLINK2_1_7
+      ├── link.low-level-rx-endpoint: Static-LLRE-081
+      ├── link.rx-array-carrier: NR100.RX2_3_1_8
+      └── [meta] msg-id=104, ts=2025-06-25T20:56:32.358000+00:00, rpc=edit-config
+  [Carrier] NR100.RX2_3_1_8
+      ├── active: ACTIVE
+      ├── type: NR
+      ├── center-of-channel-bandwidth: 1725000000 Hz
+      ├── channel-bandwidth: 20000000 Hz
+      ├── downlink-radio-frame-offset: 0
+      ├── downlink-sfn-offset: 0
+      └── [meta] msg-id=109, ts=2025-06-25T20:56:32.738000+00:00, rpc=edit-config
+  [Processing Element] NR100.PE_1_0_1
+      ├── name: NR100.PE_1_0_1
+      ├── transport-flow[1]
+      │   ├── interface-name: vlan_0_1
+      │   ├── eth.ru-mac-address: 34:fe:9e:3d:e0:51
+      │   ├── eth.o-du-mac-address: 00:77:e4:21:b9:cf
+      │   └── eth.vlan-id: 1
+      └── [meta] msg-id=73, ts=2025-06-25T20:56:14.891000+00:00, rpc=edit-config
+
+🔗 Chain: NR100.RLINK2_1_8 (RX)
+----------------------------------------------------------------------------------------------------
+  [Endpoint] Static-LLRE-085
+      ├── array: Rx-Array-05
+      ├── endpoint-type: 6
+      ├── static-config-supported: PRACH
+      ├── prach-group: 0
+      ├── restricted-interfaces: fheth0, fheth1
+      ├── PRACH ref present but config not found: 0
+      └── [meta] msg-id=25, ts=2025-06-25T20:56:10.356000+00:00, rpc=rpc-reply
+      │
+      ▼ (Link PE: NR100.PE_1_0_1)
+      │
+      ├── link.name: NR100.RLINK2_1_8
+      ├── link.low-level-rx-endpoint: Static-LLRE-085
+      ├── link.rx-array-carrier: NR100.RX2_3_1_8
+      └── [meta] msg-id=105, ts=2025-06-25T20:56:32.404000+00:00, rpc=edit-config
+  [Carrier] NR100.RX2_3_1_8
+      ├── active: ACTIVE
+      ├── type: NR
+      ├── center-of-channel-bandwidth: 1725000000 Hz
+      ├── channel-bandwidth: 20000000 Hz
+      ├── downlink-radio-frame-offset: 0
+      ├── downlink-sfn-offset: 0
+      └── [meta] msg-id=109, ts=2025-06-25T20:56:32.738000+00:00, rpc=edit-config
+  [Processing Element] NR100.PE_1_0_1
+      ├── name: NR100.PE_1_0_1
+      ├── transport-flow[1]
+      │   ├── interface-name: vlan_0_1
+      │   ├── eth.ru-mac-address: 34:fe:9e:3d:e0:51
+      │   ├── eth.o-du-mac-address: 00:77:e4:21:b9:cf
+      │   └── eth.vlan-id: 1
+      └── [meta] msg-id=73, ts=2025-06-25T20:56:14.891000+00:00, rpc=edit-config
+
+========================================================================================================================
+ENDPOINT SUMMARY
+========================================================================================================================
+DIR | ENDPOINT | EAXC | RU_MASK | FS_OFFSET | IQ_BW | METHOD | FRAME | FREQ_OFFSET | PRACH_REF
+------------------------------------------------------------------------------------------------------------------------
+TX | Static-LLTE-000 | - | - | - | - | - | - | - | -
+TX | Static-LLTE-001 | - | - | - | - | - | - | - | -
+TX | Static-LLTE-002 | - | - | - | - | - | - | - | -
+TX | Static-LLTE-003 | - | - | - | - | - | - | - | -
+TX | Static-LLTE-004 | - | - | - | - | - | - | - | -
+TX | Static-LLTE-005 | - | - | - | - | - | - | - | -
+TX | Static-LLTE-006 | - | - | - | - | - | - | - | -
+TX | Static-LLTE-007 | - | - | - | - | - | - | - | -
+TX | Static-LLTE-032 | - | - | - | - | - | - | - | -
+TX | Static-LLTE-033 | - | - | - | - | - | - | - | -
+TX | Static-LLTE-034 | - | - | - | - | - | - | - | -
+TX | Static-LLTE-035 | - | - | - | - | - | - | - | -
+TX | Static-LLTE-036 | - | - | - | - | - | - | - | -
+TX | Static-LLTE-037 | - | - | - | - | - | - | - | -
+TX | Static-LLTE-038 | - | - | - | - | - | - | - | -
+TX | Static-LLTE-039 | - | - | - | - | - | - | - | -
+TX | Static-LLTE-056 | - | - | - | - | - | - | - | -
+TX | Static-LLTE-057 | - | - | - | - | - | - | - | -
+TX | Static-LLTE-058 | - | - | - | - | - | - | - | -
+TX | Static-LLTE-059 | - | - | - | - | - | - | - | -
+TX | Static-LLTE-060 | - | - | - | - | - | - | - | -
+TX | Static-LLTE-061 | - | - | - | - | - | - | - | -
+TX | Static-LLTE-062 | - | - | - | - | - | - | - | -
+TX | Static-LLTE-063 | - | - | - | - | - | - | - | -
+RX | Static-LLRE-000 | - | - | - | - | - | - | - | -
+RX | Static-LLRE-001 | - | - | - | - | - | - | - | -
+RX | Static-LLRE-002 | - | - | - | - | - | - | - | -
+RX | Static-LLRE-003 | - | - | - | - | - | - | - | -
+RX | Static-LLRE-004 | - | - | - | - | - | - | - | 0
+RX | Static-LLRE-005 | - | - | - | - | - | - | - | 0
+RX | Static-LLRE-006 | - | - | - | - | - | - | - | 0
+RX | Static-LLRE-007 | - | - | - | - | - | - | - | 0
+RX | Static-LLRE-008 | - | - | - | - | - | - | - | -
+RX | Static-LLRE-009 | - | - | - | - | - | - | - | -
+RX | Static-LLRE-010 | - | - | - | - | - | - | - | -
+RX | Static-LLRE-011 | - | - | - | - | - | - | - | -
+RX | Static-LLRE-012 | - | - | - | - | - | - | - | 0
+RX | Static-LLRE-013 | - | - | - | - | - | - | - | 0
+RX | Static-LLRE-014 | - | - | - | - | - | - | - | 0
+RX | Static-LLRE-015 | - | - | - | - | - | - | - | 0
+RX | Static-LLRE-080 | - | - | - | - | - | - | - | -
+RX | Static-LLRE-081 | - | - | - | - | - | - | - | -
+RX | Static-LLRE-082 | - | - | - | - | - | - | - | -
+RX | Static-LLRE-083 | - | - | - | - | - | - | - | -
+RX | Static-LLRE-084 | - | - | - | - | - | - | - | 0
+RX | Static-LLRE-085 | - | - | - | - | - | - | - | 0
+RX | Static-LLRE-086 | - | - | - | - | - | - | - | 0
+RX | Static-LLRE-087 | - | - | - | - | - | - | - | 0
+RX | Static-LLRE-088 | - | - | - | - | - | - | - | -
+RX | Static-LLRE-089 | - | - | - | - | - | - | - | -
+RX | Static-LLRE-090 | - | - | - | - | - | - | - | -
+RX | Static-LLRE-091 | - | - | - | - | - | - | - | -
+RX | Static-LLRE-092 | - | - | - | - | - | - | - | 0
+RX | Static-LLRE-093 | - | - | - | - | - | - | - | 0
+RX | Static-LLRE-094 | - | - | - | - | - | - | - | 0
+RX | Static-LLRE-095 | - | - | - | - | - | - | - | 0
+
+========================================================================================================================
+VALIDATION / ALARMS
+========================================================================================================================
+[INFO] Detected Nokia NETCONF trace format; Nokia segment parser enabled.
+[WARN] RX endpoint 'Static-LLRE-086' static-config-supported=PRACH but no static-prach-configuration.
+[WARN] RX endpoint 'Static-LLRE-087' static-config-supported=PRACH but no static-prach-configuration.
+[WARN] RX endpoint 'Static-LLRE-084' static-config-supported=PRACH but no static-prach-configuration.
+[WARN] RX endpoint 'Static-LLRE-085' static-config-supported=PRACH but no static-prach-configuration.
+[INFO] Endpoint 'Static-LLRE-000' is not referenced by any low-level link.
+[INFO] Endpoint 'Static-LLRE-001' is not referenced by any low-level link.
+[INFO] Endpoint 'Static-LLRE-002' is not referenced by any low-level link.
+[INFO] Endpoint 'Static-LLRE-003' is not referenced by any low-level link.
+[INFO] Endpoint 'Static-LLRE-004' is not referenced by any low-level link.
+[INFO] Endpoint 'Static-LLRE-005' is not referenced by any low-level link.
+[INFO] Endpoint 'Static-LLRE-006' is not referenced by any low-level link.
+[INFO] Endpoint 'Static-LLRE-007' is not referenced by any low-level link.
+[INFO] Endpoint 'Static-LLRE-008' is not referenced by any low-level link.
+[INFO] Endpoint 'Static-LLRE-009' is not referenced by any low-level link.
+[INFO] Endpoint 'Static-LLRE-010' is not referenced by any low-level link.
+[INFO] Endpoint 'Static-LLRE-011' is not referenced by any low-level link.
+[INFO] Endpoint 'Static-LLRE-012' is not referenced by any low-level link.
+[INFO] Endpoint 'Static-LLRE-013' is not referenced by any low-level link.
+[INFO] Endpoint 'Static-LLRE-014' is not referenced by any low-level link.
+[INFO] Endpoint 'Static-LLRE-015' is not referenced by any low-level link.
+[INFO] Endpoint 'Static-LLRE-088' is not referenced by any low-level link.
+[INFO] Endpoint 'Static-LLRE-089' is not referenced by any low-level link.
+[INFO] Endpoint 'Static-LLRE-090' is not referenced by any low-level link.
+[INFO] Endpoint 'Static-LLRE-091' is not referenced by any low-level link.
+[INFO] Endpoint 'Static-LLRE-092' is not referenced by any low-level link.
+[INFO] Endpoint 'Static-LLRE-093' is not referenced by any low-level link.
+[INFO] Endpoint 'Static-LLRE-094' is not referenced by any low-level link.
+[INFO] Endpoint 'Static-LLRE-095' is not referenced by any low-level link.
+[INFO] Endpoint 'Static-LLTE-000' is not referenced by any low-level link.
+[INFO] Endpoint 'Static-LLTE-001' is not referenced by any low-level link.
+[INFO] Endpoint 'Static-LLTE-002' is not referenced by any low-level link.
+[INFO] Endpoint 'Static-LLTE-003' is not referenced by any low-level link.
+[INFO] Endpoint 'Static-LLTE-004' is not referenced by any low-level link.
+[INFO] Endpoint 'Static-LLTE-005' is not referenced by any low-level link.
+[INFO] Endpoint 'Static-LLTE-006' is not referenced by any low-level link.
+[INFO] Endpoint 'Static-LLTE-007' is not referenced by any low-level link.
+[INFO] Endpoint 'Static-LLTE-036' is not referenced by any low-level link.
+[INFO] Endpoint 'Static-LLTE-037' is not referenced by any low-level link.
+[INFO] Endpoint 'Static-LLTE-038' is not referenced by any low-level link.
+[INFO] Endpoint 'Static-LLTE-039' is not referenced by any low-level link.
+[INFO] Endpoint 'Static-LLTE-056' is not referenced by any low-level link.
+[INFO] Endpoint 'Static-LLTE-057' is not referenced by any low-level link.
+[INFO] Endpoint 'Static-LLTE-058' is not referenced by any low-level link.
+[INFO] Endpoint 'Static-LLTE-059' is not referenced by any low-level link.
+[INFO] Endpoint 'Static-LLTE-060' is not referenced by any low-level link.
+[INFO] Endpoint 'Static-LLTE-061' is not referenced by any low-level link.
+[INFO] Endpoint 'Static-LLTE-062' is not referenced by any low-level link.
+[INFO] Endpoint 'Static-LLTE-063' is not referenced by any low-level link.
+
+========================================================================================================================
+PARSER WARNINGS
+========================================================================================================================
+[notification] tag=user-plane-state-change msg=User-plane state-change notification observed (not fully merged into config state) ts=2025-06-25T20:56:33.780000+00:00 msg-id=None
+   fragment: <?xml version="1.0" encoding="UTF-8"?> <notification xmlns="urn:ietf:params:xml:ns:netconf:notification:1.0"><eventTime>2025-06-25T20:57:11.399605Z</eventTime><...
+[notification] tag=user-plane-state-change msg=User-plane state-change notification observed (not fully merged into config state) ts=2025-06-25T20:56:33.788000+00:00 msg-id=None
+   fragment: <?xml version="1.0" encoding="UTF-8"?> <notification xmlns="urn:ietf:params:xml:ns:netconf:notification:1.0"><eventTime>2025-06-25T20:57:11.400820Z</eventTime><...
+[notification] tag=user-plane-state-change msg=User-plane state-change notification observed (not fully merged into config state) ts=2025-06-25T20:56:33.805000+00:00 msg-id=None
+   fragment: <?xml version="1.0" encoding="UTF-8"?> <notification xmlns="urn:ietf:params:xml:ns:netconf:notification:1.0"><eventTime>2025-06-25T20:57:11.402438Z</eventTime><...
+[notification] tag=user-plane-state-change msg=User-plane state-change notification observed (not fully merged into config state) ts=2025-06-25T20:56:33.813000+00:00 msg-id=None
+   fragment: <?xml version="1.0" encoding="UTF-8"?> <notification xmlns="urn:ietf:params:xml:ns:netconf:notification:1.0"><eventTime>2025-06-25T20:57:11.403557Z</eventTime><...
+[notification] tag=user-plane-state-change msg=User-plane state-change notification observed (not fully merged into config state) ts=2025-06-25T20:56:33.821000+00:00 msg-id=None
+   fragment: <?xml version="1.0" encoding="UTF-8"?> <notification xmlns="urn:ietf:params:xml:ns:netconf:notification:1.0"><eventTime>2025-06-25T20:57:11.404671Z</eventTime><...
+[notification] tag=user-plane-state-change msg=User-plane state-change notification observed (not fully merged into config state) ts=2025-06-25T20:56:33.971000+00:00 msg-id=None
+   fragment: <?xml version="1.0" encoding="UTF-8"?> <notification xmlns="urn:ietf:params:xml:ns:netconf:notification:1.0"><eventTime>2025-06-25T20:57:11.405815Z</eventTime><...
+[notification] tag=user-plane-state-change msg=User-plane state-change notification observed (not fully merged into config state) ts=2025-06-25T20:56:33.982000+00:00 msg-id=None
+   fragment: <?xml version="1.0" encoding="UTF-8"?> <notification xmlns="urn:ietf:params:xml:ns:netconf:notification:1.0"><eventTime>2025-06-25T20:57:11.406949Z</eventTime><...
+[notification] tag=user-plane-state-change msg=User-plane state-change notification observed (not fully merged into config state) ts=2025-06-25T20:56:33.992000+00:00 msg-id=None
+   fragment: <?xml version="1.0" encoding="UTF-8"?> <notification xmlns="urn:ietf:params:xml:ns:netconf:notification:1.0"><eventTime>2025-06-25T20:57:11.408065Z</eventTime><...
+
+========================================================================================================================
+OBJECT HISTORY SUMMARY
+========================================================================================================================
+carrier_rx:NR100.RX2_3_1_0: 2 version(s), latest ts=2025-06-25T20:56:32.738000+00:00 msg-id=109
+carrier_rx:NR100.RX2_3_1_1: 2 version(s), latest ts=2025-06-25T20:56:32.738000+00:00 msg-id=109
+carrier_rx:NR100.RX2_3_1_8: 2 version(s), latest ts=2025-06-25T20:56:32.738000+00:00 msg-id=109
+carrier_rx:NR100.RX2_3_1_9: 2 version(s), latest ts=2025-06-25T20:56:32.738000+00:00 msg-id=109
+carrier_tx:NR100.TX2_3_1_0: 2 version(s), latest ts=2025-06-25T20:56:32.738000+00:00 msg-id=109
+carrier_tx:NR100.TX2_3_1_1: 2 version(s), latest ts=2025-06-25T20:56:32.738000+00:00 msg-id=109
+carrier_tx:NR100.TX2_3_1_8: 2 version(s), latest ts=2025-06-25T20:56:32.738000+00:00 msg-id=109
+carrier_tx:NR100.TX2_3_1_9: 2 version(s), latest ts=2025-06-25T20:56:32.738000+00:00 msg-id=109
+endpoint_rx:Static-LLRE-000: 1 version(s), latest ts=2025-06-25T20:56:10.356000+00:00 msg-id=25
+endpoint_rx:Static-LLRE-001: 1 version(s), latest ts=2025-06-25T20:56:10.356000+00:00 msg-id=25
+endpoint_rx:Static-LLRE-002: 1 version(s), latest ts=2025-06-25T20:56:10.356000+00:00 msg-id=25
+endpoint_rx:Static-LLRE-003: 1 version(s), latest ts=2025-06-25T20:56:10.356000+00:00 msg-id=25
+endpoint_rx:Static-LLRE-004: 1 version(s), latest ts=2025-06-25T20:56:10.356000+00:00 msg-id=25
+endpoint_rx:Static-LLRE-005: 1 version(s), latest ts=2025-06-25T20:56:10.356000+00:00 msg-id=25
+endpoint_rx:Static-LLRE-006: 1 version(s), latest ts=2025-06-25T20:56:10.356000+00:00 msg-id=25
+endpoint_rx:Static-LLRE-007: 1 version(s), latest ts=2025-06-25T20:56:10.356000+00:00 msg-id=25
+endpoint_rx:Static-LLRE-008: 1 version(s), latest ts=2025-06-25T20:56:10.356000+00:00 msg-id=25
+endpoint_rx:Static-LLRE-009: 1 version(s), latest ts=2025-06-25T20:56:10.356000+00:00 msg-id=25
+endpoint_rx:Static-LLRE-010: 1 version(s), latest ts=2025-06-25T20:56:10.356000+00:00 msg-id=25
+endpoint_rx:Static-LLRE-011: 1 version(s), latest ts=2025-06-25T20:56:10.356000+00:00 msg-id=25
+endpoint_rx:Static-LLRE-012: 1 version(s), latest ts=2025-06-25T20:56:10.356000+00:00 msg-id=25
+endpoint_rx:Static-LLRE-013: 1 version(s), latest ts=2025-06-25T20:56:10.356000+00:00 msg-id=25
+endpoint_rx:Static-LLRE-014: 1 version(s), latest ts=2025-06-25T20:56:10.356000+00:00 msg-id=25
+endpoint_rx:Static-LLRE-015: 1 version(s), latest ts=2025-06-25T20:56:10.356000+00:00 msg-id=25
+endpoint_rx:Static-LLRE-080: 1 version(s), latest ts=2025-06-25T20:56:10.356000+00:00 msg-id=25
+endpoint_rx:Static-LLRE-081: 1 version(s), latest ts=2025-06-25T20:56:10.356000+00:00 msg-id=25
+endpoint_rx:Static-LLRE-082: 1 version(s), latest ts=2025-06-25T20:56:10.356000+00:00 msg-id=25
+endpoint_rx:Static-LLRE-083: 1 version(s), latest ts=2025-06-25T20:56:10.356000+00:00 msg-id=25
+endpoint_rx:Static-LLRE-084: 1 version(s), latest ts=2025-06-25T20:56:10.356000+00:00 msg-id=25
+endpoint_rx:Static-LLRE-085: 1 version(s), latest ts=2025-06-25T20:56:10.356000+00:00 msg-id=25
+endpoint_rx:Static-LLRE-086: 1 version(s), latest ts=2025-06-25T20:56:10.356000+00:00 msg-id=25
+endpoint_rx:Static-LLRE-087: 1 version(s), latest ts=2025-06-25T20:56:10.356000+00:00 msg-id=25
+endpoint_rx:Static-LLRE-088: 1 version(s), latest ts=2025-06-25T20:56:10.356000+00:00 msg-id=25
+endpoint_rx:Static-LLRE-089: 1 version(s), latest ts=2025-06-25T20:56:10.356000+00:00 msg-id=25
+endpoint_rx:Static-LLRE-090: 1 version(s), latest ts=2025-06-25T20:56:10.356000+00:00 msg-id=25
+endpoint_rx:Static-LLRE-091: 1 version(s), latest ts=2025-06-25T20:56:10.356000+00:00 msg-id=25
+endpoint_rx:Static-LLRE-092: 1 version(s), latest ts=2025-06-25T20:56:10.356000+00:00 msg-id=25
+endpoint_rx:Static-LLRE-093: 1 version(s), latest ts=2025-06-25T20:56:10.356000+00:00 msg-id=25
+endpoint_rx:Static-LLRE-094: 1 version(s), latest ts=2025-06-25T20:56:10.356000+00:00 msg-id=25
+endpoint_rx:Static-LLRE-095: 1 version(s), latest ts=2025-06-25T20:56:10.356000+00:00 msg-id=25
+endpoint_tx:Static-LLTE-000: 1 version(s), latest ts=2025-06-25T20:56:08.974000+00:00 msg-id=24
+endpoint_tx:Static-LLTE-001: 1 version(s), latest ts=2025-06-25T20:56:08.974000+00:00 msg-id=24
+endpoint_tx:Static-LLTE-002: 1 version(s), latest ts=2025-06-25T20:56:08.974000+00:00 msg-id=24
+endpoint_tx:Static-LLTE-003: 1 version(s), latest ts=2025-06-25T20:56:08.974000+00:00 msg-id=24
+endpoint_tx:Static-LLTE-004: 1 version(s), latest ts=2025-06-25T20:56:08.974000+00:00 msg-id=24
+endpoint_tx:Static-LLTE-005: 1 version(s), latest ts=2025-06-25T20:56:08.974000+00:00 msg-id=24
+endpoint_tx:Static-LLTE-006: 1 version(s), latest ts=2025-06-25T20:56:08.974000+00:00 msg-id=24
+endpoint_tx:Static-LLTE-007: 1 version(s), latest ts=2025-06-25T20:56:08.974000+00:00 msg-id=24
+endpoint_tx:Static-LLTE-032: 1 version(s), latest ts=2025-06-25T20:56:08.974000+00:00 msg-id=24
+endpoint_tx:Static-LLTE-033: 1 version(s), latest ts=2025-06-25T20:56:08.974000+00:00 msg-id=24
+endpoint_tx:Static-LLTE-034: 1 version(s), latest ts=2025-06-25T20:56:08.974000+00:00 msg-id=24
+endpoint_tx:Static-LLTE-035: 1 version(s), latest ts=2025-06-25T20:56:08.974000+00:00 msg-id=24
+endpoint_tx:Static-LLTE-036: 1 version(s), latest ts=2025-06-25T20:56:08.974000+00:00 msg-id=24
+endpoint_tx:Static-LLTE-037: 1 version(s), latest ts=2025-06-25T20:56:08.974000+00:00 msg-id=24
+endpoint_tx:Static-LLTE-038: 1 version(s), latest ts=2025-06-25T20:56:08.974000+00:00 msg-id=24
+endpoint_tx:Static-LLTE-039: 1 version(s), latest ts=2025-06-25T20:56:08.974000+00:00 msg-id=24
+endpoint_tx:Static-LLTE-056: 1 version(s), latest ts=2025-06-25T20:56:08.974000+00:00 msg-id=24
+endpoint_tx:Static-LLTE-057: 1 version(s), latest ts=2025-06-25T20:56:08.974000+00:00 msg-id=24
+endpoint_tx:Static-LLTE-058: 1 version(s), latest ts=2025-06-25T20:56:08.974000+00:00 msg-id=24
+endpoint_tx:Static-LLTE-059: 1 version(s), latest ts=2025-06-25T20:56:08.974000+00:00 msg-id=24
+endpoint_tx:Static-LLTE-060: 1 version(s), latest ts=2025-06-25T20:56:08.974000+00:00 msg-id=24
+endpoint_tx:Static-LLTE-061: 1 version(s), latest ts=2025-06-25T20:56:08.974000+00:00 msg-id=24
+endpoint_tx:Static-LLTE-062: 1 version(s), latest ts=2025-06-25T20:56:08.974000+00:00 msg-id=24
+endpoint_tx:Static-LLTE-063: 1 version(s), latest ts=2025-06-25T20:56:08.974000+00:00 msg-id=24
+link_rx:NR100.RLINK2_1_11: 1 version(s), latest ts=2025-06-25T20:56:31.897000+00:00 msg-id=96
+link_rx:NR100.RLINK2_1_12: 1 version(s), latest ts=2025-06-25T20:56:31.961000+00:00 msg-id=97
+link_rx:NR100.RLINK2_1_15: 1 version(s), latest ts=2025-06-25T20:56:32.067000+00:00 msg-id=99
+link_rx:NR100.RLINK2_1_16: 1 version(s), latest ts=2025-06-25T20:56:32.133000+00:00 msg-id=100
+link_rx:NR100.RLINK2_1_3: 1 version(s), latest ts=2025-06-25T20:56:32.178000+00:00 msg-id=101
+link_rx:NR100.RLINK2_1_4: 1 version(s), latest ts=2025-06-25T20:56:32.247000+00:00 msg-id=102
+link_rx:NR100.RLINK2_1_7: 1 version(s), latest ts=2025-06-25T20:56:32.358000+00:00 msg-id=104
+link_rx:NR100.RLINK2_1_8: 1 version(s), latest ts=2025-06-25T20:56:32.404000+00:00 msg-id=105
+link_tx:NR100.TLINK2_1_1: 1 version(s), latest ts=2025-06-25T20:56:31.852000+00:00 msg-id=95
+link_tx:NR100.TLINK2_1_13: 1 version(s), latest ts=2025-06-25T20:56:32.022000+00:00 msg-id=98
+link_tx:NR100.TLINK2_1_5: 1 version(s), latest ts=2025-06-25T20:56:32.292000+00:00 msg-id=103
+link_tx:NR100.TLINK2_1_9: 1 version(s), latest ts=2025-06-25T20:56:32.472000+00:00 msg-id=106
+processing_element:NR100.PE_1_0_1: 2 version(s), latest ts=2025-06-25T20:56:14.891000+00:00 msg-id=73

@@ -1,0 +1,28 @@
+{
+  "analyzed_at": "2026-03-13 12:15:32",
+  "show": "all",
+  "analyzer": "analyze_mplane_enhanced_nokia_patch_v2_with_array_srl.py",
+  "validations_count": 277,
+  "warnings_count": 13,
+  "counts": {
+    "carriers_tx": 0,
+    "carriers_rx": 0,
+    "endpoints_tx": 96,
+    "endpoints_rx": 180,
+    "links_tx": 0,
+    "links_rx": 0,
+    "prach_configs": 0,
+    "processing_elements": 0
+  },
+  "job_id": "20260313_121532_3108aa36",
+  "original_name": "startup_1_1__XML.log",
+  "input_saved": "20260313_121532_3108aa36.input",
+  "graph_stats": {
+    "nodes": 0,
+    "edges": 0,
+    "links_tx": 0,
+    "links_rx": 0,
+    "pe": 0,
+    "prach": 0
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "analyzed_at": "2026-03-09 11:52:18",
+  "show": "all",
+  "analyzer": "analyze_mplane_enhanced.py",
+  "validations_count": 2,
+  "warnings_count": 11,
+  "counts": {
+    "carriers_tx": 2,
+    "carriers_rx": 2,
+    "endpoints_tx": 2,
+    "endpoints_rx": 4,
+    "links_tx": 2,
+    "links_rx": 4,
+    "prach_configs": 1,
+    "processing_elements": 1
+  },
+  "job_id": "20260309_115218_e682b215",
+  "original_name": "20260223_fs-offset0_M-Plane_XML.txt",
+  "input_saved": "20260309_115218_e682b215.input",
+  "graph_stats": {
+    "nodes": 19,
+    "edges": 21,
+    "links_tx": 2,
+    "links_rx": 4,
+    "pe": 1,
+    "prach": 1
+  }
+}

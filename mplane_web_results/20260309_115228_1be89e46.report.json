@@ -1,0 +1,1537 @@
+{
+  "metadata": {
+    "input_file": "/home/sungpark/userplane_analyzer/mplane_web_results/20260309_115228_1be89e46.input",
+    "file_size_bytes": 1262322,
+    "segment_count": 258
+  },
+  "carriers_tx": {
+    "Tx-Array-Carrier-00": {
+      "name": "Tx-Array-Carrier-00",
+      "center-of-channel-bandwidth": "2140000000",
+      "channel-bandwidth": "10000000",
+      "type": "NR",
+      "gain": "31.1000",
+      "downlink-radio-frame-offset": "0",
+      "downlink-sfn-offset": "0",
+      "reference-level": "4.0000",
+      "_meta": {
+        "last_ts": "2026-02-23T17:02:02.016918",
+        "direction": "SEND",
+        "message_id": "65",
+        "rpc_type": "edit-config",
+        "source": "user-plane-configuration"
+      },
+      "active": "INACTIVE"
+    },
+    "Tx-Array-Carrier-01": {
+      "name": "Tx-Array-Carrier-01",
+      "center-of-channel-bandwidth": "2140000000",
+      "channel-bandwidth": "10000000",
+      "type": "NR",
+      "gain": "31.1000",
+      "downlink-radio-frame-offset": "0",
+      "downlink-sfn-offset": "0",
+      "reference-level": "4.0000",
+      "_meta": {
+        "last_ts": "2026-02-23T17:02:02.016918",
+        "direction": "SEND",
+        "message_id": "65",
+        "rpc_type": "edit-config",
+        "source": "user-plane-configuration"
+      },
+      "active": "INACTIVE"
+    }
+  },
+  "carriers_rx": {
+    "Rx-Array-Carrier-00": {
+      "name": "Rx-Array-Carrier-00",
+      "center-of-channel-bandwidth": "1950000000",
+      "channel-bandwidth": "10000000",
+      "type": "NR",
+      "downlink-radio-frame-offset": "0",
+      "downlink-sfn-offset": "0",
+      "gain-correction": "0.0000",
+      "n-ta-offset": "0",
+      "_meta": {
+        "last_ts": "2026-02-23T17:02:02.016918",
+        "direction": "SEND",
+        "message_id": "65",
+        "rpc_type": "edit-config",
+        "source": "user-plane-configuration"
+      },
+      "active": "INACTIVE"
+    },
+    "Rx-Array-Carrier-01": {
+      "name": "Rx-Array-Carrier-01",
+      "center-of-channel-bandwidth": "1950000000",
+      "channel-bandwidth": "10000000",
+      "type": "NR",
+      "downlink-radio-frame-offset": "0",
+      "downlink-sfn-offset": "0",
+      "gain-correction": "0.0000",
+      "n-ta-offset": "0",
+      "_meta": {
+        "last_ts": "2026-02-23T17:02:02.016918",
+        "direction": "SEND",
+        "message_id": "65",
+        "rpc_type": "edit-config",
+        "source": "user-plane-configuration"
+      },
+      "active": "INACTIVE"
+    }
+  },
+  "endpoints_tx": {
+    "lowLevelTxEndpoint0": {
+      "name": "lowLevelTxEndpoint0",
+      "compression": {
+        "iq-bitwidth": "9",
+        "compression-type": "STATIC",
+        "compression-method": "BLOCK_FLOATING_POINT",
+        "fs-offset": "0"
+      },
+      "frame-structure": "160",
+      "cp-type": "NORMAL",
+      "cp-length": "160",
+      "cp-length-other": "144",
+      "offset-to-absolute-frequency-center": "-624",
+      "number-of-prb-per-scs": {
+        "scs": "KHZ_15",
+        "number-of-prb": "52"
+      },
+      "e-axcid": {
+        "o-du-port-bitmask": "61440",
+        "band-sector-bitmask": "3584",
+        "ccid-bitmask": "496",
+        "ru-port-bitmask": "15",
+        "eaxc-id": "0"
+      },
+      "_endpoint_tag": "low-level-tx-endpoints",
+      "_meta": {
+        "last_ts": "2026-02-23T16:57:31.524240",
+        "direction": "SEND",
+        "message_id": "44",
+        "rpc_type": "edit-config",
+        "source": "user-plane-configuration"
+      }
+    },
+    "lowLevelTxEndpoint10": {
+      "name": "lowLevelTxEndpoint10",
+      "compression": {
+        "iq-bitwidth": "9",
+        "compression-type": "STATIC",
+        "compression-method": "BLOCK_FLOATING_POINT",
+        "fs-offset": "0"
+      },
+      "frame-structure": "160",
+      "cp-type": "NORMAL",
+      "cp-length": "160",
+      "cp-length-other": "144",
+      "offset-to-absolute-frequency-center": "-624",
+      "number-of-prb-per-scs": {
+        "scs": "KHZ_15",
+        "number-of-prb": "52"
+      },
+      "e-axcid": {
+        "o-du-port-bitmask": "61440",
+        "band-sector-bitmask": "3584",
+        "ccid-bitmask": "496",
+        "ru-port-bitmask": "15",
+        "eaxc-id": "8"
+      },
+      "_endpoint_tag": "low-level-tx-endpoints",
+      "_meta": {
+        "last_ts": "2026-02-23T16:57:31.524240",
+        "direction": "SEND",
+        "message_id": "44",
+        "rpc_type": "edit-config",
+        "source": "user-plane-configuration"
+      }
+    }
+  },
+  "endpoints_rx": {
+    "lowLevelRxEndpoint0": {
+      "name": "lowLevelRxEndpoint0",
+      "compression": {
+        "iq-bitwidth": "9",
+        "compression-type": "STATIC",
+        "compression-method": "BLOCK_FLOATING_POINT",
+        "fs-offset": "0"
+      },
+      "frame-structure": "160",
+      "cp-type": "NORMAL",
+      "cp-length": "160",
+      "cp-length-other": "144",
+      "offset-to-absolute-frequency-center": "-624",
+      "number-of-prb-per-scs": {
+        "scs": "KHZ_15",
+        "number-of-prb": "52"
+      },
+      "ul-fft-sampling-offsets": {
+        "scs": "KHZ_15",
+        "ul-fft-sampling-offset": "32"
+      },
+      "e-axcid": {
+        "o-du-port-bitmask": "61440",
+        "band-sector-bitmask": "3584",
+        "ccid-bitmask": "496",
+        "ru-port-bitmask": "15",
+        "eaxc-id": "0"
+      },
+      "eaxc-gain-correction": "-10.7918",
+      "non-time-managed-delay-enabled": "false",
+      "_endpoint_tag": "low-level-rx-endpoints",
+      "_meta": {
+        "last_ts": "2026-02-23T16:57:31.908067",
+        "direction": "SEND",
+        "message_id": "45",
+        "rpc_type": "edit-config",
+        "source": "user-plane-configuration"
+      }
+    },
+    "lowLevelRxEndpoint10": {
+      "name": "lowLevelRxEndpoint10",
+      "compression": {
+        "iq-bitwidth": "9",
+        "compression-type": "STATIC",
+        "compression-method": "BLOCK_FLOATING_POINT",
+        "fs-offset": "0"
+      },
+      "frame-structure": "160",
+      "cp-type": "NORMAL",
+      "cp-length": "160",
+      "cp-length-other": "144",
+      "offset-to-absolute-frequency-center": "-624",
+      "number-of-prb-per-scs": {
+        "scs": "KHZ_15",
+        "number-of-prb": "52"
+      },
+      "ul-fft-sampling-offsets": {
+        "scs": "KHZ_15",
+        "ul-fft-sampling-offset": "32"
+      },
+      "e-axcid": {
+        "o-du-port-bitmask": "61440",
+        "band-sector-bitmask": "3584",
+        "ccid-bitmask": "496",
+        "ru-port-bitmask": "15",
+        "eaxc-id": "8"
+      },
+      "eaxc-gain-correction": "-10.7918",
+      "non-time-managed-delay-enabled": "false",
+      "_endpoint_tag": "low-level-rx-endpoints",
+      "_meta": {
+        "last_ts": "2026-02-23T16:57:31.908067",
+        "direction": "SEND",
+        "message_id": "45",
+        "rpc_type": "edit-config",
+        "source": "user-plane-configuration"
+      }
+    },
+    "lowLevelRxEndpoint100": {
+      "name": "lowLevelRxEndpoint100",
+      "compression": {
+        "iq-bitwidth": "9",
+        "compression-type": "STATIC",
+        "compression-method": "BLOCK_FLOATING_POINT",
+        "fs-offset": "0"
+      },
+      "frame-structure": "188",
+      "cp-type": "NORMAL",
+      "cp-length": "160",
+      "cp-length-other": "144",
+      "offset-to-absolute-frequency-center": "-3744",
+      "number-of-prb-per-scs": {
+        "scs": "KHZ_1_25",
+        "number-of-prb": "70"
+      },
+      "ul-fft-sampling-offsets": {
+        "scs": "KHZ_1_25",
+        "ul-fft-sampling-offset": "0"
+      },
+      "e-axcid": {
+        "o-du-port-bitmask": "61440",
+        "band-sector-bitmask": "3584",
+        "ccid-bitmask": "496",
+        "ru-port-bitmask": "15",
+        "eaxc-id": "4"
+      },
+      "eaxc-gain-correction": "0.0000",
+      "non-time-managed-delay-enabled": "false",
+      "static-config-supported": "PRACH",
+      "static-prach-configuration": "0",
+      "_endpoint_tag": "low-level-rx-endpoints",
+      "_meta": {
+        "last_ts": "2026-02-23T16:57:31.908067",
+        "direction": "SEND",
+        "message_id": "45",
+        "rpc_type": "edit-config",
+        "source": "user-plane-configuration"
+      }
+    },
+    "lowLevelRxEndpoint104": {
+      "name": "lowLevelRxEndpoint104",
+      "compression": {
+        "iq-bitwidth": "9",
+        "compression-type": "STATIC",
+        "compression-method": "BLOCK_FLOATING_POINT",
+        "fs-offset": "0"
+      },
+      "frame-structure": "188",
+      "cp-type": "NORMAL",
+      "cp-length": "160",
+      "cp-length-other": "144",
+      "offset-to-absolute-frequency-center": "-3744",
+      "number-of-prb-per-scs": {
+        "scs": "KHZ_1_25",
+        "number-of-prb": "70"
+      },
+      "ul-fft-sampling-offsets": {
+        "scs": "KHZ_1_25",
+        "ul-fft-sampling-offset": "0"
+      },
+      "e-axcid": {
+        "o-du-port-bitmask": "61440",
+        "band-sector-bitmask": "3584",
+        "ccid-bitmask": "496",
+        "ru-port-bitmask": "15",
+        "eaxc-id": "10"
+      },
+      "eaxc-gain-correction": "0.0000",
+      "non-time-managed-delay-enabled": "false",
+      "static-config-supported": "PRACH",
+      "static-prach-configuration": "0",
+      "_endpoint_tag": "low-level-rx-endpoints",
+      "_meta": {
+        "last_ts": "2026-02-23T16:57:31.908067",
+        "direction": "SEND",
+        "message_id": "45",
+        "rpc_type": "edit-config",
+        "source": "user-plane-configuration"
+      }
+    }
+  },
+  "links_tx": {
+    "Low-Level-Tx-Links-000": {
+      "name": "Low-Level-Tx-Links-000",
+      "processing-element": "processing-element01",
+      "tx-array-carrier": "Tx-Array-Carrier-00",
+      "low-level-tx-endpoint": "lowLevelTxEndpoint0",
+      "_type": "TX",
+      "_meta": {
+        "last_ts": "2026-02-23T16:57:33.304853",
+        "direction": "SEND",
+        "message_id": "48",
+        "rpc_type": "edit-config",
+        "source": "user-plane-configuration"
+      }
+    },
+    "Low-Level-Tx-Links-001": {
+      "name": "Low-Level-Tx-Links-001",
+      "processing-element": "processing-element01",
+      "tx-array-carrier": "Tx-Array-Carrier-01",
+      "low-level-tx-endpoint": "lowLevelTxEndpoint10",
+      "_type": "TX",
+      "_meta": {
+        "last_ts": "2026-02-23T16:57:33.304853",
+        "direction": "SEND",
+        "message_id": "48",
+        "rpc_type": "edit-config",
+        "source": "user-plane-configuration"
+      }
+    }
+  },
+  "links_rx": {
+    "Low-Level-Rx-Links-000": {
+      "name": "Low-Level-Rx-Links-000",
+      "processing-element": "processing-element01",
+      "rx-array-carrier": "Rx-Array-Carrier-00",
+      "low-level-rx-endpoint": "lowLevelRxEndpoint0",
+      "_type": "RX",
+      "_meta": {
+        "last_ts": "2026-02-23T16:58:23.914281",
+        "direction": "SEND",
+        "message_id": "51",
+        "rpc_type": "edit-config",
+        "source": "user-plane-configuration"
+      }
+    },
+    "Low-Level-Rx-Links-001": {
+      "name": "Low-Level-Rx-Links-001",
+      "processing-element": "processing-element01",
+      "rx-array-carrier": "Rx-Array-Carrier-01",
+      "low-level-rx-endpoint": "lowLevelRxEndpoint10",
+      "_type": "RX",
+      "_meta": {
+        "last_ts": "2026-02-23T16:58:23.914281",
+        "direction": "SEND",
+        "message_id": "51",
+        "rpc_type": "edit-config",
+        "source": "user-plane-configuration"
+      }
+    },
+    "Low-Level-Rx-Links-002": {
+      "name": "Low-Level-Rx-Links-002",
+      "processing-element": "processing-element01",
+      "rx-array-carrier": "Rx-Array-Carrier-00",
+      "low-level-rx-endpoint": "lowLevelRxEndpoint100",
+      "_type": "RX",
+      "_meta": {
+        "last_ts": "2026-02-23T16:58:23.914281",
+        "direction": "SEND",
+        "message_id": "51",
+        "rpc_type": "edit-config",
+        "source": "user-plane-configuration"
+      }
+    },
+    "Low-Level-Rx-Links-003": {
+      "name": "Low-Level-Rx-Links-003",
+      "processing-element": "processing-element01",
+      "rx-array-carrier": "Rx-Array-Carrier-01",
+      "low-level-rx-endpoint": "lowLevelRxEndpoint104",
+      "_type": "RX",
+      "_meta": {
+        "last_ts": "2026-02-23T16:58:23.914281",
+        "direction": "SEND",
+        "message_id": "51",
+        "rpc_type": "edit-config",
+        "source": "user-plane-configuration"
+      }
+    }
+  },
+  "prach_configs": {
+    "0": {
+      "static-prach-config-id": "0",
+      "pattern-period": "4",
+      "guard-tone-low-re": "7",
+      "num-prach-re": "839",
+      "guard-tone-high-re": "18",
+      "sequence-duration": "24576",
+      "prach-patterns": {
+        "prach-pattern-id": "1",
+        "number-of-repetitions": "1",
+        "number-of-occasions": "1",
+        "re-offset": "0",
+        "occasion-parameters": {
+          "occasion-id": "1",
+          "cp-length": "3168",
+          "gp-length": "0",
+          "beam-id": "0"
+        },
+        "frame-number": "1",
+        "sub-frame-id": "7",
+        "time-offset": "0"
+      },
+      "_meta": {
+        "last_ts": "2026-02-23T16:57:31.252088",
+        "direction": "SEND",
+        "message_id": "43",
+        "rpc_type": "edit-config",
+        "source": "user-plane-configuration"
+      }
+    }
+  },
+  "processing_elements": {
+    "processing-element01": {
+      "name": "processing-element01",
+      "transport-flow": {
+        "interface-name": "uc-vlan0",
+        "eth-flow": {
+          "ru-mac-address": "B8:97:7A:3F:82:CA",
+          "vlan-id": "13",
+          "o-du-mac-address": "a8:3c:a5:5d:4b:43"
+        }
+      },
+      "_meta": {
+        "last_ts": "2026-02-23T16:57:30.990245",
+        "direction": "SEND",
+        "message_id": "42",
+        "rpc_type": "edit-config",
+        "source": "processing-elements"
+      }
+    }
+  },
+  "validations": [
+    "[WARN] Duplicate eAxC scope+eaxc-id ('61440', '3584', '496', '15', '0'): endpoints=lowLevelRxEndpoint0, lowLevelTxEndpoint0",
+    "[WARN] Duplicate eAxC scope+eaxc-id ('61440', '3584', '496', '15', '8'): endpoints=lowLevelRxEndpoint10, lowLevelTxEndpoint10"
+  ],
+  "warnings": [
+    {
+      "phase": "parse_upc",
+      "tag": "user-plane-configuration",
+      "message": "ParseError: not well-formed (invalid token): line 2, column 5",
+      "fragment": "<user-plane-configuration xmlns=\"urn:o-ran:uplane-conf:1.0\"/> </filter> </get> </rpc> [2026-02-23 16:57:30.696032];RECV;461661bytes;!!! <rpc-reply xmlns=\"urn:ie...",
+      "message_id": "38",
+      "ts": "2026-02-23T16:57:29.837826"
+    },
+    {
+      "phase": "notification",
+      "tag": "user-plane-state-change",
+      "message": "User-plane state-change notification observed (not fully merged into config state)",
+      "fragment": "<notification xmlns=\"urn:ietf:params:xml:ns:netconf:notification:1.0\"> <eventTime>2026-02-23T16:57:21.970199546-06:00</eventTime> <tx-array-carriers-state-chang...",
+      "message_id": null,
+      "ts": "2026-02-23T16:57:34.094353"
+    },
+    {
+      "phase": "notification",
+      "tag": "user-plane-state-change",
+      "message": "User-plane state-change notification observed (not fully merged into config state)",
+      "fragment": "<notification xmlns=\"urn:ietf:params:xml:ns:netconf:notification:1.0\"> <eventTime>2026-02-23T16:58:12.696776709-06:00</eventTime> <rx-array-carriers-state-chang...",
+      "message_id": null,
+      "ts": "2026-02-23T16:58:24.802277"
+    },
+    {
+      "phase": "notification",
+      "tag": "user-plane-state-change",
+      "message": "User-plane state-change notification observed (not fully merged into config state)",
+      "fragment": "<notification xmlns=\"urn:ietf:params:xml:ns:netconf:notification:1.0\"> <eventTime>2026-02-23T16:59:58.700849393-06:00</eventTime> <rx-array-carriers-state-chang...",
+      "message_id": null,
+      "ts": "2026-02-23T17:00:10.940758"
+    },
+    {
+      "phase": "notification",
+      "tag": "user-plane-state-change",
+      "message": "User-plane state-change notification observed (not fully merged into config state)",
+      "fragment": "<notification xmlns=\"urn:ietf:params:xml:ns:netconf:notification:1.0\"> <eventTime>2026-02-23T16:59:59.401429211-06:00</eventTime> <tx-array-carriers-state-chang...",
+      "message_id": null,
+      "ts": "2026-02-23T17:00:11.564743"
+    },
+    {
+      "phase": "notification",
+      "tag": "user-plane-state-change",
+      "message": "User-plane state-change notification observed (not fully merged into config state)",
+      "fragment": "<notification xmlns=\"urn:ietf:params:xml:ns:netconf:notification:1.0\"> <eventTime>2026-02-23T17:00:04.053532077-06:00</eventTime> <tx-array-carriers-state-chang...",
+      "message_id": null,
+      "ts": "2026-02-23T17:00:16.502987"
+    },
+    {
+      "phase": "notification",
+      "tag": "user-plane-state-change",
+      "message": "User-plane state-change notification observed (not fully merged into config state)",
+      "fragment": "<notification xmlns=\"urn:ietf:params:xml:ns:netconf:notification:1.0\"> <eventTime>2026-02-23T17:00:04.891695098-06:00</eventTime> <rx-array-carriers-state-chang...",
+      "message_id": null,
+      "ts": "2026-02-23T17:00:17.340352"
+    },
+    {
+      "phase": "notification",
+      "tag": "user-plane-state-change",
+      "message": "User-plane state-change notification observed (not fully merged into config state)",
+      "fragment": "<notification xmlns=\"urn:ietf:params:xml:ns:netconf:notification:1.0\"> <eventTime>2026-02-23T17:01:31.580280095-06:00</eventTime> <tx-array-carriers-state-chang...",
+      "message_id": null,
+      "ts": "2026-02-23T17:01:43.755915"
+    },
+    {
+      "phase": "notification",
+      "tag": "user-plane-state-change",
+      "message": "User-plane state-change notification observed (not fully merged into config state)",
+      "fragment": "<notification xmlns=\"urn:ietf:params:xml:ns:netconf:notification:1.0\"> <eventTime>2026-02-23T17:01:32.220231137-06:00</eventTime> <rx-array-carriers-state-chang...",
+      "message_id": null,
+      "ts": "2026-02-23T17:01:44.322825"
+    },
+    {
+      "phase": "notification",
+      "tag": "user-plane-state-change",
+      "message": "User-plane state-change notification observed (not fully merged into config state)",
+      "fragment": "<notification xmlns=\"urn:ietf:params:xml:ns:netconf:notification:1.0\"> <eventTime>2026-02-23T17:01:51.023198041-06:00</eventTime> <rx-array-carriers-state-chang...",
+      "message_id": null,
+      "ts": "2026-02-23T17:02:03.106070"
+    },
+    {
+      "phase": "notification",
+      "tag": "user-plane-state-change",
+      "message": "User-plane state-change notification observed (not fully merged into config state)",
+      "fragment": "<notification xmlns=\"urn:ietf:params:xml:ns:netconf:notification:1.0\"> <eventTime>2026-02-23T17:01:51.570621088-06:00</eventTime> <tx-array-carriers-state-chang...",
+      "message_id": null,
+      "ts": "2026-02-23T17:02:03.632773"
+    }
+  ],
+  "history": {
+    "processing_element:processing-element01": [
+      {
+        "ts": "2026-02-23T16:57:30.990245",
+        "direction": "SEND",
+        "message_id": "42",
+        "rpc_type": "edit-config",
+        "source": "processing-elements",
+        "raw": {
+          "name": "processing-element01",
+          "transport-flow": {
+            "interface-name": "uc-vlan0",
+            "eth-flow": {
+              "ru-mac-address": "B8:97:7A:3F:82:CA",
+              "vlan-id": "13",
+              "o-du-mac-address": "a8:3c:a5:5d:4b:43"
+            }
+          },
+          "_meta": {
+            "last_ts": "2026-02-23T16:57:30.990245",
+            "direction": "SEND",
+            "message_id": "42",
+            "rpc_type": "edit-config",
+            "source": "processing-elements"
+          }
+        }
+      }
+    ],
+    "prach:0": [
+      {
+        "ts": "2026-02-23T16:57:31.252088",
+        "direction": "SEND",
+        "message_id": "43",
+        "rpc_type": "edit-config",
+        "source": "user-plane-configuration",
+        "raw": {
+          "static-prach-config-id": "0",
+          "pattern-period": "4",
+          "guard-tone-low-re": "7",
+          "num-prach-re": "839",
+          "guard-tone-high-re": "18",
+          "sequence-duration": "24576",
+          "prach-patterns": {
+            "prach-pattern-id": "1",
+            "number-of-repetitions": "1",
+            "number-of-occasions": "1",
+            "re-offset": "0",
+            "occasion-parameters": {
+              "occasion-id": "1",
+              "cp-length": "3168",
+              "gp-length": "0",
+              "beam-id": "0"
+            },
+            "frame-number": "1",
+            "sub-frame-id": "7",
+            "time-offset": "0"
+          },
+          "_meta": {
+            "last_ts": "2026-02-23T16:57:31.252088",
+            "direction": "SEND",
+            "message_id": "43",
+            "rpc_type": "edit-config",
+            "source": "user-plane-configuration"
+          }
+        }
+      }
+    ],
+    "endpoint_tx:lowLevelTxEndpoint0": [
+      {
+        "ts": "2026-02-23T16:57:31.524240",
+        "direction": "SEND",
+        "message_id": "44",
+        "rpc_type": "edit-config",
+        "source": "user-plane-configuration",
+        "raw": {
+          "name": "lowLevelTxEndpoint0",
+          "compression": {
+            "iq-bitwidth": "9",
+            "compression-type": "STATIC",
+            "compression-method": "BLOCK_FLOATING_POINT",
+            "fs-offset": "0"
+          },
+          "frame-structure": "160",
+          "cp-type": "NORMAL",
+          "cp-length": "160",
+          "cp-length-other": "144",
+          "offset-to-absolute-frequency-center": "-624",
+          "number-of-prb-per-scs": {
+            "scs": "KHZ_15",
+            "number-of-prb": "52"
+          },
+          "e-axcid": {
+            "o-du-port-bitmask": "61440",
+            "band-sector-bitmask": "3584",
+            "ccid-bitmask": "496",
+            "ru-port-bitmask": "15",
+            "eaxc-id": "0"
+          },
+          "_endpoint_tag": "low-level-tx-endpoints",
+          "_meta": {
+            "last_ts": "2026-02-23T16:57:31.524240",
+            "direction": "SEND",
+            "message_id": "44",
+            "rpc_type": "edit-config",
+            "source": "user-plane-configuration"
+          }
+        }
+      }
+    ],
+    "endpoint_tx:lowLevelTxEndpoint10": [
+      {
+        "ts": "2026-02-23T16:57:31.524240",
+        "direction": "SEND",
+        "message_id": "44",
+        "rpc_type": "edit-config",
+        "source": "user-plane-configuration",
+        "raw": {
+          "name": "lowLevelTxEndpoint10",
+          "compression": {
+            "iq-bitwidth": "9",
+            "compression-type": "STATIC",
+            "compression-method": "BLOCK_FLOATING_POINT",
+            "fs-offset": "0"
+          },
+          "frame-structure": "160",
+          "cp-type": "NORMAL",
+          "cp-length": "160",
+          "cp-length-other": "144",
+          "offset-to-absolute-frequency-center": "-624",
+          "number-of-prb-per-scs": {
+            "scs": "KHZ_15",
+            "number-of-prb": "52"
+          },
+          "e-axcid": {
+            "o-du-port-bitmask": "61440",
+            "band-sector-bitmask": "3584",
+            "ccid-bitmask": "496",
+            "ru-port-bitmask": "15",
+            "eaxc-id": "8"
+          },
+          "_endpoint_tag": "low-level-tx-endpoints",
+          "_meta": {
+            "last_ts": "2026-02-23T16:57:31.524240",
+            "direction": "SEND",
+            "message_id": "44",
+            "rpc_type": "edit-config",
+            "source": "user-plane-configuration"
+          }
+        }
+      }
+    ],
+    "endpoint_rx:lowLevelRxEndpoint0": [
+      {
+        "ts": "2026-02-23T16:57:31.908067",
+        "direction": "SEND",
+        "message_id": "45",
+        "rpc_type": "edit-config",
+        "source": "user-plane-configuration",
+        "raw": {
+          "name": "lowLevelRxEndpoint0",
+          "compression": {
+            "iq-bitwidth": "9",
+            "compression-type": "STATIC",
+            "compression-method": "BLOCK_FLOATING_POINT",
+            "fs-offset": "0"
+          },
+          "frame-structure": "160",
+          "cp-type": "NORMAL",
+          "cp-length": "160",
+          "cp-length-other": "144",
+          "offset-to-absolute-frequency-center": "-624",
+          "number-of-prb-per-scs": {
+            "scs": "KHZ_15",
+            "number-of-prb": "52"
+          },
+          "ul-fft-sampling-offsets": {
+            "scs": "KHZ_15",
+            "ul-fft-sampling-offset": "32"
+          },
+          "e-axcid": {
+            "o-du-port-bitmask": "61440",
+            "band-sector-bitmask": "3584",
+            "ccid-bitmask": "496",
+            "ru-port-bitmask": "15",
+            "eaxc-id": "0"
+          },
+          "eaxc-gain-correction": "-10.7918",
+          "non-time-managed-delay-enabled": "false",
+          "_endpoint_tag": "low-level-rx-endpoints",
+          "_meta": {
+            "last_ts": "2026-02-23T16:57:31.908067",
+            "direction": "SEND",
+            "message_id": "45",
+            "rpc_type": "edit-config",
+            "source": "user-plane-configuration"
+          }
+        }
+      }
+    ],
+    "endpoint_rx:lowLevelRxEndpoint10": [
+      {
+        "ts": "2026-02-23T16:57:31.908067",
+        "direction": "SEND",
+        "message_id": "45",
+        "rpc_type": "edit-config",
+        "source": "user-plane-configuration",
+        "raw": {
+          "name": "lowLevelRxEndpoint10",
+          "compression": {
+            "iq-bitwidth": "9",
+            "compression-type": "STATIC",
+            "compression-method": "BLOCK_FLOATING_POINT",
+            "fs-offset": "0"
+          },
+          "frame-structure": "160",
+          "cp-type": "NORMAL",
+          "cp-length": "160",
+          "cp-length-other": "144",
+          "offset-to-absolute-frequency-center": "-624",
+          "number-of-prb-per-scs": {
+            "scs": "KHZ_15",
+            "number-of-prb": "52"
+          },
+          "ul-fft-sampling-offsets": {
+            "scs": "KHZ_15",
+            "ul-fft-sampling-offset": "32"
+          },
+          "e-axcid": {
+            "o-du-port-bitmask": "61440",
+            "band-sector-bitmask": "3584",
+            "ccid-bitmask": "496",
+            "ru-port-bitmask": "15",
+            "eaxc-id": "8"
+          },
+          "eaxc-gain-correction": "-10.7918",
+          "non-time-managed-delay-enabled": "false",
+          "_endpoint_tag": "low-level-rx-endpoints",
+          "_meta": {
+            "last_ts": "2026-02-23T16:57:31.908067",
+            "direction": "SEND",
+            "message_id": "45",
+            "rpc_type": "edit-config",
+            "source": "user-plane-configuration"
+          }
+        }
+      }
+    ],
+    "endpoint_rx:lowLevelRxEndpoint100": [
+      {
+        "ts": "2026-02-23T16:57:31.908067",
+        "direction": "SEND",
+        "message_id": "45",
+        "rpc_type": "edit-config",
+        "source": "user-plane-configuration",
+        "raw": {
+          "name": "lowLevelRxEndpoint100",
+          "compression": {
+            "iq-bitwidth": "9",
+            "compression-type": "STATIC",
+            "compression-method": "BLOCK_FLOATING_POINT",
+            "fs-offset": "0"
+          },
+          "frame-structure": "188",
+          "cp-type": "NORMAL",
+          "cp-length": "160",
+          "cp-length-other": "144",
+          "offset-to-absolute-frequency-center": "-3744",
+          "number-of-prb-per-scs": {
+            "scs": "KHZ_1_25",
+            "number-of-prb": "70"
+          },
+          "ul-fft-sampling-offsets": {
+            "scs": "KHZ_1_25",
+            "ul-fft-sampling-offset": "0"
+          },
+          "e-axcid": {
+            "o-du-port-bitmask": "61440",
+            "band-sector-bitmask": "3584",
+            "ccid-bitmask": "496",
+            "ru-port-bitmask": "15",
+            "eaxc-id": "4"
+          },
+          "eaxc-gain-correction": "0.0000",
+          "non-time-managed-delay-enabled": "false",
+          "static-config-supported": "PRACH",
+          "static-prach-configuration": "0",
+          "_endpoint_tag": "low-level-rx-endpoints",
+          "_meta": {
+            "last_ts": "2026-02-23T16:57:31.908067",
+            "direction": "SEND",
+            "message_id": "45",
+            "rpc_type": "edit-config",
+            "source": "user-plane-configuration"
+          }
+        }
+      }
+    ],
+    "endpoint_rx:lowLevelRxEndpoint104": [
+      {
+        "ts": "2026-02-23T16:57:31.908067",
+        "direction": "SEND",
+        "message_id": "45",
+        "rpc_type": "edit-config",
+        "source": "user-plane-configuration",
+        "raw": {
+          "name": "lowLevelRxEndpoint104",
+          "compression": {
+            "iq-bitwidth": "9",
+            "compression-type": "STATIC",
+            "compression-method": "BLOCK_FLOATING_POINT",
+            "fs-offset": "0"
+          },
+          "frame-structure": "188",
+          "cp-type": "NORMAL",
+          "cp-length": "160",
+          "cp-length-other": "144",
+          "offset-to-absolute-frequency-center": "-3744",
+          "number-of-prb-per-scs": {
+            "scs": "KHZ_1_25",
+            "number-of-prb": "70"
+          },
+          "ul-fft-sampling-offsets": {
+            "scs": "KHZ_1_25",
+            "ul-fft-sampling-offset": "0"
+          },
+          "e-axcid": {
+            "o-du-port-bitmask": "61440",
+            "band-sector-bitmask": "3584",
+            "ccid-bitmask": "496",
+            "ru-port-bitmask": "15",
+            "eaxc-id": "10"
+          },
+          "eaxc-gain-correction": "0.0000",
+          "non-time-managed-delay-enabled": "false",
+          "static-config-supported": "PRACH",
+          "static-prach-configuration": "0",
+          "_endpoint_tag": "low-level-rx-endpoints",
+          "_meta": {
+            "last_ts": "2026-02-23T16:57:31.908067",
+            "direction": "SEND",
+            "message_id": "45",
+            "rpc_type": "edit-config",
+            "source": "user-plane-configuration"
+          }
+        }
+      }
+    ],
+    "carrier_tx:Tx-Array-Carrier-00": [
+      {
+        "ts": "2026-02-23T16:57:32.811657",
+        "direction": "SEND",
+        "message_id": "46",
+        "rpc_type": "edit-config",
+        "source": "user-plane-configuration",
+        "raw": {
+          "name": "Tx-Array-Carrier-00",
+          "center-of-channel-bandwidth": "2140000000",
+          "channel-bandwidth": "10000000",
+          "type": "NR",
+          "gain": "31.1000",
+          "downlink-radio-frame-offset": "0",
+          "downlink-sfn-offset": "0",
+          "reference-level": "4.0000",
+          "_meta": {
+            "last_ts": "2026-02-23T16:57:32.811657",
+            "direction": "SEND",
+            "message_id": "46",
+            "rpc_type": "edit-config",
+            "source": "user-plane-configuration"
+          }
+        }
+      },
+      {
+        "ts": "2026-02-23T17:00:08.246557",
+        "direction": "SEND",
+        "message_id": "60",
+        "rpc_type": "edit-config",
+        "source": "user-plane-configuration",
+        "raw": {
+          "name": "Tx-Array-Carrier-00",
+          "center-of-channel-bandwidth": "2140000000",
+          "channel-bandwidth": "10000000",
+          "type": "NR",
+          "gain": "31.1000",
+          "downlink-radio-frame-offset": "0",
+          "downlink-sfn-offset": "0",
+          "reference-level": "4.0000",
+          "_meta": {
+            "last_ts": "2026-02-23T17:00:08.246557",
+            "direction": "SEND",
+            "message_id": "60",
+            "rpc_type": "edit-config",
+            "source": "user-plane-configuration"
+          },
+          "active": "ACTIVE"
+        }
+      },
+      {
+        "ts": "2026-02-23T17:00:14.861008",
+        "direction": "SEND",
+        "message_id": "61",
+        "rpc_type": "edit-config",
+        "source": "user-plane-configuration",
+        "raw": {
+          "name": "Tx-Array-Carrier-00",
+          "center-of-channel-bandwidth": "2140000000",
+          "channel-bandwidth": "10000000",
+          "type": "NR",
+          "gain": "31.1000",
+          "downlink-radio-frame-offset": "0",
+          "downlink-sfn-offset": "0",
+          "reference-level": "4.0000",
+          "_meta": {
+            "last_ts": "2026-02-23T17:00:14.861008",
+            "direction": "SEND",
+            "message_id": "61",
+            "rpc_type": "edit-config",
+            "source": "user-plane-configuration"
+          },
+          "active": "INACTIVE"
+        }
+      },
+      {
+        "ts": "2026-02-23T17:01:42.222019",
+        "direction": "SEND",
+        "message_id": "64",
+        "rpc_type": "edit-config",
+        "source": "user-plane-configuration",
+        "raw": {
+          "name": "Tx-Array-Carrier-00",
+          "center-of-channel-bandwidth": "2140000000",
+          "channel-bandwidth": "10000000",
+          "type": "NR",
+          "gain": "31.1000",
+          "downlink-radio-frame-offset": "0",
+          "downlink-sfn-offset": "0",
+          "reference-level": "4.0000",
+          "_meta": {
+            "last_ts": "2026-02-23T17:01:42.222019",
+            "direction": "SEND",
+            "message_id": "64",
+            "rpc_type": "edit-config",
+            "source": "user-plane-configuration"
+          },
+          "active": "ACTIVE"
+        }
+      },
+      {
+        "ts": "2026-02-23T17:02:02.016918",
+        "direction": "SEND",
+        "message_id": "65",
+        "rpc_type": "edit-config",
+        "source": "user-plane-configuration",
+        "raw": {
+          "name": "Tx-Array-Carrier-00",
+          "center-of-channel-bandwidth": "2140000000",
+          "channel-bandwidth": "10000000",
+          "type": "NR",
+          "gain": "31.1000",
+          "downlink-radio-frame-offset": "0",
+          "downlink-sfn-offset": "0",
+          "reference-level": "4.0000",
+          "_meta": {
+            "last_ts": "2026-02-23T17:02:02.016918",
+            "direction": "SEND",
+            "message_id": "65",
+            "rpc_type": "edit-config",
+            "source": "user-plane-configuration"
+          },
+          "active": "INACTIVE"
+        }
+      }
+    ],
+    "carrier_tx:Tx-Array-Carrier-01": [
+      {
+        "ts": "2026-02-23T16:57:32.811657",
+        "direction": "SEND",
+        "message_id": "46",
+        "rpc_type": "edit-config",
+        "source": "user-plane-configuration",
+        "raw": {
+          "name": "Tx-Array-Carrier-01",
+          "center-of-channel-bandwidth": "2140000000",
+          "channel-bandwidth": "10000000",
+          "type": "NR",
+          "gain": "31.1000",
+          "downlink-radio-frame-offset": "0",
+          "downlink-sfn-offset": "0",
+          "reference-level": "4.0000",
+          "_meta": {
+            "last_ts": "2026-02-23T16:57:32.811657",
+            "direction": "SEND",
+            "message_id": "46",
+            "rpc_type": "edit-config",
+            "source": "user-plane-configuration"
+          }
+        }
+      },
+      {
+        "ts": "2026-02-23T17:00:08.246557",
+        "direction": "SEND",
+        "message_id": "60",
+        "rpc_type": "edit-config",
+        "source": "user-plane-configuration",
+        "raw": {
+          "name": "Tx-Array-Carrier-01",
+          "center-of-channel-bandwidth": "2140000000",
+          "channel-bandwidth": "10000000",
+          "type": "NR",
+          "gain": "31.1000",
+          "downlink-radio-frame-offset": "0",
+          "downlink-sfn-offset": "0",
+          "reference-level": "4.0000",
+          "_meta": {
+            "last_ts": "2026-02-23T17:00:08.246557",
+            "direction": "SEND",
+            "message_id": "60",
+            "rpc_type": "edit-config",
+            "source": "user-plane-configuration"
+          },
+          "active": "ACTIVE"
+        }
+      },
+      {
+        "ts": "2026-02-23T17:00:14.861008",
+        "direction": "SEND",
+        "message_id": "61",
+        "rpc_type": "edit-config",
+        "source": "user-plane-configuration",
+        "raw": {
+          "name": "Tx-Array-Carrier-01",
+          "center-of-channel-bandwidth": "2140000000",
+          "channel-bandwidth": "10000000",
+          "type": "NR",
+          "gain": "31.1000",
+          "downlink-radio-frame-offset": "0",
+          "downlink-sfn-offset": "0",
+          "reference-level": "4.0000",
+          "_meta": {
+            "last_ts": "2026-02-23T17:00:14.861008",
+            "direction": "SEND",
+            "message_id": "61",
+            "rpc_type": "edit-config",
+            "source": "user-plane-configuration"
+          },
+          "active": "INACTIVE"
+        }
+      },
+      {
+        "ts": "2026-02-23T17:01:42.222019",
+        "direction": "SEND",
+        "message_id": "64",
+        "rpc_type": "edit-config",
+        "source": "user-plane-configuration",
+        "raw": {
+          "name": "Tx-Array-Carrier-01",
+          "center-of-channel-bandwidth": "2140000000",
+          "channel-bandwidth": "10000000",
+          "type": "NR",
+          "gain": "31.1000",
+          "downlink-radio-frame-offset": "0",
+          "downlink-sfn-offset": "0",
+          "reference-level": "4.0000",
+          "_meta": {
+            "last_ts": "2026-02-23T17:01:42.222019",
+            "direction": "SEND",
+            "message_id": "64",
+            "rpc_type": "edit-config",
+            "source": "user-plane-configuration"
+          },
+          "active": "ACTIVE"
+        }
+      },
+      {
+        "ts": "2026-02-23T17:02:02.016918",
+        "direction": "SEND",
+        "message_id": "65",
+        "rpc_type": "edit-config",
+        "source": "user-plane-configuration",
+        "raw": {
+          "name": "Tx-Array-Carrier-01",
+          "center-of-channel-bandwidth": "2140000000",
+          "channel-bandwidth": "10000000",
+          "type": "NR",
+          "gain": "31.1000",
+          "downlink-radio-frame-offset": "0",
+          "downlink-sfn-offset": "0",
+          "reference-level": "4.0000",
+          "_meta": {
+            "last_ts": "2026-02-23T17:02:02.016918",
+            "direction": "SEND",
+            "message_id": "65",
+            "rpc_type": "edit-config",
+            "source": "user-plane-configuration"
+          },
+          "active": "INACTIVE"
+        }
+      }
+    ],
+    "carrier_rx:Rx-Array-Carrier-00": [
+      {
+        "ts": "2026-02-23T16:57:33.063380",
+        "direction": "SEND",
+        "message_id": "47",
+        "rpc_type": "edit-config",
+        "source": "user-plane-configuration",
+        "raw": {
+          "name": "Rx-Array-Carrier-00",
+          "center-of-channel-bandwidth": "1950000000",
+          "channel-bandwidth": "10000000",
+          "type": "NR",
+          "downlink-radio-frame-offset": "0",
+          "downlink-sfn-offset": "0",
+          "gain-correction": "0.0000",
+          "n-ta-offset": "0",
+          "_meta": {
+            "last_ts": "2026-02-23T16:57:33.063380",
+            "direction": "SEND",
+            "message_id": "47",
+            "rpc_type": "edit-config",
+            "source": "user-plane-configuration"
+          }
+        }
+      },
+      {
+        "ts": "2026-02-23T17:00:08.246557",
+        "direction": "SEND",
+        "message_id": "60",
+        "rpc_type": "edit-config",
+        "source": "user-plane-configuration",
+        "raw": {
+          "name": "Rx-Array-Carrier-00",
+          "center-of-channel-bandwidth": "1950000000",
+          "channel-bandwidth": "10000000",
+          "type": "NR",
+          "downlink-radio-frame-offset": "0",
+          "downlink-sfn-offset": "0",
+          "gain-correction": "0.0000",
+          "n-ta-offset": "0",
+          "_meta": {
+            "last_ts": "2026-02-23T17:00:08.246557",
+            "direction": "SEND",
+            "message_id": "60",
+            "rpc_type": "edit-config",
+            "source": "user-plane-configuration"
+          },
+          "active": "ACTIVE"
+        }
+      },
+      {
+        "ts": "2026-02-23T17:00:14.861008",
+        "direction": "SEND",
+        "message_id": "61",
+        "rpc_type": "edit-config",
+        "source": "user-plane-configuration",
+        "raw": {
+          "name": "Rx-Array-Carrier-00",
+          "center-of-channel-bandwidth": "1950000000",
+          "channel-bandwidth": "10000000",
+          "type": "NR",
+          "downlink-radio-frame-offset": "0",
+          "downlink-sfn-offset": "0",
+          "gain-correction": "0.0000",
+          "n-ta-offset": "0",
+          "_meta": {
+            "last_ts": "2026-02-23T17:00:14.861008",
+            "direction": "SEND",
+            "message_id": "61",
+            "rpc_type": "edit-config",
+            "source": "user-plane-configuration"
+          },
+          "active": "INACTIVE"
+        }
+      },
+      {
+        "ts": "2026-02-23T17:01:42.222019",
+        "direction": "SEND",
+        "message_id": "64",
+        "rpc_type": "edit-config",
+        "source": "user-plane-configuration",
+        "raw": {
+          "name": "Rx-Array-Carrier-00",
+          "center-of-channel-bandwidth": "1950000000",
+          "channel-bandwidth": "10000000",
+          "type": "NR",
+          "downlink-radio-frame-offset": "0",
+          "downlink-sfn-offset": "0",
+          "gain-correction": "0.0000",
+          "n-ta-offset": "0",
+          "_meta": {
+            "last_ts": "2026-02-23T17:01:42.222019",
+            "direction": "SEND",
+            "message_id": "64",
+            "rpc_type": "edit-config",
+            "source": "user-plane-configuration"
+          },
+          "active": "ACTIVE"
+        }
+      },
+      {
+        "ts": "2026-02-23T17:02:02.016918",
+        "direction": "SEND",
+        "message_id": "65",
+        "rpc_type": "edit-config",
+        "source": "user-plane-configuration",
+        "raw": {
+          "name": "Rx-Array-Carrier-00",
+          "center-of-channel-bandwidth": "1950000000",
+          "channel-bandwidth": "10000000",
+          "type": "NR",
+          "downlink-radio-frame-offset": "0",
+          "downlink-sfn-offset": "0",
+          "gain-correction": "0.0000",
+          "n-ta-offset": "0",
+          "_meta": {
+            "last_ts": "2026-02-23T17:02:02.016918",
+            "direction": "SEND",
+            "message_id": "65",
+            "rpc_type": "edit-config",
+            "source": "user-plane-configuration"
+          },
+          "active": "INACTIVE"
+        }
+      }
+    ],
+    "carrier_rx:Rx-Array-Carrier-01": [
+      {
+        "ts": "2026-02-23T16:57:33.063380",
+        "direction": "SEND",
+        "message_id": "47",
+        "rpc_type": "edit-config",
+        "source": "user-plane-configuration",
+        "raw": {
+          "name": "Rx-Array-Carrier-01",
+          "center-of-channel-bandwidth": "1950000000",
+          "channel-bandwidth": "10000000",
+          "type": "NR",
+          "downlink-radio-frame-offset": "0",
+          "downlink-sfn-offset": "0",
+          "gain-correction": "0.0000",
+          "n-ta-offset": "0",
+          "_meta": {
+            "last_ts": "2026-02-23T16:57:33.063380",
+            "direction": "SEND",
+            "message_id": "47",
+            "rpc_type": "edit-config",
+            "source": "user-plane-configuration"
+          }
+        }
+      },
+      {
+        "ts": "2026-02-23T17:00:08.246557",
+        "direction": "SEND",
+        "message_id": "60",
+        "rpc_type": "edit-config",
+        "source": "user-plane-configuration",
+        "raw": {
+          "name": "Rx-Array-Carrier-01",
+          "center-of-channel-bandwidth": "1950000000",
+          "channel-bandwidth": "10000000",
+          "type": "NR",
+          "downlink-radio-frame-offset": "0",
+          "downlink-sfn-offset": "0",
+          "gain-correction": "0.0000",
+          "n-ta-offset": "0",
+          "_meta": {
+            "last_ts": "2026-02-23T17:00:08.246557",
+            "direction": "SEND",
+            "message_id": "60",
+            "rpc_type": "edit-config",
+            "source": "user-plane-configuration"
+          },
+          "active": "ACTIVE"
+        }
+      },
+      {
+        "ts": "2026-02-23T17:00:14.861008",
+        "direction": "SEND",
+        "message_id": "61",
+        "rpc_type": "edit-config",
+        "source": "user-plane-configuration",
+        "raw": {
+          "name": "Rx-Array-Carrier-01",
+          "center-of-channel-bandwidth": "1950000000",
+          "channel-bandwidth": "10000000",
+          "type": "NR",
+          "downlink-radio-frame-offset": "0",
+          "downlink-sfn-offset": "0",
+          "gain-correction": "0.0000",
+          "n-ta-offset": "0",
+          "_meta": {
+            "last_ts": "2026-02-23T17:00:14.861008",
+            "direction": "SEND",
+            "message_id": "61",
+            "rpc_type": "edit-config",
+            "source": "user-plane-configuration"
+          },
+          "active": "INACTIVE"
+        }
+      },
+      {
+        "ts": "2026-02-23T17:01:42.222019",
+        "direction": "SEND",
+        "message_id": "64",
+        "rpc_type": "edit-config",
+        "source": "user-plane-configuration",
+        "raw": {
+          "name": "Rx-Array-Carrier-01",
+          "center-of-channel-bandwidth": "1950000000",
+          "channel-bandwidth": "10000000",
+          "type": "NR",
+          "downlink-radio-frame-offset": "0",
+          "downlink-sfn-offset": "0",
+          "gain-correction": "0.0000",
+          "n-ta-offset": "0",
+          "_meta": {
+            "last_ts": "2026-02-23T17:01:42.222019",
+            "direction": "SEND",
+            "message_id": "64",
+            "rpc_type": "edit-config",
+            "source": "user-plane-configuration"
+          },
+          "active": "ACTIVE"
+        }
+      },
+      {
+        "ts": "2026-02-23T17:02:02.016918",
+        "direction": "SEND",
+        "message_id": "65",
+        "rpc_type": "edit-config",
+        "source": "user-plane-configuration",
+        "raw": {
+          "name": "Rx-Array-Carrier-01",
+          "center-of-channel-bandwidth": "1950000000",
+          "channel-bandwidth": "10000000",
+          "type": "NR",
+          "downlink-radio-frame-offset": "0",
+          "downlink-sfn-offset": "0",
+          "gain-correction": "0.0000",
+          "n-ta-offset": "0",
+          "_meta": {
+            "last_ts": "2026-02-23T17:02:02.016918",
+            "direction": "SEND",
+            "message_id": "65",
+            "rpc_type": "edit-config",
+            "source": "user-plane-configuration"
+          },
+          "active": "INACTIVE"
+        }
+      }
+    ],
+    "link_tx:Low-Level-Tx-Links-000": [
+      {
+        "ts": "2026-02-23T16:57:33.304853",
+        "direction": "SEND",
+        "message_id": "48",
+        "rpc_type": "edit-config",
+        "source": "user-plane-configuration",
+        "raw": {
+          "name": "Low-Level-Tx-Links-000",
+          "processing-element": "processing-element01",
+          "tx-array-carrier": "Tx-Array-Carrier-00",
+          "low-level-tx-endpoint": "lowLevelTxEndpoint0",
+          "_type": "TX",
+          "_meta": {
+            "last_ts": "2026-02-23T16:57:33.304853",
+            "direction": "SEND",
+            "message_id": "48",
+            "rpc_type": "edit-config",
+            "source": "user-plane-configuration"
+          }
+        }
+      }
+    ],
+    "link_tx:Low-Level-Tx-Links-001": [
+      {
+        "ts": "2026-02-23T16:57:33.304853",
+        "direction": "SEND",
+        "message_id": "48",
+        "rpc_type": "edit-config",
+        "source": "user-plane-configuration",
+        "raw": {
+          "name": "Low-Level-Tx-Links-001",
+          "processing-element": "processing-element01",
+          "tx-array-carrier": "Tx-Array-Carrier-01",
+          "low-level-tx-endpoint": "lowLevelTxEndpoint10",
+          "_type": "TX",
+          "_meta": {
+            "last_ts": "2026-02-23T16:57:33.304853",
+            "direction": "SEND",
+            "message_id": "48",
+            "rpc_type": "edit-config",
+            "source": "user-plane-configuration"
+          }
+        }
+      }
+    ],
+    "link_rx:Low-Level-Rx-Links-000": [
+      {
+        "ts": "2026-02-23T16:58:23.914281",
+        "direction": "SEND",
+        "message_id": "51",
+        "rpc_type": "edit-config",
+        "source": "user-plane-configuration",
+        "raw": {
+          "name": "Low-Level-Rx-Links-000",
+          "processing-element": "processing-element01",
+          "rx-array-carrier": "Rx-Array-Carrier-00",
+          "low-level-rx-endpoint": "lowLevelRxEndpoint0",
+          "_type": "RX",
+          "_meta": {
+            "last_ts": "2026-02-23T16:58:23.914281",
+            "direction": "SEND",
+            "message_id": "51",
+            "rpc_type": "edit-config",
+            "source": "user-plane-configuration"
+          }
+        }
+      }
+    ],
+    "link_rx:Low-Level-Rx-Links-001": [
+      {
+        "ts": "2026-02-23T16:58:23.914281",
+        "direction": "SEND",
+        "message_id": "51",
+        "rpc_type": "edit-config",
+        "source": "user-plane-configuration",
+        "raw": {
+          "name": "Low-Level-Rx-Links-001",
+          "processing-element": "processing-element01",
+          "rx-array-carrier": "Rx-Array-Carrier-01",
+          "low-level-rx-endpoint": "lowLevelRxEndpoint10",
+          "_type": "RX",
+          "_meta": {
+            "last_ts": "2026-02-23T16:58:23.914281",
+            "direction": "SEND",
+            "message_id": "51",
+            "rpc_type": "edit-config",
+            "source": "user-plane-configuration"
+          }
+        }
+      }
+    ],
+    "link_rx:Low-Level-Rx-Links-002": [
+      {
+        "ts": "2026-02-23T16:58:23.914281",
+        "direction": "SEND",
+        "message_id": "51",
+        "rpc_type": "edit-config",
+        "source": "user-plane-configuration",
+        "raw": {
+          "name": "Low-Level-Rx-Links-002",
+          "processing-element": "processing-element01",
+          "rx-array-carrier": "Rx-Array-Carrier-00",
+          "low-level-rx-endpoint": "lowLevelRxEndpoint100",
+          "_type": "RX",
+          "_meta": {
+            "last_ts": "2026-02-23T16:58:23.914281",
+            "direction": "SEND",
+            "message_id": "51",
+            "rpc_type": "edit-config",
+            "source": "user-plane-configuration"
+          }
+        }
+      }
+    ],
+    "link_rx:Low-Level-Rx-Links-003": [
+      {
+        "ts": "2026-02-23T16:58:23.914281",
+        "direction": "SEND",
+        "message_id": "51",
+        "rpc_type": "edit-config",
+        "source": "user-plane-configuration",
+        "raw": {
+          "name": "Low-Level-Rx-Links-003",
+          "processing-element": "processing-element01",
+          "rx-array-carrier": "Rx-Array-Carrier-01",
+          "low-level-rx-endpoint": "lowLevelRxEndpoint104",
+          "_type": "RX",
+          "_meta": {
+            "last_ts": "2026-02-23T16:58:23.914281",
+            "direction": "SEND",
+            "message_id": "51",
+            "rpc_type": "edit-config",
+            "source": "user-plane-configuration"
+          }
+        }
+      }
+    ]
+  }
+}

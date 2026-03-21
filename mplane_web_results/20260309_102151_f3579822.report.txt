@@ -1,0 +1,446 @@
+========================================================================================================================
+M-PLANE USER-PLANE CONFIGURATION ANALYSIS (Enhanced)
+========================================================================================================================
+Input file       : /home/sungpark/userplane_analyzer/mplane_web_results/20260309_102151_f3579822.input
+Segments parsed  : 306
+Objects          : TX carriers=4, RX carriers=4, TX endpoints=24, RX endpoints=32, TX links=4, RX links=8, PRACH configs=0, Processing elements=1
+
+========================================================================================================================
+CHAIN VIEW  (Link -> Endpoint -> Carrier -> Processing Element/Transport)
+========================================================================================================================
+
+🔗 Chain: NR100.TLINK2_1_1 (TX)
+----------------------------------------------------------------------------------------------------
+  [Endpoint] Static-LLTE-032
+      ├── endpoint-source-tag: static-low-level-tx-endpoints
+      ├── array: Tx-Array-04
+      ├── endpoint-type: 1
+      ├── restricted-interfaces[2]
+      │   ├── [1] fheth0
+      │   ├── [2] fheth1
+      ├── supported-reference-level[1]
+      │   ├── [1] id=0, min=0.0, max=13.833
+      └── [meta] msg-id=raw-static-recover, ts=-, rpc=raw-fallback
+      │
+      ▼ (Link PE: NR100.PE_1_0_1)
+      │
+      ├── link.name: NR100.TLINK2_1_1
+      ├── link.low-level-tx-endpoint: Static-LLTE-032
+      ├── link.tx-array-carrier: NR100.TX2_3_1_0
+      └── [meta] msg-id=95, ts=2025-06-25T20:56:31.852000+00:00, rpc=edit-config
+  [Carrier] NR100.TX2_3_1_0
+      ├── active: ACTIVE
+      ├── type: NR
+      ├── center-of-channel-bandwidth: 1820000000 Hz
+      ├── channel-bandwidth: 20000000 Hz
+      ├── gain: 25.9551
+      ├── reference-level: 12.0449
+      ├── downlink-radio-frame-offset: 0
+      ├── downlink-sfn-offset: 0
+      └── [meta] msg-id=109, ts=2025-06-25T20:56:32.738000+00:00, rpc=edit-config
+  [Processing Element] NR100.PE_1_0_1
+      ├── name: NR100.PE_1_0_1
+      ├── transport-flow[1]
+      │   ├── interface-name: vlan_0_1
+      │   ├── eth.ru-mac-address: 34:fe:9e:3d:e0:51
+      │   ├── eth.o-du-mac-address: 00:77:e4:21:b9:cf
+      │   └── eth.vlan-id: 1
+      └── [meta] msg-id=73, ts=2025-06-25T20:56:14.891000+00:00, rpc=edit-config
+
+🔗 Chain: NR100.TLINK2_1_13 (TX)
+----------------------------------------------------------------------------------------------------
+  [Endpoint] Static-LLTE-035
+      ├── endpoint-source-tag: static-low-level-tx-endpoints
+      ├── array: Tx-Array-07
+      ├── endpoint-type: 1
+      ├── restricted-interfaces[2]
+      │   ├── [1] fheth0
+      │   ├── [2] fheth1
+      ├── supported-reference-level[1]
+      │   ├── [1] id=0, min=0.0, max=13.833
+      └── [meta] msg-id=raw-static-recover, ts=-, rpc=raw-fallback
+      │
+      ▼ (Link PE: NR100.PE_1_0_1)
+      │
+      ├── link.name: NR100.TLINK2_1_13
+      ├── link.low-level-tx-endpoint: Static-LLTE-035
+      ├── link.tx-array-carrier: NR100.TX2_3_1_9
+      └── [meta] msg-id=98, ts=2025-06-25T20:56:32.022000+00:00, rpc=edit-config
+  [Carrier] NR100.TX2_3_1_9
+      ├── active: ACTIVE
+      ├── type: NR
+      ├── center-of-channel-bandwidth: 1820000000 Hz
+      ├── channel-bandwidth: 20000000 Hz
+      ├── gain: 25.9551
+      ├── reference-level: 12.0449
+      ├── downlink-radio-frame-offset: 0
+      ├── downlink-sfn-offset: 0
+      └── [meta] msg-id=109, ts=2025-06-25T20:56:32.738000+00:00, rpc=edit-config
+  [Processing Element] NR100.PE_1_0_1
+      ├── name: NR100.PE_1_0_1
+      ├── transport-flow[1]
+      │   ├── interface-name: vlan_0_1
+      │   ├── eth.ru-mac-address: 34:fe:9e:3d:e0:51
+      │   ├── eth.o-du-mac-address: 00:77:e4:21:b9:cf
+      │   └── eth.vlan-id: 1
+      └── [meta] msg-id=73, ts=2025-06-25T20:56:14.891000+00:00, rpc=edit-config
+
+🔗 Chain: NR100.TLINK2_1_5 (TX)
+----------------------------------------------------------------------------------------------------
+  [Endpoint] Static-LLTE-033
+      ├── endpoint-source-tag: static-low-level-tx-endpoints
+      ├── array: Tx-Array-05
+      ├── endpoint-type: 1
+      ├── restricted-interfaces[2]
+      │   ├── [1] fheth0
+      │   ├── [2] fheth1
+      ├── supported-reference-level[1]
+      │   ├── [1] id=0, min=0.0, max=13.833
+      └── [meta] msg-id=raw-static-recover, ts=-, rpc=raw-fallback
+      │
+      ▼ (Link PE: NR100.PE_1_0_1)
+      │
+      ├── link.name: NR100.TLINK2_1_5
+      ├── link.low-level-tx-endpoint: Static-LLTE-033
+      ├── link.tx-array-carrier: NR100.TX2_3_1_8
+      └── [meta] msg-id=103, ts=2025-06-25T20:56:32.292000+00:00, rpc=edit-config
+  [Carrier] NR100.TX2_3_1_8
+      ├── active: ACTIVE
+      ├── type: NR
+      ├── center-of-channel-bandwidth: 1820000000 Hz
+      ├── channel-bandwidth: 20000000 Hz
+      ├── gain: 25.9551
+      ├── reference-level: 12.0449
+      ├── downlink-radio-frame-offset: 0
+      ├── downlink-sfn-offset: 0
+      └── [meta] msg-id=109, ts=2025-06-25T20:56:32.738000+00:00, rpc=edit-config
+  [Processing Element] NR100.PE_1_0_1
+      ├── name: NR100.PE_1_0_1
+      ├── transport-flow[1]
+      │   ├── interface-name: vlan_0_1
+      │   ├── eth.ru-mac-address: 34:fe:9e:3d:e0:51
+      │   ├── eth.o-du-mac-address: 00:77:e4:21:b9:cf
+      │   └── eth.vlan-id: 1
+      └── [meta] msg-id=73, ts=2025-06-25T20:56:14.891000+00:00, rpc=edit-config
+
+🔗 Chain: NR100.TLINK2_1_9 (TX)
+----------------------------------------------------------------------------------------------------
+  [Endpoint] Static-LLTE-034
+      ├── endpoint-source-tag: static-low-level-tx-endpoints
+      ├── array: Tx-Array-06
+      ├── endpoint-type: 1
+      ├── restricted-interfaces[2]
+      │   ├── [1] fheth0
+      │   ├── [2] fheth1
+      ├── supported-reference-level[1]
+      │   ├── [1] id=0, min=0.0, max=13.833
+      └── [meta] msg-id=raw-static-recover, ts=-, rpc=raw-fallback
+      │
+      ▼ (Link PE: NR100.PE_1_0_1)
+      │
+      ├── link.name: NR100.TLINK2_1_9
+      ├── link.low-level-tx-endpoint: Static-LLTE-034
+      ├── link.tx-array-carrier: NR100.TX2_3_1_1
+      └── [meta] msg-id=106, ts=2025-06-25T20:56:32.472000+00:00, rpc=edit-config
+  [Carrier] NR100.TX2_3_1_1
+      ├── active: ACTIVE
+      ├── type: NR
+      ├── center-of-channel-bandwidth: 1820000000 Hz
+      ├── channel-bandwidth: 20000000 Hz
+      ├── gain: 25.9551
+      ├── reference-level: 12.0449
+      ├── downlink-radio-frame-offset: 0
+      ├── downlink-sfn-offset: 0
+      └── [meta] msg-id=109, ts=2025-06-25T20:56:32.738000+00:00, rpc=edit-config
+  [Processing Element] NR100.PE_1_0_1
+      ├── name: NR100.PE_1_0_1
+      ├── transport-flow[1]
+      │   ├── interface-name: vlan_0_1
+      │   ├── eth.ru-mac-address: 34:fe:9e:3d:e0:51
+      │   ├── eth.o-du-mac-address: 00:77:e4:21:b9:cf
+      │   └── eth.vlan-id: 1
+      └── [meta] msg-id=73, ts=2025-06-25T20:56:14.891000+00:00, rpc=edit-config
+
+🔗 Chain: NR100.RLINK2_1_11 (RX)
+----------------------------------------------------------------------------------------------------
+  [Endpoint] Static-LLRE-082
+      ├── endpoint-source-tag: static-low-level-rx-endpoints
+      ├── array: Rx-Array-06
+      ├── endpoint-type: 5
+      ├── restricted-interfaces[2]
+      │   ├── [1] fheth0
+      │   ├── [2] fheth1
+      └── [meta] msg-id=raw-static-recover, ts=-, rpc=raw-fallback
+      │
+      ▼ (Link PE: NR100.PE_1_0_1)
+      │
+      ├── link.name: NR100.RLINK2_1_11
+      ├── link.low-level-rx-endpoint: Static-LLRE-082
+      ├── link.rx-array-carrier: NR100.RX2_3_1_1
+      └── [meta] msg-id=96, ts=2025-06-25T20:56:31.897000+00:00, rpc=edit-config
+  [Carrier] NR100.RX2_3_1_1
+      ├── active: ACTIVE
+      ├── type: NR
+      ├── center-of-channel-bandwidth: 1725000000 Hz
+      ├── channel-bandwidth: 20000000 Hz
+      ├── downlink-radio-frame-offset: 0
+      ├── downlink-sfn-offset: 0
+      └── [meta] msg-id=109, ts=2025-06-25T20:56:32.738000+00:00, rpc=edit-config
+  [Processing Element] NR100.PE_1_0_1
+      ├── name: NR100.PE_1_0_1
+      ├── transport-flow[1]
+      │   ├── interface-name: vlan_0_1
+      │   ├── eth.ru-mac-address: 34:fe:9e:3d:e0:51
+      │   ├── eth.o-du-mac-address: 00:77:e4:21:b9:cf
+      │   └── eth.vlan-id: 1
+      └── [meta] msg-id=73, ts=2025-06-25T20:56:14.891000+00:00, rpc=edit-config
+
+🔗 Chain: NR100.RLINK2_1_12 (RX)
+----------------------------------------------------------------------------------------------------
+  [Endpoint] Static-LLRE-086
+      ├── endpoint-source-tag: static-low-level-rx-endpoints
+      ├── array: Rx-Array-06
+      ├── endpoint-type: 6
+      ├── static-config-supported: PRACH
+      ├── prach-group: 0
+      ├── restricted-interfaces[2]
+      │   ├── [1] fheth0
+      │   ├── [2] fheth1
+      ├── PRACH ref present but config not found: 0
+      └── [meta] msg-id=raw-static-recover, ts=-, rpc=raw-fallback
+      │
+      ▼ (Link PE: NR100.PE_1_0_1)
+      │
+      ├── link.name: NR100.RLINK2_1_12
+      ├── link.low-level-rx-endpoint: Static-LLRE-086
+      ├── link.rx-array-carrier: NR100.RX2_3_1_1
+      └── [meta] msg-id=97, ts=2025-06-25T20:56:31.961000+00:00, rpc=edit-config
+  [Carrier] NR100.RX2_3_1_1
+      ├── active: ACTIVE
+      ├── type: NR
+      ├── center-of-channel-bandwidth: 1725000000 Hz
+      ├── channel-bandwidth: 20000000 Hz
+      ├── downlink-radio-frame-offset: 0
+      ├── downlink-sfn-offset: 0
+      └── [meta] msg-id=109, ts=2025-06-25T20:56:32.738000+00:00, rpc=edit-config
+  [Processing Element] NR100.PE_1_0_1
+      ├── name: NR100.PE_1_0_1
+      ├── transport-flow[1]
+      │   ├── interface-name: vlan_0_1
+      │   ├── eth.ru-mac-address: 34:fe:9e:3d:e0:51
+      │   ├── eth.o-du-mac-address: 00:77:e4:21:b9:cf
+      │   └── eth.vlan-id: 1
+      └── [meta] msg-id=73, ts=2025-06-25T20:56:14.891000+00:00, rpc=edit-config
+
+🔗 Chain: NR100.RLINK2_1_15 (RX)
+----------------------------------------------------------------------------------------------------
+  [Endpoint] Static-LLRE-083
+      ├── endpoint-source-tag: static-low-level-rx-endpoints
+      ├── array: Rx-Array-07
+      ├── endpoint-type: 5
+      ├── restricted-interfaces[2]
+      │   ├── [1] fheth0
+      │   ├── [2] fheth1
+      └── [meta] msg-id=raw-static-recover, ts=-, rpc=raw-fallback
+      │
+      ▼ (Link PE: NR100.PE_1_0_1)
+      │
+      ├── link.name: NR100.RLINK2_1_15
+      ├── link.low-level-rx-endpoint: Static-LLRE-083
+      ├── link.rx-array-carrier: NR100.RX2_3_1_9
+      └── [meta] msg-id=99, ts=2025-06-25T20:56:32.067000+00:00, rpc=edit-config
+  [Carrier] NR100.RX2_3_1_9
+      ├── active: ACTIVE
+      ├── type: NR
+      ├── center-of-channel-bandwidth: 1725000000 Hz
+      ├── channel-bandwidth: 20000000 Hz
+      ├── downlink-radio-frame-offset: 0
+      ├── downlink-sfn-offset: 0
+      └── [meta] msg-id=109, ts=2025-06-25T20:56:32.738000+00:00, rpc=edit-config
+  [Processing Element] NR100.PE_1_0_1
+      ├── name: NR100.PE_1_0_1
+      ├── transport-flow[1]
+      │   ├── interface-name: vlan_0_1
+      │   ├── eth.ru-mac-address: 34:fe:9e:3d:e0:51
+      │   ├── eth.o-du-mac-address: 00:77:e4:21:b9:cf
+      │   └── eth.vlan-id: 1
+      └── [meta] msg-id=73, ts=2025-06-25T20:56:14.891000+00:00, rpc=edit-config
+
+🔗 Chain: NR100.RLINK2_1_16 (RX)
+----------------------------------------------------------------------------------------------------
+  [Endpoint] Static-LLRE-087
+      ├── endpoint-source-tag: static-low-level-rx-endpoints
+      ├── array: Rx-Array-07
+      ├── endpoint-type: 6
+      ├── static-config-supported: PRACH
+      ├── prach-group: 0
+      ├── restricted-interfaces[2]
+      │   ├── [1] fheth0
+      │   ├── [2] fheth1
+      ├── PRACH ref present but config not found: 0
+      └── [meta] msg-id=raw-static-recover, ts=-, rpc=raw-fallback
+      │
+      ▼ (Link PE: NR100.PE_1_0_1)
+      │
+      ├── link.name: NR100.RLINK2_1_16
+      ├── link.low-level-rx-endpoint: Static-LLRE-087
+      ├── link.rx-array-carrier: NR100.RX2_3_1_9
+      └── [meta] msg-id=100, ts=2025-06-25T20:56:32.133000+00:00, rpc=edit-config
+  [Carrier] NR100.RX2_3_1_9
+      ├── active: ACTIVE
+      ├── type: NR
+      ├── center-of-channel-bandwidth: 1725000000 Hz
+      ├── channel-bandwidth: 20000000 Hz
+      ├── downlink-radio-frame-offset: 0
+      ├── downlink-sfn-offset: 0
+      └── [meta] msg-id=109, ts=2025-06-25T20:56:32.738000+00:00, rpc=edit-config
+  [Processing Element] NR100.PE_1_0_1
+      ├── name: NR100.PE_1_0_1
+      ├── transport-flow[1]
+      │   ├── interface-name: vlan_0_1
+      │   ├── eth.ru-mac-address: 34:fe:9e:3d:e0:51
+      │   ├── eth.o-du-mac-address: 00:77:e4:21:b9:cf
+      │   └── eth.vlan-id: 1
+      └── [meta] msg-id=73, ts=2025-06-25T20:56:14.891000+00:00, rpc=edit-config
+
+🔗 Chain: NR100.RLINK2_1_3 (RX)
+----------------------------------------------------------------------------------------------------
+  [Endpoint] Static-LLRE-080
+      ├── endpoint-source-tag: static-low-level-rx-endpoints
+      ├── array: Rx-Array-04
+      ├── endpoint-type: 5
+      ├── restricted-interfaces[2]
+      │   ├── [1] fheth0
+      │   ├── [2] fheth1
+      └── [meta] msg-id=raw-static-recover, ts=-, rpc=raw-fallback
+      │
+      ▼ (Link PE: NR100.PE_1_0_1)
+      │
+      ├── link.name: NR100.RLINK2_1_3
+      ├── link.low-level-rx-endpoint: Static-LLRE-080
+      ├── link.rx-array-carrier: NR100.RX2_3_1_0
+      └── [meta] msg-id=101, ts=2025-06-25T20:56:32.178000+00:00, rpc=edit-config
+  [Carrier] NR100.RX2_3_1_0
+      ├── active: ACTIVE
+      ├── type: NR
+      ├── center-of-channel-bandwidth: 1725000000 Hz
+      ├── channel-bandwidth: 20000000 Hz
+      ├── downlink-radio-frame-offset: 0
+      ├── downlink-sfn-offset: 0
+      └── [meta] msg-id=109, ts=2025-06-25T20:56:32.738000+00:00, rpc=edit-config
+  [Processing Element] NR100.PE_1_0_1
+      ├── name: NR100.PE_1_0_1
+      ├── transport-flow[1]
+      │   ├── interface-name: vlan_0_1
+      │   ├── eth.ru-mac-address: 34:fe:9e:3d:e0:51
+      │   ├── eth.o-du-mac-address: 00:77:e4:21:b9:cf
+      │   └── eth.vlan-id: 1
+      └── [meta] msg-id=73, ts=2025-06-25T20:56:14.891000+00:00, rpc=edit-config
+
+🔗 Chain: NR100.RLINK2_1_4 (RX)
+----------------------------------------------------------------------------------------------------
+  [Endpoint] Static-LLRE-084
+      ├── endpoint-source-tag: static-low-level-rx-endpoints
+      ├── array: Rx-Array-04
+      ├── endpoint-type: 6
+      ├── static-config-supported: PRACH
+      ├── prach-group: 0
+      ├── restricted-interfaces[2]
+      │   ├── [1] fheth0
+      │   ├── [2] fheth1
+      ├── PRACH ref present but config not found: 0
+      └── [meta] msg-id=raw-static-recover, ts=-, rpc=raw-fallback
+      │
+      ▼ (Link PE: NR100.PE_1_0_1)
+      │
+      ├── link.name: NR100.RLINK2_1_4
+      ├── link.low-level-rx-endpoint: Static-LLRE-084
+      ├── link.rx-array-carrier: NR100.RX2_3_1_0
+      └── [meta] msg-id=102, ts=2025-06-25T20:56:32.247000+00:00, rpc=edit-config
+  [Carrier] NR100.RX2_3_1_0
+      ├── active: ACTIVE
+      ├── type: NR
+      ├── center-of-channel-bandwidth: 1725000000 Hz
+      ├── channel-bandwidth: 20000000 Hz
+      ├── downlink-radio-frame-offset: 0
+      ├── downlink-sfn-offset: 0
+      └── [meta] msg-id=109, ts=2025-06-25T20:56:32.738000+00:00, rpc=edit-config
+  [Processing Element] NR100.PE_1_0_1
+      ├── name: NR100.PE_1_0_1
+      ├── transport-flow[1]
+      │   ├── interface-name: vlan_0_1
+      │   ├── eth.ru-mac-address: 34:fe:9e:3d:e0:51
+      │   ├── eth.o-du-mac-address: 00:77:e4:21:b9:cf
+      │   └── eth.vlan-id: 1
+      └── [meta] msg-id=73, ts=2025-06-25T20:56:14.891000+00:00, rpc=edit-config
+
+🔗 Chain: NR100.RLINK2_1_7 (RX)
+----------------------------------------------------------------------------------------------------
+  [Endpoint] Static-LLRE-081
+      ├── endpoint-source-tag: static-low-level-rx-endpoints
+      ├── array: Rx-Array-05
+      ├── endpoint-type: 5
+      ├── restricted-interfaces[2]
+      │   ├── [1] fheth0
+      │   ├── [2] fheth1
+      └── [meta] msg-id=raw-static-recover, ts=-, rpc=raw-fallback
+      │
+      ▼ (Link PE: NR100.PE_1_0_1)
+      │
+      ├── link.name: NR100.RLINK2_1_7
+      ├── link.low-level-rx-endpoint: Static-LLRE-081
+      ├── link.rx-array-carrier: NR100.RX2_3_1_8
+      └── [meta] msg-id=104, ts=2025-06-25T20:56:32.358000+00:00, rpc=edit-config
+  [Carrier] NR100.RX2_3_1_8
+      ├── active: ACTIVE
+      ├── type: NR
+      ├── center-of-channel-bandwidth: 1725000000 Hz
+      ├── channel-bandwidth: 20000000 Hz
+      ├── downlink-radio-frame-offset: 0
+      ├── downlink-sfn-offset: 0
+      └── [meta] msg-id=109, ts=2025-06-25T20:56:32.738000+00:00, rpc=edit-config
+  [Processing Element] NR100.PE_1_0_1
+      ├── name: NR100.PE_1_0_1
+      ├── transport-flow[1]
+      │   ├── interface-name: vlan_0_1
+      │   ├── eth.ru-mac-address: 34:fe:9e:3d:e0:51
+      │   ├── eth.o-du-mac-address: 00:77:e4:21:b9:cf
+      │   └── eth.vlan-id: 1
+      └── [meta] msg-id=73, ts=2025-06-25T20:56:14.891000+00:00, rpc=edit-config
+
+🔗 Chain: NR100.RLINK2_1_8 (RX)
+----------------------------------------------------------------------------------------------------
+  [Endpoint] Static-LLRE-085
+      ├── endpoint-source-tag: static-low-level-rx-endpoints
+      ├── array: Rx-Array-05
+      ├── endpoint-type: 6
+      ├── static-config-supported: PRACH
+      ├── prach-group: 0
+      ├── restricted-interfaces[2]
+      │   ├── [1] fheth0
+      │   ├── [2] fheth1
+      ├── PRACH ref present but config not found: 0
+      └── [meta] msg-id=raw-static-recover, ts=-, rpc=raw-fallback
+      │
+      ▼ (Link PE: NR100.PE_1_0_1)
+      │
+      ├── link.name: NR100.RLINK2_1_8
+      ├── link.low-level-rx-endpoint: Static-LLRE-085
+      ├── link.rx-array-carrier: NR100.RX2_3_1_8
+      └── [meta] msg-id=105, ts=2025-06-25T20:56:32.404000+00:00, rpc=edit-config
+  [Carrier] NR100.RX2_3_1_8
+      ├── active: ACTIVE
+      ├── type: NR
+      ├── center-of-channel-bandwidth: 1725000000 Hz
+      ├── channel-bandwidth: 20000000 Hz
+      ├── downlink-radio-frame-offset: 0
+      ├── downlink-sfn-offset: 0
+      └── [meta] msg-id=109, ts=2025-06-25T20:56:32.738000+00:00, rpc=edit-config
+  [Processing Element] NR100.PE_1_0_1
+      ├── name: NR100.PE_1_0_1
+      ├── transport-flow[1]
+      │   ├── interface-name: vlan_0_1
+      │   ├── eth.ru-mac-address: 34:fe:9e:3d:e0:51
+      │   ├── eth.o-du-mac-address: 00:77:e4:21:b9:cf
+      │   └── eth.vlan-id: 1
+      └── [meta] msg-id=73, ts=2025-06-25T20:56:14.891000+00:00, rpc=edit-config

@@ -1,0 +1,28 @@
+{
+  "analyzed_at": "2026-03-13 12:07:28",
+  "show": "all",
+  "analyzer": "analyze_mplane_enhanced_nokia_patch_v2_with_array_srl.py",
+  "validations_count": 257,
+  "warnings_count": 40,
+  "counts": {
+    "carriers_tx": 16,
+    "carriers_rx": 16,
+    "endpoints_tx": 96,
+    "endpoints_rx": 192,
+    "links_tx": 16,
+    "links_rx": 32,
+    "prach_configs": 3,
+    "processing_elements": 4
+  },
+  "job_id": "20260313_120728_fc7141a6",
+  "original_name": "BTS405160_1018_RMOD_L-1_RPC.log",
+  "input_saved": "20260313_120728_fc7141a6.input",
+  "graph_stats": {
+    "nodes": 139,
+    "edges": 164,
+    "links_tx": 16,
+    "links_rx": 32,
+    "pe": 4,
+    "prach": 3
+  }
+}

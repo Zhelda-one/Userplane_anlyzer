@@ -1,0 +1,28 @@
+{
+  "analyzed_at": "2026-03-13 12:33:17",
+  "show": "all",
+  "analyzer": "analyze_mplane_enhanced_nokia_patch_v2_with_array_srl.py",
+  "validations_count": 49,
+  "warnings_count": 8,
+  "counts": {
+    "carriers_tx": 4,
+    "carriers_rx": 4,
+    "endpoints_tx": 24,
+    "endpoints_rx": 32,
+    "links_tx": 4,
+    "links_rx": 8,
+    "prach_configs": 0,
+    "processing_elements": 1
+  },
+  "job_id": "20260313_123317_0368e6bf",
+  "original_name": "RMOD_L-3_NetconfRpcMessageTrace_0.log",
+  "input_saved": "20260313_123317_0368e6bf.input",
+  "graph_stats": {
+    "nodes": 35,
+    "edges": 41,
+    "links_tx": 4,
+    "links_rx": 8,
+    "pe": 1,
+    "prach": 0
+  }
+}

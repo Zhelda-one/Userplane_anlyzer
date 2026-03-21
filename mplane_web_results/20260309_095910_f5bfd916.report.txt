@@ -1,0 +1,86 @@
+========================================================================================================================
+M-PLANE USER-PLANE CONFIGURATION ANALYSIS (Enhanced)
+========================================================================================================================
+Input file       : /home/sungpark/userplane_analyzer/mplane_web_results/20260309_095910_f5bfd916.input
+Segments parsed  : 352
+Objects          : TX carriers=2, RX carriers=2, TX endpoints=96, RX endpoints=192, TX links=2, RX links=0, PRACH configs=1, Processing elements=2
+
+========================================================================================================================
+CHAIN VIEW  (Link -> Endpoint -> Carrier -> Processing Element/Transport)
+========================================================================================================================
+
+🔗 Chain: NR405160.TLINK_CELL2_CG1_CH1 (TX)
+----------------------------------------------------------------------------------------------------
+  [Endpoint] lowLevelTxEndpoint0
+      ├── endpoint-source-tag: static-low-level-tx-endpoints
+      ├── array: txArray1a
+      ├── endpoint-type: 4
+      ├── restricted-interfaces[2]
+      │   ├── [1] ethernetInterface0
+      │   ├── [2] ethernetInterface2
+      ├── supported-reference-level[1]
+      │   ├── [1] id=0, min=-8.2082, max=16.1055
+      └── [meta] msg-id=raw-static-recover, ts=-, rpc=raw-fallback
+      │
+      ▼ (Link PE: NR405160.PE_2_vlan_1_ethernetInterface0)
+      │
+      ├── link.name: NR405160.TLINK_CELL2_CG1_CH1
+      ├── link.low-level-tx-endpoint: lowLevelTxEndpoint0
+      ├── link.tx-array-carrier: NR405160.TX2_1_1_0
+      └── [meta] msg-id=132, ts=2026-02-12T14:18:37.460000+00:00, rpc=edit-config
+  [Carrier] NR405160.TX2_1_1_0
+      ├── active: ACTIVE
+      ├── type: NR
+      ├── center-of-channel-bandwidth: 2140000000 Hz
+      ├── channel-bandwidth: 10000000 Hz
+      ├── gain: 28.0482
+      ├── reference-level: 8.9518
+      ├── downlink-radio-frame-offset: 0
+      ├── downlink-sfn-offset: 0
+      └── [meta] msg-id=136, ts=2026-02-12T14:18:38.568000+00:00, rpc=edit-config
+  [Processing Element] NR405160.PE_2_vlan_1_ethernetInterface0
+      ├── name: NR405160.PE_2_vlan_1_ethernetInterface0
+      ├── transport-flow[1]
+      │   ├── interface-name: vlan_1_ethernetInterface0
+      │   ├── eth.ru-mac-address: d0:48:4f:2b:1f:3f
+      │   ├── eth.o-du-mac-address: 28:74:f5:20:1d:3f
+      │   └── eth.vlan-id: 1
+      └── [meta] msg-id=117, ts=2026-02-12T14:18:28.815000+00:00, rpc=edit-config
+
+🔗 Chain: NR405160.TLINK_CELL2_CG1_CH5 (TX)
+----------------------------------------------------------------------------------------------------
+  [Endpoint] lowLevelTxEndpoint10
+      ├── endpoint-source-tag: static-low-level-tx-endpoints
+      ├── array: txArray2a
+      ├── endpoint-type: 4
+      ├── restricted-interfaces[2]
+      │   ├── [1] ethernetInterface0
+      │   ├── [2] ethernetInterface2
+      ├── supported-reference-level[1]
+      │   ├── [1] id=0, min=-8.2082, max=16.1055
+      └── [meta] msg-id=raw-static-recover, ts=-, rpc=raw-fallback
+      │
+      ▼ (Link PE: NR405160.PE_2_vlan_1_ethernetInterface0)
+      │
+      ├── link.name: NR405160.TLINK_CELL2_CG1_CH5
+      ├── link.low-level-tx-endpoint: lowLevelTxEndpoint10
+      ├── link.tx-array-carrier: NR405160.TX2_1_1_8
+      └── [meta] msg-id=132, ts=2026-02-12T14:18:37.460000+00:00, rpc=edit-config
+  [Carrier] NR405160.TX2_1_1_8
+      ├── active: ACTIVE
+      ├── type: NR
+      ├── center-of-channel-bandwidth: 2140000000 Hz
+      ├── channel-bandwidth: 10000000 Hz
+      ├── gain: 28.0482
+      ├── reference-level: 8.9518
+      ├── downlink-radio-frame-offset: 0
+      ├── downlink-sfn-offset: 0
+      └── [meta] msg-id=136, ts=2026-02-12T14:18:38.568000+00:00, rpc=edit-config
+  [Processing Element] NR405160.PE_2_vlan_1_ethernetInterface0
+      ├── name: NR405160.PE_2_vlan_1_ethernetInterface0
+      ├── transport-flow[1]
+      │   ├── interface-name: vlan_1_ethernetInterface0
+      │   ├── eth.ru-mac-address: d0:48:4f:2b:1f:3f
+      │   ├── eth.o-du-mac-address: 28:74:f5:20:1d:3f
+      │   └── eth.vlan-id: 1
+      └── [meta] msg-id=117, ts=2026-02-12T14:18:28.815000+00:00, rpc=edit-config

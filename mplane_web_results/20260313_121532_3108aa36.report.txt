@@ -1,0 +1,11 @@
+========================================================================================================================
+M-PLANE USER-PLANE CONFIGURATION ANALYSIS (Enhanced)
+========================================================================================================================
+Input file       : /home/sungpark/userplane_analyzer/mplane_web_results/20260313_121532_3108aa36.input
+Segments parsed  : 0
+Objects          : TX carriers=0, RX carriers=0, TX endpoints=96, RX endpoints=180, TX links=0, RX links=0, PRACH configs=0, Processing elements=0
+
+========================================================================================================================
+CHAIN VIEW  (Link -> Endpoint -> Carrier -> Processing Element/Transport)
+========================================================================================================================
+(No low-level link chains found)

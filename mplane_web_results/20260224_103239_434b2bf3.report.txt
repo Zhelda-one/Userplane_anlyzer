@@ -1,0 +1,364 @@
+========================================================================================================================
+M-PLANE USER-PLANE CONFIGURATION ANALYSIS (Enhanced)
+========================================================================================================================
+Input file       : C:\Users\sungpark\Documents\Documents\Userplane_analyzer\mplane_web_results\20260224_103239_434b2bf3.input
+Segments parsed  : 392
+Objects          : TX carriers=2, RX carriers=2, TX endpoints=2, RX endpoints=4, TX links=2, RX links=4, PRACH configs=1, Processing elements=1
+
+========================================================================================================================
+CHAIN VIEW  (Link -> Endpoint -> Carrier -> Processing Element/Transport)
+========================================================================================================================
+
+🔗 Chain: Low-Level-Tx-Links-000 (TX)
+----------------------------------------------------------------------------------------------------
+  [Endpoint] lowLevelTxEndpoint0
+      ├── frame-structure: 160
+      ├── cp-type: NORMAL
+      ├── cp-length: 160
+      ├── cp-length-other: 144
+      ├── offset-to-absolute-frequency-center: -624
+      ├── number-of-prb-per-scs: KHZ_15:52
+      ├── compression.iq-bitwidth: 9
+      ├── compression.type: STATIC
+      ├── compression.method: BLOCK_FLOATING_POINT
+      ├── compression.fs-offset: 0
+      ├── eaxc.o-du-port-bitmask: 61440
+      ├── eaxc.band-sector-bitmask: 3584
+      ├── eaxc.ccid-bitmask: 496
+      ├── eaxc.ru-port-bitmask: 15
+      ├── eaxc.eaxc-id: 0
+      └── [meta] msg-id=44, ts=2026-02-18T16:48:40.269030, rpc=edit-config
+      │
+      ▼ (Link PE: processing-element01)
+      │
+      ├── link.name: Low-Level-Tx-Links-000
+      ├── link.low-level-tx-endpoint: lowLevelTxEndpoint0
+      ├── link.tx-array-carrier: Tx-Array-Carrier-00
+      └── [meta] msg-id=48, ts=2026-02-18T16:48:42.049472, rpc=edit-config
+  [Carrier] Tx-Array-Carrier-00
+      ├── active: INACTIVE
+      ├── type: NR
+      ├── center-of-channel-bandwidth: 2140000000 Hz
+      ├── channel-bandwidth: 10000000 Hz
+      ├── gain: 31.1000
+      ├── reference-level: 4.0000
+      ├── downlink-radio-frame-offset: 0
+      ├── downlink-sfn-offset: 0
+      └── [meta] msg-id=64, ts=2026-02-18T16:53:22.076728, rpc=edit-config
+  [Processing Element] processing-element01
+      ├── name: processing-element01
+      ├── transport-flow[1]
+      │   ├── interface-name: uc-vlan0
+      │   ├── eth.ru-mac-address: B8:97:7A:3F:82:CA
+      │   ├── eth.o-du-mac-address: a8:3c:a5:5d:4b:43
+      │   └── eth.vlan-id: 13
+      └── [meta] msg-id=42, ts=2026-02-18T16:48:39.744927, rpc=edit-config
+
+🔗 Chain: Low-Level-Tx-Links-001 (TX)
+----------------------------------------------------------------------------------------------------
+  [Endpoint] lowLevelTxEndpoint10
+      ├── frame-structure: 160
+      ├── cp-type: NORMAL
+      ├── cp-length: 160
+      ├── cp-length-other: 144
+      ├── offset-to-absolute-frequency-center: -624
+      ├── number-of-prb-per-scs: KHZ_15:52
+      ├── compression.iq-bitwidth: 9
+      ├── compression.type: STATIC
+      ├── compression.method: BLOCK_FLOATING_POINT
+      ├── compression.fs-offset: 0
+      ├── eaxc.o-du-port-bitmask: 61440
+      ├── eaxc.band-sector-bitmask: 3584
+      ├── eaxc.ccid-bitmask: 496
+      ├── eaxc.ru-port-bitmask: 15
+      ├── eaxc.eaxc-id: 8
+      └── [meta] msg-id=44, ts=2026-02-18T16:48:40.269030, rpc=edit-config
+      │
+      ▼ (Link PE: processing-element01)
+      │
+      ├── link.name: Low-Level-Tx-Links-001
+      ├── link.low-level-tx-endpoint: lowLevelTxEndpoint10
+      ├── link.tx-array-carrier: Tx-Array-Carrier-01
+      └── [meta] msg-id=48, ts=2026-02-18T16:48:42.049472, rpc=edit-config
+  [Carrier] Tx-Array-Carrier-01
+      ├── active: INACTIVE
+      ├── type: NR
+      ├── center-of-channel-bandwidth: 2140000000 Hz
+      ├── channel-bandwidth: 10000000 Hz
+      ├── gain: 31.1000
+      ├── reference-level: 4.0000
+      ├── downlink-radio-frame-offset: 0
+      ├── downlink-sfn-offset: 0
+      └── [meta] msg-id=64, ts=2026-02-18T16:53:22.076728, rpc=edit-config
+  [Processing Element] processing-element01
+      ├── name: processing-element01
+      ├── transport-flow[1]
+      │   ├── interface-name: uc-vlan0
+      │   ├── eth.ru-mac-address: B8:97:7A:3F:82:CA
+      │   ├── eth.o-du-mac-address: a8:3c:a5:5d:4b:43
+      │   └── eth.vlan-id: 13
+      └── [meta] msg-id=42, ts=2026-02-18T16:48:39.744927, rpc=edit-config
+
+🔗 Chain: Low-Level-Rx-Links-000 (RX)
+----------------------------------------------------------------------------------------------------
+  [Endpoint] lowLevelRxEndpoint0
+      ├── frame-structure: 160
+      ├── cp-type: NORMAL
+      ├── cp-length: 160
+      ├── cp-length-other: 144
+      ├── offset-to-absolute-frequency-center: -624
+      ├── number-of-prb-per-scs: KHZ_15:52
+      ├── non-time-managed-delay-enabled: false
+      ├── compression.iq-bitwidth: 9
+      ├── compression.type: STATIC
+      ├── compression.method: BLOCK_FLOATING_POINT
+      ├── compression.fs-offset: 0
+      ├── eaxc.o-du-port-bitmask: 61440
+      ├── eaxc.band-sector-bitmask: 3584
+      ├── eaxc.ccid-bitmask: 496
+      ├── eaxc.ru-port-bitmask: 15
+      ├── eaxc.eaxc-id: 0
+      ├── eaxc-gain-correction: -10.7918
+      └── [meta] msg-id=45, ts=2026-02-18T16:48:40.683068, rpc=edit-config
+      │
+      ▼ (Link PE: processing-element01)
+      │
+      ├── link.name: Low-Level-Rx-Links-000
+      ├── link.low-level-rx-endpoint: lowLevelRxEndpoint0
+      ├── link.rx-array-carrier: Rx-Array-Carrier-00
+      └── [meta] msg-id=51, ts=2026-02-18T16:49:33.017049, rpc=edit-config
+  [Carrier] Rx-Array-Carrier-00
+      ├── active: INACTIVE
+      ├── type: NR
+      ├── center-of-channel-bandwidth: 1950000000 Hz
+      ├── channel-bandwidth: 10000000 Hz
+      ├── downlink-radio-frame-offset: 0
+      ├── downlink-sfn-offset: 0
+      └── [meta] msg-id=64, ts=2026-02-18T16:53:22.076728, rpc=edit-config
+  [Processing Element] processing-element01
+      ├── name: processing-element01
+      ├── transport-flow[1]
+      │   ├── interface-name: uc-vlan0
+      │   ├── eth.ru-mac-address: B8:97:7A:3F:82:CA
+      │   ├── eth.o-du-mac-address: a8:3c:a5:5d:4b:43
+      │   └── eth.vlan-id: 13
+      └── [meta] msg-id=42, ts=2026-02-18T16:48:39.744927, rpc=edit-config
+
+🔗 Chain: Low-Level-Rx-Links-001 (RX)
+----------------------------------------------------------------------------------------------------
+  [Endpoint] lowLevelRxEndpoint10
+      ├── frame-structure: 160
+      ├── cp-type: NORMAL
+      ├── cp-length: 160
+      ├── cp-length-other: 144
+      ├── offset-to-absolute-frequency-center: -624
+      ├── number-of-prb-per-scs: KHZ_15:52
+      ├── non-time-managed-delay-enabled: false
+      ├── compression.iq-bitwidth: 9
+      ├── compression.type: STATIC
+      ├── compression.method: BLOCK_FLOATING_POINT
+      ├── compression.fs-offset: 0
+      ├── eaxc.o-du-port-bitmask: 61440
+      ├── eaxc.band-sector-bitmask: 3584
+      ├── eaxc.ccid-bitmask: 496
+      ├── eaxc.ru-port-bitmask: 15
+      ├── eaxc.eaxc-id: 8
+      ├── eaxc-gain-correction: -10.7918
+      └── [meta] msg-id=45, ts=2026-02-18T16:48:40.683068, rpc=edit-config
+      │
+      ▼ (Link PE: processing-element01)
+      │
+      ├── link.name: Low-Level-Rx-Links-001
+      ├── link.low-level-rx-endpoint: lowLevelRxEndpoint10
+      ├── link.rx-array-carrier: Rx-Array-Carrier-01
+      └── [meta] msg-id=51, ts=2026-02-18T16:49:33.017049, rpc=edit-config
+  [Carrier] Rx-Array-Carrier-01
+      ├── active: INACTIVE
+      ├── type: NR
+      ├── center-of-channel-bandwidth: 1950000000 Hz
+      ├── channel-bandwidth: 10000000 Hz
+      ├── downlink-radio-frame-offset: 0
+      ├── downlink-sfn-offset: 0
+      └── [meta] msg-id=64, ts=2026-02-18T16:53:22.076728, rpc=edit-config
+  [Processing Element] processing-element01
+      ├── name: processing-element01
+      ├── transport-flow[1]
+      │   ├── interface-name: uc-vlan0
+      │   ├── eth.ru-mac-address: B8:97:7A:3F:82:CA
+      │   ├── eth.o-du-mac-address: a8:3c:a5:5d:4b:43
+      │   └── eth.vlan-id: 13
+      └── [meta] msg-id=42, ts=2026-02-18T16:48:39.744927, rpc=edit-config
+
+🔗 Chain: Low-Level-Rx-Links-002 (RX)
+----------------------------------------------------------------------------------------------------
+  [Endpoint] lowLevelRxEndpoint100
+      ├── frame-structure: 188
+      ├── cp-type: NORMAL
+      ├── cp-length: 160
+      ├── cp-length-other: 144
+      ├── offset-to-absolute-frequency-center: -3744
+      ├── number-of-prb-per-scs: KHZ_1_25:70
+      ├── non-time-managed-delay-enabled: false
+      ├── compression.iq-bitwidth: 9
+      ├── compression.type: STATIC
+      ├── compression.method: BLOCK_FLOATING_POINT
+      ├── compression.fs-offset: 0
+      ├── eaxc.o-du-port-bitmask: 61440
+      ├── eaxc.band-sector-bitmask: 3584
+      ├── eaxc.ccid-bitmask: 496
+      ├── eaxc.ru-port-bitmask: 15
+      ├── eaxc.eaxc-id: 4
+      ├── eaxc-gain-correction: 0.0000
+      ├── static-config-supported: PRACH
+      ├── static-prach-configuration: 0
+      ├── PRACH config matched: 0
+      │   ├── pattern-period: 4
+      │   ├── sequence-duration: 24576
+      │   ├── num-prach-re: 839
+      │   ├── guard-tone-low-re: 7
+      │   └── guard-tone-high-re: 18
+      └── [meta] msg-id=45, ts=2026-02-18T16:48:40.683068, rpc=edit-config
+      │
+      ▼ (Link PE: processing-element01)
+      │
+      ├── link.name: Low-Level-Rx-Links-002
+      ├── link.low-level-rx-endpoint: lowLevelRxEndpoint100
+      ├── link.rx-array-carrier: Rx-Array-Carrier-00
+      └── [meta] msg-id=51, ts=2026-02-18T16:49:33.017049, rpc=edit-config
+  [Carrier] Rx-Array-Carrier-00
+      ├── active: INACTIVE
+      ├── type: NR
+      ├── center-of-channel-bandwidth: 1950000000 Hz
+      ├── channel-bandwidth: 10000000 Hz
+      ├── downlink-radio-frame-offset: 0
+      ├── downlink-sfn-offset: 0
+      └── [meta] msg-id=64, ts=2026-02-18T16:53:22.076728, rpc=edit-config
+  [Processing Element] processing-element01
+      ├── name: processing-element01
+      ├── transport-flow[1]
+      │   ├── interface-name: uc-vlan0
+      │   ├── eth.ru-mac-address: B8:97:7A:3F:82:CA
+      │   ├── eth.o-du-mac-address: a8:3c:a5:5d:4b:43
+      │   └── eth.vlan-id: 13
+      └── [meta] msg-id=42, ts=2026-02-18T16:48:39.744927, rpc=edit-config
+
+🔗 Chain: Low-Level-Rx-Links-003 (RX)
+----------------------------------------------------------------------------------------------------
+  [Endpoint] lowLevelRxEndpoint104
+      ├── frame-structure: 188
+      ├── cp-type: NORMAL
+      ├── cp-length: 160
+      ├── cp-length-other: 144
+      ├── offset-to-absolute-frequency-center: -3744
+      ├── number-of-prb-per-scs: KHZ_1_25:70
+      ├── non-time-managed-delay-enabled: false
+      ├── compression.iq-bitwidth: 9
+      ├── compression.type: STATIC
+      ├── compression.method: BLOCK_FLOATING_POINT
+      ├── compression.fs-offset: 0
+      ├── eaxc.o-du-port-bitmask: 61440
+      ├── eaxc.band-sector-bitmask: 3584
+      ├── eaxc.ccid-bitmask: 496
+      ├── eaxc.ru-port-bitmask: 15
+      ├── eaxc.eaxc-id: 10
+      ├── eaxc-gain-correction: 0.0000
+      ├── static-config-supported: PRACH
+      ├── static-prach-configuration: 0
+      ├── PRACH config matched: 0
+      │   ├── pattern-period: 4
+      │   ├── sequence-duration: 24576
+      │   ├── num-prach-re: 839
+      │   ├── guard-tone-low-re: 7
+      │   └── guard-tone-high-re: 18
+      └── [meta] msg-id=45, ts=2026-02-18T16:48:40.683068, rpc=edit-config
+      │
+      ▼ (Link PE: processing-element01)
+      │
+      ├── link.name: Low-Level-Rx-Links-003
+      ├── link.low-level-rx-endpoint: lowLevelRxEndpoint104
+      ├── link.rx-array-carrier: Rx-Array-Carrier-01
+      └── [meta] msg-id=51, ts=2026-02-18T16:49:33.017049, rpc=edit-config
+  [Carrier] Rx-Array-Carrier-01
+      ├── active: INACTIVE
+      ├── type: NR
+      ├── center-of-channel-bandwidth: 1950000000 Hz
+      ├── channel-bandwidth: 10000000 Hz
+      ├── downlink-radio-frame-offset: 0
+      ├── downlink-sfn-offset: 0
+      └── [meta] msg-id=64, ts=2026-02-18T16:53:22.076728, rpc=edit-config
+  [Processing Element] processing-element01
+      ├── name: processing-element01
+      ├── transport-flow[1]
+      │   ├── interface-name: uc-vlan0
+      │   ├── eth.ru-mac-address: B8:97:7A:3F:82:CA
+      │   ├── eth.o-du-mac-address: a8:3c:a5:5d:4b:43
+      │   └── eth.vlan-id: 13
+      └── [meta] msg-id=42, ts=2026-02-18T16:48:39.744927, rpc=edit-config
+
+========================================================================================================================
+ENDPOINT SUMMARY
+========================================================================================================================
+DIR | ENDPOINT | EAXC | RU_MASK | FS_OFFSET | IQ_BW | METHOD | FRAME | FREQ_OFFSET | PRACH_REF
+------------------------------------------------------------------------------------------------------------------------
+TX | lowLevelTxEndpoint0 | 0 | 15 | 0 | 9 | BLOCK_FLOATING_POINT | 160 | -624 | -
+TX | lowLevelTxEndpoint10 | 8 | 15 | 0 | 9 | BLOCK_FLOATING_POINT | 160 | -624 | -
+RX | lowLevelRxEndpoint0 | 0 | 15 | 0 | 9 | BLOCK_FLOATING_POINT | 160 | -624 | -
+RX | lowLevelRxEndpoint10 | 8 | 15 | 0 | 9 | BLOCK_FLOATING_POINT | 160 | -624 | -
+RX | lowLevelRxEndpoint100 | 4 | 15 | 0 | 9 | BLOCK_FLOATING_POINT | 188 | -3744 | 0
+RX | lowLevelRxEndpoint104 | 10 | 15 | 0 | 9 | BLOCK_FLOATING_POINT | 188 | -3744 | 0
+
+========================================================================================================================
+VALIDATION / ALARMS
+========================================================================================================================
+[WARN] Duplicate eAxC scope+eaxc-id ('61440', '3584', '496', '15', '0'): endpoints=lowLevelRxEndpoint0, lowLevelTxEndpoint0
+[WARN] Duplicate eAxC scope+eaxc-id ('61440', '3584', '496', '15', '8'): endpoints=lowLevelRxEndpoint10, lowLevelTxEndpoint10
+
+========================================================================================================================
+PARSER WARNINGS
+========================================================================================================================
+[parse_upc] tag=user-plane-configuration msg=ParseError: not well-formed (invalid token): line 3, column 3 ts=2026-02-18T16:41:33.919803 msg-id=38
+   fragment: <user-plane-configuration xmlns="urn:o-ran:uplane-conf:1.0"/> </filter> </get> </rpc> [2026-02-18 16:41:34.499049];RECV;309788bytes;!!! <rpc-reply xmlns="urn:ie...
+[notification] tag=user-plane-state-change msg=User-plane state-change notification observed (not fully merged into config state) ts=2026-02-18T16:41:37.684286 msg-id=None
+   fragment: <notification xmlns="urn:ietf:params:xml:ns:netconf:notification:1.0"> <eventTime>2026-02-18T16:41:25.522345148-06:00</eventTime> <tx-array-carriers-state-chang...
+[notification] tag=user-plane-state-change msg=User-plane state-change notification observed (not fully merged into config state) ts=2026-02-18T16:42:28.629516 msg-id=None
+   fragment: <notification xmlns="urn:ietf:params:xml:ns:netconf:notification:1.0"> <eventTime>2026-02-18T16:42:16.528040970-06:00</eventTime> <rx-array-carriers-state-chang...
+[notification] tag=user-plane-state-change msg=User-plane state-change notification observed (not fully merged into config state) ts=2026-02-18T16:44:41.920462 msg-id=None
+   fragment: <notification xmlns="urn:ietf:params:xml:ns:netconf:notification:1.0"> <eventTime>2026-02-18T16:44:29.615763020-06:00</eventTime> <tx-array-carriers-state-chang...
+[notification] tag=user-plane-state-change msg=User-plane state-change notification observed (not fully merged into config state) ts=2026-02-18T16:44:42.311675 msg-id=None
+   fragment: <notification xmlns="urn:ietf:params:xml:ns:netconf:notification:1.0"> <eventTime>2026-02-18T16:44:30.165680469-06:00</eventTime> <rx-array-carriers-state-chang...
+[parse_upc] tag=user-plane-configuration msg=ParseError: not well-formed (invalid token): line 3, column 3 ts=2026-02-18T16:48:38.917421 msg-id=38
+   fragment: <user-plane-configuration xmlns="urn:o-ran:uplane-conf:1.0"/> </filter> </get> </rpc> [2026-02-18 16:48:39.471099];RECV;309788bytes;!!! <rpc-reply xmlns="urn:ie...
+[notification] tag=user-plane-state-change msg=User-plane state-change notification observed (not fully merged into config state) ts=2026-02-18T16:48:42.624745 msg-id=None
+   fragment: <notification xmlns="urn:ietf:params:xml:ns:netconf:notification:1.0"> <eventTime>2026-02-18T16:48:30.451112111-06:00</eventTime> <tx-array-carriers-state-chang...
+[notification] tag=user-plane-state-change msg=User-plane state-change notification observed (not fully merged into config state) ts=2026-02-18T16:49:33.664530 msg-id=None
+   fragment: <notification xmlns="urn:ietf:params:xml:ns:netconf:notification:1.0"> <eventTime>2026-02-18T16:49:21.532627391-06:00</eventTime> <rx-array-carriers-state-chang...
+[notification] tag=user-plane-state-change msg=User-plane state-change notification observed (not fully merged into config state) ts=2026-02-18T16:49:48.546942 msg-id=None
+   fragment: <notification xmlns="urn:ietf:params:xml:ns:netconf:notification:1.0"> <eventTime>2026-02-18T16:49:36.405955130-06:00</eventTime> <tx-array-carriers-state-chang...
+[notification] tag=user-plane-state-change msg=User-plane state-change notification observed (not fully merged into config state) ts=2026-02-18T16:49:48.969423 msg-id=None
+   fragment: <notification xmlns="urn:ietf:params:xml:ns:netconf:notification:1.0"> <eventTime>2026-02-18T16:49:36.789921145-06:00</eventTime> <rx-array-carriers-state-chang...
+[notification] tag=user-plane-state-change msg=User-plane state-change notification observed (not fully merged into config state) ts=2026-02-18T16:53:22.913331 msg-id=None
+   fragment: <notification xmlns="urn:ietf:params:xml:ns:netconf:notification:1.0"> <eventTime>2026-02-18T16:53:10.723246658-06:00</eventTime> <rx-array-carriers-state-chang...
+[notification] tag=user-plane-state-change msg=User-plane state-change notification observed (not fully merged into config state) ts=2026-02-18T16:53:23.318912 msg-id=None
+   fragment: <notification xmlns="urn:ietf:params:xml:ns:netconf:notification:1.0"> <eventTime>2026-02-18T16:53:11.154870356-06:00</eventTime> <tx-array-carriers-state-chang...
+
+========================================================================================================================
+OBJECT HISTORY SUMMARY
+========================================================================================================================
+carrier_rx:Rx-Array-Carrier-00: 5 version(s), latest ts=2026-02-18T16:53:22.076728 msg-id=64
+carrier_rx:Rx-Array-Carrier-01: 5 version(s), latest ts=2026-02-18T16:53:22.076728 msg-id=64
+carrier_tx:Tx-Array-Carrier-00: 5 version(s), latest ts=2026-02-18T16:53:22.076728 msg-id=64
+carrier_tx:Tx-Array-Carrier-01: 5 version(s), latest ts=2026-02-18T16:53:22.076728 msg-id=64
+endpoint_rx:lowLevelRxEndpoint0: 2 version(s), latest ts=2026-02-18T16:48:40.683068 msg-id=45
+endpoint_rx:lowLevelRxEndpoint10: 2 version(s), latest ts=2026-02-18T16:48:40.683068 msg-id=45
+endpoint_rx:lowLevelRxEndpoint100: 2 version(s), latest ts=2026-02-18T16:48:40.683068 msg-id=45
+endpoint_rx:lowLevelRxEndpoint104: 2 version(s), latest ts=2026-02-18T16:48:40.683068 msg-id=45
+endpoint_tx:lowLevelTxEndpoint0: 2 version(s), latest ts=2026-02-18T16:48:40.269030 msg-id=44
+endpoint_tx:lowLevelTxEndpoint10: 2 version(s), latest ts=2026-02-18T16:48:40.269030 msg-id=44
+link_rx:Low-Level-Rx-Links-000: 2 version(s), latest ts=2026-02-18T16:49:33.017049 msg-id=51
+link_rx:Low-Level-Rx-Links-001: 2 version(s), latest ts=2026-02-18T16:49:33.017049 msg-id=51
+link_rx:Low-Level-Rx-Links-002: 2 version(s), latest ts=2026-02-18T16:49:33.017049 msg-id=51
+link_rx:Low-Level-Rx-Links-003: 2 version(s), latest ts=2026-02-18T16:49:33.017049 msg-id=51
+link_tx:Low-Level-Tx-Links-000: 2 version(s), latest ts=2026-02-18T16:48:42.049472 msg-id=48
+link_tx:Low-Level-Tx-Links-001: 2 version(s), latest ts=2026-02-18T16:48:42.049472 msg-id=48
+prach:0: 2 version(s), latest ts=2026-02-18T16:48:40.006796 msg-id=43
+processing_element:processing-element01: 2 version(s), latest ts=2026-02-18T16:48:39.744927 msg-id=42

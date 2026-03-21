@@ -5,7 +5,7 @@ Features
 - Upload .txt/.xml/.log NETCONF M-Plane logs/configs
 - Runs patched analyzer (Nokia NETCONF trace supported)
 - Shows HTML result preview
-- Displays TXT / JSON results in-browser only (no server-side save)
+- Download TXT / JSON outputs
 - Interactive chain map (Link -> Endpoint -> Carrier -> PE -> Transport Flow)
   * Click node to inspect details
   * PE links included
@@ -22,7 +22,6 @@ import os
 import re
 import sys
 import time
-import tempfile
 import traceback
 import uuid
 from email.parser import BytesParser
@@ -42,9 +41,11 @@ ANALYZER_CANDIDATES = [
     BASE_DIR / "analyze_mplane_enhanced.py",
 ]
 UPLOAD_DIR = BASE_DIR / "mplane_web_uploads"
+RESULT_DIR = BASE_DIR / "mplane_web_results"
 MAX_UPLOAD_MB = 50
 
 UPLOAD_DIR.mkdir(parents=True, exist_ok=True)
+RESULT_DIR.mkdir(parents=True, exist_ok=True)
 
 
 def _pick_analyzer_path() -> Path:
@@ -87,60 +88,23 @@ def html_page(title: str, body: str) -> bytes:
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{html.escape(title)}</title>
 <style>
-body {{ font-family: Inter, Arial, sans-serif; margin: 0; line-height: 1.5; background: linear-gradient(180deg, #f3f7ff 0%, #f8fafc 220px, #f6f8fb 100%); color: #142033; }}
-.container {{ max-width: 1440px; margin: auto; padding: 32px 24px 48px; }}
-.card {{ border: 1px solid #dde5f0; border-radius: 18px; padding: 20px; margin-bottom: 16px; background: rgba(255,255,255,.94); box-shadow: 0 14px 40px rgba(15,23,42,.06); backdrop-filter: blur(6px); }}
+body {{ font-family: Arial, sans-serif; margin: 24px; line-height: 1.4; }}
+.container {{ max-width: 1400px; margin: auto; }}
+.card {{ border: 1px solid #ddd; border-radius: 10px; padding: 16px; margin-bottom: 16px; }}
 pre {{ background: #f7f7f7; border: 1px solid #eee; padding: 12px; overflow-x: auto; white-space: pre-wrap; }}
-code {{ background: #eef3ff; padding: 1px 6px; border-radius: 6px; }}
-label {{ display: inline-block; min-width: 140px; margin-top: 6px; font-weight: 600; color: #2b3b52; }}
-input[type=file], select, input[type=text] {{ min-width: 320px; max-width: 100%; border: 1px solid #ccd8ea; border-radius: 12px; padding: 12px 14px; background: #fff; }}
-button {{ padding: 12px 18px; cursor: pointer; border: 0; border-radius: 12px; background: linear-gradient(135deg, #2563eb 0%, #4f46e5 100%); color: #fff; font-weight: 700; box-shadow: 0 10px 20px rgba(37,99,235,.22); }}
-button:hover {{ filter: brightness(1.03); }}
-.muted {{ color: #607086; }}
-.row {{ margin: 12px 0; }}
-.alert {{ background:#fff8e1; border:1px solid #f0d97a; padding:12px 14px; border-radius:14px; margin-bottom: 16px; }}
+code {{ background: #f3f3f3; padding: 1px 4px; border-radius: 4px; }}
+label {{ display: inline-block; min-width: 140px; margin-top: 6px; }}
+input[type=file], select, input[type=text] {{ min-width: 320px; max-width: 100%; }}
+button {{ padding: 8px 14px; cursor: pointer; }}
+.muted {{ color: #666; }}
+.row {{ margin: 8px 0; }}
+.alert {{ background:#fff8e1; border:1px solid #f0d97a; padding:10px; border-radius:8px; }}
 .err {{ background:#ffecec; border-color:#ef9a9a; }}
-a {{ text-decoration: none; color: #274fcf; }}
+a {{ text-decoration: none; }}
 a:hover {{ text-decoration: underline; }}
-.grid {{ display:grid; grid-template-columns: 1fr 1fr; gap: 16px; }}
-.grid3 {{ display:grid; grid-template-columns: 2fr 1fr; gap: 16px; }}
+.grid {{ display:grid; grid-template-columns: 1fr 1fr; gap: 12px; }}
+.grid3 {{ display:grid; grid-template-columns: 2fr 1fr; gap: 12px; }}
 @media (max-width: 1100px) {{ .grid {{ grid-template-columns: 1fr; }} .grid3 {{ grid-template-columns: 1fr; }} }}
-.hero {{ display:grid; grid-template-columns: 1.6fr .9fr; gap: 20px; align-items: stretch; margin-bottom: 18px; }}
-.hero-panel {{ background: linear-gradient(135deg, #0f172a 0%, #1d4ed8 52%, #4f46e5 100%); color:#fff; border-radius: 24px; padding: 28px; box-shadow: 0 24px 50px rgba(30,41,59,.22); }}
-.hero-panel h1 {{ margin: 0 0 12px; font-size: 38px; line-height: 1.1; }}
-.hero-panel p {{ margin: 0 0 18px; color: rgba(255,255,255,.86); font-size: 15px; max-width: 760px; }}
-.hero-kpis {{ display:grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }}
-.hero-kpi {{ background: rgba(255,255,255,.12); border: 1px solid rgba(255,255,255,.16); border-radius: 16px; padding: 14px; }}
-.hero-kpi b {{ display:block; font-size: 18px; margin-bottom: 3px; }}
-.hero-side {{ display:grid; gap: 14px; }}
-.badge-row {{ display:flex; flex-wrap:wrap; gap: 8px; margin-bottom: 14px; }}
-.badge {{ display:inline-flex; align-items:center; gap: 6px; padding: 7px 10px; border-radius: 999px; font-size: 12px; font-weight: 700; background: rgba(255,255,255,.16); border: 1px solid rgba(255,255,255,.18); color:#fff; }}
-.soft-badge {{ display:inline-flex; align-items:center; padding: 7px 10px; border-radius: 999px; font-size: 12px; font-weight: 700; color:#274fcf; background:#edf4ff; border:1px solid #cfe0ff; }}
-.landing-grid {{ display:grid; grid-template-columns: minmax(0, 1.35fr) minmax(320px, .9fr); gap: 18px; align-items:start; }}
-.upload-card {{ padding: 24px; }}
-.dropzone-look {{ border: 1.5px dashed #a5b9df; border-radius: 18px; padding: 18px; background: linear-gradient(180deg, #f8fbff 0%, #f5f8ff 100%); margin-bottom: 16px; }}
-.dropzone-look strong {{ display:block; font-size: 16px; margin-bottom: 4px; color: #16325c; }}
-.form-grid {{ display:grid; grid-template-columns: 160px 1fr; gap: 14px 16px; align-items:center; }}
-.form-grid .full {{ grid-column: 1 / -1; }}
-.subtle {{ font-size: 13px; color: #607086; }}
-.secondary-btn {{ background: #fff; color: #1f3f8f; border: 1px solid #c7d6f2; box-shadow: none; }}
-.feature-list, .steps-list {{ list-style:none; padding:0; margin:0; display:grid; gap: 12px; }}
-.feature-list li, .steps-list li {{ padding: 14px 14px; border-radius: 14px; background:#f8fbff; border:1px solid #e1e9f6; }}
-.feature-list strong, .steps-list strong {{ display:block; margin-bottom: 3px; color:#17345f; }}
-.side-stack {{ display:grid; gap: 16px; }}
-.stats-strip {{ display:grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }}
-.stats-strip .card {{ margin-bottom: 0; padding: 16px; }}
-.stats-strip b {{ display:block; font-size: 22px; color:#17345f; }}
-@media (max-width: 1200px) {{
-  .hero, .landing-grid {{ grid-template-columns: 1fr; }}
-}}
-@media (max-width: 700px) {{
-  .container {{ padding: 20px 14px 36px; }}
-  .hero-panel h1 {{ font-size: 30px; }}
-  .hero-kpis, .stats-strip {{ grid-template-columns: 1fr; }}
-  .form-grid {{ grid-template-columns: 1fr; }}
-  input[type=file], select, input[type=text] {{ min-width: unset; width: 100%; box-sizing: border-box; }}
-}}
 /* interactive graph */
 .mm-wrap {{ border:1px solid #e6e6e6; border-radius:10px; background:#fff; }}
 .mm-toolbar {{ display:flex; flex-wrap:wrap; gap:10px; align-items:center; padding:10px; border-bottom:1px solid #eee; }}
@@ -152,7 +116,6 @@ a:hover {{ text-decoration: underline; }}
 .mm-layout.with-selection .mm-canvas {{ border-right:1px solid #eee; }}
 .mm-side {{ padding:12px; display:none; }}
 .mm-layout.with-selection .mm-side {{ display:block; }}
-.mm-side-head {{ display:flex; align-items:center; justify-content:space-between; gap:8px; }}
 .mm-legend span {{ display:inline-block; margin-right:8px; margin-bottom:6px; padding:2px 8px; border-radius:999px; font-size:12px; border:1px solid #ddd; }}
 svg.mm-svg text {{ font-size:12px; dominant-baseline:middle; user-select:none; }}
 svg.mm-svg .edge {{ stroke:#b8bcc4; stroke-width:1.2; fill:none; }}
@@ -180,92 +143,31 @@ small.kv {{ color:#555; }}
 def render_index(message: str = "", error: bool = False) -> bytes:
     msg_html = f'<div class="alert {"err" if error else ""}">{html.escape(message)}</div>' if message else ''
     body = f"""
-<div class="hero">
-  <div class="hero-panel">
-    <div class="badge-row">
-      <span class="badge">NETCONF Trace Analysis</span>
-      <span class="badge">Chain Map Explorer</span>
-      <span class="badge">Nokia RPC Ready</span>
-    </div>
-    <h1>M-Plane Analyzer</h1>
-    <p>TXT/XML/LOG 기반 M-Plane trace를 업로드해 user-plane 구성, validation, parser warnings, object history, interactive chain map까지 한 번에 확인할 수 있는 제품형 분석 화면입니다.</p>
-    <div class="hero-kpis">
-      <div class="hero-kpi"><b>Upload</b><span>TXT / XML / LOG files</span></div>
-      <div class="hero-kpi"><b>Analyze</b><span>State, validation, warnings, history</span></div>
-      <div class="hero-kpi"><b>Explore</b><span>Interactive chain map + downloadable reports</span></div>
-    </div>
-  </div>
-  <div class="hero-side">
-    <div class="card">
-      <div class="soft-badge">Current analyzer</div>
-      <h3 style="margin:12px 0 8px;">{html.escape(ANALYZER_PATH.name)}</h3>
-      <p class="muted" style="margin:0;">Nokia patch를 우선 사용하며, semicolon NETCONF trace와 raw XML dump도 함께 지원합니다.</p>
-    </div>
-    <div class="stats-strip">
-      <div class="card"><span class="muted">Max upload</span><b>{MAX_UPLOAD_MB} MB</b></div>
-      <div class="card"><span class="muted">Output</span><b>TXT / JSON</b></div>
-      <div class="card"><span class="muted">View</span><b>Chain Map</b></div>
-    </div>
-  </div>
-</div>
+<h1>User plane configurattion Analyzer - RL1 PD US EngSupport & PoC</h1>
+
 {msg_html}
-<div class="landing-grid">
-  <div class="card upload-card">
-    <div class="soft-badge">Start a new analysis</div>
-    <h2 style="margin:12px 0 8px;">Upload trace and run parser</h2>
-    <p class="muted" style="margin-top:0;">내부 기능은 그대로 유지하면서, 메인 화면만 제품처럼 정리한 구성입니다. 파일 업로드 → 분석 섹션 선택 → 결과/Chain Map 확인 흐름을 빠르게 시작할 수 있습니다.</p>
-    <div class="dropzone-look">
-      <strong>Choose an M-Plane input file</strong>
-      <div class="subtle">Supported: semicolon NETCONF trace, Nokia <code>Sending message:/Received message:</code> trace, raw XML dump.</div>
-    </div>
-    <form method="post" action="/analyze" enctype="multipart/form-data">
-      <div class="form-grid">
-        <label>Input file</label>
-        <input type="file" name="mplane_file" accept=".txt,.xml,.log,text/plain,application/xml,text/xml" required>
-
-        <label>Report section</label>
-        <select name="show">
-          <option value="all" selected>all</option>
-          <option value="chain">chain</option>
-          <option value="endpoint">endpoint</option>
-          <option value="validate">validate</option>
-          <option value="warnings">warnings</option>
-          <option value="history">history</option>
-        </select>
-
-        <label>Job label</label>
-        <input type="text" name="job_label" placeholder="e.g. nokia_rmod">
-
-        <div class="full" style="display:flex; gap:10px; flex-wrap:wrap; margin-top: 4px;">
-          <button type="submit">Analyze &amp; Show Result</button>
-          <button type="button" class="secondary-btn" onclick="window.location.href='/healthz'">Health Check</button>
-        </div>
-      </div>
-    </form>
+<div class="card">
+<form method="post" action="/analyze" enctype="multipart/form-data">
+  <div class="row"><label>Input file</label><input type="file" name="mplane_file" accept=".txt,.xml,.log,text/plain,application/xml,text/xml" required></div>
+  <div class="row"><label>Report section</label>
+    <select name="show">
+      <option value="all" selected>all</option>
+      <option value="chain">chain</option>
+      <option value="endpoint">endpoint</option>
+      <option value="validate">validate</option>
+      <option value="warnings">warnings</option>
+      <option value="history">history</option>
+    </select>
   </div>
-
-  <div class="side-stack">
-    <div class="card">
-      <div class="soft-badge">What you get</div>
-      <ul class="feature-list" style="margin-top:14px;">
-        <li><strong>Validation / alarms</strong><span class="muted">low-level link 참조, PRACH 연결, compression 누락, duplicate eAxC 등을 빠르게 확인합니다.</span></li>
-        <li><strong>Parser warnings</strong><span class="muted">불완전 XML fragment, notification, object 누락 등 파싱 관점의 이슈를 추적합니다.</span></li>
-        <li><strong>Interactive chain map</strong><span class="muted">Link → Endpoint → Carrier → PE → TF 흐름을 시각적으로 탐색합니다.</span></li>
-      </ul>
-    </div>
-
-    <div class="card">
-      <div class="soft-badge">Recommended workflow</div>
-      <ol class="steps-list" style="margin-top:14px;">
-        <li><strong>1. Upload trace</strong><span class="muted">M-Plane TXT/XML/LOG를 그대로 올립니다.</span></li>
-        <li><strong>2. Start with <code>all</code></strong><span class="muted">처음에는 전체 보고서를 생성해 상태와 chain map을 같이 보는 것이 좋습니다.</span></li>
-        <li><strong>3. Narrow down</strong><span class="muted">이후 endpoint / validate / warnings / history 섹션만 개별 확인합니다.</span></li>
-      </ol>
-    </div>
-  </div>
+  <div class="row"><label>Job label (optional)</label><input type="text" name="job_label" placeholder="e.g. nokia_rmod"></div>
+  <div class="row"><button type="submit">Analyze &amp; Show Result</button></div>
+</form>
+</div>
+<div class="card">
+  <b>Supported:</b> generic semicolon NETCONF traces, Nokia <code>Sending message:/Received message:</code> traces (patched analyzer), raw XML dumps.
 </div>
 """
-    return html_page("M-Plane Analyzer Web", body)
+    return html_page("User plane config Analyzer", body)
 
 
 def _coerce_list(v):
@@ -874,10 +776,6 @@ def render_chain_map_card(graph: dict) -> str:
         g.appendChild(rect); g.appendChild(label); g.appendChild(badge);
 
         g.addEventListener('click', () => {{
-          if (activeId === n.id) {{
-            clearSelection();
-            return;
-          }}
           activeId = n.id;
           showNodeDetails(n);
           drawSvg();
@@ -975,12 +873,7 @@ def render_chain_map_card(graph: dict) -> str:
       visNetwork = new window.vis.Network(visDiv, data, options);
       visNetwork.on('click', (params) => {{
         if (params.nodes && params.nodes.length) {{
-          const clickedId = params.nodes[0];
-          if (activeId === clickedId) {{
-            clearSelection();
-            return;
-          }}
-          activeId = clickedId;
+          activeId = params.nodes[0];
           const n = findNodeById(activeId);
           showNodeDetails(n);
           render();
@@ -1039,7 +932,7 @@ def render_chain_map_card(graph: dict) -> str:
 """
 
 
-def render_result(job_id: str, original_name: str, report_text: str, summary: dict, chain_graph: dict | None = None) -> bytes:
+def render_result(job_id: str, original_name: str, report_text: str, summary: dict, txt_url: str, json_url: str, chain_graph: dict | None = None) -> bytes:
     preview_limit = 120000
     truncated = len(report_text) > preview_limit
     preview = report_text[:preview_limit] + ("\n\n... [TRUNCATED IN BROWSER PREVIEW] ..." if truncated else "")
@@ -1068,7 +961,10 @@ def render_result(job_id: str, original_name: str, report_text: str, summary: di
       </ul>
     </div>
   </div>
-  <p class="muted">Reports are rendered in-browser only. Server-side file saving and download links are disabled.</p>
+  <p>
+    <a href="{html.escape(txt_url)}">⬇ Download TXT report</a> &nbsp; | &nbsp;
+    <a href="{html.escape(json_url)}">⬇ Download JSON report</a>
+  </p>
 </div>
 
 {graph_card}
@@ -1098,15 +994,8 @@ def build_summary(state, show_mode: str):
     }
 
 
-def run_analysis(input_text: str, original_name: str, show_mode: str):
-    suffix = Path(original_name).suffix or ".txt"
-    with tempfile.NamedTemporaryFile("w", encoding="utf-8", suffix=suffix, delete=False) as tmp:
-        tmp.write(input_text)
-        temp_path = Path(tmp.name)
-    try:
-        state = ANALYZER.parse_mplane_log(str(temp_path))
-    finally:
-        temp_path.unlink(missing_ok=True)
+def run_analysis(input_path: Path, show_mode: str):
+    state = ANALYZER.parse_mplane_log(str(input_path))
     report = ANALYZER.render_report(state, show=show_mode)
     payload = ANALYZER.dataclass_to_jsonable_state(state)
     return state, report, payload
@@ -1166,6 +1055,8 @@ class MPlaneWebHandler(BaseHTTPRequestHandler):
         if parsed.path == "/":
             self._send_bytes(render_index())
             return
+        if parsed.path == "/download":
+            return self.handle_download(parsed)
         if parsed.path == "/healthz":
             return self._send_text("ok")
         self._send_bytes(html_page("Not Found", "<h1>404</h1><p>Not found</p>"), status=404)
@@ -1177,7 +1068,25 @@ class MPlaneWebHandler(BaseHTTPRequestHandler):
         self._send_bytes(html_page("Not Found", "<h1>404</h1><p>Not found</p>"), status=404)
 
     def handle_download(self, parsed):
-        return self._send_text("Downloads are disabled; reports are no longer saved on the server.", status=410)
+        qs = parse_qs(parsed.query)
+        job_id = (qs.get("job", [""]) or [""])[0]
+        kind = (qs.get("kind", [""]) or [""])[0]
+        if not re.fullmatch(r"[A-Za-z0-9_.-]{6,120}", job_id or ""):
+            return self._send_text("Invalid job id", status=400)
+        if kind not in {"txt", "json", "input"}:
+            return self._send_text("Invalid kind", status=400)
+        ext_map = {"txt": ".report.txt", "json": ".report.json", "input": ".input"}
+        path = RESULT_DIR / f"{job_id}{ext_map[kind]}"
+        if not path.exists() or not path.is_file():
+            return self._send_text("File not found", status=404)
+        ctype = "application/json; charset=utf-8" if kind == "json" else "text/plain; charset=utf-8"
+        data = path.read_bytes()
+        self.send_response(200)
+        self.send_header("Content-Type", ctype)
+        self.send_header("Content-Length", str(len(data)))
+        self.send_header("Content-Disposition", f'attachment; filename="{path.name}"')
+        self.end_headers()
+        self.wfile.write(data)
 
     def handle_analyze(self):
         try:
@@ -1216,15 +1125,27 @@ class MPlaneWebHandler(BaseHTTPRequestHandler):
         if job_label:
             job_id = f"{job_label}_{job_id}"
 
+        input_path = RESULT_DIR / f"{job_id}.input"
+        txt_path = RESULT_DIR / f"{job_id}.report.txt"
+        json_path = RESULT_DIR / f"{job_id}.report.json"
+        meta_path = RESULT_DIR / f"{job_id}.meta.json"
+
         try:
-            state, report, payload = run_analysis(text, original_name, show_mode)
+            input_path.write_text(text, encoding="utf-8")
+            state, report, payload = run_analysis(input_path, show_mode)
+            txt_path.write_text(report, encoding="utf-8")
+            json_path.write_text(json.dumps(payload, ensure_ascii=False, indent=2), encoding="utf-8")
             summary = build_summary(state, show_mode)
-            summary.update({"job_id": job_id, "original_name": original_name})
+            summary.update({"job_id": job_id, "original_name": original_name, "input_saved": input_path.name})
 
             chain_graph = build_chain_graph_from_payload(payload)
             summary["graph_stats"] = chain_graph.get("stats", {})
+
+            meta_path.write_text(json.dumps(summary, ensure_ascii=False, indent=2), encoding="utf-8")
             self._send_bytes(render_result(
                 job_id, original_name, report, summary,
+                f"/download?job={job_id}&kind=txt",
+                f"/download?job={job_id}&kind=json",
                 chain_graph=chain_graph,
             ))
         except Exception as e:
@@ -1256,6 +1177,7 @@ def main():
     server = ThreadingHTTPServer((args.host, args.port), MPlaneWebHandler)
     print(f"[OK] M-Plane Analyzer Web running on http://{args.host}:{args.port}")
     print(f"     Analyzer module: {ANALYZER_PATH}")
+    print(f"     Results dir     : {RESULT_DIR}")
     print(f"     Max upload size : {MAX_UPLOAD_MB} MB")
     try:
         server.serve_forever()

@@ -1,0 +1,1850 @@
+========================================================================================================================
+M-PLANE USER-PLANE CONFIGURATION ANALYSIS (Enhanced)
+========================================================================================================================
+Input file       : /home/sungpark/userplane_analyzer/mplane_web_results/20260313_120728_fc7141a6.input
+Segments parsed  : 1069
+Objects          : TX carriers=16, RX carriers=16, TX endpoints=96, RX endpoints=192, TX links=16, RX links=32, PRACH configs=3, Processing elements=4
+
+========================================================================================================================
+CHAIN VIEW  (Link -> Endpoint -> Carrier -> Processing Element/Transport)
+========================================================================================================================
+
+🔗 Chain: LTE405160.TLINK_CELL2_CG1_CH5 (TX)
+----------------------------------------------------------------------------------------------------
+  [Endpoint] lowLevelTxEndpoint65
+      ├── endpoint-source-tag: static-low-level-tx-endpoints
+      ├── array: txArray1c
+      ├── endpoint-type: 4
+      ├── restricted-interfaces[2]
+      │   ├── [1] ethernetInterface0
+      │   ├── [2] ethernetInterface2
+      ├── supported-reference-level[1]
+      │   ├── [1] id=0, min=-8.2082, max=16.1055
+      └── [meta] msg-id=raw-static-recover, ts=-, rpc=raw-fallback
+      │
+      ▼ (Link PE: LTE405160.PE_2_vlan_1_ethernetInterface0)
+      │
+      ├── link.name: LTE405160.TLINK_CELL2_CG1_CH5
+      ├── link.low-level-tx-endpoint: lowLevelTxEndpoint65
+      ├── link.tx-array-carrier: LTE405160.TX2_1_1_16
+      └── [meta] msg-id=266, ts=2025-10-30T14:58:06.318000+00:00, rpc=edit-config
+  [Carrier] LTE405160.TX2_1_1_16
+      ├── active: ACTIVE
+      ├── type: LTE
+      ├── center-of-channel-bandwidth: 2670000000 Hz
+      ├── channel-bandwidth: 20000000 Hz
+      ├── gain: 26.167
+      ├── reference-level: 11.7918
+      ├── downlink-radio-frame-offset: 0
+      ├── downlink-sfn-offset: 0
+      └── [meta] msg-id=285, ts=2025-10-30T14:58:15.028000+00:00, rpc=edit-config
+  [Processing Element] LTE405160.PE_2_vlan_1_ethernetInterface0
+      ├── name: LTE405160.PE_2_vlan_1_ethernetInterface0
+      ├── transport-flow[1]
+      │   ├── interface-name: vlan_1_ethernetInterface0
+      │   ├── eth.ru-mac-address: d0:48:4f:2b:1f:3f
+      │   ├── eth.o-du-mac-address: 28:74:f5:20:1d:3f
+      │   └── eth.vlan-id: 1
+      └── [meta] msg-id=145, ts=2025-10-30T14:57:22.227000+00:00, rpc=edit-config
+
+🔗 Chain: LTE405160.TLINK_CELL2_CG1_CH6 (TX)
+----------------------------------------------------------------------------------------------------
+  [Endpoint] lowLevelTxEndpoint73
+      ├── endpoint-source-tag: static-low-level-tx-endpoints
+      ├── array: txArray2c
+      ├── endpoint-type: 4
+      ├── restricted-interfaces[2]
+      │   ├── [1] ethernetInterface0
+      │   ├── [2] ethernetInterface2
+      ├── supported-reference-level[1]
+      │   ├── [1] id=0, min=-8.2082, max=16.1055
+      └── [meta] msg-id=raw-static-recover, ts=-, rpc=raw-fallback
+      │
+      ▼ (Link PE: LTE405160.PE_2_vlan_1_ethernetInterface0)
+      │
+      ├── link.name: LTE405160.TLINK_CELL2_CG1_CH6
+      ├── link.low-level-tx-endpoint: lowLevelTxEndpoint73
+      ├── link.tx-array-carrier: LTE405160.TX2_1_1_24
+      └── [meta] msg-id=267, ts=2025-10-30T14:58:06.947000+00:00, rpc=edit-config
+  [Carrier] LTE405160.TX2_1_1_24
+      ├── active: ACTIVE
+      ├── type: LTE
+      ├── center-of-channel-bandwidth: 2670000000 Hz
+      ├── channel-bandwidth: 20000000 Hz
+      ├── gain: 26.167
+      ├── reference-level: 11.7918
+      ├── downlink-radio-frame-offset: 0
+      ├── downlink-sfn-offset: 0
+      └── [meta] msg-id=285, ts=2025-10-30T14:58:15.028000+00:00, rpc=edit-config
+  [Processing Element] LTE405160.PE_2_vlan_1_ethernetInterface0
+      ├── name: LTE405160.PE_2_vlan_1_ethernetInterface0
+      ├── transport-flow[1]
+      │   ├── interface-name: vlan_1_ethernetInterface0
+      │   ├── eth.ru-mac-address: d0:48:4f:2b:1f:3f
+      │   ├── eth.o-du-mac-address: 28:74:f5:20:1d:3f
+      │   └── eth.vlan-id: 1
+      └── [meta] msg-id=145, ts=2025-10-30T14:57:22.227000+00:00, rpc=edit-config
+
+🔗 Chain: LTE405160.TLINK_CELL2_CG1_CH7 (TX)
+----------------------------------------------------------------------------------------------------
+  [Endpoint] lowLevelTxEndpoint81
+      ├── endpoint-source-tag: static-low-level-tx-endpoints
+      ├── array: txArray3c
+      ├── endpoint-type: 4
+      ├── restricted-interfaces[2]
+      │   ├── [1] ethernetInterface1
+      │   ├── [2] ethernetInterface3
+      ├── supported-reference-level[1]
+      │   ├── [1] id=0, min=-8.2082, max=16.1055
+      └── [meta] msg-id=raw-static-recover, ts=-, rpc=raw-fallback
+      │
+      ▼ (Link PE: LTE405160.PE_2_vlan_1_ethernetInterface1)
+      │
+      ├── link.name: LTE405160.TLINK_CELL2_CG1_CH7
+      ├── link.low-level-tx-endpoint: lowLevelTxEndpoint81
+      ├── link.tx-array-carrier: LTE405160.TX2_1_1_17
+      └── [meta] msg-id=268, ts=2025-10-30T14:58:07.530000+00:00, rpc=edit-config
+  [Carrier] LTE405160.TX2_1_1_17
+      ├── active: ACTIVE
+      ├── type: LTE
+      ├── center-of-channel-bandwidth: 2670000000 Hz
+      ├── channel-bandwidth: 20000000 Hz
+      ├── gain: 26.167
+      ├── reference-level: 11.7918
+      ├── downlink-radio-frame-offset: 0
+      ├── downlink-sfn-offset: 0
+      └── [meta] msg-id=285, ts=2025-10-30T14:58:15.028000+00:00, rpc=edit-config
+  [Processing Element] LTE405160.PE_2_vlan_1_ethernetInterface1
+      ├── name: LTE405160.PE_2_vlan_1_ethernetInterface1
+      ├── transport-flow[1]
+      │   ├── interface-name: vlan_1_ethernetInterface1
+      │   ├── eth.ru-mac-address: d0:48:4f:2b:1f:41
+      │   ├── eth.o-du-mac-address: 28:74:f5:20:1d:3f
+      │   └── eth.vlan-id: 1
+      └── [meta] msg-id=146, ts=2025-10-30T14:57:22.411000+00:00, rpc=edit-config
+
+🔗 Chain: LTE405160.TLINK_CELL2_CG1_CH8 (TX)
+----------------------------------------------------------------------------------------------------
+  [Endpoint] lowLevelTxEndpoint89
+      ├── endpoint-source-tag: static-low-level-tx-endpoints
+      ├── array: txArray4c
+      ├── endpoint-type: 4
+      ├── restricted-interfaces[2]
+      │   ├── [1] ethernetInterface1
+      │   ├── [2] ethernetInterface3
+      ├── supported-reference-level[1]
+      │   ├── [1] id=0, min=-8.2082, max=16.1055
+      └── [meta] msg-id=raw-static-recover, ts=-, rpc=raw-fallback
+      │
+      ▼ (Link PE: LTE405160.PE_2_vlan_1_ethernetInterface1)
+      │
+      ├── link.name: LTE405160.TLINK_CELL2_CG1_CH8
+      ├── link.low-level-tx-endpoint: lowLevelTxEndpoint89
+      ├── link.tx-array-carrier: LTE405160.TX2_1_1_25
+      └── [meta] msg-id=269, ts=2025-10-30T14:58:08.116000+00:00, rpc=edit-config
+  [Carrier] LTE405160.TX2_1_1_25
+      ├── active: ACTIVE
+      ├── type: LTE
+      ├── center-of-channel-bandwidth: 2670000000 Hz
+      ├── channel-bandwidth: 20000000 Hz
+      ├── gain: 26.167
+      ├── reference-level: 11.7918
+      ├── downlink-radio-frame-offset: 0
+      ├── downlink-sfn-offset: 0
+      └── [meta] msg-id=285, ts=2025-10-30T14:58:15.028000+00:00, rpc=edit-config
+  [Processing Element] LTE405160.PE_2_vlan_1_ethernetInterface1
+      ├── name: LTE405160.PE_2_vlan_1_ethernetInterface1
+      ├── transport-flow[1]
+      │   ├── interface-name: vlan_1_ethernetInterface1
+      │   ├── eth.ru-mac-address: d0:48:4f:2b:1f:41
+      │   ├── eth.o-du-mac-address: 28:74:f5:20:1d:3f
+      │   └── eth.vlan-id: 1
+      └── [meta] msg-id=146, ts=2025-10-30T14:57:22.411000+00:00, rpc=edit-config
+
+🔗 Chain: NR405160.TLINK_CELL1_CG1_CH1 (TX)
+----------------------------------------------------------------------------------------------------
+  [Endpoint] lowLevelTxEndpoint32
+      ├── endpoint-source-tag: static-low-level-tx-endpoints
+      ├── array: txArray1b
+      ├── endpoint-type: 4
+      ├── restricted-interfaces[2]
+      │   ├── [1] ethernetInterface0
+      │   ├── [2] ethernetInterface2
+      ├── supported-reference-level[1]
+      │   ├── [1] id=0, min=-8.2082, max=16.1055
+      └── [meta] msg-id=raw-static-recover, ts=-, rpc=raw-fallback
+      │
+      ▼ (Link PE: NR405160.PE_2_vlan_1_ethernetInterface0)
+      │
+      ├── link.name: NR405160.TLINK_CELL1_CG1_CH1
+      ├── link.low-level-tx-endpoint: lowLevelTxEndpoint32
+      ├── link.tx-array-carrier: NR405160.TX1_1_1_0
+      └── [meta] msg-id=241, ts=2025-10-30T14:57:53.744000+00:00, rpc=edit-config
+  [Carrier] NR405160.TX1_1_1_0
+      ├── active: ACTIVE
+      ├── type: NR
+      ├── center-of-channel-bandwidth: 1842500000 Hz
+      ├── channel-bandwidth: 40000000 Hz
+      ├── gain: 21.8637
+      ├── reference-level: 15.1363
+      ├── downlink-radio-frame-offset: 0
+      ├── downlink-sfn-offset: 0
+      └── [meta] msg-id=280, ts=2025-10-30T14:58:11.948000+00:00, rpc=edit-config
+  [Processing Element] NR405160.PE_2_vlan_1_ethernetInterface0
+      ├── name: NR405160.PE_2_vlan_1_ethernetInterface0
+      ├── transport-flow[1]
+      │   ├── interface-name: vlan_1_ethernetInterface0
+      │   ├── eth.ru-mac-address: d0:48:4f:2b:1f:3f
+      │   ├── eth.o-du-mac-address: 28:74:f5:20:1d:3f
+      │   └── eth.vlan-id: 1
+      └── [meta] msg-id=126, ts=2025-10-30T14:57:18.732000+00:00, rpc=edit-config
+
+🔗 Chain: NR405160.TLINK_CELL1_CG1_CH13 (TX)
+----------------------------------------------------------------------------------------------------
+  [Endpoint] lowLevelTxEndpoint56
+      ├── endpoint-source-tag: static-low-level-tx-endpoints
+      ├── array: txArray4b
+      ├── endpoint-type: 4
+      ├── restricted-interfaces[2]
+      │   ├── [1] ethernetInterface1
+      │   ├── [2] ethernetInterface3
+      ├── supported-reference-level[1]
+      │   ├── [1] id=0, min=-8.2082, max=16.1055
+      └── [meta] msg-id=raw-static-recover, ts=-, rpc=raw-fallback
+      │
+      ▼ (Link PE: NR405160.PE_2_vlan_1_ethernetInterface1)
+      │
+      ├── link.name: NR405160.TLINK_CELL1_CG1_CH13
+      ├── link.low-level-tx-endpoint: lowLevelTxEndpoint56
+      ├── link.tx-array-carrier: NR405160.TX1_1_1_9
+      └── [meta] msg-id=244, ts=2025-10-30T14:57:55.059000+00:00, rpc=edit-config
+  [Carrier] NR405160.TX1_1_1_9
+      ├── active: ACTIVE
+      ├── type: NR
+      ├── center-of-channel-bandwidth: 1842500000 Hz
+      ├── channel-bandwidth: 40000000 Hz
+      ├── gain: 21.8637
+      ├── reference-level: 15.1363
+      ├── downlink-radio-frame-offset: 0
+      ├── downlink-sfn-offset: 0
+      └── [meta] msg-id=280, ts=2025-10-30T14:58:11.948000+00:00, rpc=edit-config
+  [Processing Element] NR405160.PE_2_vlan_1_ethernetInterface1
+      ├── name: NR405160.PE_2_vlan_1_ethernetInterface1
+      ├── transport-flow[1]
+      │   ├── interface-name: vlan_1_ethernetInterface1
+      │   ├── eth.ru-mac-address: d0:48:4f:2b:1f:41
+      │   ├── eth.o-du-mac-address: 28:74:f5:20:1d:3f
+      │   └── eth.vlan-id: 1
+      └── [meta] msg-id=127, ts=2025-10-30T14:57:18.738000+00:00, rpc=edit-config
+
+🔗 Chain: NR405160.TLINK_CELL1_CG1_CH5 (TX)
+----------------------------------------------------------------------------------------------------
+  [Endpoint] lowLevelTxEndpoint40
+      ├── endpoint-source-tag: static-low-level-tx-endpoints
+      ├── array: txArray2b
+      ├── endpoint-type: 4
+      ├── restricted-interfaces[2]
+      │   ├── [1] ethernetInterface0
+      │   ├── [2] ethernetInterface2
+      ├── supported-reference-level[1]
+      │   ├── [1] id=0, min=-8.2082, max=16.1055
+      └── [meta] msg-id=raw-static-recover, ts=-, rpc=raw-fallback
+      │
+      ▼ (Link PE: NR405160.PE_2_vlan_1_ethernetInterface0)
+      │
+      ├── link.name: NR405160.TLINK_CELL1_CG1_CH5
+      ├── link.low-level-tx-endpoint: lowLevelTxEndpoint40
+      ├── link.tx-array-carrier: NR405160.TX1_1_1_8
+      └── [meta] msg-id=250, ts=2025-10-30T14:57:57.232000+00:00, rpc=edit-config
+  [Carrier] NR405160.TX1_1_1_8
+      ├── active: ACTIVE
+      ├── type: NR
+      ├── center-of-channel-bandwidth: 1842500000 Hz
+      ├── channel-bandwidth: 40000000 Hz
+      ├── gain: 21.8637
+      ├── reference-level: 15.1363
+      ├── downlink-radio-frame-offset: 0
+      ├── downlink-sfn-offset: 0
+      └── [meta] msg-id=280, ts=2025-10-30T14:58:11.948000+00:00, rpc=edit-config
+  [Processing Element] NR405160.PE_2_vlan_1_ethernetInterface0
+      ├── name: NR405160.PE_2_vlan_1_ethernetInterface0
+      ├── transport-flow[1]
+      │   ├── interface-name: vlan_1_ethernetInterface0
+      │   ├── eth.ru-mac-address: d0:48:4f:2b:1f:3f
+      │   ├── eth.o-du-mac-address: 28:74:f5:20:1d:3f
+      │   └── eth.vlan-id: 1
+      └── [meta] msg-id=126, ts=2025-10-30T14:57:18.732000+00:00, rpc=edit-config
+
+🔗 Chain: NR405160.TLINK_CELL1_CG1_CH9 (TX)
+----------------------------------------------------------------------------------------------------
+  [Endpoint] lowLevelTxEndpoint48
+      ├── endpoint-source-tag: static-low-level-tx-endpoints
+      ├── array: txArray3b
+      ├── endpoint-type: 4
+      ├── restricted-interfaces[2]
+      │   ├── [1] ethernetInterface1
+      │   ├── [2] ethernetInterface3
+      ├── supported-reference-level[1]
+      │   ├── [1] id=0, min=-8.2082, max=16.1055
+      └── [meta] msg-id=raw-static-recover, ts=-, rpc=raw-fallback
+      │
+      ▼ (Link PE: NR405160.PE_2_vlan_1_ethernetInterface1)
+      │
+      ├── link.name: NR405160.TLINK_CELL1_CG1_CH9
+      ├── link.low-level-tx-endpoint: lowLevelTxEndpoint48
+      ├── link.tx-array-carrier: NR405160.TX1_1_1_1
+      └── [meta] msg-id=253, ts=2025-10-30T14:57:58.503000+00:00, rpc=edit-config
+  [Carrier] NR405160.TX1_1_1_1
+      ├── active: ACTIVE
+      ├── type: NR
+      ├── center-of-channel-bandwidth: 1842500000 Hz
+      ├── channel-bandwidth: 40000000 Hz
+      ├── gain: 21.8637
+      ├── reference-level: 15.1363
+      ├── downlink-radio-frame-offset: 0
+      ├── downlink-sfn-offset: 0
+      └── [meta] msg-id=280, ts=2025-10-30T14:58:11.948000+00:00, rpc=edit-config
+  [Processing Element] NR405160.PE_2_vlan_1_ethernetInterface1
+      ├── name: NR405160.PE_2_vlan_1_ethernetInterface1
+      ├── transport-flow[1]
+      │   ├── interface-name: vlan_1_ethernetInterface1
+      │   ├── eth.ru-mac-address: d0:48:4f:2b:1f:41
+      │   ├── eth.o-du-mac-address: 28:74:f5:20:1d:3f
+      │   └── eth.vlan-id: 1
+      └── [meta] msg-id=127, ts=2025-10-30T14:57:18.738000+00:00, rpc=edit-config
+
+🔗 Chain: NR405160.TLINK_CELL2_CG1_CH1 (TX)
+----------------------------------------------------------------------------------------------------
+  [Endpoint] lowLevelTxEndpoint0
+      ├── endpoint-source-tag: static-low-level-tx-endpoints
+      ├── array: txArray1a
+      ├── endpoint-type: 4
+      ├── restricted-interfaces[2]
+      │   ├── [1] ethernetInterface0
+      │   ├── [2] ethernetInterface2
+      ├── supported-reference-level[1]
+      │   ├── [1] id=0, min=-8.2082, max=16.1055
+      └── [meta] msg-id=raw-static-recover, ts=-, rpc=raw-fallback
+      │
+      ▼ (Link PE: NR405160.PE_2_vlan_1_ethernetInterface0)
+      │
+      ├── link.name: NR405160.TLINK_CELL2_CG1_CH1
+      ├── link.low-level-tx-endpoint: lowLevelTxEndpoint0
+      ├── link.tx-array-carrier: NR405160.TX2_1_1_32
+      └── [meta] msg-id=193, ts=2025-10-30T14:57:32.526000+00:00, rpc=edit-config
+  [Carrier] NR405160.TX2_1_1_32
+      ├── active: ACTIVE
+      ├── type: NR
+      ├── center-of-channel-bandwidth: 2140000000 Hz
+      ├── channel-bandwidth: 10000000 Hz
+      ├── gain: 28.0482
+      ├── reference-level: 8.9518
+      ├── downlink-radio-frame-offset: 0
+      ├── downlink-sfn-offset: 0
+      └── [meta] msg-id=218, ts=2025-10-30T14:57:37.524000+00:00, rpc=edit-config
+  [Processing Element] NR405160.PE_2_vlan_1_ethernetInterface0
+      ├── name: NR405160.PE_2_vlan_1_ethernetInterface0
+      ├── transport-flow[1]
+      │   ├── interface-name: vlan_1_ethernetInterface0
+      │   ├── eth.ru-mac-address: d0:48:4f:2b:1f:3f
+      │   ├── eth.o-du-mac-address: 28:74:f5:20:1d:3f
+      │   └── eth.vlan-id: 1
+      └── [meta] msg-id=126, ts=2025-10-30T14:57:18.732000+00:00, rpc=edit-config
+
+🔗 Chain: NR405160.TLINK_CELL2_CG1_CH13 (TX)
+----------------------------------------------------------------------------------------------------
+  [Endpoint] lowLevelTxEndpoint24
+      ├── endpoint-source-tag: static-low-level-tx-endpoints
+      ├── array: txArray4a
+      ├── endpoint-type: 4
+      ├── restricted-interfaces[2]
+      │   ├── [1] ethernetInterface1
+      │   ├── [2] ethernetInterface3
+      ├── supported-reference-level[1]
+      │   ├── [1] id=0, min=-8.2082, max=16.1055
+      └── [meta] msg-id=raw-static-recover, ts=-, rpc=raw-fallback
+      │
+      ▼ (Link PE: NR405160.PE_2_vlan_1_ethernetInterface1)
+      │
+      ├── link.name: NR405160.TLINK_CELL2_CG1_CH13
+      ├── link.low-level-tx-endpoint: lowLevelTxEndpoint24
+      ├── link.tx-array-carrier: NR405160.TX2_1_1_41
+      └── [meta] msg-id=196, ts=2025-10-30T14:57:33.364000+00:00, rpc=edit-config
+  [Carrier] NR405160.TX2_1_1_41
+      ├── active: ACTIVE
+      ├── type: NR
+      ├── center-of-channel-bandwidth: 2140000000 Hz
+      ├── channel-bandwidth: 10000000 Hz
+      ├── gain: 28.0482
+      ├── reference-level: 8.9518
+      ├── downlink-radio-frame-offset: 0
+      ├── downlink-sfn-offset: 0
+      └── [meta] msg-id=218, ts=2025-10-30T14:57:37.524000+00:00, rpc=edit-config
+  [Processing Element] NR405160.PE_2_vlan_1_ethernetInterface1
+      ├── name: NR405160.PE_2_vlan_1_ethernetInterface1
+      ├── transport-flow[1]
+      │   ├── interface-name: vlan_1_ethernetInterface1
+      │   ├── eth.ru-mac-address: d0:48:4f:2b:1f:41
+      │   ├── eth.o-du-mac-address: 28:74:f5:20:1d:3f
+      │   └── eth.vlan-id: 1
+      └── [meta] msg-id=127, ts=2025-10-30T14:57:18.738000+00:00, rpc=edit-config
+
+🔗 Chain: NR405160.TLINK_CELL2_CG1_CH5 (TX)
+----------------------------------------------------------------------------------------------------
+  [Endpoint] lowLevelTxEndpoint10
+      ├── endpoint-source-tag: static-low-level-tx-endpoints
+      ├── array: txArray2a
+      ├── endpoint-type: 4
+      ├── restricted-interfaces[2]
+      │   ├── [1] ethernetInterface0
+      │   ├── [2] ethernetInterface2
+      ├── supported-reference-level[1]
+      │   ├── [1] id=0, min=-8.2082, max=16.1055
+      └── [meta] msg-id=raw-static-recover, ts=-, rpc=raw-fallback
+      │
+      ▼ (Link PE: NR405160.PE_2_vlan_1_ethernetInterface0)
+      │
+      ├── link.name: NR405160.TLINK_CELL2_CG1_CH5
+      ├── link.low-level-tx-endpoint: lowLevelTxEndpoint10
+      ├── link.tx-array-carrier: NR405160.TX2_1_1_40
+      └── [meta] msg-id=201, ts=2025-10-30T14:57:34.781000+00:00, rpc=edit-config
+  [Carrier] NR405160.TX2_1_1_40
+      ├── active: ACTIVE
+      ├── type: NR
+      ├── center-of-channel-bandwidth: 2140000000 Hz
+      ├── channel-bandwidth: 10000000 Hz
+      ├── gain: 28.0482
+      ├── reference-level: 8.9518
+      ├── downlink-radio-frame-offset: 0
+      ├── downlink-sfn-offset: 0
+      └── [meta] msg-id=218, ts=2025-10-30T14:57:37.524000+00:00, rpc=edit-config
+  [Processing Element] NR405160.PE_2_vlan_1_ethernetInterface0
+      ├── name: NR405160.PE_2_vlan_1_ethernetInterface0
+      ├── transport-flow[1]
+      │   ├── interface-name: vlan_1_ethernetInterface0
+      │   ├── eth.ru-mac-address: d0:48:4f:2b:1f:3f
+      │   ├── eth.o-du-mac-address: 28:74:f5:20:1d:3f
+      │   └── eth.vlan-id: 1
+      └── [meta] msg-id=126, ts=2025-10-30T14:57:18.732000+00:00, rpc=edit-config
+
+🔗 Chain: NR405160.TLINK_CELL2_CG1_CH9 (TX)
+----------------------------------------------------------------------------------------------------
+  [Endpoint] lowLevelTxEndpoint16
+      ├── endpoint-source-tag: static-low-level-tx-endpoints
+      ├── array: txArray3a
+      ├── endpoint-type: 4
+      ├── restricted-interfaces[2]
+      │   ├── [1] ethernetInterface1
+      │   ├── [2] ethernetInterface3
+      ├── supported-reference-level[1]
+      │   ├── [1] id=0, min=-8.2082, max=16.1055
+      └── [meta] msg-id=raw-static-recover, ts=-, rpc=raw-fallback
+      │
+      ▼ (Link PE: NR405160.PE_2_vlan_1_ethernetInterface1)
+      │
+      ├── link.name: NR405160.TLINK_CELL2_CG1_CH9
+      ├── link.low-level-tx-endpoint: lowLevelTxEndpoint16
+      ├── link.tx-array-carrier: NR405160.TX2_1_1_33
+      └── [meta] msg-id=204, ts=2025-10-30T14:57:35.700000+00:00, rpc=edit-config
+  [Carrier] NR405160.TX2_1_1_33
+      ├── active: ACTIVE
+      ├── type: NR
+      ├── center-of-channel-bandwidth: 2140000000 Hz
+      ├── channel-bandwidth: 10000000 Hz
+      ├── gain: 28.0482
+      ├── reference-level: 8.9518
+      ├── downlink-radio-frame-offset: 0
+      ├── downlink-sfn-offset: 0
+      └── [meta] msg-id=218, ts=2025-10-30T14:57:37.524000+00:00, rpc=edit-config
+  [Processing Element] NR405160.PE_2_vlan_1_ethernetInterface1
+      ├── name: NR405160.PE_2_vlan_1_ethernetInterface1
+      ├── transport-flow[1]
+      │   ├── interface-name: vlan_1_ethernetInterface1
+      │   ├── eth.ru-mac-address: d0:48:4f:2b:1f:41
+      │   ├── eth.o-du-mac-address: 28:74:f5:20:1d:3f
+      │   └── eth.vlan-id: 1
+      └── [meta] msg-id=127, ts=2025-10-30T14:57:18.738000+00:00, rpc=edit-config
+
+🔗 Chain: NR405160.TLINK_CELL3_CG1_CH1 (TX)
+----------------------------------------------------------------------------------------------------
+  [Endpoint] lowLevelTxEndpoint64
+      ├── endpoint-source-tag: static-low-level-tx-endpoints
+      ├── array: txArray1c
+      ├── endpoint-type: 4
+      ├── restricted-interfaces[2]
+      │   ├── [1] ethernetInterface0
+      │   ├── [2] ethernetInterface2
+      ├── supported-reference-level[1]
+      │   ├── [1] id=0, min=-8.2082, max=16.1055
+      └── [meta] msg-id=raw-static-recover, ts=-, rpc=raw-fallback
+      │
+      ▼ (Link PE: NR405160.PE_2_vlan_1_ethernetInterface0)
+      │
+      ├── link.name: NR405160.TLINK_CELL3_CG1_CH1
+      ├── link.low-level-tx-endpoint: lowLevelTxEndpoint64
+      ├── link.tx-array-carrier: NR405160.TX3_1_1_48
+      └── [meta] msg-id=224, ts=2025-10-30T14:57:44.854000+00:00, rpc=edit-config
+  [Carrier] NR405160.TX3_1_1_48
+      ├── active: ACTIVE
+      ├── type: NR
+      ├── center-of-channel-bandwidth: 2640000000 Hz
+      ├── channel-bandwidth: 20000000 Hz
+      ├── gain: 24.9551
+      ├── reference-level: 12.0449
+      ├── downlink-radio-frame-offset: 0
+      ├── downlink-sfn-offset: 0
+      └── [meta] msg-id=274, ts=2025-10-30T14:58:09.357000+00:00, rpc=edit-config
+  [Processing Element] NR405160.PE_2_vlan_1_ethernetInterface0
+      ├── name: NR405160.PE_2_vlan_1_ethernetInterface0
+      ├── transport-flow[1]
+      │   ├── interface-name: vlan_1_ethernetInterface0
+      │   ├── eth.ru-mac-address: d0:48:4f:2b:1f:3f
+      │   ├── eth.o-du-mac-address: 28:74:f5:20:1d:3f
+      │   └── eth.vlan-id: 1
+      └── [meta] msg-id=126, ts=2025-10-30T14:57:18.732000+00:00, rpc=edit-config
+
+🔗 Chain: NR405160.TLINK_CELL3_CG1_CH13 (TX)
+----------------------------------------------------------------------------------------------------
+  [Endpoint] lowLevelTxEndpoint88
+      ├── endpoint-source-tag: static-low-level-tx-endpoints
+      ├── array: txArray4c
+      ├── endpoint-type: 4
+      ├── restricted-interfaces[2]
+      │   ├── [1] ethernetInterface1
+      │   ├── [2] ethernetInterface3
+      ├── supported-reference-level[1]
+      │   ├── [1] id=0, min=-8.2082, max=16.1055
+      └── [meta] msg-id=raw-static-recover, ts=-, rpc=raw-fallback
+      │
+      ▼ (Link PE: NR405160.PE_2_vlan_1_ethernetInterface1)
+      │
+      ├── link.name: NR405160.TLINK_CELL3_CG1_CH13
+      ├── link.low-level-tx-endpoint: lowLevelTxEndpoint88
+      ├── link.tx-array-carrier: NR405160.TX3_1_1_57
+      └── [meta] msg-id=227, ts=2025-10-30T14:57:46.034000+00:00, rpc=edit-config
+  [Carrier] NR405160.TX3_1_1_57
+      ├── active: ACTIVE
+      ├── type: NR
+      ├── center-of-channel-bandwidth: 2640000000 Hz
+      ├── channel-bandwidth: 20000000 Hz
+      ├── gain: 24.9551
+      ├── reference-level: 12.0449
+      ├── downlink-radio-frame-offset: 0
+      ├── downlink-sfn-offset: 0
+      └── [meta] msg-id=274, ts=2025-10-30T14:58:09.357000+00:00, rpc=edit-config
+  [Processing Element] NR405160.PE_2_vlan_1_ethernetInterface1
+      ├── name: NR405160.PE_2_vlan_1_ethernetInterface1
+      ├── transport-flow[1]
+      │   ├── interface-name: vlan_1_ethernetInterface1
+      │   ├── eth.ru-mac-address: d0:48:4f:2b:1f:41
+      │   ├── eth.o-du-mac-address: 28:74:f5:20:1d:3f
+      │   └── eth.vlan-id: 1
+      └── [meta] msg-id=127, ts=2025-10-30T14:57:18.738000+00:00, rpc=edit-config
+
+🔗 Chain: NR405160.TLINK_CELL3_CG1_CH5 (TX)
+----------------------------------------------------------------------------------------------------
+  [Endpoint] lowLevelTxEndpoint72
+      ├── endpoint-source-tag: static-low-level-tx-endpoints
+      ├── array: txArray2c
+      ├── endpoint-type: 4
+      ├── restricted-interfaces[2]
+      │   ├── [1] ethernetInterface0
+      │   ├── [2] ethernetInterface2
+      ├── supported-reference-level[1]
+      │   ├── [1] id=0, min=-8.2082, max=16.1055
+      └── [meta] msg-id=raw-static-recover, ts=-, rpc=raw-fallback
+      │
+      ▼ (Link PE: NR405160.PE_2_vlan_1_ethernetInterface0)
+      │
+      ├── link.name: NR405160.TLINK_CELL3_CG1_CH5
+      ├── link.low-level-tx-endpoint: lowLevelTxEndpoint72
+      ├── link.tx-array-carrier: NR405160.TX3_1_1_56
+      └── [meta] msg-id=233, ts=2025-10-30T14:57:48.071000+00:00, rpc=edit-config
+  [Carrier] NR405160.TX3_1_1_56
+      ├── active: ACTIVE
+      ├── type: NR
+      ├── center-of-channel-bandwidth: 2640000000 Hz
+      ├── channel-bandwidth: 20000000 Hz
+      ├── gain: 24.9551
+      ├── reference-level: 12.0449
+      ├── downlink-radio-frame-offset: 0
+      ├── downlink-sfn-offset: 0
+      └── [meta] msg-id=274, ts=2025-10-30T14:58:09.357000+00:00, rpc=edit-config
+  [Processing Element] NR405160.PE_2_vlan_1_ethernetInterface0
+      ├── name: NR405160.PE_2_vlan_1_ethernetInterface0
+      ├── transport-flow[1]
+      │   ├── interface-name: vlan_1_ethernetInterface0
+      │   ├── eth.ru-mac-address: d0:48:4f:2b:1f:3f
+      │   ├── eth.o-du-mac-address: 28:74:f5:20:1d:3f
+      │   └── eth.vlan-id: 1
+      └── [meta] msg-id=126, ts=2025-10-30T14:57:18.732000+00:00, rpc=edit-config
+
+🔗 Chain: NR405160.TLINK_CELL3_CG1_CH9 (TX)
+----------------------------------------------------------------------------------------------------
+  [Endpoint] lowLevelTxEndpoint80
+      ├── endpoint-source-tag: static-low-level-tx-endpoints
+      ├── array: txArray3c
+      ├── endpoint-type: 4
+      ├── restricted-interfaces[2]
+      │   ├── [1] ethernetInterface1
+      │   ├── [2] ethernetInterface3
+      ├── supported-reference-level[1]
+      │   ├── [1] id=0, min=-8.2082, max=16.1055
+      └── [meta] msg-id=raw-static-recover, ts=-, rpc=raw-fallback
+      │
+      ▼ (Link PE: NR405160.PE_2_vlan_1_ethernetInterface1)
+      │
+      ├── link.name: NR405160.TLINK_CELL3_CG1_CH9
+      ├── link.low-level-tx-endpoint: lowLevelTxEndpoint80
+      ├── link.tx-array-carrier: NR405160.TX3_1_1_49
+      └── [meta] msg-id=236, ts=2025-10-30T14:57:49.204000+00:00, rpc=edit-config
+  [Carrier] NR405160.TX3_1_1_49
+      ├── active: ACTIVE
+      ├── type: NR
+      ├── center-of-channel-bandwidth: 2640000000 Hz
+      ├── channel-bandwidth: 20000000 Hz
+      ├── gain: 24.9551
+      ├── reference-level: 12.0449
+      ├── downlink-radio-frame-offset: 0
+      ├── downlink-sfn-offset: 0
+      └── [meta] msg-id=274, ts=2025-10-30T14:58:09.357000+00:00, rpc=edit-config
+  [Processing Element] NR405160.PE_2_vlan_1_ethernetInterface1
+      ├── name: NR405160.PE_2_vlan_1_ethernetInterface1
+      ├── transport-flow[1]
+      │   ├── interface-name: vlan_1_ethernetInterface1
+      │   ├── eth.ru-mac-address: d0:48:4f:2b:1f:41
+      │   ├── eth.o-du-mac-address: 28:74:f5:20:1d:3f
+      │   └── eth.vlan-id: 1
+      └── [meta] msg-id=127, ts=2025-10-30T14:57:18.738000+00:00, rpc=edit-config
+
+🔗 Chain: LTE405160.RLINK_CELL2_CG1_CH1 (RX)
+----------------------------------------------------------------------------------------------------
+  [Endpoint] lowLevelRxEndpoint65
+      ├── endpoint-source-tag: static-low-level-rx-endpoints
+      ├── array: rxArray1c
+      ├── endpoint-type: 3
+      ├── static-config-supported: NONE
+      ├── restricted-interfaces[2]
+      │   ├── [1] ethernetInterface0
+      │   ├── [2] ethernetInterface2
+      └── [meta] msg-id=raw-static-recover, ts=-, rpc=raw-fallback
+      │
+      ▼ (Link PE: LTE405160.PE_2_vlan_1_ethernetInterface0)
+      │
+      ├── link.name: LTE405160.RLINK_CELL2_CG1_CH1
+      ├── link.low-level-rx-endpoint: lowLevelRxEndpoint65
+      ├── link.rx-array-carrier: LTE405160.RX2_1_1_16
+      └── [meta] msg-id=258, ts=2025-10-30T14:58:03.020000+00:00, rpc=edit-config
+  [Carrier] LTE405160.RX2_1_1_16
+      ├── active: ACTIVE
+      ├── type: LTE
+      ├── center-of-channel-bandwidth: 2550000000 Hz
+      ├── channel-bandwidth: 20000000 Hz
+      ├── downlink-radio-frame-offset: 0
+      ├── downlink-sfn-offset: 0
+      └── [meta] msg-id=285, ts=2025-10-30T14:58:15.028000+00:00, rpc=edit-config
+  [Processing Element] LTE405160.PE_2_vlan_1_ethernetInterface0
+      ├── name: LTE405160.PE_2_vlan_1_ethernetInterface0
+      ├── transport-flow[1]
+      │   ├── interface-name: vlan_1_ethernetInterface0
+      │   ├── eth.ru-mac-address: d0:48:4f:2b:1f:3f
+      │   ├── eth.o-du-mac-address: 28:74:f5:20:1d:3f
+      │   └── eth.vlan-id: 1
+      └── [meta] msg-id=145, ts=2025-10-30T14:57:22.227000+00:00, rpc=edit-config
+
+🔗 Chain: LTE405160.RLINK_CELL2_CG1_CH10 (RX)
+----------------------------------------------------------------------------------------------------
+  [Endpoint] lowLevelRxEndpoint169
+      ├── endpoint-source-tag: static-low-level-rx-endpoints
+      ├── array: rxArray2c
+      ├── endpoint-type: 1
+      ├── static-config-supported: PRACH
+      ├── prach-group: 0
+      ├── restricted-interfaces[2]
+      │   ├── [1] ethernetInterface0
+      │   ├── [2] ethernetInterface2
+      ├── PRACH config matched: 0
+      │   ├── pattern-period: 4
+      │   ├── sequence-duration: 24576
+      │   ├── num-prach-re: 839
+      │   ├── guard-tone-low-re: 7
+      │   └── guard-tone-high-re: 18
+      └── [meta] msg-id=raw-static-recover, ts=-, rpc=raw-fallback
+      │
+      ▼ (Link PE: LTE405160.PE_2_vlan_1_ethernetInterface0)
+      │
+      ├── link.name: LTE405160.RLINK_CELL2_CG1_CH10
+      ├── link.low-level-rx-endpoint: lowLevelRxEndpoint169
+      ├── link.rx-array-carrier: LTE405160.RX2_1_1_24
+      └── [meta] msg-id=259, ts=2025-10-30T14:58:03.444000+00:00, rpc=edit-config
+  [Carrier] LTE405160.RX2_1_1_24
+      ├── active: ACTIVE
+      ├── type: LTE
+      ├── center-of-channel-bandwidth: 2550000000 Hz
+      ├── channel-bandwidth: 20000000 Hz
+      ├── downlink-radio-frame-offset: 0
+      ├── downlink-sfn-offset: 0
+      └── [meta] msg-id=285, ts=2025-10-30T14:58:15.028000+00:00, rpc=edit-config
+  [Processing Element] LTE405160.PE_2_vlan_1_ethernetInterface0
+      ├── name: LTE405160.PE_2_vlan_1_ethernetInterface0
+      ├── transport-flow[1]
+      │   ├── interface-name: vlan_1_ethernetInterface0
+      │   ├── eth.ru-mac-address: d0:48:4f:2b:1f:3f
+      │   ├── eth.o-du-mac-address: 28:74:f5:20:1d:3f
+      │   └── eth.vlan-id: 1
+      └── [meta] msg-id=145, ts=2025-10-30T14:57:22.227000+00:00, rpc=edit-config
+
+🔗 Chain: LTE405160.RLINK_CELL2_CG1_CH11 (RX)
+----------------------------------------------------------------------------------------------------
+  [Endpoint] lowLevelRxEndpoint177
+      ├── endpoint-source-tag: static-low-level-rx-endpoints
+      ├── array: rxArray3c
+      ├── endpoint-type: 1
+      ├── static-config-supported: PRACH
+      ├── prach-group: 0
+      ├── restricted-interfaces[2]
+      │   ├── [1] ethernetInterface1
+      │   ├── [2] ethernetInterface3
+      ├── PRACH config matched: 0
+      │   ├── pattern-period: 4
+      │   ├── sequence-duration: 24576
+      │   ├── num-prach-re: 839
+      │   ├── guard-tone-low-re: 7
+      │   └── guard-tone-high-re: 18
+      └── [meta] msg-id=raw-static-recover, ts=-, rpc=raw-fallback
+      │
+      ▼ (Link PE: LTE405160.PE_2_vlan_1_ethernetInterface1)
+      │
+      ├── link.name: LTE405160.RLINK_CELL2_CG1_CH11
+      ├── link.low-level-rx-endpoint: lowLevelRxEndpoint177
+      ├── link.rx-array-carrier: LTE405160.RX2_1_1_17
+      └── [meta] msg-id=260, ts=2025-10-30T14:58:03.944000+00:00, rpc=edit-config
+  [Carrier] LTE405160.RX2_1_1_17
+      ├── active: ACTIVE
+      ├── type: LTE
+      ├── center-of-channel-bandwidth: 2550000000 Hz
+      ├── channel-bandwidth: 20000000 Hz
+      ├── downlink-radio-frame-offset: 0
+      ├── downlink-sfn-offset: 0
+      └── [meta] msg-id=285, ts=2025-10-30T14:58:15.028000+00:00, rpc=edit-config
+  [Processing Element] LTE405160.PE_2_vlan_1_ethernetInterface1
+      ├── name: LTE405160.PE_2_vlan_1_ethernetInterface1
+      ├── transport-flow[1]
+      │   ├── interface-name: vlan_1_ethernetInterface1
+      │   ├── eth.ru-mac-address: d0:48:4f:2b:1f:41
+      │   ├── eth.o-du-mac-address: 28:74:f5:20:1d:3f
+      │   └── eth.vlan-id: 1
+      └── [meta] msg-id=146, ts=2025-10-30T14:57:22.411000+00:00, rpc=edit-config
+
+🔗 Chain: LTE405160.RLINK_CELL2_CG1_CH12 (RX)
+----------------------------------------------------------------------------------------------------
+  [Endpoint] lowLevelRxEndpoint185
+      ├── endpoint-source-tag: static-low-level-rx-endpoints
+      ├── array: rxArray4c
+      ├── endpoint-type: 1
+      ├── static-config-supported: PRACH
+      ├── prach-group: 0
+      ├── restricted-interfaces[2]
+      │   ├── [1] ethernetInterface1
+      │   ├── [2] ethernetInterface3
+      ├── PRACH config matched: 0
+      │   ├── pattern-period: 4
+      │   ├── sequence-duration: 24576
+      │   ├── num-prach-re: 839
+      │   ├── guard-tone-low-re: 7
+      │   └── guard-tone-high-re: 18
+      └── [meta] msg-id=raw-static-recover, ts=-, rpc=raw-fallback
+      │
+      ▼ (Link PE: LTE405160.PE_2_vlan_1_ethernetInterface1)
+      │
+      ├── link.name: LTE405160.RLINK_CELL2_CG1_CH12
+      ├── link.low-level-rx-endpoint: lowLevelRxEndpoint185
+      ├── link.rx-array-carrier: LTE405160.RX2_1_1_25
+      └── [meta] msg-id=261, ts=2025-10-30T14:58:04.353000+00:00, rpc=edit-config
+  [Carrier] LTE405160.RX2_1_1_25
+      ├── active: ACTIVE
+      ├── type: LTE
+      ├── center-of-channel-bandwidth: 2550000000 Hz
+      ├── channel-bandwidth: 20000000 Hz
+      ├── downlink-radio-frame-offset: 0
+      ├── downlink-sfn-offset: 0
+      └── [meta] msg-id=285, ts=2025-10-30T14:58:15.028000+00:00, rpc=edit-config
+  [Processing Element] LTE405160.PE_2_vlan_1_ethernetInterface1
+      ├── name: LTE405160.PE_2_vlan_1_ethernetInterface1
+      ├── transport-flow[1]
+      │   ├── interface-name: vlan_1_ethernetInterface1
+      │   ├── eth.ru-mac-address: d0:48:4f:2b:1f:41
+      │   ├── eth.o-du-mac-address: 28:74:f5:20:1d:3f
+      │   └── eth.vlan-id: 1
+      └── [meta] msg-id=146, ts=2025-10-30T14:57:22.411000+00:00, rpc=edit-config
+
+🔗 Chain: LTE405160.RLINK_CELL2_CG1_CH2 (RX)
+----------------------------------------------------------------------------------------------------
+  [Endpoint] lowLevelRxEndpoint73
+      ├── endpoint-source-tag: static-low-level-rx-endpoints
+      ├── array: rxArray2c
+      ├── endpoint-type: 3
+      ├── static-config-supported: NONE
+      ├── restricted-interfaces[2]
+      │   ├── [1] ethernetInterface0
+      │   ├── [2] ethernetInterface2
+      └── [meta] msg-id=raw-static-recover, ts=-, rpc=raw-fallback
+      │
+      ▼ (Link PE: LTE405160.PE_2_vlan_1_ethernetInterface0)
+      │
+      ├── link.name: LTE405160.RLINK_CELL2_CG1_CH2
+      ├── link.low-level-rx-endpoint: lowLevelRxEndpoint73
+      ├── link.rx-array-carrier: LTE405160.RX2_1_1_24
+      └── [meta] msg-id=262, ts=2025-10-30T14:58:04.762000+00:00, rpc=edit-config
+  [Carrier] LTE405160.RX2_1_1_24
+      ├── active: ACTIVE
+      ├── type: LTE
+      ├── center-of-channel-bandwidth: 2550000000 Hz
+      ├── channel-bandwidth: 20000000 Hz
+      ├── downlink-radio-frame-offset: 0
+      ├── downlink-sfn-offset: 0
+      └── [meta] msg-id=285, ts=2025-10-30T14:58:15.028000+00:00, rpc=edit-config
+  [Processing Element] LTE405160.PE_2_vlan_1_ethernetInterface0
+      ├── name: LTE405160.PE_2_vlan_1_ethernetInterface0
+      ├── transport-flow[1]
+      │   ├── interface-name: vlan_1_ethernetInterface0
+      │   ├── eth.ru-mac-address: d0:48:4f:2b:1f:3f
+      │   ├── eth.o-du-mac-address: 28:74:f5:20:1d:3f
+      │   └── eth.vlan-id: 1
+      └── [meta] msg-id=145, ts=2025-10-30T14:57:22.227000+00:00, rpc=edit-config
+
+🔗 Chain: LTE405160.RLINK_CELL2_CG1_CH3 (RX)
+----------------------------------------------------------------------------------------------------
+  [Endpoint] lowLevelRxEndpoint81
+      ├── endpoint-source-tag: static-low-level-rx-endpoints
+      ├── array: rxArray3c
+      ├── endpoint-type: 3
+      ├── static-config-supported: NONE
+      ├── restricted-interfaces[2]
+      │   ├── [1] ethernetInterface1
+      │   ├── [2] ethernetInterface3
+      └── [meta] msg-id=raw-static-recover, ts=-, rpc=raw-fallback
+      │
+      ▼ (Link PE: LTE405160.PE_2_vlan_1_ethernetInterface1)
+      │
+      ├── link.name: LTE405160.RLINK_CELL2_CG1_CH3
+      ├── link.low-level-rx-endpoint: lowLevelRxEndpoint81
+      ├── link.rx-array-carrier: LTE405160.RX2_1_1_17
+      └── [meta] msg-id=263, ts=2025-10-30T14:58:05.211000+00:00, rpc=edit-config
+  [Carrier] LTE405160.RX2_1_1_17
+      ├── active: ACTIVE
+      ├── type: LTE
+      ├── center-of-channel-bandwidth: 2550000000 Hz
+      ├── channel-bandwidth: 20000000 Hz
+      ├── downlink-radio-frame-offset: 0
+      ├── downlink-sfn-offset: 0
+      └── [meta] msg-id=285, ts=2025-10-30T14:58:15.028000+00:00, rpc=edit-config
+  [Processing Element] LTE405160.PE_2_vlan_1_ethernetInterface1
+      ├── name: LTE405160.PE_2_vlan_1_ethernetInterface1
+      ├── transport-flow[1]
+      │   ├── interface-name: vlan_1_ethernetInterface1
+      │   ├── eth.ru-mac-address: d0:48:4f:2b:1f:41
+      │   ├── eth.o-du-mac-address: 28:74:f5:20:1d:3f
+      │   └── eth.vlan-id: 1
+      └── [meta] msg-id=146, ts=2025-10-30T14:57:22.411000+00:00, rpc=edit-config
+
+🔗 Chain: LTE405160.RLINK_CELL2_CG1_CH4 (RX)
+----------------------------------------------------------------------------------------------------
+  [Endpoint] lowLevelRxEndpoint89
+      ├── endpoint-source-tag: static-low-level-rx-endpoints
+      ├── array: rxArray4c
+      ├── endpoint-type: 3
+      ├── static-config-supported: NONE
+      ├── restricted-interfaces[2]
+      │   ├── [1] ethernetInterface1
+      │   ├── [2] ethernetInterface3
+      └── [meta] msg-id=raw-static-recover, ts=-, rpc=raw-fallback
+      │
+      ▼ (Link PE: LTE405160.PE_2_vlan_1_ethernetInterface1)
+      │
+      ├── link.name: LTE405160.RLINK_CELL2_CG1_CH4
+      ├── link.low-level-rx-endpoint: lowLevelRxEndpoint89
+      ├── link.rx-array-carrier: LTE405160.RX2_1_1_25
+      └── [meta] msg-id=264, ts=2025-10-30T14:58:05.818000+00:00, rpc=edit-config
+  [Carrier] LTE405160.RX2_1_1_25
+      ├── active: ACTIVE
+      ├── type: LTE
+      ├── center-of-channel-bandwidth: 2550000000 Hz
+      ├── channel-bandwidth: 20000000 Hz
+      ├── downlink-radio-frame-offset: 0
+      ├── downlink-sfn-offset: 0
+      └── [meta] msg-id=285, ts=2025-10-30T14:58:15.028000+00:00, rpc=edit-config
+  [Processing Element] LTE405160.PE_2_vlan_1_ethernetInterface1
+      ├── name: LTE405160.PE_2_vlan_1_ethernetInterface1
+      ├── transport-flow[1]
+      │   ├── interface-name: vlan_1_ethernetInterface1
+      │   ├── eth.ru-mac-address: d0:48:4f:2b:1f:41
+      │   ├── eth.o-du-mac-address: 28:74:f5:20:1d:3f
+      │   └── eth.vlan-id: 1
+      └── [meta] msg-id=146, ts=2025-10-30T14:57:22.411000+00:00, rpc=edit-config
+
+🔗 Chain: LTE405160.RLINK_CELL2_CG1_CH9 (RX)
+----------------------------------------------------------------------------------------------------
+  [Endpoint] lowLevelRxEndpoint161
+      ├── endpoint-source-tag: static-low-level-rx-endpoints
+      ├── array: rxArray1c
+      ├── endpoint-type: 1
+      ├── static-config-supported: PRACH
+      ├── prach-group: 0
+      ├── restricted-interfaces[2]
+      │   ├── [1] ethernetInterface0
+      │   ├── [2] ethernetInterface2
+      ├── PRACH config matched: 0
+      │   ├── pattern-period: 4
+      │   ├── sequence-duration: 24576
+      │   ├── num-prach-re: 839
+      │   ├── guard-tone-low-re: 7
+      │   └── guard-tone-high-re: 18
+      └── [meta] msg-id=raw-static-recover, ts=-, rpc=raw-fallback
+      │
+      ▼ (Link PE: LTE405160.PE_2_vlan_1_ethernetInterface0)
+      │
+      ├── link.name: LTE405160.RLINK_CELL2_CG1_CH9
+      ├── link.low-level-rx-endpoint: lowLevelRxEndpoint161
+      ├── link.rx-array-carrier: LTE405160.RX2_1_1_16
+      └── [meta] msg-id=270, ts=2025-10-30T14:58:08.681000+00:00, rpc=edit-config
+  [Carrier] LTE405160.RX2_1_1_16
+      ├── active: ACTIVE
+      ├── type: LTE
+      ├── center-of-channel-bandwidth: 2550000000 Hz
+      ├── channel-bandwidth: 20000000 Hz
+      ├── downlink-radio-frame-offset: 0
+      ├── downlink-sfn-offset: 0
+      └── [meta] msg-id=285, ts=2025-10-30T14:58:15.028000+00:00, rpc=edit-config
+  [Processing Element] LTE405160.PE_2_vlan_1_ethernetInterface0
+      ├── name: LTE405160.PE_2_vlan_1_ethernetInterface0
+      ├── transport-flow[1]
+      │   ├── interface-name: vlan_1_ethernetInterface0
+      │   ├── eth.ru-mac-address: d0:48:4f:2b:1f:3f
+      │   ├── eth.o-du-mac-address: 28:74:f5:20:1d:3f
+      │   └── eth.vlan-id: 1
+      └── [meta] msg-id=145, ts=2025-10-30T14:57:22.227000+00:00, rpc=edit-config
+
+🔗 Chain: NR405160.RLINK_CELL1_CG1_CH11 (RX)
+----------------------------------------------------------------------------------------------------
+  [Endpoint] lowLevelRxEndpoint48
+      ├── endpoint-source-tag: static-low-level-rx-endpoints
+      ├── array: rxArray3b
+      ├── endpoint-type: 3
+      ├── static-config-supported: NONE
+      ├── restricted-interfaces[2]
+      │   ├── [1] ethernetInterface1
+      │   ├── [2] ethernetInterface3
+      └── [meta] msg-id=raw-static-recover, ts=-, rpc=raw-fallback
+      │
+      ▼ (Link PE: NR405160.PE_2_vlan_1_ethernetInterface1)
+      │
+      ├── link.name: NR405160.RLINK_CELL1_CG1_CH11
+      ├── link.low-level-rx-endpoint: lowLevelRxEndpoint48
+      ├── link.rx-array-carrier: NR405160.RX1_1_1_1
+      └── [meta] msg-id=242, ts=2025-10-30T14:57:54.159000+00:00, rpc=edit-config
+  [Carrier] NR405160.RX1_1_1_1
+      ├── active: ACTIVE
+      ├── type: NR
+      ├── center-of-channel-bandwidth: 1747500000 Hz
+      ├── channel-bandwidth: 40000000 Hz
+      ├── downlink-radio-frame-offset: 0
+      ├── downlink-sfn-offset: 0
+      └── [meta] msg-id=280, ts=2025-10-30T14:58:11.948000+00:00, rpc=edit-config
+  [Processing Element] NR405160.PE_2_vlan_1_ethernetInterface1
+      ├── name: NR405160.PE_2_vlan_1_ethernetInterface1
+      ├── transport-flow[1]
+      │   ├── interface-name: vlan_1_ethernetInterface1
+      │   ├── eth.ru-mac-address: d0:48:4f:2b:1f:41
+      │   ├── eth.o-du-mac-address: 28:74:f5:20:1d:3f
+      │   └── eth.vlan-id: 1
+      └── [meta] msg-id=127, ts=2025-10-30T14:57:18.738000+00:00, rpc=edit-config
+
+🔗 Chain: NR405160.RLINK_CELL1_CG1_CH12 (RX)
+----------------------------------------------------------------------------------------------------
+  [Endpoint] lowLevelRxEndpoint144
+      ├── endpoint-source-tag: static-low-level-rx-endpoints
+      ├── array: rxArray3b
+      ├── endpoint-type: 1
+      ├── static-config-supported: PRACH
+      ├── prach-group: 0
+      ├── restricted-interfaces[2]
+      │   ├── [1] ethernetInterface1
+      │   ├── [2] ethernetInterface3
+      ├── PRACH config matched: 0
+      │   ├── pattern-period: 4
+      │   ├── sequence-duration: 24576
+      │   ├── num-prach-re: 839
+      │   ├── guard-tone-low-re: 7
+      │   └── guard-tone-high-re: 18
+      └── [meta] msg-id=raw-static-recover, ts=-, rpc=raw-fallback
+      │
+      ▼ (Link PE: NR405160.PE_2_vlan_1_ethernetInterface1)
+      │
+      ├── link.name: NR405160.RLINK_CELL1_CG1_CH12
+      ├── link.low-level-rx-endpoint: lowLevelRxEndpoint144
+      ├── link.rx-array-carrier: NR405160.RX1_1_1_1
+      └── [meta] msg-id=243, ts=2025-10-30T14:57:54.616000+00:00, rpc=edit-config
+  [Carrier] NR405160.RX1_1_1_1
+      ├── active: ACTIVE
+      ├── type: NR
+      ├── center-of-channel-bandwidth: 1747500000 Hz
+      ├── channel-bandwidth: 40000000 Hz
+      ├── downlink-radio-frame-offset: 0
+      ├── downlink-sfn-offset: 0
+      └── [meta] msg-id=280, ts=2025-10-30T14:58:11.948000+00:00, rpc=edit-config
+  [Processing Element] NR405160.PE_2_vlan_1_ethernetInterface1
+      ├── name: NR405160.PE_2_vlan_1_ethernetInterface1
+      ├── transport-flow[1]
+      │   ├── interface-name: vlan_1_ethernetInterface1
+      │   ├── eth.ru-mac-address: d0:48:4f:2b:1f:41
+      │   ├── eth.o-du-mac-address: 28:74:f5:20:1d:3f
+      │   └── eth.vlan-id: 1
+      └── [meta] msg-id=127, ts=2025-10-30T14:57:18.738000+00:00, rpc=edit-config
+
+🔗 Chain: NR405160.RLINK_CELL1_CG1_CH15 (RX)
+----------------------------------------------------------------------------------------------------
+  [Endpoint] lowLevelRxEndpoint56
+      ├── endpoint-source-tag: static-low-level-rx-endpoints
+      ├── array: rxArray4b
+      ├── endpoint-type: 3
+      ├── static-config-supported: NONE
+      ├── restricted-interfaces[2]
+      │   ├── [1] ethernetInterface1
+      │   ├── [2] ethernetInterface3
+      └── [meta] msg-id=raw-static-recover, ts=-, rpc=raw-fallback
+      │
+      ▼ (Link PE: NR405160.PE_2_vlan_1_ethernetInterface1)
+      │
+      ├── link.name: NR405160.RLINK_CELL1_CG1_CH15
+      ├── link.low-level-rx-endpoint: lowLevelRxEndpoint56
+      ├── link.rx-array-carrier: NR405160.RX1_1_1_9
+      └── [meta] msg-id=245, ts=2025-10-30T14:57:55.371000+00:00, rpc=edit-config
+  [Carrier] NR405160.RX1_1_1_9
+      ├── active: ACTIVE
+      ├── type: NR
+      ├── center-of-channel-bandwidth: 1747500000 Hz
+      ├── channel-bandwidth: 40000000 Hz
+      ├── downlink-radio-frame-offset: 0
+      ├── downlink-sfn-offset: 0
+      └── [meta] msg-id=280, ts=2025-10-30T14:58:11.948000+00:00, rpc=edit-config
+  [Processing Element] NR405160.PE_2_vlan_1_ethernetInterface1
+      ├── name: NR405160.PE_2_vlan_1_ethernetInterface1
+      ├── transport-flow[1]
+      │   ├── interface-name: vlan_1_ethernetInterface1
+      │   ├── eth.ru-mac-address: d0:48:4f:2b:1f:41
+      │   ├── eth.o-du-mac-address: 28:74:f5:20:1d:3f
+      │   └── eth.vlan-id: 1
+      └── [meta] msg-id=127, ts=2025-10-30T14:57:18.738000+00:00, rpc=edit-config
+
+🔗 Chain: NR405160.RLINK_CELL1_CG1_CH16 (RX)
+----------------------------------------------------------------------------------------------------
+  [Endpoint] lowLevelRxEndpoint152
+      ├── endpoint-source-tag: static-low-level-rx-endpoints
+      ├── array: rxArray4b
+      ├── endpoint-type: 1
+      ├── static-config-supported: PRACH
+      ├── prach-group: 0
+      ├── restricted-interfaces[2]
+      │   ├── [1] ethernetInterface1
+      │   ├── [2] ethernetInterface3
+      ├── PRACH config matched: 0
+      │   ├── pattern-period: 4
+      │   ├── sequence-duration: 24576
+      │   ├── num-prach-re: 839
+      │   ├── guard-tone-low-re: 7
+      │   └── guard-tone-high-re: 18
+      └── [meta] msg-id=raw-static-recover, ts=-, rpc=raw-fallback
+      │
+      ▼ (Link PE: NR405160.PE_2_vlan_1_ethernetInterface1)
+      │
+      ├── link.name: NR405160.RLINK_CELL1_CG1_CH16
+      ├── link.low-level-rx-endpoint: lowLevelRxEndpoint152
+      ├── link.rx-array-carrier: NR405160.RX1_1_1_9
+      └── [meta] msg-id=246, ts=2025-10-30T14:57:55.823000+00:00, rpc=edit-config
+  [Carrier] NR405160.RX1_1_1_9
+      ├── active: ACTIVE
+      ├── type: NR
+      ├── center-of-channel-bandwidth: 1747500000 Hz
+      ├── channel-bandwidth: 40000000 Hz
+      ├── downlink-radio-frame-offset: 0
+      ├── downlink-sfn-offset: 0
+      └── [meta] msg-id=280, ts=2025-10-30T14:58:11.948000+00:00, rpc=edit-config
+  [Processing Element] NR405160.PE_2_vlan_1_ethernetInterface1
+      ├── name: NR405160.PE_2_vlan_1_ethernetInterface1
+      ├── transport-flow[1]
+      │   ├── interface-name: vlan_1_ethernetInterface1
+      │   ├── eth.ru-mac-address: d0:48:4f:2b:1f:41
+      │   ├── eth.o-du-mac-address: 28:74:f5:20:1d:3f
+      │   └── eth.vlan-id: 1
+      └── [meta] msg-id=127, ts=2025-10-30T14:57:18.738000+00:00, rpc=edit-config
+
+🔗 Chain: NR405160.RLINK_CELL1_CG1_CH3 (RX)
+----------------------------------------------------------------------------------------------------
+  [Endpoint] lowLevelRxEndpoint32
+      ├── endpoint-source-tag: static-low-level-rx-endpoints
+      ├── array: rxArray1b
+      ├── endpoint-type: 3
+      ├── static-config-supported: NONE
+      ├── restricted-interfaces[2]
+      │   ├── [1] ethernetInterface0
+      │   ├── [2] ethernetInterface2
+      └── [meta] msg-id=raw-static-recover, ts=-, rpc=raw-fallback
+      │
+      ▼ (Link PE: NR405160.PE_2_vlan_1_ethernetInterface0)
+      │
+      ├── link.name: NR405160.RLINK_CELL1_CG1_CH3
+      ├── link.low-level-rx-endpoint: lowLevelRxEndpoint32
+      ├── link.rx-array-carrier: NR405160.RX1_1_1_0
+      └── [meta] msg-id=248, ts=2025-10-30T14:57:56.307000+00:00, rpc=edit-config
+  [Carrier] NR405160.RX1_1_1_0
+      ├── active: ACTIVE
+      ├── type: NR
+      ├── center-of-channel-bandwidth: 1747500000 Hz
+      ├── channel-bandwidth: 40000000 Hz
+      ├── downlink-radio-frame-offset: 0
+      ├── downlink-sfn-offset: 0
+      └── [meta] msg-id=280, ts=2025-10-30T14:58:11.948000+00:00, rpc=edit-config
+  [Processing Element] NR405160.PE_2_vlan_1_ethernetInterface0
+      ├── name: NR405160.PE_2_vlan_1_ethernetInterface0
+      ├── transport-flow[1]
+      │   ├── interface-name: vlan_1_ethernetInterface0
+      │   ├── eth.ru-mac-address: d0:48:4f:2b:1f:3f
+      │   ├── eth.o-du-mac-address: 28:74:f5:20:1d:3f
+      │   └── eth.vlan-id: 1
+      └── [meta] msg-id=126, ts=2025-10-30T14:57:18.732000+00:00, rpc=edit-config
+
+🔗 Chain: NR405160.RLINK_CELL1_CG1_CH4 (RX)
+----------------------------------------------------------------------------------------------------
+  [Endpoint] lowLevelRxEndpoint128
+      ├── endpoint-source-tag: static-low-level-rx-endpoints
+      ├── array: rxArray1b
+      ├── endpoint-type: 1
+      ├── static-config-supported: PRACH
+      ├── prach-group: 0
+      ├── restricted-interfaces[2]
+      │   ├── [1] ethernetInterface0
+      │   ├── [2] ethernetInterface2
+      ├── PRACH config matched: 0
+      │   ├── pattern-period: 4
+      │   ├── sequence-duration: 24576
+      │   ├── num-prach-re: 839
+      │   ├── guard-tone-low-re: 7
+      │   └── guard-tone-high-re: 18
+      └── [meta] msg-id=raw-static-recover, ts=-, rpc=raw-fallback
+      │
+      ▼ (Link PE: NR405160.PE_2_vlan_1_ethernetInterface0)
+      │
+      ├── link.name: NR405160.RLINK_CELL1_CG1_CH4
+      ├── link.low-level-rx-endpoint: lowLevelRxEndpoint128
+      ├── link.rx-array-carrier: NR405160.RX1_1_1_0
+      └── [meta] msg-id=249, ts=2025-10-30T14:57:56.693000+00:00, rpc=edit-config
+  [Carrier] NR405160.RX1_1_1_0
+      ├── active: ACTIVE
+      ├── type: NR
+      ├── center-of-channel-bandwidth: 1747500000 Hz
+      ├── channel-bandwidth: 40000000 Hz
+      ├── downlink-radio-frame-offset: 0
+      ├── downlink-sfn-offset: 0
+      └── [meta] msg-id=280, ts=2025-10-30T14:58:11.948000+00:00, rpc=edit-config
+  [Processing Element] NR405160.PE_2_vlan_1_ethernetInterface0
+      ├── name: NR405160.PE_2_vlan_1_ethernetInterface0
+      ├── transport-flow[1]
+      │   ├── interface-name: vlan_1_ethernetInterface0
+      │   ├── eth.ru-mac-address: d0:48:4f:2b:1f:3f
+      │   ├── eth.o-du-mac-address: 28:74:f5:20:1d:3f
+      │   └── eth.vlan-id: 1
+      └── [meta] msg-id=126, ts=2025-10-30T14:57:18.732000+00:00, rpc=edit-config
+
+🔗 Chain: NR405160.RLINK_CELL1_CG1_CH7 (RX)
+----------------------------------------------------------------------------------------------------
+  [Endpoint] lowLevelRxEndpoint40
+      ├── endpoint-source-tag: static-low-level-rx-endpoints
+      ├── array: rxArray2b
+      ├── endpoint-type: 3
+      ├── static-config-supported: NONE
+      ├── restricted-interfaces[2]
+      │   ├── [1] ethernetInterface0
+      │   ├── [2] ethernetInterface2
+      └── [meta] msg-id=raw-static-recover, ts=-, rpc=raw-fallback
+      │
+      ▼ (Link PE: NR405160.PE_2_vlan_1_ethernetInterface0)
+      │
+      ├── link.name: NR405160.RLINK_CELL1_CG1_CH7
+      ├── link.low-level-rx-endpoint: lowLevelRxEndpoint40
+      ├── link.rx-array-carrier: NR405160.RX1_1_1_8
+      └── [meta] msg-id=251, ts=2025-10-30T14:57:57.599000+00:00, rpc=edit-config
+  [Carrier] NR405160.RX1_1_1_8
+      ├── active: ACTIVE
+      ├── type: NR
+      ├── center-of-channel-bandwidth: 1747500000 Hz
+      ├── channel-bandwidth: 40000000 Hz
+      ├── downlink-radio-frame-offset: 0
+      ├── downlink-sfn-offset: 0
+      └── [meta] msg-id=280, ts=2025-10-30T14:58:11.948000+00:00, rpc=edit-config
+  [Processing Element] NR405160.PE_2_vlan_1_ethernetInterface0
+      ├── name: NR405160.PE_2_vlan_1_ethernetInterface0
+      ├── transport-flow[1]
+      │   ├── interface-name: vlan_1_ethernetInterface0
+      │   ├── eth.ru-mac-address: d0:48:4f:2b:1f:3f
+      │   ├── eth.o-du-mac-address: 28:74:f5:20:1d:3f
+      │   └── eth.vlan-id: 1
+      └── [meta] msg-id=126, ts=2025-10-30T14:57:18.732000+00:00, rpc=edit-config
+
+🔗 Chain: NR405160.RLINK_CELL1_CG1_CH8 (RX)
+----------------------------------------------------------------------------------------------------
+  [Endpoint] lowLevelRxEndpoint136
+      ├── endpoint-source-tag: static-low-level-rx-endpoints
+      ├── array: rxArray2b
+      ├── endpoint-type: 1
+      ├── static-config-supported: PRACH
+      ├── prach-group: 0
+      ├── restricted-interfaces[2]
+      │   ├── [1] ethernetInterface0
+      │   ├── [2] ethernetInterface2
+      ├── PRACH config matched: 0
+      │   ├── pattern-period: 4
+      │   ├── sequence-duration: 24576
+      │   ├── num-prach-re: 839
+      │   ├── guard-tone-low-re: 7
+      │   └── guard-tone-high-re: 18
+      └── [meta] msg-id=raw-static-recover, ts=-, rpc=raw-fallback
+      │
+      ▼ (Link PE: NR405160.PE_2_vlan_1_ethernetInterface0)
+      │
+      ├── link.name: NR405160.RLINK_CELL1_CG1_CH8
+      ├── link.low-level-rx-endpoint: lowLevelRxEndpoint136
+      ├── link.rx-array-carrier: NR405160.RX1_1_1_8
+      └── [meta] msg-id=252, ts=2025-10-30T14:57:58.065000+00:00, rpc=edit-config
+  [Carrier] NR405160.RX1_1_1_8
+      ├── active: ACTIVE
+      ├── type: NR
+      ├── center-of-channel-bandwidth: 1747500000 Hz
+      ├── channel-bandwidth: 40000000 Hz
+      ├── downlink-radio-frame-offset: 0
+      ├── downlink-sfn-offset: 0
+      └── [meta] msg-id=280, ts=2025-10-30T14:58:11.948000+00:00, rpc=edit-config
+  [Processing Element] NR405160.PE_2_vlan_1_ethernetInterface0
+      ├── name: NR405160.PE_2_vlan_1_ethernetInterface0
+      ├── transport-flow[1]
+      │   ├── interface-name: vlan_1_ethernetInterface0
+      │   ├── eth.ru-mac-address: d0:48:4f:2b:1f:3f
+      │   ├── eth.o-du-mac-address: 28:74:f5:20:1d:3f
+      │   └── eth.vlan-id: 1
+      └── [meta] msg-id=126, ts=2025-10-30T14:57:18.732000+00:00, rpc=edit-config
+
+🔗 Chain: NR405160.RLINK_CELL2_CG1_CH11 (RX)
+----------------------------------------------------------------------------------------------------
+  [Endpoint] lowLevelRxEndpoint16
+      ├── endpoint-source-tag: static-low-level-rx-endpoints
+      ├── array: rxArray3a
+      ├── endpoint-type: 3
+      ├── static-config-supported: NONE
+      ├── restricted-interfaces[2]
+      │   ├── [1] ethernetInterface1
+      │   ├── [2] ethernetInterface3
+      └── [meta] msg-id=raw-static-recover, ts=-, rpc=raw-fallback
+      │
+      ▼ (Link PE: NR405160.PE_2_vlan_1_ethernetInterface1)
+      │
+      ├── link.name: NR405160.RLINK_CELL2_CG1_CH11
+      ├── link.low-level-rx-endpoint: lowLevelRxEndpoint16
+      ├── link.rx-array-carrier: NR405160.RX2_1_1_33
+      └── [meta] msg-id=194, ts=2025-10-30T14:57:32.764000+00:00, rpc=edit-config
+  [Carrier] NR405160.RX2_1_1_33
+      ├── active: ACTIVE
+      ├── type: NR
+      ├── center-of-channel-bandwidth: 1950000000 Hz
+      ├── channel-bandwidth: 10000000 Hz
+      ├── downlink-radio-frame-offset: 0
+      ├── downlink-sfn-offset: 0
+      └── [meta] msg-id=218, ts=2025-10-30T14:57:37.524000+00:00, rpc=edit-config
+  [Processing Element] NR405160.PE_2_vlan_1_ethernetInterface1
+      ├── name: NR405160.PE_2_vlan_1_ethernetInterface1
+      ├── transport-flow[1]
+      │   ├── interface-name: vlan_1_ethernetInterface1
+      │   ├── eth.ru-mac-address: d0:48:4f:2b:1f:41
+      │   ├── eth.o-du-mac-address: 28:74:f5:20:1d:3f
+      │   └── eth.vlan-id: 1
+      └── [meta] msg-id=127, ts=2025-10-30T14:57:18.738000+00:00, rpc=edit-config
+
+🔗 Chain: NR405160.RLINK_CELL2_CG1_CH12 (RX)
+----------------------------------------------------------------------------------------------------
+  [Endpoint] lowLevelRxEndpoint112
+      ├── endpoint-source-tag: static-low-level-rx-endpoints
+      ├── array: rxArray3a
+      ├── endpoint-type: 1
+      ├── static-config-supported: PRACH
+      ├── prach-group: 0
+      ├── restricted-interfaces[2]
+      │   ├── [1] ethernetInterface1
+      │   ├── [2] ethernetInterface3
+      ├── PRACH config matched: 0
+      │   ├── pattern-period: 4
+      │   ├── sequence-duration: 24576
+      │   ├── num-prach-re: 839
+      │   ├── guard-tone-low-re: 7
+      │   └── guard-tone-high-re: 18
+      └── [meta] msg-id=raw-static-recover, ts=-, rpc=raw-fallback
+      │
+      ▼ (Link PE: NR405160.PE_2_vlan_1_ethernetInterface1)
+      │
+      ├── link.name: NR405160.RLINK_CELL2_CG1_CH12
+      ├── link.low-level-rx-endpoint: lowLevelRxEndpoint112
+      ├── link.rx-array-carrier: NR405160.RX2_1_1_33
+      └── [meta] msg-id=195, ts=2025-10-30T14:57:33.064000+00:00, rpc=edit-config
+  [Carrier] NR405160.RX2_1_1_33
+      ├── active: ACTIVE
+      ├── type: NR
+      ├── center-of-channel-bandwidth: 1950000000 Hz
+      ├── channel-bandwidth: 10000000 Hz
+      ├── downlink-radio-frame-offset: 0
+      ├── downlink-sfn-offset: 0
+      └── [meta] msg-id=218, ts=2025-10-30T14:57:37.524000+00:00, rpc=edit-config
+  [Processing Element] NR405160.PE_2_vlan_1_ethernetInterface1
+      ├── name: NR405160.PE_2_vlan_1_ethernetInterface1
+      ├── transport-flow[1]
+      │   ├── interface-name: vlan_1_ethernetInterface1
+      │   ├── eth.ru-mac-address: d0:48:4f:2b:1f:41
+      │   ├── eth.o-du-mac-address: 28:74:f5:20:1d:3f
+      │   └── eth.vlan-id: 1
+      └── [meta] msg-id=127, ts=2025-10-30T14:57:18.738000+00:00, rpc=edit-config
+
+🔗 Chain: NR405160.RLINK_CELL2_CG1_CH15 (RX)
+----------------------------------------------------------------------------------------------------
+  [Endpoint] lowLevelRxEndpoint24
+      ├── endpoint-source-tag: static-low-level-rx-endpoints
+      ├── array: rxArray4a
+      ├── endpoint-type: 3
+      ├── static-config-supported: NONE
+      ├── restricted-interfaces[2]
+      │   ├── [1] ethernetInterface1
+      │   ├── [2] ethernetInterface3
+      └── [meta] msg-id=raw-static-recover, ts=-, rpc=raw-fallback
+      │
+      ▼ (Link PE: NR405160.PE_2_vlan_1_ethernetInterface1)
+      │
+      ├── link.name: NR405160.RLINK_CELL2_CG1_CH15
+      ├── link.low-level-rx-endpoint: lowLevelRxEndpoint24
+      ├── link.rx-array-carrier: NR405160.RX2_1_1_41
+      └── [meta] msg-id=197, ts=2025-10-30T14:57:33.593000+00:00, rpc=edit-config
+  [Carrier] NR405160.RX2_1_1_41
+      ├── active: ACTIVE
+      ├── type: NR
+      ├── center-of-channel-bandwidth: 1950000000 Hz
+      ├── channel-bandwidth: 10000000 Hz
+      ├── downlink-radio-frame-offset: 0
+      ├── downlink-sfn-offset: 0
+      └── [meta] msg-id=218, ts=2025-10-30T14:57:37.524000+00:00, rpc=edit-config
+  [Processing Element] NR405160.PE_2_vlan_1_ethernetInterface1
+      ├── name: NR405160.PE_2_vlan_1_ethernetInterface1
+      ├── transport-flow[1]
+      │   ├── interface-name: vlan_1_ethernetInterface1
+      │   ├── eth.ru-mac-address: d0:48:4f:2b:1f:41
+      │   ├── eth.o-du-mac-address: 28:74:f5:20:1d:3f
+      │   └── eth.vlan-id: 1
+      └── [meta] msg-id=127, ts=2025-10-30T14:57:18.738000+00:00, rpc=edit-config
+
+🔗 Chain: NR405160.RLINK_CELL2_CG1_CH16 (RX)
+----------------------------------------------------------------------------------------------------
+  [Endpoint] lowLevelRxEndpoint120
+      ├── endpoint-source-tag: static-low-level-rx-endpoints
+      ├── array: rxArray4a
+      ├── endpoint-type: 1
+      ├── static-config-supported: PRACH
+      ├── prach-group: 0
+      ├── restricted-interfaces[2]
+      │   ├── [1] ethernetInterface1
+      │   ├── [2] ethernetInterface3
+      ├── PRACH config matched: 0
+      │   ├── pattern-period: 4
+      │   ├── sequence-duration: 24576
+      │   ├── num-prach-re: 839
+      │   ├── guard-tone-low-re: 7
+      │   └── guard-tone-high-re: 18
+      └── [meta] msg-id=raw-static-recover, ts=-, rpc=raw-fallback
+      │
+      ▼ (Link PE: NR405160.PE_2_vlan_1_ethernetInterface1)
+      │
+      ├── link.name: NR405160.RLINK_CELL2_CG1_CH16
+      ├── link.low-level-rx-endpoint: lowLevelRxEndpoint120
+      ├── link.rx-array-carrier: NR405160.RX2_1_1_41
+      └── [meta] msg-id=198, ts=2025-10-30T14:57:33.948000+00:00, rpc=edit-config
+  [Carrier] NR405160.RX2_1_1_41
+      ├── active: ACTIVE
+      ├── type: NR
+      ├── center-of-channel-bandwidth: 1950000000 Hz
+      ├── channel-bandwidth: 10000000 Hz
+      ├── downlink-radio-frame-offset: 0
+      ├── downlink-sfn-offset: 0
+      └── [meta] msg-id=218, ts=2025-10-30T14:57:37.524000+00:00, rpc=edit-config
+  [Processing Element] NR405160.PE_2_vlan_1_ethernetInterface1
+      ├── name: NR405160.PE_2_vlan_1_ethernetInterface1
+      ├── transport-flow[1]
+      │   ├── interface-name: vlan_1_ethernetInterface1
+      │   ├── eth.ru-mac-address: d0:48:4f:2b:1f:41
+      │   ├── eth.o-du-mac-address: 28:74:f5:20:1d:3f
+      │   └── eth.vlan-id: 1
+      └── [meta] msg-id=127, ts=2025-10-30T14:57:18.738000+00:00, rpc=edit-config
+
+🔗 Chain: NR405160.RLINK_CELL2_CG1_CH3 (RX)
+----------------------------------------------------------------------------------------------------
+  [Endpoint] lowLevelRxEndpoint0
+      ├── endpoint-source-tag: static-low-level-rx-endpoints
+      ├── array: rxArray1a
+      ├── endpoint-type: 3
+      ├── static-config-supported: NONE
+      ├── restricted-interfaces[2]
+      │   ├── [1] ethernetInterface0
+      │   ├── [2] ethernetInterface2
+      └── [meta] msg-id=raw-static-recover, ts=-, rpc=raw-fallback
+      │
+      ▼ (Link PE: NR405160.PE_2_vlan_1_ethernetInterface0)
+      │
+      ├── link.name: NR405160.RLINK_CELL2_CG1_CH3
+      ├── link.low-level-rx-endpoint: lowLevelRxEndpoint0
+      ├── link.rx-array-carrier: NR405160.RX2_1_1_32
+      └── [meta] msg-id=199, ts=2025-10-30T14:57:34.235000+00:00, rpc=edit-config
+  [Carrier] NR405160.RX2_1_1_32
+      ├── active: ACTIVE
+      ├── type: NR
+      ├── center-of-channel-bandwidth: 1950000000 Hz
+      ├── channel-bandwidth: 10000000 Hz
+      ├── downlink-radio-frame-offset: 0
+      ├── downlink-sfn-offset: 0
+      └── [meta] msg-id=218, ts=2025-10-30T14:57:37.524000+00:00, rpc=edit-config
+  [Processing Element] NR405160.PE_2_vlan_1_ethernetInterface0
+      ├── name: NR405160.PE_2_vlan_1_ethernetInterface0
+      ├── transport-flow[1]
+      │   ├── interface-name: vlan_1_ethernetInterface0
+      │   ├── eth.ru-mac-address: d0:48:4f:2b:1f:3f
+      │   ├── eth.o-du-mac-address: 28:74:f5:20:1d:3f
+      │   └── eth.vlan-id: 1
+      └── [meta] msg-id=126, ts=2025-10-30T14:57:18.732000+00:00, rpc=edit-config
+
+🔗 Chain: NR405160.RLINK_CELL2_CG1_CH4 (RX)
+----------------------------------------------------------------------------------------------------
+  [Endpoint] lowLevelRxEndpoint100
+      ├── endpoint-source-tag: static-low-level-rx-endpoints
+      ├── array: rxArray1a
+      ├── endpoint-type: 1
+      ├── static-config-supported: PRACH
+      ├── prach-group: 0
+      ├── restricted-interfaces[2]
+      │   ├── [1] ethernetInterface0
+      │   ├── [2] ethernetInterface2
+      ├── PRACH config matched: 0
+      │   ├── pattern-period: 4
+      │   ├── sequence-duration: 24576
+      │   ├── num-prach-re: 839
+      │   ├── guard-tone-low-re: 7
+      │   └── guard-tone-high-re: 18
+      └── [meta] msg-id=raw-static-recover, ts=-, rpc=raw-fallback
+      │
+      ▼ (Link PE: NR405160.PE_2_vlan_1_ethernetInterface0)
+      │
+      ├── link.name: NR405160.RLINK_CELL2_CG1_CH4
+      ├── link.low-level-rx-endpoint: lowLevelRxEndpoint100
+      ├── link.rx-array-carrier: NR405160.RX2_1_1_32
+      └── [meta] msg-id=200, ts=2025-10-30T14:57:34.465000+00:00, rpc=edit-config
+  [Carrier] NR405160.RX2_1_1_32
+      ├── active: ACTIVE
+      ├── type: NR
+      ├── center-of-channel-bandwidth: 1950000000 Hz
+      ├── channel-bandwidth: 10000000 Hz
+      ├── downlink-radio-frame-offset: 0
+      ├── downlink-sfn-offset: 0
+      └── [meta] msg-id=218, ts=2025-10-30T14:57:37.524000+00:00, rpc=edit-config
+  [Processing Element] NR405160.PE_2_vlan_1_ethernetInterface0
+      ├── name: NR405160.PE_2_vlan_1_ethernetInterface0
+      ├── transport-flow[1]
+      │   ├── interface-name: vlan_1_ethernetInterface0
+      │   ├── eth.ru-mac-address: d0:48:4f:2b:1f:3f
+      │   ├── eth.o-du-mac-address: 28:74:f5:20:1d:3f
+      │   └── eth.vlan-id: 1
+      └── [meta] msg-id=126, ts=2025-10-30T14:57:18.732000+00:00, rpc=edit-config
+
+🔗 Chain: NR405160.RLINK_CELL2_CG1_CH7 (RX)
+----------------------------------------------------------------------------------------------------
+  [Endpoint] lowLevelRxEndpoint10
+      ├── endpoint-source-tag: static-low-level-rx-endpoints
+      ├── array: rxArray2a
+      ├── endpoint-type: 3
+      ├── static-config-supported: NONE
+      ├── restricted-interfaces[2]
+      │   ├── [1] ethernetInterface0
+      │   ├── [2] ethernetInterface2
+      └── [meta] msg-id=raw-static-recover, ts=-, rpc=raw-fallback
+      │
+      ▼ (Link PE: NR405160.PE_2_vlan_1_ethernetInterface0)
+      │
+      ├── link.name: NR405160.RLINK_CELL2_CG1_CH7
+      ├── link.low-level-rx-endpoint: lowLevelRxEndpoint10
+      ├── link.rx-array-carrier: NR405160.RX2_1_1_40
+      └── [meta] msg-id=202, ts=2025-10-30T14:57:35.044000+00:00, rpc=edit-config
+  [Carrier] NR405160.RX2_1_1_40
+      ├── active: ACTIVE
+      ├── type: NR
+      ├── center-of-channel-bandwidth: 1950000000 Hz
+      ├── channel-bandwidth: 10000000 Hz
+      ├── downlink-radio-frame-offset: 0
+      ├── downlink-sfn-offset: 0
+      └── [meta] msg-id=218, ts=2025-10-30T14:57:37.524000+00:00, rpc=edit-config
+  [Processing Element] NR405160.PE_2_vlan_1_ethernetInterface0
+      ├── name: NR405160.PE_2_vlan_1_ethernetInterface0
+      ├── transport-flow[1]
+      │   ├── interface-name: vlan_1_ethernetInterface0
+      │   ├── eth.ru-mac-address: d0:48:4f:2b:1f:3f
+      │   ├── eth.o-du-mac-address: 28:74:f5:20:1d:3f
+      │   └── eth.vlan-id: 1
+      └── [meta] msg-id=126, ts=2025-10-30T14:57:18.732000+00:00, rpc=edit-config
+
+🔗 Chain: NR405160.RLINK_CELL2_CG1_CH8 (RX)
+----------------------------------------------------------------------------------------------------
+  [Endpoint] lowLevelRxEndpoint104
+      ├── endpoint-source-tag: static-low-level-rx-endpoints
+      ├── array: rxArray2a
+      ├── endpoint-type: 1
+      ├── static-config-supported: PRACH
+      ├── prach-group: 0
+      ├── restricted-interfaces[2]
+      │   ├── [1] ethernetInterface0
+      │   ├── [2] ethernetInterface2
+      ├── PRACH config matched: 0
+      │   ├── pattern-period: 4
+      │   ├── sequence-duration: 24576
+      │   ├── num-prach-re: 839
+      │   ├── guard-tone-low-re: 7
+      │   └── guard-tone-high-re: 18
+      └── [meta] msg-id=raw-static-recover, ts=-, rpc=raw-fallback
+      │
+      ▼ (Link PE: NR405160.PE_2_vlan_1_ethernetInterface0)
+      │
+      ├── link.name: NR405160.RLINK_CELL2_CG1_CH8
+      ├── link.low-level-rx-endpoint: lowLevelRxEndpoint104
+      ├── link.rx-array-carrier: NR405160.RX2_1_1_40
+      └── [meta] msg-id=203, ts=2025-10-30T14:57:35.325000+00:00, rpc=edit-config
+  [Carrier] NR405160.RX2_1_1_40
+      ├── active: ACTIVE
+      ├── type: NR
+      ├── center-of-channel-bandwidth: 1950000000 Hz
+      ├── channel-bandwidth: 10000000 Hz
+      ├── downlink-radio-frame-offset: 0
+      ├── downlink-sfn-offset: 0
+      └── [meta] msg-id=218, ts=2025-10-30T14:57:37.524000+00:00, rpc=edit-config
+  [Processing Element] NR405160.PE_2_vlan_1_ethernetInterface0
+      ├── name: NR405160.PE_2_vlan_1_ethernetInterface0
+      ├── transport-flow[1]
+      │   ├── interface-name: vlan_1_ethernetInterface0
+      │   ├── eth.ru-mac-address: d0:48:4f:2b:1f:3f
+      │   ├── eth.o-du-mac-address: 28:74:f5:20:1d:3f
+      │   └── eth.vlan-id: 1
+      └── [meta] msg-id=126, ts=2025-10-30T14:57:18.732000+00:00, rpc=edit-config
+
+🔗 Chain: NR405160.RLINK_CELL3_CG1_CH11 (RX)
+----------------------------------------------------------------------------------------------------
+  [Endpoint] lowLevelRxEndpoint80
+      ├── endpoint-source-tag: static-low-level-rx-endpoints
+      ├── array: rxArray3c
+      ├── endpoint-type: 3
+      ├── static-config-supported: NONE
+      ├── restricted-interfaces[2]
+      │   ├── [1] ethernetInterface1
+      │   ├── [2] ethernetInterface3
+      └── [meta] msg-id=raw-static-recover, ts=-, rpc=raw-fallback
+      │
+      ▼ (Link PE: NR405160.PE_2_vlan_1_ethernetInterface1)
+      │
+      ├── link.name: NR405160.RLINK_CELL3_CG1_CH11
+      ├── link.low-level-rx-endpoint: lowLevelRxEndpoint80
+      ├── link.rx-array-carrier: NR405160.RX3_1_1_49
+      └── [meta] msg-id=225, ts=2025-10-30T14:57:45.182000+00:00, rpc=edit-config
+  [Carrier] NR405160.RX3_1_1_49
+      ├── active: ACTIVE
+      ├── type: NR
+      ├── center-of-channel-bandwidth: 2520000000 Hz
+      ├── channel-bandwidth: 20000000 Hz
+      ├── downlink-radio-frame-offset: 0
+      ├── downlink-sfn-offset: 0
+      └── [meta] msg-id=274, ts=2025-10-30T14:58:09.357000+00:00, rpc=edit-config
+  [Processing Element] NR405160.PE_2_vlan_1_ethernetInterface1
+      ├── name: NR405160.PE_2_vlan_1_ethernetInterface1
+      ├── transport-flow[1]
+      │   ├── interface-name: vlan_1_ethernetInterface1
+      │   ├── eth.ru-mac-address: d0:48:4f:2b:1f:41
+      │   ├── eth.o-du-mac-address: 28:74:f5:20:1d:3f
+      │   └── eth.vlan-id: 1
+      └── [meta] msg-id=127, ts=2025-10-30T14:57:18.738000+00:00, rpc=edit-config
+
+🔗 Chain: NR405160.RLINK_CELL3_CG1_CH12 (RX)
+----------------------------------------------------------------------------------------------------
+  [Endpoint] lowLevelRxEndpoint176
+      ├── endpoint-source-tag: static-low-level-rx-endpoints
+      ├── array: rxArray3c
+      ├── endpoint-type: 1
+      ├── static-config-supported: PRACH
+      ├── prach-group: 0
+      ├── restricted-interfaces[2]
+      │   ├── [1] ethernetInterface1
+      │   ├── [2] ethernetInterface3
+      ├── PRACH config matched: 0
+      │   ├── pattern-period: 4
+      │   ├── sequence-duration: 24576
+      │   ├── num-prach-re: 839
+      │   ├── guard-tone-low-re: 7
+      │   └── guard-tone-high-re: 18
+      └── [meta] msg-id=raw-static-recover, ts=-, rpc=raw-fallback
+      │
+      ▼ (Link PE: NR405160.PE_2_vlan_1_ethernetInterface1)
+      │
+      ├── link.name: NR405160.RLINK_CELL3_CG1_CH12
+      ├── link.low-level-rx-endpoint: lowLevelRxEndpoint176
+      ├── link.rx-array-carrier: NR405160.RX3_1_1_49
+      └── [meta] msg-id=226, ts=2025-10-30T14:57:45.590000+00:00, rpc=edit-config
+  [Carrier] NR405160.RX3_1_1_49
+      ├── active: ACTIVE
+      ├── type: NR
+      ├── center-of-channel-bandwidth: 2520000000 Hz
+      ├── channel-bandwidth: 20000000 Hz
+      ├── downlink-radio-frame-offset: 0
+      ├── downlink-sfn-offset: 0
+      └── [meta] msg-id=274, ts=2025-10-30T14:58:09.357000+00:00, rpc=edit-config
+  [Processing Element] NR405160.PE_2_vlan_1_ethernetInterface1
+      ├── name: NR405160.PE_2_vlan_1_ethernetInterface1
+      ├── transport-flow[1]
+      │   ├── interface-name: vlan_1_ethernetInterface1
+      │   ├── eth.ru-mac-address: d0:48:4f:2b:1f:41
+      │   ├── eth.o-du-mac-address: 28:74:f5:20:1d:3f
+      │   └── eth.vlan-id: 1
+      └── [meta] msg-id=127, ts=2025-10-30T14:57:18.738000+00:00, rpc=edit-config
+
+🔗 Chain: NR405160.RLINK_CELL3_CG1_CH15 (RX)
+----------------------------------------------------------------------------------------------------
+  [Endpoint] lowLevelRxEndpoint88
+      ├── endpoint-source-tag: static-low-level-rx-endpoints
+      ├── array: rxArray4c
+      ├── endpoint-type: 3
+      ├── static-config-supported: NONE
+      ├── restricted-interfaces[2]
+      │   ├── [1] ethernetInterface1
+      │   ├── [2] ethernetInterface3
+      └── [meta] msg-id=raw-static-recover, ts=-, rpc=raw-fallback
+      │
+      ▼ (Link PE: NR405160.PE_2_vlan_1_ethernetInterface1)
+      │
+      ├── link.name: NR405160.RLINK_CELL3_CG1_CH15
+      ├── link.low-level-rx-endpoint: lowLevelRxEndpoint88
+      ├── link.rx-array-carrier: NR405160.RX3_1_1_57
+      └── [meta] msg-id=229, ts=2025-10-30T14:57:46.369000+00:00, rpc=edit-config
+  [Carrier] NR405160.RX3_1_1_57
+      ├── active: ACTIVE
+      ├── type: NR
+      ├── center-of-channel-bandwidth: 2520000000 Hz
+      ├── channel-bandwidth: 20000000 Hz
+      ├── downlink-radio-frame-offset: 0
+      ├── downlink-sfn-offset: 0
+      └── [meta] msg-id=274, ts=2025-10-30T14:58:09.357000+00:00, rpc=edit-config
+  [Processing Element] NR405160.PE_2_vlan_1_ethernetInterface1
+      ├── name: NR405160.PE_2_vlan_1_ethernetInterface1
+      ├── transport-flow[1]
+      │   ├── interface-name: vlan_1_ethernetInterface1
+      │   ├── eth.ru-mac-address: d0:48:4f:2b:1f:41
+      │   ├── eth.o-du-mac-address: 28:74:f5:20:1d:3f
+      │   └── eth.vlan-id: 1
+      └── [meta] msg-id=127, ts=2025-10-30T14:57:18.738000+00:00, rpc=edit-config
+
+🔗 Chain: NR405160.RLINK_CELL3_CG1_CH16 (RX)
+----------------------------------------------------------------------------------------------------
+  [Endpoint] lowLevelRxEndpoint184
+      ├── endpoint-source-tag: static-low-level-rx-endpoints
+      ├── array: rxArray4c
+      ├── endpoint-type: 1
+      ├── static-config-supported: PRACH
+      ├── prach-group: 0
+      ├── restricted-interfaces[2]
+      │   ├── [1] ethernetInterface1
+      │   ├── [2] ethernetInterface3
+      ├── PRACH config matched: 0
+      │   ├── pattern-period: 4
+      │   ├── sequence-duration: 24576
+      │   ├── num-prach-re: 839
+      │   ├── guard-tone-low-re: 7
+      │   └── guard-tone-high-re: 18
+      └── [meta] msg-id=raw-static-recover, ts=-, rpc=raw-fallback
+      │
+      ▼ (Link PE: NR405160.PE_2_vlan_1_ethernetInterface1)
+      │
+      ├── link.name: NR405160.RLINK_CELL3_CG1_CH16
+      ├── link.low-level-rx-endpoint: lowLevelRxEndpoint184
+      ├── link.rx-array-carrier: NR405160.RX3_1_1_57
+      └── [meta] msg-id=230, ts=2025-10-30T14:57:46.867000+00:00, rpc=edit-config
+  [Carrier] NR405160.RX3_1_1_57
+      ├── active: ACTIVE
+      ├── type: NR
+      ├── center-of-channel-bandwidth: 2520000000 Hz
+      ├── channel-bandwidth: 20000000 Hz
+      ├── downlink-radio-frame-offset: 0
+      ├── downlink-sfn-offset: 0
+      └── [meta] msg-id=274, ts=2025-10-30T14:58:09.357000+00:00, rpc=edit-config
+  [Processing Element] NR405160.PE_2_vlan_1_ethernetInterface1
+      ├── name: NR405160.PE_2_vlan_1_ethernetInterface1
+      ├── transport-flow[1]
+      │   ├── interface-name: vlan_1_ethernetInterface1
+      │   ├── eth.ru-mac-address: d0:48:4f:2b:1f:41
+      │   ├── eth.o-du-mac-address: 28:74:f5:20:1d:3f
+      │   └── eth.vlan-id: 1
+      └── [meta] msg-id=127, ts=2025-10-30T14:57:18.738000+00:00, rpc=edit-config
+
+🔗 Chain: NR405160.RLINK_CELL3_CG1_CH3 (RX)
+----------------------------------------------------------------------------------------------------
+  [Endpoint] lowLevelRxEndpoint64
+      ├── endpoint-source-tag: static-low-level-rx-endpoints
+      ├── array: rxArray1c
+      ├── endpoint-type: 3
+      ├── static-config-supported: NONE
+      ├── restricted-interfaces[2]
+      │   ├── [1] ethernetInterface0
+      │   ├── [2] ethernetInterface2
+      └── [meta] msg-id=raw-static-recover, ts=-, rpc=raw-fallback
+      │
+      ▼ (Link PE: NR405160.PE_2_vlan_1_ethernetInterface0)
+      │
+      ├── link.name: NR405160.RLINK_CELL3_CG1_CH3
+      ├── link.low-level-rx-endpoint: lowLevelRxEndpoint64
+      ├── link.rx-array-carrier: NR405160.RX3_1_1_48
+      └── [meta] msg-id=231, ts=2025-10-30T14:57:47.263000+00:00, rpc=edit-config
+  [Carrier] NR405160.RX3_1_1_48
+      ├── active: ACTIVE
+      ├── type: NR
+      ├── center-of-channel-bandwidth: 2520000000 Hz
+      ├── channel-bandwidth: 20000000 Hz
+      ├── downlink-radio-frame-offset: 0
+      ├── downlink-sfn-offset: 0
+      └── [meta] msg-id=274, ts=2025-10-30T14:58:09.357000+00:00, rpc=edit-config
+  [Processing Element] NR405160.PE_2_vlan_1_ethernetInterface0
+      ├── name: NR405160.PE_2_vlan_1_ethernetInterface0
+      ├── transport-flow[1]
+      │   ├── interface-name: vlan_1_ethernetInterface0
+      │   ├── eth.ru-mac-address: d0:48:4f:2b:1f:3f
+      │   ├── eth.o-du-mac-address: 28:74:f5:20:1d:3f
+      │   └── eth.vlan-id: 1
+      └── [meta] msg-id=126, ts=2025-10-30T14:57:18.732000+00:00, rpc=edit-config
+
+🔗 Chain: NR405160.RLINK_CELL3_CG1_CH4 (RX)
+----------------------------------------------------------------------------------------------------
+  [Endpoint] lowLevelRxEndpoint160
+      ├── endpoint-source-tag: static-low-level-rx-endpoints
+      ├── array: rxArray1c
+      ├── endpoint-type: 1
+      ├── static-config-supported: PRACH
+      ├── prach-group: 0
+      ├── restricted-interfaces[2]
+      │   ├── [1] ethernetInterface0
+      │   ├── [2] ethernetInterface2
+      ├── PRACH config matched: 0
+      │   ├── pattern-period: 4
+      │   ├── sequence-duration: 24576
+      │   ├── num-prach-re: 839
+      │   ├── guard-tone-low-re: 7
+      │   └── guard-tone-high-re: 18
+      └── [meta] msg-id=raw-static-recover, ts=-, rpc=raw-fallback
+      │
+      ▼ (Link PE: NR405160.PE_2_vlan_1_ethernetInterface0)
+      │
+      ├── link.name: NR405160.RLINK_CELL3_CG1_CH4
+      ├── link.low-level-rx-endpoint: lowLevelRxEndpoint160
+      ├── link.rx-array-carrier: NR405160.RX3_1_1_48
+      └── [meta] msg-id=232, ts=2025-10-30T14:57:47.626000+00:00, rpc=edit-config
+  [Carrier] NR405160.RX3_1_1_48
+      ├── active: ACTIVE
+      ├── type: NR
+      ├── center-of-channel-bandwidth: 2520000000 Hz
+      ├── channel-bandwidth: 20000000 Hz
+      ├── downlink-radio-frame-offset: 0
+      ├── downlink-sfn-offset: 0
+      └── [meta] msg-id=274, ts=2025-10-30T14:58:09.357000+00:00, rpc=edit-config
+  [Processing Element] NR405160.PE_2_vlan_1_ethernetInterface0
+      ├── name: NR405160.PE_2_vlan_1_ethernetInterface0
+      ├── transport-flow[1]
+      │   ├── interface-name: vlan_1_ethernetInterface0
+      │   ├── eth.ru-mac-address: d0:48:4f:2b:1f:3f
+      │   ├── eth.o-du-mac-address: 28:74:f5:20:1d:3f
+      │   └── eth.vlan-id: 1
+      └── [meta] msg-id=126, ts=2025-10-30T14:57:18.732000+00:00, rpc=edit-config
+
+🔗 Chain: NR405160.RLINK_CELL3_CG1_CH7 (RX)
+----------------------------------------------------------------------------------------------------
+  [Endpoint] lowLevelRxEndpoint72
+      ├── endpoint-source-tag: static-low-level-rx-endpoints
+      ├── array: rxArray2c
+      ├── endpoint-type: 3
+      ├── static-config-supported: NONE
+      ├── restricted-interfaces[2]
+      │   ├── [1] ethernetInterface0
+      │   ├── [2] ethernetInterface2
+      └── [meta] msg-id=raw-static-recover, ts=-, rpc=raw-fallback
+      │
+      ▼ (Link PE: NR405160.PE_2_vlan_1_ethernetInterface0)
+      │
+      ├── link.name: NR405160.RLINK_CELL3_CG1_CH7
+      ├── link.low-level-rx-endpoint: lowLevelRxEndpoint72
+      ├── link.rx-array-carrier: NR405160.RX3_1_1_56
+      └── [meta] msg-id=234, ts=2025-10-30T14:57:48.368000+00:00, rpc=edit-config
+  [Carrier] NR405160.RX3_1_1_56
+      ├── active: ACTIVE
+      ├── type: NR
+      ├── center-of-channel-bandwidth: 2520000000 Hz
+      ├── channel-bandwidth: 20000000 Hz
+      ├── downlink-radio-frame-offset: 0
+      ├── downlink-sfn-offset: 0
+      └── [meta] msg-id=274, ts=2025-10-30T14:58:09.357000+00:00, rpc=edit-config
+  [Processing Element] NR405160.PE_2_vlan_1_ethernetInterface0
+      ├── name: NR405160.PE_2_vlan_1_ethernetInterface0
+      ├── transport-flow[1]
+      │   ├── interface-name: vlan_1_ethernetInterface0
+      │   ├── eth.ru-mac-address: d0:48:4f:2b:1f:3f
+      │   ├── eth.o-du-mac-address: 28:74:f5:20:1d:3f
+      │   └── eth.vlan-id: 1
+      └── [meta] msg-id=126, ts=2025-10-30T14:57:18.732000+00:00, rpc=edit-config
+
+🔗 Chain: NR405160.RLINK_CELL3_CG1_CH8 (RX)
+----------------------------------------------------------------------------------------------------
+  [Endpoint] lowLevelRxEndpoint168
+      ├── endpoint-source-tag: static-low-level-rx-endpoints
+      ├── array: rxArray2c
+      ├── endpoint-type: 1
+      ├── static-config-supported: PRACH
+      ├── prach-group: 0
+      ├── restricted-interfaces[2]
+      │   ├── [1] ethernetInterface0
+      │   ├── [2] ethernetInterface2
+      ├── PRACH config matched: 0
+      │   ├── pattern-period: 4
+      │   ├── sequence-duration: 24576
+      │   ├── num-prach-re: 839
+      │   ├── guard-tone-low-re: 7
+      │   └── guard-tone-high-re: 18
+      └── [meta] msg-id=raw-static-recover, ts=-, rpc=raw-fallback
+      │
+      ▼ (Link PE: NR405160.PE_2_vlan_1_ethernetInterface0)
+      │
+      ├── link.name: NR405160.RLINK_CELL3_CG1_CH8
+      ├── link.low-level-rx-endpoint: lowLevelRxEndpoint168
+      ├── link.rx-array-carrier: NR405160.RX3_1_1_56
+      └── [meta] msg-id=235, ts=2025-10-30T14:57:48.777000+00:00, rpc=edit-config
+  [Carrier] NR405160.RX3_1_1_56
+      ├── active: ACTIVE
+      ├── type: NR
+      ├── center-of-channel-bandwidth: 2520000000 Hz
+      ├── channel-bandwidth: 20000000 Hz
+      ├── downlink-radio-frame-offset: 0
+      ├── downlink-sfn-offset: 0
+      └── [meta] msg-id=274, ts=2025-10-30T14:58:09.357000+00:00, rpc=edit-config
+  [Processing Element] NR405160.PE_2_vlan_1_ethernetInterface0
+      ├── name: NR405160.PE_2_vlan_1_ethernetInterface0
+      ├── transport-flow[1]
+      │   ├── interface-name: vlan_1_ethernetInterface0
+      │   ├── eth.ru-mac-address: d0:48:4f:2b:1f:3f
+      │   ├── eth.o-du-mac-address: 28:74:f5:20:1d:3f
+      │   └── eth.vlan-id: 1
+      └── [meta] msg-id=126, ts=2025-10-30T14:57:18.732000+00:00, rpc=edit-config

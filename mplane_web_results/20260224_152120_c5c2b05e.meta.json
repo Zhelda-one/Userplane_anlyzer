@@ -1,0 +1,20 @@
+{
+  "analyzed_at": "2026-02-24 15:21:20",
+  "show": "all",
+  "analyzer": "analyze_mplane_enhanced_nokia_patch_v2_with_array_srl.py",
+  "validations_count": 6,
+  "warnings_count": 8,
+  "counts": {
+    "carriers_tx": 2,
+    "carriers_rx": 2,
+    "endpoints_tx": 2,
+    "endpoints_rx": 4,
+    "links_tx": 2,
+    "links_rx": 4,
+    "prach_configs": 1,
+    "processing_elements": 0
+  },
+  "job_id": "20260224_152120_c5c2b05e",
+  "original_name": "20260218_fs-offset_0_M-Plane.txt",
+  "input_saved": "20260224_152120_c5c2b05e.input"
+}

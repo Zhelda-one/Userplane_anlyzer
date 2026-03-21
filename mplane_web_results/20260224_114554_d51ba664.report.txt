@@ -1,0 +1,1752 @@
+========================================================================================================================
+M-PLANE USER-PLANE CONFIGURATION ANALYSIS (Enhanced)
+========================================================================================================================
+Input file       : /home/sungpark/userplane_analyzer/mplane_web_results/20260224_114554_d51ba664.input
+Segments parsed  : 7588
+Objects          : TX carriers=12, RX carriers=8, TX endpoints=24, RX endpoints=32, TX links=12, RX links=16, PRACH configs=2, Processing elements=1
+
+========================================================================================================================
+CHAIN VIEW  (Link -> Endpoint -> Carrier -> Processing Element/Transport)
+========================================================================================================================
+
+🔗 Chain: NR102.TLINK31_1_11 (TX)
+----------------------------------------------------------------------------------------------------
+  [Endpoint] Static-LLTE-034
+      ├── array: Tx-Array-06
+      ├── endpoint-type: 1
+      ├── frame-structure: 176
+      ├── cp-type: NORMAL
+      ├── cp-length: 160
+      ├── cp-length-other: 144
+      ├── offset-to-absolute-frequency-center: -1272
+      ├── number-of-prb-per-scs: KHZ_15:106
+      ├── compression.iq-bitwidth: 9
+      ├── compression.type: STATIC
+      ├── compression.exponent: 4
+      ├── compression.fs-offset: 16
+      ├── eaxc.o-du-port-bitmask: 61440
+      ├── eaxc.band-sector-bitmask: 3840
+      ├── eaxc.ccid-bitmask: 240
+      ├── eaxc.ru-port-bitmask: 15
+      ├── eaxc.eaxc-id: 1
+      ├── restricted-interfaces: fheth0, fheth1
+      └── [meta] msg-id=113, ts=2024-08-20T22:06:56.101000+00:00, rpc=edit-config
+      │
+      ▼ (Link PE: NR102.PE_4_1_0_1)
+      │
+      ├── link.name: NR102.TLINK31_1_11
+      ├── link.low-level-tx-endpoint: Static-LLTE-034
+      ├── link.tx-array-carrier: NR102.TX31_4_1_1
+      └── [meta] msg-id=116, ts=2024-08-20T22:06:56.432000+00:00, rpc=edit-config
+  [Carrier] NR102.TX31_4_1_1
+      ├── active: ACTIVE
+      ├── type: NR
+      ├── center-of-channel-bandwidth: 1820000000 Hz
+      ├── channel-bandwidth: 20000000 Hz
+      ├── gain: 25.9551
+      ├── reference-level: 12.0449
+      ├── downlink-radio-frame-offset: 0
+      ├── downlink-sfn-offset: 0
+      └── [meta] msg-id=145, ts=2024-08-20T22:06:58.476000+00:00, rpc=edit-config
+  [Processing Element] NR102.PE_4_1_0_1
+      ├── name: NR102.PE_4_1_0_1
+      ├── transport-flow[1]
+      │   ├── interface-name: vlan_0_1
+      │   ├── eth.ru-mac-address: 34:fe:9e:3d:e0:8d
+      │   ├── eth.o-du-mac-address: 34:ce:69:7a:72:fd
+      │   └── eth.vlan-id: 1
+      └── [meta] msg-id=65, ts=2024-08-20T22:06:50.893000+00:00, rpc=edit-config
+
+🔗 Chain: NR102.TLINK31_1_15 (TX)
+----------------------------------------------------------------------------------------------------
+  [Endpoint] Static-LLTE-035
+      ├── array: Tx-Array-07
+      ├── endpoint-type: 1
+      ├── frame-structure: 176
+      ├── cp-type: NORMAL
+      ├── cp-length: 160
+      ├── cp-length-other: 144
+      ├── offset-to-absolute-frequency-center: -1272
+      ├── number-of-prb-per-scs: KHZ_15:106
+      ├── compression.iq-bitwidth: 9
+      ├── compression.type: STATIC
+      ├── compression.exponent: 4
+      ├── compression.fs-offset: 16
+      ├── eaxc.o-du-port-bitmask: 61440
+      ├── eaxc.band-sector-bitmask: 3840
+      ├── eaxc.ccid-bitmask: 240
+      ├── eaxc.ru-port-bitmask: 15
+      ├── eaxc.eaxc-id: 9
+      ├── restricted-interfaces: fheth0, fheth1
+      └── [meta] msg-id=113, ts=2024-08-20T22:06:56.101000+00:00, rpc=edit-config
+      │
+      ▼ (Link PE: NR102.PE_4_1_0_1)
+      │
+      ├── link.name: NR102.TLINK31_1_15
+      ├── link.low-level-tx-endpoint: Static-LLTE-035
+      ├── link.tx-array-carrier: NR102.TX31_4_1_9
+      └── [meta] msg-id=119, ts=2024-08-20T22:06:56.625000+00:00, rpc=edit-config
+  [Carrier] NR102.TX31_4_1_9
+      ├── active: ACTIVE
+      ├── type: NR
+      ├── center-of-channel-bandwidth: 1820000000 Hz
+      ├── channel-bandwidth: 20000000 Hz
+      ├── gain: 25.9551
+      ├── reference-level: 12.0449
+      ├── downlink-radio-frame-offset: 0
+      ├── downlink-sfn-offset: 0
+      └── [meta] msg-id=145, ts=2024-08-20T22:06:58.476000+00:00, rpc=edit-config
+  [Processing Element] NR102.PE_4_1_0_1
+      ├── name: NR102.PE_4_1_0_1
+      ├── transport-flow[1]
+      │   ├── interface-name: vlan_0_1
+      │   ├── eth.ru-mac-address: 34:fe:9e:3d:e0:8d
+      │   ├── eth.o-du-mac-address: 34:ce:69:7a:72:fd
+      │   └── eth.vlan-id: 1
+      └── [meta] msg-id=65, ts=2024-08-20T22:06:50.893000+00:00, rpc=edit-config
+
+🔗 Chain: NR102.TLINK31_1_3 (TX)
+----------------------------------------------------------------------------------------------------
+  [Endpoint] Static-LLTE-032
+      ├── array: Tx-Array-04
+      ├── endpoint-type: 1
+      ├── frame-structure: 176
+      ├── cp-type: NORMAL
+      ├── cp-length: 160
+      ├── cp-length-other: 144
+      ├── offset-to-absolute-frequency-center: -1272
+      ├── number-of-prb-per-scs: KHZ_15:106
+      ├── compression.iq-bitwidth: 9
+      ├── compression.type: STATIC
+      ├── compression.exponent: 4
+      ├── compression.fs-offset: 16
+      ├── eaxc.o-du-port-bitmask: 61440
+      ├── eaxc.band-sector-bitmask: 3840
+      ├── eaxc.ccid-bitmask: 240
+      ├── eaxc.ru-port-bitmask: 15
+      ├── eaxc.eaxc-id: 0
+      ├── restricted-interfaces: fheth0, fheth1
+      └── [meta] msg-id=113, ts=2024-08-20T22:06:56.101000+00:00, rpc=edit-config
+      │
+      ▼ (Link PE: NR102.PE_4_1_0_1)
+      │
+      ├── link.name: NR102.TLINK31_1_3
+      ├── link.low-level-tx-endpoint: Static-LLTE-032
+      ├── link.tx-array-carrier: NR102.TX31_4_1_0
+      └── [meta] msg-id=121, ts=2024-08-20T22:06:56.726000+00:00, rpc=edit-config
+  [Carrier] NR102.TX31_4_1_0
+      ├── active: ACTIVE
+      ├── type: NR
+      ├── center-of-channel-bandwidth: 1820000000 Hz
+      ├── channel-bandwidth: 20000000 Hz
+      ├── gain: 25.9551
+      ├── reference-level: 12.0449
+      ├── downlink-radio-frame-offset: 0
+      ├── downlink-sfn-offset: 0
+      └── [meta] msg-id=145, ts=2024-08-20T22:06:58.476000+00:00, rpc=edit-config
+  [Processing Element] NR102.PE_4_1_0_1
+      ├── name: NR102.PE_4_1_0_1
+      ├── transport-flow[1]
+      │   ├── interface-name: vlan_0_1
+      │   ├── eth.ru-mac-address: 34:fe:9e:3d:e0:8d
+      │   ├── eth.o-du-mac-address: 34:ce:69:7a:72:fd
+      │   └── eth.vlan-id: 1
+      └── [meta] msg-id=65, ts=2024-08-20T22:06:50.893000+00:00, rpc=edit-config
+
+🔗 Chain: NR102.TLINK31_1_7 (TX)
+----------------------------------------------------------------------------------------------------
+  [Endpoint] Static-LLTE-033
+      ├── array: Tx-Array-05
+      ├── endpoint-type: 1
+      ├── frame-structure: 176
+      ├── cp-type: NORMAL
+      ├── cp-length: 160
+      ├── cp-length-other: 144
+      ├── offset-to-absolute-frequency-center: -1272
+      ├── number-of-prb-per-scs: KHZ_15:106
+      ├── compression.iq-bitwidth: 9
+      ├── compression.type: STATIC
+      ├── compression.exponent: 4
+      ├── compression.fs-offset: 16
+      ├── eaxc.o-du-port-bitmask: 61440
+      ├── eaxc.band-sector-bitmask: 3840
+      ├── eaxc.ccid-bitmask: 240
+      ├── eaxc.ru-port-bitmask: 15
+      ├── eaxc.eaxc-id: 8
+      ├── restricted-interfaces: fheth0, fheth1
+      └── [meta] msg-id=113, ts=2024-08-20T22:06:56.101000+00:00, rpc=edit-config
+      │
+      ▼ (Link PE: NR102.PE_4_1_0_1)
+      │
+      ├── link.name: NR102.TLINK31_1_7
+      ├── link.low-level-tx-endpoint: Static-LLTE-033
+      ├── link.tx-array-carrier: NR102.TX31_4_1_8
+      └── [meta] msg-id=124, ts=2024-08-20T22:06:56.894000+00:00, rpc=edit-config
+  [Carrier] NR102.TX31_4_1_8
+      ├── active: ACTIVE
+      ├── type: NR
+      ├── center-of-channel-bandwidth: 1820000000 Hz
+      ├── channel-bandwidth: 20000000 Hz
+      ├── gain: 25.9551
+      ├── reference-level: 12.0449
+      ├── downlink-radio-frame-offset: 0
+      ├── downlink-sfn-offset: 0
+      └── [meta] msg-id=145, ts=2024-08-20T22:06:58.476000+00:00, rpc=edit-config
+  [Processing Element] NR102.PE_4_1_0_1
+      ├── name: NR102.PE_4_1_0_1
+      ├── transport-flow[1]
+      │   ├── interface-name: vlan_0_1
+      │   ├── eth.ru-mac-address: 34:fe:9e:3d:e0:8d
+      │   ├── eth.o-du-mac-address: 34:ce:69:7a:72:fd
+      │   └── eth.vlan-id: 1
+      └── [meta] msg-id=65, ts=2024-08-20T22:06:50.893000+00:00, rpc=edit-config
+
+🔗 Chain: NR102.TLINK32_1_11 (TX)
+----------------------------------------------------------------------------------------------------
+  [Endpoint] Static-LLTE-002
+      ├── array: Tx-Array-02
+      ├── endpoint-type: 0
+      ├── frame-structure: 176
+      ├── cp-type: NORMAL
+      ├── cp-length: 160
+      ├── cp-length-other: 144
+      ├── offset-to-absolute-frequency-center: -1272
+      ├── number-of-prb-per-scs: KHZ_15:106
+      ├── compression.iq-bitwidth: 9
+      ├── compression.type: STATIC
+      ├── compression.exponent: 4
+      ├── compression.fs-offset: 16
+      ├── eaxc.o-du-port-bitmask: 61440
+      ├── eaxc.band-sector-bitmask: 3840
+      ├── eaxc.ccid-bitmask: 240
+      ├── eaxc.ru-port-bitmask: 15
+      ├── eaxc.eaxc-id: 17
+      ├── restricted-interfaces: fheth0, fheth1
+      └── [meta] msg-id=-, ts=2024-08-20T22:06:57.590000+00:00, rpc=-
+      │
+      ▼ (Link PE: NR102.PE_4_1_0_1)
+      │
+      ├── link.name: NR102.TLINK32_1_11
+      ├── link.low-level-tx-endpoint: Static-LLTE-002
+      ├── link.tx-array-carrier: NR102.TX32_4_1_17
+      └── [meta] msg-id=133, ts=2024-08-20T22:06:57.937000+00:00, rpc=edit-config
+  [Carrier] NR102.TX32_4_1_17
+      ├── active: ACTIVE
+      ├── type: NR
+      ├── center-of-channel-bandwidth: 2160000000 Hz
+      ├── channel-bandwidth: 20000000 Hz
+      ├── gain: 25.9551
+      ├── reference-level: 12.0449
+      ├── downlink-radio-frame-offset: 0
+      ├── downlink-sfn-offset: 0
+      └── [meta] msg-id=148, ts=2024-08-20T22:06:59.542000+00:00, rpc=edit-config
+  [Processing Element] NR102.PE_4_1_0_1
+      ├── name: NR102.PE_4_1_0_1
+      ├── transport-flow[1]
+      │   ├── interface-name: vlan_0_1
+      │   ├── eth.ru-mac-address: 34:fe:9e:3d:e0:8d
+      │   ├── eth.o-du-mac-address: 34:ce:69:7a:72:fd
+      │   └── eth.vlan-id: 1
+      └── [meta] msg-id=65, ts=2024-08-20T22:06:50.893000+00:00, rpc=edit-config
+
+🔗 Chain: NR102.TLINK32_1_15 (TX)
+----------------------------------------------------------------------------------------------------
+  [Endpoint] Static-LLTE-003
+      ├── array: Tx-Array-03
+      ├── endpoint-type: 0
+      ├── frame-structure: 176
+      ├── cp-type: NORMAL
+      ├── cp-length: 160
+      ├── cp-length-other: 144
+      ├── offset-to-absolute-frequency-center: -1272
+      ├── number-of-prb-per-scs: KHZ_15:106
+      ├── compression.iq-bitwidth: 9
+      ├── compression.type: STATIC
+      ├── compression.exponent: 4
+      ├── compression.fs-offset: 16
+      ├── eaxc.o-du-port-bitmask: 61440
+      ├── eaxc.band-sector-bitmask: 3840
+      ├── eaxc.ccid-bitmask: 240
+      ├── eaxc.ru-port-bitmask: 15
+      ├── eaxc.eaxc-id: 25
+      ├── restricted-interfaces: fheth0, fheth1
+      └── [meta] msg-id=-, ts=2024-08-20T22:06:57.590000+00:00, rpc=-
+      │
+      ▼ (Link PE: NR102.PE_4_1_0_1)
+      │
+      ├── link.name: NR102.TLINK32_1_15
+      ├── link.low-level-tx-endpoint: Static-LLTE-003
+      ├── link.tx-array-carrier: NR102.TX32_4_1_25
+      └── [meta] msg-id=136, ts=2024-08-20T22:06:58.095000+00:00, rpc=edit-config
+  [Carrier] NR102.TX32_4_1_25
+      ├── active: ACTIVE
+      ├── type: NR
+      ├── center-of-channel-bandwidth: 2160000000 Hz
+      ├── channel-bandwidth: 20000000 Hz
+      ├── gain: 25.9551
+      ├── reference-level: 12.0449
+      ├── downlink-radio-frame-offset: 0
+      ├── downlink-sfn-offset: 0
+      └── [meta] msg-id=148, ts=2024-08-20T22:06:59.542000+00:00, rpc=edit-config
+  [Processing Element] NR102.PE_4_1_0_1
+      ├── name: NR102.PE_4_1_0_1
+      ├── transport-flow[1]
+      │   ├── interface-name: vlan_0_1
+      │   ├── eth.ru-mac-address: 34:fe:9e:3d:e0:8d
+      │   ├── eth.o-du-mac-address: 34:ce:69:7a:72:fd
+      │   └── eth.vlan-id: 1
+      └── [meta] msg-id=65, ts=2024-08-20T22:06:50.893000+00:00, rpc=edit-config
+
+🔗 Chain: NR102.TLINK32_1_3 (TX)
+----------------------------------------------------------------------------------------------------
+  [Endpoint] Static-LLTE-000
+      ├── array: Tx-Array-00
+      ├── endpoint-type: 0
+      ├── frame-structure: 176
+      ├── cp-type: NORMAL
+      ├── cp-length: 160
+      ├── cp-length-other: 144
+      ├── offset-to-absolute-frequency-center: -1272
+      ├── number-of-prb-per-scs: KHZ_15:106
+      ├── compression.iq-bitwidth: 9
+      ├── compression.type: STATIC
+      ├── compression.exponent: 4
+      ├── compression.fs-offset: 16
+      ├── eaxc.o-du-port-bitmask: 61440
+      ├── eaxc.band-sector-bitmask: 3840
+      ├── eaxc.ccid-bitmask: 240
+      ├── eaxc.ru-port-bitmask: 15
+      ├── eaxc.eaxc-id: 16
+      ├── restricted-interfaces: fheth0, fheth1
+      └── [meta] msg-id=-, ts=2024-08-20T22:06:57.590000+00:00, rpc=-
+      │
+      ▼ (Link PE: NR102.PE_4_1_0_1)
+      │
+      ├── link.name: NR102.TLINK32_1_3
+      ├── link.low-level-tx-endpoint: Static-LLTE-000
+      ├── link.tx-array-carrier: NR102.TX32_4_1_16
+      └── [meta] msg-id=138, ts=2024-08-20T22:06:58.197000+00:00, rpc=edit-config
+  [Carrier] NR102.TX32_4_1_16
+      ├── active: ACTIVE
+      ├── type: NR
+      ├── center-of-channel-bandwidth: 2160000000 Hz
+      ├── channel-bandwidth: 20000000 Hz
+      ├── gain: 25.9551
+      ├── reference-level: 12.0449
+      ├── downlink-radio-frame-offset: 0
+      ├── downlink-sfn-offset: 0
+      └── [meta] msg-id=148, ts=2024-08-20T22:06:59.542000+00:00, rpc=edit-config
+  [Processing Element] NR102.PE_4_1_0_1
+      ├── name: NR102.PE_4_1_0_1
+      ├── transport-flow[1]
+      │   ├── interface-name: vlan_0_1
+      │   ├── eth.ru-mac-address: 34:fe:9e:3d:e0:8d
+      │   ├── eth.o-du-mac-address: 34:ce:69:7a:72:fd
+      │   └── eth.vlan-id: 1
+      └── [meta] msg-id=65, ts=2024-08-20T22:06:50.893000+00:00, rpc=edit-config
+
+🔗 Chain: NR102.TLINK32_1_7 (TX)
+----------------------------------------------------------------------------------------------------
+  [Endpoint] Static-LLTE-001
+      ├── array: Tx-Array-01
+      ├── endpoint-type: 0
+      ├── frame-structure: 176
+      ├── cp-type: NORMAL
+      ├── cp-length: 160
+      ├── cp-length-other: 144
+      ├── offset-to-absolute-frequency-center: -1272
+      ├── number-of-prb-per-scs: KHZ_15:106
+      ├── compression.iq-bitwidth: 9
+      ├── compression.type: STATIC
+      ├── compression.exponent: 4
+      ├── compression.fs-offset: 16
+      ├── eaxc.o-du-port-bitmask: 61440
+      ├── eaxc.band-sector-bitmask: 3840
+      ├── eaxc.ccid-bitmask: 240
+      ├── eaxc.ru-port-bitmask: 15
+      ├── eaxc.eaxc-id: 24
+      ├── restricted-interfaces: fheth0, fheth1
+      └── [meta] msg-id=-, ts=2024-08-20T22:06:57.590000+00:00, rpc=-
+      │
+      ▼ (Link PE: NR102.PE_4_1_0_1)
+      │
+      ├── link.name: NR102.TLINK32_1_7
+      ├── link.low-level-tx-endpoint: Static-LLTE-001
+      ├── link.tx-array-carrier: NR102.TX32_4_1_24
+      └── [meta] msg-id=141, ts=2024-08-20T22:06:58.354000+00:00, rpc=edit-config
+  [Carrier] NR102.TX32_4_1_24
+      ├── active: ACTIVE
+      ├── type: NR
+      ├── center-of-channel-bandwidth: 2160000000 Hz
+      ├── channel-bandwidth: 20000000 Hz
+      ├── gain: 25.9551
+      ├── reference-level: 12.0449
+      ├── downlink-radio-frame-offset: 0
+      ├── downlink-sfn-offset: 0
+      └── [meta] msg-id=148, ts=2024-08-20T22:06:59.542000+00:00, rpc=edit-config
+  [Processing Element] NR102.PE_4_1_0_1
+      ├── name: NR102.PE_4_1_0_1
+      ├── transport-flow[1]
+      │   ├── interface-name: vlan_0_1
+      │   ├── eth.ru-mac-address: 34:fe:9e:3d:e0:8d
+      │   ├── eth.o-du-mac-address: 34:ce:69:7a:72:fd
+      │   └── eth.vlan-id: 1
+      └── [meta] msg-id=65, ts=2024-08-20T22:06:50.893000+00:00, rpc=edit-config
+
+🔗 Chain: NR102.TLINK33_1_1 (TX)
+----------------------------------------------------------------------------------------------------
+  [Endpoint] Static-LLTE-056
+      ├── array: Tx-Array-08
+      ├── endpoint-type: 2
+      ├── frame-structure: 176
+      ├── cp-type: NORMAL
+      ├── cp-length: 160
+      ├── cp-length-other: 144
+      ├── offset-to-absolute-frequency-center: -1272
+      ├── number-of-prb-per-scs: KHZ_15:106
+      ├── compression.iq-bitwidth: 9
+      ├── compression.type: STATIC
+      ├── compression.exponent: 4
+      ├── compression.fs-offset: 16
+      ├── eaxc.o-du-port-bitmask: 61440
+      ├── eaxc.band-sector-bitmask: 3840
+      ├── eaxc.ccid-bitmask: 240
+      ├── eaxc.ru-port-bitmask: 15
+      ├── eaxc.eaxc-id: 32
+      ├── restricted-interfaces: fheth0, fheth1
+      └── [meta] msg-id=-, ts=2024-08-20T22:06:53.675000+00:00, rpc=-
+      │
+      ▼ (Link PE: NR102.PE_4_1_0_1)
+      │
+      ├── link.name: NR102.TLINK33_1_1
+      ├── link.low-level-tx-endpoint: Static-LLTE-056
+      ├── link.tx-array-carrier: NR102.TX33_4_1_32
+      └── [meta] msg-id=96, ts=2024-08-20T22:06:53.910000+00:00, rpc=edit-config
+  [Carrier] NR102.TX33_4_1_32
+      ├── active: ACTIVE
+      ├── type: NR
+      ├── center-of-channel-bandwidth: 1474500000 Hz
+      ├── channel-bandwidth: 20000000 Hz
+      ├── gain: 25.9551
+      ├── reference-level: 12.0449
+      ├── downlink-radio-frame-offset: 0
+      ├── downlink-sfn-offset: 0
+      └── [meta] msg-id=102, ts=2024-08-20T22:06:54.311000+00:00, rpc=edit-config
+  [Processing Element] NR102.PE_4_1_0_1
+      ├── name: NR102.PE_4_1_0_1
+      ├── transport-flow[1]
+      │   ├── interface-name: vlan_0_1
+      │   ├── eth.ru-mac-address: 34:fe:9e:3d:e0:8d
+      │   ├── eth.o-du-mac-address: 34:ce:69:7a:72:fd
+      │   └── eth.vlan-id: 1
+      └── [meta] msg-id=65, ts=2024-08-20T22:06:50.893000+00:00, rpc=edit-config
+
+🔗 Chain: NR102.TLINK33_1_3 (TX)
+----------------------------------------------------------------------------------------------------
+  [Endpoint] Static-LLTE-057
+      ├── array: Tx-Array-09
+      ├── endpoint-type: 2
+      ├── frame-structure: 176
+      ├── cp-type: NORMAL
+      ├── cp-length: 160
+      ├── cp-length-other: 144
+      ├── offset-to-absolute-frequency-center: -1272
+      ├── number-of-prb-per-scs: KHZ_15:106
+      ├── compression.iq-bitwidth: 9
+      ├── compression.type: STATIC
+      ├── compression.exponent: 4
+      ├── compression.fs-offset: 16
+      ├── eaxc.o-du-port-bitmask: 61440
+      ├── eaxc.band-sector-bitmask: 3840
+      ├── eaxc.ccid-bitmask: 240
+      ├── eaxc.ru-port-bitmask: 15
+      ├── eaxc.eaxc-id: 40
+      ├── restricted-interfaces: fheth0, fheth1
+      └── [meta] msg-id=-, ts=2024-08-20T22:06:53.675000+00:00, rpc=-
+      │
+      ▼ (Link PE: NR102.PE_4_1_0_1)
+      │
+      ├── link.name: NR102.TLINK33_1_3
+      ├── link.low-level-tx-endpoint: Static-LLTE-057
+      ├── link.tx-array-carrier: NR102.TX33_4_1_40
+      └── [meta] msg-id=97, ts=2024-08-20T22:06:53.950000+00:00, rpc=edit-config
+  [Carrier] NR102.TX33_4_1_40
+      ├── active: ACTIVE
+      ├── type: NR
+      ├── center-of-channel-bandwidth: 1474500000 Hz
+      ├── channel-bandwidth: 20000000 Hz
+      ├── gain: 25.9551
+      ├── reference-level: 12.0449
+      ├── downlink-radio-frame-offset: 0
+      ├── downlink-sfn-offset: 0
+      └── [meta] msg-id=102, ts=2024-08-20T22:06:54.311000+00:00, rpc=edit-config
+  [Processing Element] NR102.PE_4_1_0_1
+      ├── name: NR102.PE_4_1_0_1
+      ├── transport-flow[1]
+      │   ├── interface-name: vlan_0_1
+      │   ├── eth.ru-mac-address: 34:fe:9e:3d:e0:8d
+      │   ├── eth.o-du-mac-address: 34:ce:69:7a:72:fd
+      │   └── eth.vlan-id: 1
+      └── [meta] msg-id=65, ts=2024-08-20T22:06:50.893000+00:00, rpc=edit-config
+
+🔗 Chain: NR102.TLINK33_1_5 (TX)
+----------------------------------------------------------------------------------------------------
+  [Endpoint] Static-LLTE-058
+      ├── array: Tx-Array-10
+      ├── endpoint-type: 2
+      ├── frame-structure: 176
+      ├── cp-type: NORMAL
+      ├── cp-length: 160
+      ├── cp-length-other: 144
+      ├── offset-to-absolute-frequency-center: -1272
+      ├── number-of-prb-per-scs: KHZ_15:106
+      ├── compression.iq-bitwidth: 9
+      ├── compression.type: STATIC
+      ├── compression.exponent: 4
+      ├── compression.fs-offset: 16
+      ├── eaxc.o-du-port-bitmask: 61440
+      ├── eaxc.band-sector-bitmask: 3840
+      ├── eaxc.ccid-bitmask: 240
+      ├── eaxc.ru-port-bitmask: 15
+      ├── eaxc.eaxc-id: 33
+      ├── restricted-interfaces: fheth0, fheth1
+      └── [meta] msg-id=-, ts=2024-08-20T22:06:53.675000+00:00, rpc=-
+      │
+      ▼ (Link PE: NR102.PE_4_1_0_1)
+      │
+      ├── link.name: NR102.TLINK33_1_5
+      ├── link.low-level-tx-endpoint: Static-LLTE-058
+      ├── link.tx-array-carrier: NR102.TX33_4_1_33
+      └── [meta] msg-id=98, ts=2024-08-20T22:06:53.998000+00:00, rpc=edit-config
+  [Carrier] NR102.TX33_4_1_33
+      ├── active: ACTIVE
+      ├── type: NR
+      ├── center-of-channel-bandwidth: 1474500000 Hz
+      ├── channel-bandwidth: 20000000 Hz
+      ├── gain: 25.9551
+      ├── reference-level: 12.0449
+      ├── downlink-radio-frame-offset: 0
+      ├── downlink-sfn-offset: 0
+      └── [meta] msg-id=102, ts=2024-08-20T22:06:54.311000+00:00, rpc=edit-config
+  [Processing Element] NR102.PE_4_1_0_1
+      ├── name: NR102.PE_4_1_0_1
+      ├── transport-flow[1]
+      │   ├── interface-name: vlan_0_1
+      │   ├── eth.ru-mac-address: 34:fe:9e:3d:e0:8d
+      │   ├── eth.o-du-mac-address: 34:ce:69:7a:72:fd
+      │   └── eth.vlan-id: 1
+      └── [meta] msg-id=65, ts=2024-08-20T22:06:50.893000+00:00, rpc=edit-config
+
+🔗 Chain: NR102.TLINK33_1_7 (TX)
+----------------------------------------------------------------------------------------------------
+  [Endpoint] Static-LLTE-059
+      ├── array: Tx-Array-11
+      ├── endpoint-type: 2
+      ├── frame-structure: 176
+      ├── cp-type: NORMAL
+      ├── cp-length: 160
+      ├── cp-length-other: 144
+      ├── offset-to-absolute-frequency-center: -1272
+      ├── number-of-prb-per-scs: KHZ_15:106
+      ├── compression.iq-bitwidth: 9
+      ├── compression.type: STATIC
+      ├── compression.exponent: 4
+      ├── compression.fs-offset: 16
+      ├── eaxc.o-du-port-bitmask: 61440
+      ├── eaxc.band-sector-bitmask: 3840
+      ├── eaxc.ccid-bitmask: 240
+      ├── eaxc.ru-port-bitmask: 15
+      ├── eaxc.eaxc-id: 41
+      ├── restricted-interfaces: fheth0, fheth1
+      └── [meta] msg-id=-, ts=2024-08-20T22:06:53.675000+00:00, rpc=-
+      │
+      ▼ (Link PE: NR102.PE_4_1_0_1)
+      │
+      ├── link.name: NR102.TLINK33_1_7
+      ├── link.low-level-tx-endpoint: Static-LLTE-059
+      ├── link.tx-array-carrier: NR102.TX33_4_1_41
+      └── [meta] msg-id=99, ts=2024-08-20T22:06:54.048000+00:00, rpc=edit-config
+  [Carrier] NR102.TX33_4_1_41
+      ├── active: ACTIVE
+      ├── type: NR
+      ├── center-of-channel-bandwidth: 1474500000 Hz
+      ├── channel-bandwidth: 20000000 Hz
+      ├── gain: 25.9551
+      ├── reference-level: 12.0449
+      ├── downlink-radio-frame-offset: 0
+      ├── downlink-sfn-offset: 0
+      └── [meta] msg-id=102, ts=2024-08-20T22:06:54.311000+00:00, rpc=edit-config
+  [Processing Element] NR102.PE_4_1_0_1
+      ├── name: NR102.PE_4_1_0_1
+      ├── transport-flow[1]
+      │   ├── interface-name: vlan_0_1
+      │   ├── eth.ru-mac-address: 34:fe:9e:3d:e0:8d
+      │   ├── eth.o-du-mac-address: 34:ce:69:7a:72:fd
+      │   └── eth.vlan-id: 1
+      └── [meta] msg-id=65, ts=2024-08-20T22:06:50.893000+00:00, rpc=edit-config
+
+🔗 Chain: NR102.RLINK31_1_1 (RX)
+----------------------------------------------------------------------------------------------------
+  [Endpoint] Static-LLRE-080
+      ├── array: Rx-Array-04
+      ├── endpoint-type: 5
+      ├── frame-structure: 176
+      ├── cp-type: NORMAL
+      ├── cp-length: 160
+      ├── cp-length-other: 144
+      ├── offset-to-absolute-frequency-center: -1271
+      ├── number-of-prb-per-scs: KHZ_15:106
+      ├── non-time-managed-delay-enabled: false
+      ├── compression.iq-bitwidth: 9
+      ├── compression.type: STATIC
+      ├── compression.exponent: 4
+      ├── compression.fs-offset: 16
+      ├── eaxc.o-du-port-bitmask: 61440
+      ├── eaxc.band-sector-bitmask: 3840
+      ├── eaxc.ccid-bitmask: 240
+      ├── eaxc.ru-port-bitmask: 15
+      ├── eaxc.eaxc-id: 0
+      ├── eaxc-gain-correction: -10.7918
+      ├── restricted-interfaces: fheth0, fheth1
+      └── [meta] msg-id=-, ts=2024-08-20T22:06:55.504000+00:00, rpc=-
+      │
+      ▼ (Link PE: NR102.PE_4_1_0_1)
+      │
+      ├── link.name: NR102.RLINK31_1_1
+      ├── link.low-level-rx-endpoint: Static-LLRE-080
+      ├── link.rx-array-carrier: NR102.RX31_4_1_0
+      └── [meta] msg-id=114, ts=2024-08-20T22:06:56.345000+00:00, rpc=edit-config
+  [Carrier] NR102.RX31_4_1_0
+      ├── active: ACTIVE
+      ├── type: NR
+      ├── center-of-channel-bandwidth: 1725000000 Hz
+      ├── channel-bandwidth: 20000000 Hz
+      ├── downlink-radio-frame-offset: 0
+      ├── downlink-sfn-offset: 0
+      └── [meta] msg-id=145, ts=2024-08-20T22:06:58.476000+00:00, rpc=edit-config
+  [Processing Element] NR102.PE_4_1_0_1
+      ├── name: NR102.PE_4_1_0_1
+      ├── transport-flow[1]
+      │   ├── interface-name: vlan_0_1
+      │   ├── eth.ru-mac-address: 34:fe:9e:3d:e0:8d
+      │   ├── eth.o-du-mac-address: 34:ce:69:7a:72:fd
+      │   └── eth.vlan-id: 1
+      └── [meta] msg-id=65, ts=2024-08-20T22:06:50.893000+00:00, rpc=edit-config
+
+🔗 Chain: NR102.RLINK31_1_10 (RX)
+----------------------------------------------------------------------------------------------------
+  [Endpoint] Static-LLRE-086
+      ├── array: Rx-Array-06
+      ├── endpoint-type: 6
+      ├── frame-structure: 188
+      ├── cp-type: NORMAL
+      ├── cp-length: 160
+      ├── cp-length-other: 144
+      ├── offset-to-absolute-frequency-center: -11796
+      ├── number-of-prb-per-scs: KHZ_1_25:70
+      ├── non-time-managed-delay-enabled: false
+      ├── compression.iq-bitwidth: 9
+      ├── compression.type: STATIC
+      ├── compression.exponent: 4
+      ├── compression.fs-offset: 16
+      ├── eaxc.o-du-port-bitmask: 61440
+      ├── eaxc.band-sector-bitmask: 3840
+      ├── eaxc.ccid-bitmask: 240
+      ├── eaxc.ru-port-bitmask: 15
+      ├── eaxc.eaxc-id: 5
+      ├── eaxc-gain-correction: 0.0000
+      ├── static-config-supported: PRACH
+      ├── static-prach-configuration: 0
+      ├── prach-group: 0
+      ├── restricted-interfaces: fheth0, fheth1
+      ├── PRACH config matched: 0
+      │   ├── pattern-period: 2
+      │   ├── sequence-duration: 24576
+      │   ├── num-prach-re: 839
+      │   ├── guard-tone-low-re: 7
+      │   └── guard-tone-high-re: 18
+      └── [meta] msg-id=-, ts=2024-08-20T22:06:55.504000+00:00, rpc=-
+      │
+      ▼ (Link PE: NR102.PE_4_1_0_1)
+      │
+      ├── link.name: NR102.RLINK31_1_10
+      ├── link.low-level-rx-endpoint: Static-LLRE-086
+      ├── link.rx-array-carrier: NR102.RX31_4_1_1
+      └── [meta] msg-id=115, ts=2024-08-20T22:06:56.389000+00:00, rpc=edit-config
+  [Carrier] NR102.RX31_4_1_1
+      ├── active: ACTIVE
+      ├── type: NR
+      ├── center-of-channel-bandwidth: 1725000000 Hz
+      ├── channel-bandwidth: 20000000 Hz
+      ├── downlink-radio-frame-offset: 0
+      ├── downlink-sfn-offset: 0
+      └── [meta] msg-id=145, ts=2024-08-20T22:06:58.476000+00:00, rpc=edit-config
+  [Processing Element] NR102.PE_4_1_0_1
+      ├── name: NR102.PE_4_1_0_1
+      ├── transport-flow[1]
+      │   ├── interface-name: vlan_0_1
+      │   ├── eth.ru-mac-address: 34:fe:9e:3d:e0:8d
+      │   ├── eth.o-du-mac-address: 34:ce:69:7a:72:fd
+      │   └── eth.vlan-id: 1
+      └── [meta] msg-id=65, ts=2024-08-20T22:06:50.893000+00:00, rpc=edit-config
+
+🔗 Chain: NR102.RLINK31_1_13 (RX)
+----------------------------------------------------------------------------------------------------
+  [Endpoint] Static-LLRE-083
+      ├── array: Rx-Array-07
+      ├── endpoint-type: 5
+      ├── frame-structure: 176
+      ├── cp-type: NORMAL
+      ├── cp-length: 160
+      ├── cp-length-other: 144
+      ├── offset-to-absolute-frequency-center: -1271
+      ├── number-of-prb-per-scs: KHZ_15:106
+      ├── non-time-managed-delay-enabled: false
+      ├── compression.iq-bitwidth: 9
+      ├── compression.type: STATIC
+      ├── compression.exponent: 4
+      ├── compression.fs-offset: 16
+      ├── eaxc.o-du-port-bitmask: 61440
+      ├── eaxc.band-sector-bitmask: 3840
+      ├── eaxc.ccid-bitmask: 240
+      ├── eaxc.ru-port-bitmask: 15
+      ├── eaxc.eaxc-id: 9
+      ├── eaxc-gain-correction: -10.7918
+      ├── restricted-interfaces: fheth0, fheth1
+      └── [meta] msg-id=-, ts=2024-08-20T22:06:55.504000+00:00, rpc=-
+      │
+      ▼ (Link PE: NR102.PE_4_1_0_1)
+      │
+      ├── link.name: NR102.RLINK31_1_13
+      ├── link.low-level-rx-endpoint: Static-LLRE-083
+      ├── link.rx-array-carrier: NR102.RX31_4_1_9
+      └── [meta] msg-id=117, ts=2024-08-20T22:06:56.504000+00:00, rpc=edit-config
+  [Carrier] NR102.RX31_4_1_9
+      ├── active: ACTIVE
+      ├── type: NR
+      ├── center-of-channel-bandwidth: 1725000000 Hz
+      ├── channel-bandwidth: 20000000 Hz
+      ├── downlink-radio-frame-offset: 0
+      ├── downlink-sfn-offset: 0
+      └── [meta] msg-id=145, ts=2024-08-20T22:06:58.476000+00:00, rpc=edit-config
+  [Processing Element] NR102.PE_4_1_0_1
+      ├── name: NR102.PE_4_1_0_1
+      ├── transport-flow[1]
+      │   ├── interface-name: vlan_0_1
+      │   ├── eth.ru-mac-address: 34:fe:9e:3d:e0:8d
+      │   ├── eth.o-du-mac-address: 34:ce:69:7a:72:fd
+      │   └── eth.vlan-id: 1
+      └── [meta] msg-id=65, ts=2024-08-20T22:06:50.893000+00:00, rpc=edit-config
+
+🔗 Chain: NR102.RLINK31_1_14 (RX)
+----------------------------------------------------------------------------------------------------
+  [Endpoint] Static-LLRE-087
+      ├── array: Rx-Array-07
+      ├── endpoint-type: 6
+      ├── frame-structure: 188
+      ├── cp-type: NORMAL
+      ├── cp-length: 160
+      ├── cp-length-other: 144
+      ├── offset-to-absolute-frequency-center: -11796
+      ├── number-of-prb-per-scs: KHZ_1_25:70
+      ├── non-time-managed-delay-enabled: false
+      ├── compression.iq-bitwidth: 9
+      ├── compression.type: STATIC
+      ├── compression.exponent: 4
+      ├── compression.fs-offset: 16
+      ├── eaxc.o-du-port-bitmask: 61440
+      ├── eaxc.band-sector-bitmask: 3840
+      ├── eaxc.ccid-bitmask: 240
+      ├── eaxc.ru-port-bitmask: 15
+      ├── eaxc.eaxc-id: 13
+      ├── eaxc-gain-correction: 0.0000
+      ├── static-config-supported: PRACH
+      ├── static-prach-configuration: 0
+      ├── prach-group: 0
+      ├── restricted-interfaces: fheth0, fheth1
+      ├── PRACH config matched: 0
+      │   ├── pattern-period: 2
+      │   ├── sequence-duration: 24576
+      │   ├── num-prach-re: 839
+      │   ├── guard-tone-low-re: 7
+      │   └── guard-tone-high-re: 18
+      └── [meta] msg-id=-, ts=2024-08-20T22:06:55.504000+00:00, rpc=-
+      │
+      ▼ (Link PE: NR102.PE_4_1_0_1)
+      │
+      ├── link.name: NR102.RLINK31_1_14
+      ├── link.low-level-rx-endpoint: Static-LLRE-087
+      ├── link.rx-array-carrier: NR102.RX31_4_1_9
+      └── [meta] msg-id=118, ts=2024-08-20T22:06:56.547000+00:00, rpc=edit-config
+  [Carrier] NR102.RX31_4_1_9
+      ├── active: ACTIVE
+      ├── type: NR
+      ├── center-of-channel-bandwidth: 1725000000 Hz
+      ├── channel-bandwidth: 20000000 Hz
+      ├── downlink-radio-frame-offset: 0
+      ├── downlink-sfn-offset: 0
+      └── [meta] msg-id=145, ts=2024-08-20T22:06:58.476000+00:00, rpc=edit-config
+  [Processing Element] NR102.PE_4_1_0_1
+      ├── name: NR102.PE_4_1_0_1
+      ├── transport-flow[1]
+      │   ├── interface-name: vlan_0_1
+      │   ├── eth.ru-mac-address: 34:fe:9e:3d:e0:8d
+      │   ├── eth.o-du-mac-address: 34:ce:69:7a:72:fd
+      │   └── eth.vlan-id: 1
+      └── [meta] msg-id=65, ts=2024-08-20T22:06:50.893000+00:00, rpc=edit-config
+
+🔗 Chain: NR102.RLINK31_1_2 (RX)
+----------------------------------------------------------------------------------------------------
+  [Endpoint] Static-LLRE-084
+      ├── array: Rx-Array-04
+      ├── endpoint-type: 6
+      ├── frame-structure: 188
+      ├── cp-type: NORMAL
+      ├── cp-length: 160
+      ├── cp-length-other: 144
+      ├── offset-to-absolute-frequency-center: -11796
+      ├── number-of-prb-per-scs: KHZ_1_25:70
+      ├── non-time-managed-delay-enabled: false
+      ├── compression.iq-bitwidth: 9
+      ├── compression.type: STATIC
+      ├── compression.exponent: 4
+      ├── compression.fs-offset: 16
+      ├── eaxc.o-du-port-bitmask: 61440
+      ├── eaxc.band-sector-bitmask: 3840
+      ├── eaxc.ccid-bitmask: 240
+      ├── eaxc.ru-port-bitmask: 15
+      ├── eaxc.eaxc-id: 4
+      ├── eaxc-gain-correction: 0.0000
+      ├── static-config-supported: PRACH
+      ├── static-prach-configuration: 0
+      ├── prach-group: 0
+      ├── restricted-interfaces: fheth0, fheth1
+      ├── PRACH config matched: 0
+      │   ├── pattern-period: 2
+      │   ├── sequence-duration: 24576
+      │   ├── num-prach-re: 839
+      │   ├── guard-tone-low-re: 7
+      │   └── guard-tone-high-re: 18
+      └── [meta] msg-id=-, ts=2024-08-20T22:06:55.504000+00:00, rpc=-
+      │
+      ▼ (Link PE: NR102.PE_4_1_0_1)
+      │
+      ├── link.name: NR102.RLINK31_1_2
+      ├── link.low-level-rx-endpoint: Static-LLRE-084
+      ├── link.rx-array-carrier: NR102.RX31_4_1_0
+      └── [meta] msg-id=120, ts=2024-08-20T22:06:56.670000+00:00, rpc=edit-config
+  [Carrier] NR102.RX31_4_1_0
+      ├── active: ACTIVE
+      ├── type: NR
+      ├── center-of-channel-bandwidth: 1725000000 Hz
+      ├── channel-bandwidth: 20000000 Hz
+      ├── downlink-radio-frame-offset: 0
+      ├── downlink-sfn-offset: 0
+      └── [meta] msg-id=145, ts=2024-08-20T22:06:58.476000+00:00, rpc=edit-config
+  [Processing Element] NR102.PE_4_1_0_1
+      ├── name: NR102.PE_4_1_0_1
+      ├── transport-flow[1]
+      │   ├── interface-name: vlan_0_1
+      │   ├── eth.ru-mac-address: 34:fe:9e:3d:e0:8d
+      │   ├── eth.o-du-mac-address: 34:ce:69:7a:72:fd
+      │   └── eth.vlan-id: 1
+      └── [meta] msg-id=65, ts=2024-08-20T22:06:50.893000+00:00, rpc=edit-config
+
+🔗 Chain: NR102.RLINK31_1_5 (RX)
+----------------------------------------------------------------------------------------------------
+  [Endpoint] Static-LLRE-081
+      ├── array: Rx-Array-05
+      ├── endpoint-type: 5
+      ├── frame-structure: 176
+      ├── cp-type: NORMAL
+      ├── cp-length: 160
+      ├── cp-length-other: 144
+      ├── offset-to-absolute-frequency-center: -1271
+      ├── number-of-prb-per-scs: KHZ_15:106
+      ├── non-time-managed-delay-enabled: false
+      ├── compression.iq-bitwidth: 9
+      ├── compression.type: STATIC
+      ├── compression.exponent: 4
+      ├── compression.fs-offset: 16
+      ├── eaxc.o-du-port-bitmask: 61440
+      ├── eaxc.band-sector-bitmask: 3840
+      ├── eaxc.ccid-bitmask: 240
+      ├── eaxc.ru-port-bitmask: 15
+      ├── eaxc.eaxc-id: 8
+      ├── eaxc-gain-correction: -10.7918
+      ├── restricted-interfaces: fheth0, fheth1
+      └── [meta] msg-id=-, ts=2024-08-20T22:06:55.504000+00:00, rpc=-
+      │
+      ▼ (Link PE: NR102.PE_4_1_0_1)
+      │
+      ├── link.name: NR102.RLINK31_1_5
+      ├── link.low-level-rx-endpoint: Static-LLRE-081
+      ├── link.rx-array-carrier: NR102.RX31_4_1_8
+      └── [meta] msg-id=122, ts=2024-08-20T22:06:56.787000+00:00, rpc=edit-config
+  [Carrier] NR102.RX31_4_1_8
+      ├── active: ACTIVE
+      ├── type: NR
+      ├── center-of-channel-bandwidth: 1725000000 Hz
+      ├── channel-bandwidth: 20000000 Hz
+      ├── downlink-radio-frame-offset: 0
+      ├── downlink-sfn-offset: 0
+      └── [meta] msg-id=145, ts=2024-08-20T22:06:58.476000+00:00, rpc=edit-config
+  [Processing Element] NR102.PE_4_1_0_1
+      ├── name: NR102.PE_4_1_0_1
+      ├── transport-flow[1]
+      │   ├── interface-name: vlan_0_1
+      │   ├── eth.ru-mac-address: 34:fe:9e:3d:e0:8d
+      │   ├── eth.o-du-mac-address: 34:ce:69:7a:72:fd
+      │   └── eth.vlan-id: 1
+      └── [meta] msg-id=65, ts=2024-08-20T22:06:50.893000+00:00, rpc=edit-config
+
+🔗 Chain: NR102.RLINK31_1_6 (RX)
+----------------------------------------------------------------------------------------------------
+  [Endpoint] Static-LLRE-085
+      ├── array: Rx-Array-05
+      ├── endpoint-type: 6
+      ├── frame-structure: 188
+      ├── cp-type: NORMAL
+      ├── cp-length: 160
+      ├── cp-length-other: 144
+      ├── offset-to-absolute-frequency-center: -11796
+      ├── number-of-prb-per-scs: KHZ_1_25:70
+      ├── non-time-managed-delay-enabled: false
+      ├── compression.iq-bitwidth: 9
+      ├── compression.type: STATIC
+      ├── compression.exponent: 4
+      ├── compression.fs-offset: 16
+      ├── eaxc.o-du-port-bitmask: 61440
+      ├── eaxc.band-sector-bitmask: 3840
+      ├── eaxc.ccid-bitmask: 240
+      ├── eaxc.ru-port-bitmask: 15
+      ├── eaxc.eaxc-id: 12
+      ├── eaxc-gain-correction: 0.0000
+      ├── static-config-supported: PRACH
+      ├── static-prach-configuration: 0
+      ├── prach-group: 0
+      ├── restricted-interfaces: fheth0, fheth1
+      ├── PRACH config matched: 0
+      │   ├── pattern-period: 2
+      │   ├── sequence-duration: 24576
+      │   ├── num-prach-re: 839
+      │   ├── guard-tone-low-re: 7
+      │   └── guard-tone-high-re: 18
+      └── [meta] msg-id=-, ts=2024-08-20T22:06:55.504000+00:00, rpc=-
+      │
+      ▼ (Link PE: NR102.PE_4_1_0_1)
+      │
+      ├── link.name: NR102.RLINK31_1_6
+      ├── link.low-level-rx-endpoint: Static-LLRE-085
+      ├── link.rx-array-carrier: NR102.RX31_4_1_8
+      └── [meta] msg-id=123, ts=2024-08-20T22:06:56.831000+00:00, rpc=edit-config
+  [Carrier] NR102.RX31_4_1_8
+      ├── active: ACTIVE
+      ├── type: NR
+      ├── center-of-channel-bandwidth: 1725000000 Hz
+      ├── channel-bandwidth: 20000000 Hz
+      ├── downlink-radio-frame-offset: 0
+      ├── downlink-sfn-offset: 0
+      └── [meta] msg-id=145, ts=2024-08-20T22:06:58.476000+00:00, rpc=edit-config
+  [Processing Element] NR102.PE_4_1_0_1
+      ├── name: NR102.PE_4_1_0_1
+      ├── transport-flow[1]
+      │   ├── interface-name: vlan_0_1
+      │   ├── eth.ru-mac-address: 34:fe:9e:3d:e0:8d
+      │   ├── eth.o-du-mac-address: 34:ce:69:7a:72:fd
+      │   └── eth.vlan-id: 1
+      └── [meta] msg-id=65, ts=2024-08-20T22:06:50.893000+00:00, rpc=edit-config
+
+🔗 Chain: NR102.RLINK31_1_9 (RX)
+----------------------------------------------------------------------------------------------------
+  [Endpoint] Static-LLRE-082
+      ├── array: Rx-Array-06
+      ├── endpoint-type: 5
+      ├── frame-structure: 176
+      ├── cp-type: NORMAL
+      ├── cp-length: 160
+      ├── cp-length-other: 144
+      ├── offset-to-absolute-frequency-center: -1271
+      ├── number-of-prb-per-scs: KHZ_15:106
+      ├── non-time-managed-delay-enabled: false
+      ├── compression.iq-bitwidth: 9
+      ├── compression.type: STATIC
+      ├── compression.exponent: 4
+      ├── compression.fs-offset: 16
+      ├── eaxc.o-du-port-bitmask: 61440
+      ├── eaxc.band-sector-bitmask: 3840
+      ├── eaxc.ccid-bitmask: 240
+      ├── eaxc.ru-port-bitmask: 15
+      ├── eaxc.eaxc-id: 1
+      ├── eaxc-gain-correction: -10.7918
+      ├── restricted-interfaces: fheth0, fheth1
+      └── [meta] msg-id=-, ts=2024-08-20T22:06:55.504000+00:00, rpc=-
+      │
+      ▼ (Link PE: NR102.PE_4_1_0_1)
+      │
+      ├── link.name: NR102.RLINK31_1_9
+      ├── link.low-level-rx-endpoint: Static-LLRE-082
+      ├── link.rx-array-carrier: NR102.RX31_4_1_1
+      └── [meta] msg-id=125, ts=2024-08-20T22:06:56.948000+00:00, rpc=edit-config
+  [Carrier] NR102.RX31_4_1_1
+      ├── active: ACTIVE
+      ├── type: NR
+      ├── center-of-channel-bandwidth: 1725000000 Hz
+      ├── channel-bandwidth: 20000000 Hz
+      ├── downlink-radio-frame-offset: 0
+      ├── downlink-sfn-offset: 0
+      └── [meta] msg-id=145, ts=2024-08-20T22:06:58.476000+00:00, rpc=edit-config
+  [Processing Element] NR102.PE_4_1_0_1
+      ├── name: NR102.PE_4_1_0_1
+      ├── transport-flow[1]
+      │   ├── interface-name: vlan_0_1
+      │   ├── eth.ru-mac-address: 34:fe:9e:3d:e0:8d
+      │   ├── eth.o-du-mac-address: 34:ce:69:7a:72:fd
+      │   └── eth.vlan-id: 1
+      └── [meta] msg-id=65, ts=2024-08-20T22:06:50.893000+00:00, rpc=edit-config
+
+🔗 Chain: NR102.RLINK32_1_1 (RX)
+----------------------------------------------------------------------------------------------------
+  [Endpoint] Static-LLRE-000
+      ├── array: Rx-Array-00
+      ├── endpoint-type: 3
+      ├── frame-structure: 176
+      ├── cp-type: NORMAL
+      ├── cp-length: 160
+      ├── cp-length-other: 144
+      ├── offset-to-absolute-frequency-center: -1271
+      ├── number-of-prb-per-scs: KHZ_15:106
+      ├── non-time-managed-delay-enabled: false
+      ├── compression.iq-bitwidth: 9
+      ├── compression.type: STATIC
+      ├── compression.exponent: 4
+      ├── compression.fs-offset: 16
+      ├── eaxc.o-du-port-bitmask: 61440
+      ├── eaxc.band-sector-bitmask: 3840
+      ├── eaxc.ccid-bitmask: 240
+      ├── eaxc.ru-port-bitmask: 15
+      ├── eaxc.eaxc-id: 16
+      ├── eaxc-gain-correction: -10.7918
+      ├── restricted-interfaces: fheth0, fheth1
+      └── [meta] msg-id=-, ts=2024-08-20T22:06:57.036000+00:00, rpc=-
+      │
+      ▼ (Link PE: NR102.PE_4_1_0_1)
+      │
+      ├── link.name: NR102.RLINK32_1_1
+      ├── link.low-level-rx-endpoint: Static-LLRE-000
+      ├── link.rx-array-carrier: NR102.RX32_4_1_16
+      └── [meta] msg-id=131, ts=2024-08-20T22:06:57.834000+00:00, rpc=edit-config
+  [Carrier] NR102.RX32_4_1_16
+      ├── active: ACTIVE
+      ├── type: NR
+      ├── center-of-channel-bandwidth: 1970000000 Hz
+      ├── channel-bandwidth: 20000000 Hz
+      ├── downlink-radio-frame-offset: 0
+      ├── downlink-sfn-offset: 0
+      └── [meta] msg-id=148, ts=2024-08-20T22:06:59.542000+00:00, rpc=edit-config
+  [Processing Element] NR102.PE_4_1_0_1
+      ├── name: NR102.PE_4_1_0_1
+      ├── transport-flow[1]
+      │   ├── interface-name: vlan_0_1
+      │   ├── eth.ru-mac-address: 34:fe:9e:3d:e0:8d
+      │   ├── eth.o-du-mac-address: 34:ce:69:7a:72:fd
+      │   └── eth.vlan-id: 1
+      └── [meta] msg-id=65, ts=2024-08-20T22:06:50.893000+00:00, rpc=edit-config
+
+🔗 Chain: NR102.RLINK32_1_10 (RX)
+----------------------------------------------------------------------------------------------------
+  [Endpoint] Static-LLRE-006
+      ├── array: Rx-Array-02
+      ├── endpoint-type: 4
+      ├── frame-structure: 188
+      ├── cp-type: NORMAL
+      ├── cp-length: 160
+      ├── cp-length-other: 144
+      ├── offset-to-absolute-frequency-center: -11796
+      ├── number-of-prb-per-scs: KHZ_1_25:70
+      ├── non-time-managed-delay-enabled: false
+      ├── compression.iq-bitwidth: 9
+      ├── compression.type: STATIC
+      ├── compression.exponent: 4
+      ├── compression.fs-offset: 16
+      ├── eaxc.o-du-port-bitmask: 61440
+      ├── eaxc.band-sector-bitmask: 3840
+      ├── eaxc.ccid-bitmask: 240
+      ├── eaxc.ru-port-bitmask: 15
+      ├── eaxc.eaxc-id: 21
+      ├── eaxc-gain-correction: 0.0000
+      ├── static-config-supported: PRACH
+      ├── static-prach-configuration: 1
+      ├── prach-group: 0
+      ├── restricted-interfaces: fheth0, fheth1
+      ├── PRACH config matched: 1
+      │   ├── pattern-period: 2
+      │   ├── sequence-duration: 24576
+      │   ├── num-prach-re: 839
+      │   ├── guard-tone-low-re: 7
+      │   └── guard-tone-high-re: 18
+      └── [meta] msg-id=-, ts=2024-08-20T22:06:57.036000+00:00, rpc=-
+      │
+      ▼ (Link PE: NR102.PE_4_1_0_1)
+      │
+      ├── link.name: NR102.RLINK32_1_10
+      ├── link.low-level-rx-endpoint: Static-LLRE-006
+      ├── link.rx-array-carrier: NR102.RX32_4_1_17
+      └── [meta] msg-id=132, ts=2024-08-20T22:06:57.891000+00:00, rpc=edit-config
+  [Carrier] NR102.RX32_4_1_17
+      ├── active: ACTIVE
+      ├── type: NR
+      ├── center-of-channel-bandwidth: 1970000000 Hz
+      ├── channel-bandwidth: 20000000 Hz
+      ├── downlink-radio-frame-offset: 0
+      ├── downlink-sfn-offset: 0
+      └── [meta] msg-id=148, ts=2024-08-20T22:06:59.542000+00:00, rpc=edit-config
+  [Processing Element] NR102.PE_4_1_0_1
+      ├── name: NR102.PE_4_1_0_1
+      ├── transport-flow[1]
+      │   ├── interface-name: vlan_0_1
+      │   ├── eth.ru-mac-address: 34:fe:9e:3d:e0:8d
+      │   ├── eth.o-du-mac-address: 34:ce:69:7a:72:fd
+      │   └── eth.vlan-id: 1
+      └── [meta] msg-id=65, ts=2024-08-20T22:06:50.893000+00:00, rpc=edit-config
+
+🔗 Chain: NR102.RLINK32_1_13 (RX)
+----------------------------------------------------------------------------------------------------
+  [Endpoint] Static-LLRE-003
+      ├── array: Rx-Array-03
+      ├── endpoint-type: 3
+      ├── frame-structure: 176
+      ├── cp-type: NORMAL
+      ├── cp-length: 160
+      ├── cp-length-other: 144
+      ├── offset-to-absolute-frequency-center: -1271
+      ├── number-of-prb-per-scs: KHZ_15:106
+      ├── non-time-managed-delay-enabled: false
+      ├── compression.iq-bitwidth: 9
+      ├── compression.type: STATIC
+      ├── compression.exponent: 4
+      ├── compression.fs-offset: 16
+      ├── eaxc.o-du-port-bitmask: 61440
+      ├── eaxc.band-sector-bitmask: 3840
+      ├── eaxc.ccid-bitmask: 240
+      ├── eaxc.ru-port-bitmask: 15
+      ├── eaxc.eaxc-id: 25
+      ├── eaxc-gain-correction: -10.7918
+      ├── restricted-interfaces: fheth0, fheth1
+      └── [meta] msg-id=-, ts=2024-08-20T22:06:57.036000+00:00, rpc=-
+      │
+      ▼ (Link PE: NR102.PE_4_1_0_1)
+      │
+      ├── link.name: NR102.RLINK32_1_13
+      ├── link.low-level-rx-endpoint: Static-LLRE-003
+      ├── link.rx-array-carrier: NR102.RX32_4_1_25
+      └── [meta] msg-id=134, ts=2024-08-20T22:06:57.992000+00:00, rpc=edit-config
+  [Carrier] NR102.RX32_4_1_25
+      ├── active: ACTIVE
+      ├── type: NR
+      ├── center-of-channel-bandwidth: 1970000000 Hz
+      ├── channel-bandwidth: 20000000 Hz
+      ├── downlink-radio-frame-offset: 0
+      ├── downlink-sfn-offset: 0
+      └── [meta] msg-id=148, ts=2024-08-20T22:06:59.542000+00:00, rpc=edit-config
+  [Processing Element] NR102.PE_4_1_0_1
+      ├── name: NR102.PE_4_1_0_1
+      ├── transport-flow[1]
+      │   ├── interface-name: vlan_0_1
+      │   ├── eth.ru-mac-address: 34:fe:9e:3d:e0:8d
+      │   ├── eth.o-du-mac-address: 34:ce:69:7a:72:fd
+      │   └── eth.vlan-id: 1
+      └── [meta] msg-id=65, ts=2024-08-20T22:06:50.893000+00:00, rpc=edit-config
+
+🔗 Chain: NR102.RLINK32_1_14 (RX)
+----------------------------------------------------------------------------------------------------
+  [Endpoint] Static-LLRE-007
+      ├── array: Rx-Array-03
+      ├── endpoint-type: 4
+      ├── frame-structure: 188
+      ├── cp-type: NORMAL
+      ├── cp-length: 160
+      ├── cp-length-other: 144
+      ├── offset-to-absolute-frequency-center: -11796
+      ├── number-of-prb-per-scs: KHZ_1_25:70
+      ├── non-time-managed-delay-enabled: false
+      ├── compression.iq-bitwidth: 9
+      ├── compression.type: STATIC
+      ├── compression.exponent: 4
+      ├── compression.fs-offset: 16
+      ├── eaxc.o-du-port-bitmask: 61440
+      ├── eaxc.band-sector-bitmask: 3840
+      ├── eaxc.ccid-bitmask: 240
+      ├── eaxc.ru-port-bitmask: 15
+      ├── eaxc.eaxc-id: 29
+      ├── eaxc-gain-correction: 0.0000
+      ├── static-config-supported: PRACH
+      ├── static-prach-configuration: 1
+      ├── prach-group: 0
+      ├── restricted-interfaces: fheth0, fheth1
+      ├── PRACH config matched: 1
+      │   ├── pattern-period: 2
+      │   ├── sequence-duration: 24576
+      │   ├── num-prach-re: 839
+      │   ├── guard-tone-low-re: 7
+      │   └── guard-tone-high-re: 18
+      └── [meta] msg-id=-, ts=2024-08-20T22:06:57.036000+00:00, rpc=-
+      │
+      ▼ (Link PE: NR102.PE_4_1_0_1)
+      │
+      ├── link.name: NR102.RLINK32_1_14
+      ├── link.low-level-rx-endpoint: Static-LLRE-007
+      ├── link.rx-array-carrier: NR102.RX32_4_1_25
+      └── [meta] msg-id=135, ts=2024-08-20T22:06:58.039000+00:00, rpc=edit-config
+  [Carrier] NR102.RX32_4_1_25
+      ├── active: ACTIVE
+      ├── type: NR
+      ├── center-of-channel-bandwidth: 1970000000 Hz
+      ├── channel-bandwidth: 20000000 Hz
+      ├── downlink-radio-frame-offset: 0
+      ├── downlink-sfn-offset: 0
+      └── [meta] msg-id=148, ts=2024-08-20T22:06:59.542000+00:00, rpc=edit-config
+  [Processing Element] NR102.PE_4_1_0_1
+      ├── name: NR102.PE_4_1_0_1
+      ├── transport-flow[1]
+      │   ├── interface-name: vlan_0_1
+      │   ├── eth.ru-mac-address: 34:fe:9e:3d:e0:8d
+      │   ├── eth.o-du-mac-address: 34:ce:69:7a:72:fd
+      │   └── eth.vlan-id: 1
+      └── [meta] msg-id=65, ts=2024-08-20T22:06:50.893000+00:00, rpc=edit-config
+
+🔗 Chain: NR102.RLINK32_1_2 (RX)
+----------------------------------------------------------------------------------------------------
+  [Endpoint] Static-LLRE-004
+      ├── array: Rx-Array-00
+      ├── endpoint-type: 4
+      ├── frame-structure: 188
+      ├── cp-type: NORMAL
+      ├── cp-length: 160
+      ├── cp-length-other: 144
+      ├── offset-to-absolute-frequency-center: -11796
+      ├── number-of-prb-per-scs: KHZ_1_25:70
+      ├── non-time-managed-delay-enabled: false
+      ├── compression.iq-bitwidth: 9
+      ├── compression.type: STATIC
+      ├── compression.exponent: 4
+      ├── compression.fs-offset: 16
+      ├── eaxc.o-du-port-bitmask: 61440
+      ├── eaxc.band-sector-bitmask: 3840
+      ├── eaxc.ccid-bitmask: 240
+      ├── eaxc.ru-port-bitmask: 15
+      ├── eaxc.eaxc-id: 20
+      ├── eaxc-gain-correction: 0.0000
+      ├── static-config-supported: PRACH
+      ├── static-prach-configuration: 1
+      ├── prach-group: 0
+      ├── restricted-interfaces: fheth0, fheth1
+      ├── PRACH config matched: 1
+      │   ├── pattern-period: 2
+      │   ├── sequence-duration: 24576
+      │   ├── num-prach-re: 839
+      │   ├── guard-tone-low-re: 7
+      │   └── guard-tone-high-re: 18
+      └── [meta] msg-id=-, ts=2024-08-20T22:06:57.036000+00:00, rpc=-
+      │
+      ▼ (Link PE: NR102.PE_4_1_0_1)
+      │
+      ├── link.name: NR102.RLINK32_1_2
+      ├── link.low-level-rx-endpoint: Static-LLRE-004
+      ├── link.rx-array-carrier: NR102.RX32_4_1_16
+      └── [meta] msg-id=137, ts=2024-08-20T22:06:58.142000+00:00, rpc=edit-config
+  [Carrier] NR102.RX32_4_1_16
+      ├── active: ACTIVE
+      ├── type: NR
+      ├── center-of-channel-bandwidth: 1970000000 Hz
+      ├── channel-bandwidth: 20000000 Hz
+      ├── downlink-radio-frame-offset: 0
+      ├── downlink-sfn-offset: 0
+      └── [meta] msg-id=148, ts=2024-08-20T22:06:59.542000+00:00, rpc=edit-config
+  [Processing Element] NR102.PE_4_1_0_1
+      ├── name: NR102.PE_4_1_0_1
+      ├── transport-flow[1]
+      │   ├── interface-name: vlan_0_1
+      │   ├── eth.ru-mac-address: 34:fe:9e:3d:e0:8d
+      │   ├── eth.o-du-mac-address: 34:ce:69:7a:72:fd
+      │   └── eth.vlan-id: 1
+      └── [meta] msg-id=65, ts=2024-08-20T22:06:50.893000+00:00, rpc=edit-config
+
+🔗 Chain: NR102.RLINK32_1_5 (RX)
+----------------------------------------------------------------------------------------------------
+  [Endpoint] Static-LLRE-001
+      ├── array: Rx-Array-01
+      ├── endpoint-type: 3
+      ├── frame-structure: 176
+      ├── cp-type: NORMAL
+      ├── cp-length: 160
+      ├── cp-length-other: 144
+      ├── offset-to-absolute-frequency-center: -1271
+      ├── number-of-prb-per-scs: KHZ_15:106
+      ├── non-time-managed-delay-enabled: false
+      ├── compression.iq-bitwidth: 9
+      ├── compression.type: STATIC
+      ├── compression.exponent: 4
+      ├── compression.fs-offset: 16
+      ├── eaxc.o-du-port-bitmask: 61440
+      ├── eaxc.band-sector-bitmask: 3840
+      ├── eaxc.ccid-bitmask: 240
+      ├── eaxc.ru-port-bitmask: 15
+      ├── eaxc.eaxc-id: 24
+      ├── eaxc-gain-correction: -10.7918
+      ├── restricted-interfaces: fheth0, fheth1
+      └── [meta] msg-id=-, ts=2024-08-20T22:06:57.036000+00:00, rpc=-
+      │
+      ▼ (Link PE: NR102.PE_4_1_0_1)
+      │
+      ├── link.name: NR102.RLINK32_1_5
+      ├── link.low-level-rx-endpoint: Static-LLRE-001
+      ├── link.rx-array-carrier: NR102.RX32_4_1_24
+      └── [meta] msg-id=139, ts=2024-08-20T22:06:58.253000+00:00, rpc=edit-config
+  [Carrier] NR102.RX32_4_1_24
+      ├── active: ACTIVE
+      ├── type: NR
+      ├── center-of-channel-bandwidth: 1970000000 Hz
+      ├── channel-bandwidth: 20000000 Hz
+      ├── downlink-radio-frame-offset: 0
+      ├── downlink-sfn-offset: 0
+      └── [meta] msg-id=148, ts=2024-08-20T22:06:59.542000+00:00, rpc=edit-config
+  [Processing Element] NR102.PE_4_1_0_1
+      ├── name: NR102.PE_4_1_0_1
+      ├── transport-flow[1]
+      │   ├── interface-name: vlan_0_1
+      │   ├── eth.ru-mac-address: 34:fe:9e:3d:e0:8d
+      │   ├── eth.o-du-mac-address: 34:ce:69:7a:72:fd
+      │   └── eth.vlan-id: 1
+      └── [meta] msg-id=65, ts=2024-08-20T22:06:50.893000+00:00, rpc=edit-config
+
+🔗 Chain: NR102.RLINK32_1_6 (RX)
+----------------------------------------------------------------------------------------------------
+  [Endpoint] Static-LLRE-005
+      ├── array: Rx-Array-01
+      ├── endpoint-type: 4
+      ├── frame-structure: 188
+      ├── cp-type: NORMAL
+      ├── cp-length: 160
+      ├── cp-length-other: 144
+      ├── offset-to-absolute-frequency-center: -11796
+      ├── number-of-prb-per-scs: KHZ_1_25:70
+      ├── non-time-managed-delay-enabled: false
+      ├── compression.iq-bitwidth: 9
+      ├── compression.type: STATIC
+      ├── compression.exponent: 4
+      ├── compression.fs-offset: 16
+      ├── eaxc.o-du-port-bitmask: 61440
+      ├── eaxc.band-sector-bitmask: 3840
+      ├── eaxc.ccid-bitmask: 240
+      ├── eaxc.ru-port-bitmask: 15
+      ├── eaxc.eaxc-id: 28
+      ├── eaxc-gain-correction: 0.0000
+      ├── static-config-supported: PRACH
+      ├── static-prach-configuration: 1
+      ├── prach-group: 0
+      ├── restricted-interfaces: fheth0, fheth1
+      ├── PRACH config matched: 1
+      │   ├── pattern-period: 2
+      │   ├── sequence-duration: 24576
+      │   ├── num-prach-re: 839
+      │   ├── guard-tone-low-re: 7
+      │   └── guard-tone-high-re: 18
+      └── [meta] msg-id=-, ts=2024-08-20T22:06:57.036000+00:00, rpc=-
+      │
+      ▼ (Link PE: NR102.PE_4_1_0_1)
+      │
+      ├── link.name: NR102.RLINK32_1_6
+      ├── link.low-level-rx-endpoint: Static-LLRE-005
+      ├── link.rx-array-carrier: NR102.RX32_4_1_24
+      └── [meta] msg-id=140, ts=2024-08-20T22:06:58.301000+00:00, rpc=edit-config
+  [Carrier] NR102.RX32_4_1_24
+      ├── active: ACTIVE
+      ├── type: NR
+      ├── center-of-channel-bandwidth: 1970000000 Hz
+      ├── channel-bandwidth: 20000000 Hz
+      ├── downlink-radio-frame-offset: 0
+      ├── downlink-sfn-offset: 0
+      └── [meta] msg-id=148, ts=2024-08-20T22:06:59.542000+00:00, rpc=edit-config
+  [Processing Element] NR102.PE_4_1_0_1
+      ├── name: NR102.PE_4_1_0_1
+      ├── transport-flow[1]
+      │   ├── interface-name: vlan_0_1
+      │   ├── eth.ru-mac-address: 34:fe:9e:3d:e0:8d
+      │   ├── eth.o-du-mac-address: 34:ce:69:7a:72:fd
+      │   └── eth.vlan-id: 1
+      └── [meta] msg-id=65, ts=2024-08-20T22:06:50.893000+00:00, rpc=edit-config
+
+🔗 Chain: NR102.RLINK32_1_9 (RX)
+----------------------------------------------------------------------------------------------------
+  [Endpoint] Static-LLRE-002
+      ├── array: Rx-Array-02
+      ├── endpoint-type: 3
+      ├── frame-structure: 176
+      ├── cp-type: NORMAL
+      ├── cp-length: 160
+      ├── cp-length-other: 144
+      ├── offset-to-absolute-frequency-center: -1271
+      ├── number-of-prb-per-scs: KHZ_15:106
+      ├── non-time-managed-delay-enabled: false
+      ├── compression.iq-bitwidth: 9
+      ├── compression.type: STATIC
+      ├── compression.exponent: 4
+      ├── compression.fs-offset: 16
+      ├── eaxc.o-du-port-bitmask: 61440
+      ├── eaxc.band-sector-bitmask: 3840
+      ├── eaxc.ccid-bitmask: 240
+      ├── eaxc.ru-port-bitmask: 15
+      ├── eaxc.eaxc-id: 17
+      ├── eaxc-gain-correction: -10.7918
+      ├── restricted-interfaces: fheth0, fheth1
+      └── [meta] msg-id=-, ts=2024-08-20T22:06:57.036000+00:00, rpc=-
+      │
+      ▼ (Link PE: NR102.PE_4_1_0_1)
+      │
+      ├── link.name: NR102.RLINK32_1_9
+      ├── link.low-level-rx-endpoint: Static-LLRE-002
+      ├── link.rx-array-carrier: NR102.RX32_4_1_17
+      └── [meta] msg-id=142, ts=2024-08-20T22:06:58.404000+00:00, rpc=edit-config
+  [Carrier] NR102.RX32_4_1_17
+      ├── active: ACTIVE
+      ├── type: NR
+      ├── center-of-channel-bandwidth: 1970000000 Hz
+      ├── channel-bandwidth: 20000000 Hz
+      ├── downlink-radio-frame-offset: 0
+      ├── downlink-sfn-offset: 0
+      └── [meta] msg-id=148, ts=2024-08-20T22:06:59.542000+00:00, rpc=edit-config
+  [Processing Element] NR102.PE_4_1_0_1
+      ├── name: NR102.PE_4_1_0_1
+      ├── transport-flow[1]
+      │   ├── interface-name: vlan_0_1
+      │   ├── eth.ru-mac-address: 34:fe:9e:3d:e0:8d
+      │   ├── eth.o-du-mac-address: 34:ce:69:7a:72:fd
+      │   └── eth.vlan-id: 1
+      └── [meta] msg-id=65, ts=2024-08-20T22:06:50.893000+00:00, rpc=edit-config
+
+========================================================================================================================
+ENDPOINT SUMMARY
+========================================================================================================================
+DIR | ENDPOINT | EAXC | RU_MASK | FS_OFFSET | IQ_BW | METHOD | FRAME | FREQ_OFFSET | PRACH_REF
+------------------------------------------------------------------------------------------------------------------------
+TX | Static-LLTE-000 | 16 | 15 | 16 | 9 | - | 176 | -1272 | -
+TX | Static-LLTE-001 | 24 | 15 | 16 | 9 | - | 176 | -1272 | -
+TX | Static-LLTE-002 | 17 | 15 | 16 | 9 | - | 176 | -1272 | -
+TX | Static-LLTE-003 | 25 | 15 | 16 | 9 | - | 176 | -1272 | -
+TX | Static-LLTE-004 | - | - | - | - | - | - | - | -
+TX | Static-LLTE-005 | - | - | - | - | - | - | - | -
+TX | Static-LLTE-006 | - | - | - | - | - | - | - | -
+TX | Static-LLTE-007 | - | - | - | - | - | - | - | -
+TX | Static-LLTE-032 | 0 | 15 | 16 | 9 | - | 176 | -1272 | -
+TX | Static-LLTE-033 | 8 | 15 | 16 | 9 | - | 176 | -1272 | -
+TX | Static-LLTE-034 | 1 | 15 | 16 | 9 | - | 176 | -1272 | -
+TX | Static-LLTE-035 | 9 | 15 | 16 | 9 | - | 176 | -1272 | -
+TX | Static-LLTE-036 | - | - | - | - | - | - | - | -
+TX | Static-LLTE-037 | - | - | - | - | - | - | - | -
+TX | Static-LLTE-038 | - | - | - | - | - | - | - | -
+TX | Static-LLTE-039 | - | - | - | - | - | - | - | -
+TX | Static-LLTE-056 | 32 | 15 | 16 | 9 | - | 176 | -1272 | -
+TX | Static-LLTE-057 | 40 | 15 | 16 | 9 | - | 176 | -1272 | -
+TX | Static-LLTE-058 | 33 | 15 | 16 | 9 | - | 176 | -1272 | -
+TX | Static-LLTE-059 | 41 | 15 | 16 | 9 | - | 176 | -1272 | -
+TX | Static-LLTE-060 | - | - | - | - | - | - | - | -
+TX | Static-LLTE-061 | - | - | - | - | - | - | - | -
+TX | Static-LLTE-062 | - | - | - | - | - | - | - | -
+TX | Static-LLTE-063 | - | - | - | - | - | - | - | -
+RX | Static-LLRE-000 | 16 | 15 | 16 | 9 | - | 176 | -1271 | -
+RX | Static-LLRE-001 | 24 | 15 | 16 | 9 | - | 176 | -1271 | -
+RX | Static-LLRE-002 | 17 | 15 | 16 | 9 | - | 176 | -1271 | -
+RX | Static-LLRE-003 | 25 | 15 | 16 | 9 | - | 176 | -1271 | -
+RX | Static-LLRE-004 | 20 | 15 | 16 | 9 | - | 188 | -11796 | 1
+RX | Static-LLRE-005 | 28 | 15 | 16 | 9 | - | 188 | -11796 | 1
+RX | Static-LLRE-006 | 21 | 15 | 16 | 9 | - | 188 | -11796 | 1
+RX | Static-LLRE-007 | 29 | 15 | 16 | 9 | - | 188 | -11796 | 1
+RX | Static-LLRE-008 | - | - | - | - | - | - | - | -
+RX | Static-LLRE-009 | - | - | - | - | - | - | - | -
+RX | Static-LLRE-010 | - | - | - | - | - | - | - | -
+RX | Static-LLRE-011 | - | - | - | - | - | - | - | -
+RX | Static-LLRE-012 | - | - | - | - | - | - | - | 0
+RX | Static-LLRE-013 | - | - | - | - | - | - | - | 0
+RX | Static-LLRE-014 | - | - | - | - | - | - | - | 0
+RX | Static-LLRE-015 | - | - | - | - | - | - | - | 0
+RX | Static-LLRE-080 | 0 | 15 | 16 | 9 | - | 176 | -1271 | -
+RX | Static-LLRE-081 | 8 | 15 | 16 | 9 | - | 176 | -1271 | -
+RX | Static-LLRE-082 | 1 | 15 | 16 | 9 | - | 176 | -1271 | -
+RX | Static-LLRE-083 | 9 | 15 | 16 | 9 | - | 176 | -1271 | -
+RX | Static-LLRE-084 | 4 | 15 | 16 | 9 | - | 188 | -11796 | 0
+RX | Static-LLRE-085 | 12 | 15 | 16 | 9 | - | 188 | -11796 | 0
+RX | Static-LLRE-086 | 5 | 15 | 16 | 9 | - | 188 | -11796 | 0
+RX | Static-LLRE-087 | 13 | 15 | 16 | 9 | - | 188 | -11796 | 0
+RX | Static-LLRE-088 | - | - | - | - | - | - | - | -
+RX | Static-LLRE-089 | - | - | - | - | - | - | - | -
+RX | Static-LLRE-090 | - | - | - | - | - | - | - | -
+RX | Static-LLRE-091 | - | - | - | - | - | - | - | -
+RX | Static-LLRE-092 | - | - | - | - | - | - | - | 0
+RX | Static-LLRE-093 | - | - | - | - | - | - | - | 0
+RX | Static-LLRE-094 | - | - | - | - | - | - | - | 0
+RX | Static-LLRE-095 | - | - | - | - | - | - | - | 0
+
+========================================================================================================================
+VALIDATION / ALARMS
+========================================================================================================================
+[INFO] Detected Nokia NETCONF trace format; Nokia segment parser enabled.
+[WARN] Endpoint 'Static-LLRE-080' has fs-offset but missing compression-method.
+[WARN] Endpoint 'Static-LLRE-086' has fs-offset but missing compression-method.
+[WARN] Endpoint 'Static-LLRE-083' has fs-offset but missing compression-method.
+[WARN] Endpoint 'Static-LLRE-087' has fs-offset but missing compression-method.
+[WARN] Endpoint 'Static-LLRE-084' has fs-offset but missing compression-method.
+[WARN] Endpoint 'Static-LLRE-081' has fs-offset but missing compression-method.
+[WARN] Endpoint 'Static-LLRE-085' has fs-offset but missing compression-method.
+[WARN] Endpoint 'Static-LLRE-082' has fs-offset but missing compression-method.
+[WARN] Endpoint 'Static-LLRE-000' has fs-offset but missing compression-method.
+[WARN] Endpoint 'Static-LLRE-006' has fs-offset but missing compression-method.
+[WARN] Endpoint 'Static-LLRE-003' has fs-offset but missing compression-method.
+[WARN] Endpoint 'Static-LLRE-007' has fs-offset but missing compression-method.
+[WARN] Endpoint 'Static-LLRE-004' has fs-offset but missing compression-method.
+[WARN] Endpoint 'Static-LLRE-001' has fs-offset but missing compression-method.
+[WARN] Endpoint 'Static-LLRE-005' has fs-offset but missing compression-method.
+[WARN] Endpoint 'Static-LLRE-002' has fs-offset but missing compression-method.
+[WARN] Endpoint 'Static-LLTE-034' has fs-offset but missing compression-method.
+[WARN] Endpoint 'Static-LLTE-035' has fs-offset but missing compression-method.
+[WARN] Endpoint 'Static-LLTE-032' has fs-offset but missing compression-method.
+[WARN] Endpoint 'Static-LLTE-033' has fs-offset but missing compression-method.
+[WARN] Endpoint 'Static-LLTE-002' has fs-offset but missing compression-method.
+[WARN] Endpoint 'Static-LLTE-003' has fs-offset but missing compression-method.
+[WARN] Endpoint 'Static-LLTE-000' has fs-offset but missing compression-method.
+[WARN] Endpoint 'Static-LLTE-001' has fs-offset but missing compression-method.
+[WARN] Endpoint 'Static-LLTE-056' has fs-offset but missing compression-method.
+[WARN] Endpoint 'Static-LLTE-057' has fs-offset but missing compression-method.
+[WARN] Endpoint 'Static-LLTE-058' has fs-offset but missing compression-method.
+[WARN] Endpoint 'Static-LLTE-059' has fs-offset but missing compression-method.
+[WARN] Duplicate eAxC scope+eaxc-id ('61440', '3840', '240', '15', '0'): endpoints=Static-LLRE-080, Static-LLTE-032
+[WARN] Duplicate eAxC scope+eaxc-id ('61440', '3840', '240', '15', '9'): endpoints=Static-LLRE-083, Static-LLTE-035
+[WARN] Duplicate eAxC scope+eaxc-id ('61440', '3840', '240', '15', '8'): endpoints=Static-LLRE-081, Static-LLTE-033
+[WARN] Duplicate eAxC scope+eaxc-id ('61440', '3840', '240', '15', '1'): endpoints=Static-LLRE-082, Static-LLTE-034
+[WARN] Duplicate eAxC scope+eaxc-id ('61440', '3840', '240', '15', '16'): endpoints=Static-LLRE-000, Static-LLTE-000
+[WARN] Duplicate eAxC scope+eaxc-id ('61440', '3840', '240', '15', '25'): endpoints=Static-LLRE-003, Static-LLTE-003
+[WARN] Duplicate eAxC scope+eaxc-id ('61440', '3840', '240', '15', '24'): endpoints=Static-LLRE-001, Static-LLTE-001
+[WARN] Duplicate eAxC scope+eaxc-id ('61440', '3840', '240', '15', '17'): endpoints=Static-LLRE-002, Static-LLTE-002
+[INFO] Endpoint 'Static-LLRE-008' is not referenced by any low-level link.
+[INFO] Endpoint 'Static-LLRE-009' is not referenced by any low-level link.
+[INFO] Endpoint 'Static-LLRE-010' is not referenced by any low-level link.
+[INFO] Endpoint 'Static-LLRE-011' is not referenced by any low-level link.
+[INFO] Endpoint 'Static-LLRE-012' is not referenced by any low-level link.
+[INFO] Endpoint 'Static-LLRE-013' is not referenced by any low-level link.
+[INFO] Endpoint 'Static-LLRE-014' is not referenced by any low-level link.
+[INFO] Endpoint 'Static-LLRE-015' is not referenced by any low-level link.
+[INFO] Endpoint 'Static-LLRE-088' is not referenced by any low-level link.
+[INFO] Endpoint 'Static-LLRE-089' is not referenced by any low-level link.
+[INFO] Endpoint 'Static-LLRE-090' is not referenced by any low-level link.
+[INFO] Endpoint 'Static-LLRE-091' is not referenced by any low-level link.
+[INFO] Endpoint 'Static-LLRE-092' is not referenced by any low-level link.
+[INFO] Endpoint 'Static-LLRE-093' is not referenced by any low-level link.
+[INFO] Endpoint 'Static-LLRE-094' is not referenced by any low-level link.
+[INFO] Endpoint 'Static-LLRE-095' is not referenced by any low-level link.
+[INFO] Endpoint 'Static-LLTE-004' is not referenced by any low-level link.
+[INFO] Endpoint 'Static-LLTE-005' is not referenced by any low-level link.
+[INFO] Endpoint 'Static-LLTE-006' is not referenced by any low-level link.
+[INFO] Endpoint 'Static-LLTE-007' is not referenced by any low-level link.
+[INFO] Endpoint 'Static-LLTE-036' is not referenced by any low-level link.
+[INFO] Endpoint 'Static-LLTE-037' is not referenced by any low-level link.
+[INFO] Endpoint 'Static-LLTE-038' is not referenced by any low-level link.
+[INFO] Endpoint 'Static-LLTE-039' is not referenced by any low-level link.
+[INFO] Endpoint 'Static-LLTE-060' is not referenced by any low-level link.
+[INFO] Endpoint 'Static-LLTE-061' is not referenced by any low-level link.
+[INFO] Endpoint 'Static-LLTE-062' is not referenced by any low-level link.
+[INFO] Endpoint 'Static-LLTE-063' is not referenced by any low-level link.
+
+========================================================================================================================
+PARSER WARNINGS
+========================================================================================================================
+[notification] tag=user-plane-state-change msg=User-plane state-change notification observed (not fully merged into config state) ts=2024-08-20T22:06:55.085000+00:00 msg-id=None
+   fragment: <?xml version="1.0" encoding="UTF-8"?> <notification xmlns="urn:ietf:params:xml:ns:netconf:notification:1.0"><eventTime>2024-08-20T22:07:32.714905Z</eventTime><...
+[notification] tag=user-plane-state-change msg=User-plane state-change notification observed (not fully merged into config state) ts=2024-08-20T22:06:55.094000+00:00 msg-id=None
+   fragment: <?xml version="1.0" encoding="UTF-8"?> <notification xmlns="urn:ietf:params:xml:ns:netconf:notification:1.0"><eventTime>2024-08-20T22:07:32.716084Z</eventTime><...
+[notification] tag=user-plane-state-change msg=User-plane state-change notification observed (not fully merged into config state) ts=2024-08-20T22:06:55.102000+00:00 msg-id=None
+   fragment: <?xml version="1.0" encoding="UTF-8"?> <notification xmlns="urn:ietf:params:xml:ns:netconf:notification:1.0"><eventTime>2024-08-20T22:07:32.717188Z</eventTime><...
+[notification] tag=user-plane-state-change msg=User-plane state-change notification observed (not fully merged into config state) ts=2024-08-20T22:06:55.118000+00:00 msg-id=None
+   fragment: <?xml version="1.0" encoding="UTF-8"?> <notification xmlns="urn:ietf:params:xml:ns:netconf:notification:1.0"><eventTime>2024-08-20T22:07:32.718121Z</eventTime><...
+[notification] tag=user-plane-state-change msg=User-plane state-change notification observed (not fully merged into config state) ts=2024-08-20T22:06:55.127000+00:00 msg-id=None
+   fragment: <?xml version="1.0" encoding="UTF-8"?> <notification xmlns="urn:ietf:params:xml:ns:netconf:notification:1.0"><eventTime>2024-08-20T22:07:32.718956Z</eventTime><...
+[notification] tag=user-plane-state-change msg=User-plane state-change notification observed (not fully merged into config state) ts=2024-08-20T22:06:55.137000+00:00 msg-id=None
+   fragment: <?xml version="1.0" encoding="UTF-8"?> <notification xmlns="urn:ietf:params:xml:ns:netconf:notification:1.0"><eventTime>2024-08-20T22:07:32.719786Z</eventTime><...
+[notification] tag=user-plane-state-change msg=User-plane state-change notification observed (not fully merged into config state) ts=2024-08-20T22:06:55.145000+00:00 msg-id=None
+   fragment: <?xml version="1.0" encoding="UTF-8"?> <notification xmlns="urn:ietf:params:xml:ns:netconf:notification:1.0"><eventTime>2024-08-20T22:07:32.720617Z</eventTime><...
+[notification] tag=user-plane-state-change msg=User-plane state-change notification observed (not fully merged into config state) ts=2024-08-20T22:06:55.153000+00:00 msg-id=None
+   fragment: <?xml version="1.0" encoding="UTF-8"?> <notification xmlns="urn:ietf:params:xml:ns:netconf:notification:1.0"><eventTime>2024-08-20T22:07:32.721460Z</eventTime><...
+[notification] tag=user-plane-state-change msg=User-plane state-change notification observed (not fully merged into config state) ts=2024-08-20T22:06:59.505000+00:00 msg-id=None
+   fragment: <?xml version="1.0" encoding="UTF-8"?> <notification xmlns="urn:ietf:params:xml:ns:netconf:notification:1.0"><eventTime>2024-08-20T22:07:37.128965Z</eventTime><...
+[notification] tag=user-plane-state-change msg=User-plane state-change notification observed (not fully merged into config state) ts=2024-08-20T22:06:59.512000+00:00 msg-id=None
+   fragment: <?xml version="1.0" encoding="UTF-8"?> <notification xmlns="urn:ietf:params:xml:ns:netconf:notification:1.0"><eventTime>2024-08-20T22:07:37.130216Z</eventTime><...
+[notification] tag=user-plane-state-change msg=User-plane state-change notification observed (not fully merged into config state) ts=2024-08-20T22:06:59.520000+00:00 msg-id=None
+   fragment: <?xml version="1.0" encoding="UTF-8"?> <notification xmlns="urn:ietf:params:xml:ns:netconf:notification:1.0"><eventTime>2024-08-20T22:07:37.131329Z</eventTime><...
+[notification] tag=user-plane-state-change msg=User-plane state-change notification observed (not fully merged into config state) ts=2024-08-20T22:06:59.531000+00:00 msg-id=None
+   fragment: <?xml version="1.0" encoding="UTF-8"?> <notification xmlns="urn:ietf:params:xml:ns:netconf:notification:1.0"><eventTime>2024-08-20T22:07:37.132429Z</eventTime><...
+[notification] tag=user-plane-state-change msg=User-plane state-change notification observed (not fully merged into config state) ts=2024-08-20T22:06:59.539000+00:00 msg-id=None
+   fragment: <?xml version="1.0" encoding="UTF-8"?> <notification xmlns="urn:ietf:params:xml:ns:netconf:notification:1.0"><eventTime>2024-08-20T22:07:37.133525Z</eventTime><...
+[notification] tag=user-plane-state-change msg=User-plane state-change notification observed (not fully merged into config state) ts=2024-08-20T22:06:59.550000+00:00 msg-id=None
+   fragment: <?xml version="1.0" encoding="UTF-8"?> <notification xmlns="urn:ietf:params:xml:ns:netconf:notification:1.0"><eventTime>2024-08-20T22:07:37.134358Z</eventTime><...
+[notification] tag=user-plane-state-change msg=User-plane state-change notification observed (not fully merged into config state) ts=2024-08-20T22:06:59.558000+00:00 msg-id=None
+   fragment: <?xml version="1.0" encoding="UTF-8"?> <notification xmlns="urn:ietf:params:xml:ns:netconf:notification:1.0"><eventTime>2024-08-20T22:07:37.135193Z</eventTime><...
+[notification] tag=user-plane-state-change msg=User-plane state-change notification observed (not fully merged into config state) ts=2024-08-20T22:06:59.570000+00:00 msg-id=None
+   fragment: <?xml version="1.0" encoding="UTF-8"?> <notification xmlns="urn:ietf:params:xml:ns:netconf:notification:1.0"><eventTime>2024-08-20T22:07:37.136024Z</eventTime><...
+[notification] tag=user-plane-state-change msg=User-plane state-change notification observed (not fully merged into config state) ts=2024-08-20T22:07:00.577000+00:00 msg-id=None
+   fragment: <?xml version="1.0" encoding="UTF-8"?> <notification xmlns="urn:ietf:params:xml:ns:netconf:notification:1.0"><eventTime>2024-08-20T22:07:37.136855Z</eventTime><...
+[notification] tag=user-plane-state-change msg=User-plane state-change notification observed (not fully merged into config state) ts=2024-08-20T22:07:00.579000+00:00 msg-id=None
+   fragment: <?xml version="1.0" encoding="UTF-8"?> <notification xmlns="urn:ietf:params:xml:ns:netconf:notification:1.0"><eventTime>2024-08-20T22:07:37.137715Z</eventTime><...
+[notification] tag=user-plane-state-change msg=User-plane state-change notification observed (not fully merged into config state) ts=2024-08-20T22:07:00.581000+00:00 msg-id=None
+   fragment: <?xml version="1.0" encoding="UTF-8"?> <notification xmlns="urn:ietf:params:xml:ns:netconf:notification:1.0"><eventTime>2024-08-20T22:07:37.138546Z</eventTime><...
+[notification] tag=user-plane-state-change msg=User-plane state-change notification observed (not fully merged into config state) ts=2024-08-20T22:07:00.583000+00:00 msg-id=None
+   fragment: <?xml version="1.0" encoding="UTF-8"?> <notification xmlns="urn:ietf:params:xml:ns:netconf:notification:1.0"><eventTime>2024-08-20T22:07:37.139382Z</eventTime><...
+[notification] tag=user-plane-state-change msg=User-plane state-change notification observed (not fully merged into config state) ts=2024-08-20T22:07:00.585000+00:00 msg-id=None
+   fragment: <?xml version="1.0" encoding="UTF-8"?> <notification xmlns="urn:ietf:params:xml:ns:netconf:notification:1.0"><eventTime>2024-08-20T22:07:37.140215Z</eventTime><...
+[notification] tag=user-plane-state-change msg=User-plane state-change notification observed (not fully merged into config state) ts=2024-08-20T22:07:00.587000+00:00 msg-id=None
+   fragment: <?xml version="1.0" encoding="UTF-8"?> <notification xmlns="urn:ietf:params:xml:ns:netconf:notification:1.0"><eventTime>2024-08-20T22:07:37.141046Z</eventTime><...
+[notification] tag=user-plane-state-change msg=User-plane state-change notification observed (not fully merged into config state) ts=2024-08-20T22:07:00.593000+00:00 msg-id=None
+   fragment: <?xml version="1.0" encoding="UTF-8"?> <notification xmlns="urn:ietf:params:xml:ns:netconf:notification:1.0"><eventTime>2024-08-20T22:07:37.141889Z</eventTime><...
+[notification] tag=user-plane-state-change msg=User-plane state-change notification observed (not fully merged into config state) ts=2024-08-20T22:07:00.595000+00:00 msg-id=None
+   fragment: <?xml version="1.0" encoding="UTF-8"?> <notification xmlns="urn:ietf:params:xml:ns:netconf:notification:1.0"><eventTime>2024-08-20T22:07:37.142721Z</eventTime><...
+[notification] tag=user-plane-state-change msg=User-plane state-change notification observed (not fully merged into config state) ts=2024-08-20T22:07:00.603000+00:00 msg-id=None
+   fragment: <?xml version="1.0" encoding="UTF-8"?> <notification xmlns="urn:ietf:params:xml:ns:netconf:notification:1.0"><eventTime>2024-08-20T22:07:38.203043Z</eventTime><...
+[notification] tag=user-plane-state-change msg=User-plane state-change notification observed (not fully merged into config state) ts=2024-08-20T22:07:00.616000+00:00 msg-id=None
+   fragment: <?xml version="1.0" encoding="UTF-8"?> <notification xmlns="urn:ietf:params:xml:ns:netconf:notification:1.0"><eventTime>2024-08-20T22:07:38.204235Z</eventTime><...
+[notification] tag=user-plane-state-change msg=User-plane state-change notification observed (not fully merged into config state) ts=2024-08-20T22:07:00.627000+00:00 msg-id=None
+   fragment: <?xml version="1.0" encoding="UTF-8"?> <notification xmlns="urn:ietf:params:xml:ns:netconf:notification:1.0"><eventTime>2024-08-20T22:07:38.205341Z</eventTime><...
+[notification] tag=user-plane-state-change msg=User-plane state-change notification observed (not fully merged into config state) ts=2024-08-20T22:07:00.637000+00:00 msg-id=None
+   fragment: <?xml version="1.0" encoding="UTF-8"?> <notification xmlns="urn:ietf:params:xml:ns:netconf:notification:1.0"><eventTime>2024-08-20T22:07:38.206486Z</eventTime><...
+[notification] tag=user-plane-state-change msg=User-plane state-change notification observed (not fully merged into config state) ts=2024-08-20T22:07:00.648000+00:00 msg-id=None
+   fragment: <?xml version="1.0" encoding="UTF-8"?> <notification xmlns="urn:ietf:params:xml:ns:netconf:notification:1.0"><eventTime>2024-08-20T22:07:38.207583Z</eventTime><...
+[notification] tag=user-plane-state-change msg=User-plane state-change notification observed (not fully merged into config state) ts=2024-08-20T22:07:00.658000+00:00 msg-id=None
+   fragment: <?xml version="1.0" encoding="UTF-8"?> <notification xmlns="urn:ietf:params:xml:ns:netconf:notification:1.0"><eventTime>2024-08-20T22:07:38.208682Z</eventTime><...
+[notification] tag=user-plane-state-change msg=User-plane state-change notification observed (not fully merged into config state) ts=2024-08-20T22:07:00.668000+00:00 msg-id=None
+   fragment: <?xml version="1.0" encoding="UTF-8"?> <notification xmlns="urn:ietf:params:xml:ns:netconf:notification:1.0"><eventTime>2024-08-20T22:07:38.209800Z</eventTime><...
+[notification] tag=user-plane-state-change msg=User-plane state-change notification observed (not fully merged into config state) ts=2024-08-20T22:07:00.679000+00:00 msg-id=None
+   fragment: <?xml version="1.0" encoding="UTF-8"?> <notification xmlns="urn:ietf:params:xml:ns:netconf:notification:1.0"><eventTime>2024-08-20T22:07:38.210899Z</eventTime><...
+[notification] tag=user-plane-state-change msg=User-plane state-change notification observed (not fully merged into config state) ts=2024-08-20T22:07:00.689000+00:00 msg-id=None
+   fragment: <?xml version="1.0" encoding="UTF-8"?> <notification xmlns="urn:ietf:params:xml:ns:netconf:notification:1.0"><eventTime>2024-08-20T22:07:38.211999Z</eventTime><...
+[notification] tag=user-plane-state-change msg=User-plane state-change notification observed (not fully merged into config state) ts=2024-08-20T22:07:00.699000+00:00 msg-id=None
+   fragment: <?xml version="1.0" encoding="UTF-8"?> <notification xmlns="urn:ietf:params:xml:ns:netconf:notification:1.0"><eventTime>2024-08-20T22:07:38.213110Z</eventTime><...
+[notification] tag=user-plane-state-change msg=User-plane state-change notification observed (not fully merged into config state) ts=2024-08-20T22:07:00.710000+00:00 msg-id=None
+   fragment: <?xml version="1.0" encoding="UTF-8"?> <notification xmlns="urn:ietf:params:xml:ns:netconf:notification:1.0"><eventTime>2024-08-20T22:07:38.214234Z</eventTime><...
+[notification] tag=user-plane-state-change msg=User-plane state-change notification observed (not fully merged into config state) ts=2024-08-20T22:07:00.720000+00:00 msg-id=None
+   fragment: <?xml version="1.0" encoding="UTF-8"?> <notification xmlns="urn:ietf:params:xml:ns:netconf:notification:1.0"><eventTime>2024-08-20T22:07:38.215334Z</eventTime><...
+[notification] tag=user-plane-state-change msg=User-plane state-change notification observed (not fully merged into config state) ts=2024-08-20T22:07:00.731000+00:00 msg-id=None
+   fragment: <?xml version="1.0" encoding="UTF-8"?> <notification xmlns="urn:ietf:params:xml:ns:netconf:notification:1.0"><eventTime>2024-08-20T22:07:38.216454Z</eventTime><...
+[notification] tag=user-plane-state-change msg=User-plane state-change notification observed (not fully merged into config state) ts=2024-08-20T22:07:00.741000+00:00 msg-id=None
+   fragment: <?xml version="1.0" encoding="UTF-8"?> <notification xmlns="urn:ietf:params:xml:ns:netconf:notification:1.0"><eventTime>2024-08-20T22:07:38.217577Z</eventTime><...
+[notification] tag=user-plane-state-change msg=User-plane state-change notification observed (not fully merged into config state) ts=2024-08-20T22:07:00.752000+00:00 msg-id=None
+   fragment: <?xml version="1.0" encoding="UTF-8"?> <notification xmlns="urn:ietf:params:xml:ns:netconf:notification:1.0"><eventTime>2024-08-20T22:07:38.218681Z</eventTime><...
+[notification] tag=user-plane-state-change msg=User-plane state-change notification observed (not fully merged into config state) ts=2024-08-20T22:07:00.762000+00:00 msg-id=None
+   fragment: <?xml version="1.0" encoding="UTF-8"?> <notification xmlns="urn:ietf:params:xml:ns:netconf:notification:1.0"><eventTime>2024-08-20T22:07:38.219780Z</eventTime><...
+
+========================================================================================================================
+OBJECT HISTORY SUMMARY
+========================================================================================================================
+carrier_rx:NR102.RX31_4_1_0: 2 version(s), latest ts=2024-08-20T22:06:58.476000+00:00 msg-id=145
+carrier_rx:NR102.RX31_4_1_1: 2 version(s), latest ts=2024-08-20T22:06:58.476000+00:00 msg-id=145
+carrier_rx:NR102.RX31_4_1_8: 2 version(s), latest ts=2024-08-20T22:06:58.476000+00:00 msg-id=145
+carrier_rx:NR102.RX31_4_1_9: 2 version(s), latest ts=2024-08-20T22:06:58.476000+00:00 msg-id=145
+carrier_rx:NR102.RX32_4_1_16: 2 version(s), latest ts=2024-08-20T22:06:59.542000+00:00 msg-id=148
+carrier_rx:NR102.RX32_4_1_17: 2 version(s), latest ts=2024-08-20T22:06:59.542000+00:00 msg-id=148
+carrier_rx:NR102.RX32_4_1_24: 2 version(s), latest ts=2024-08-20T22:06:59.542000+00:00 msg-id=148
+carrier_rx:NR102.RX32_4_1_25: 2 version(s), latest ts=2024-08-20T22:06:59.542000+00:00 msg-id=148
+carrier_tx:NR102.TX31_4_1_0: 2 version(s), latest ts=2024-08-20T22:06:58.476000+00:00 msg-id=145
+carrier_tx:NR102.TX31_4_1_1: 2 version(s), latest ts=2024-08-20T22:06:58.476000+00:00 msg-id=145
+carrier_tx:NR102.TX31_4_1_8: 2 version(s), latest ts=2024-08-20T22:06:58.476000+00:00 msg-id=145
+carrier_tx:NR102.TX31_4_1_9: 2 version(s), latest ts=2024-08-20T22:06:58.476000+00:00 msg-id=145
+carrier_tx:NR102.TX32_4_1_16: 2 version(s), latest ts=2024-08-20T22:06:59.542000+00:00 msg-id=148
+carrier_tx:NR102.TX32_4_1_17: 2 version(s), latest ts=2024-08-20T22:06:59.542000+00:00 msg-id=148
+carrier_tx:NR102.TX32_4_1_24: 2 version(s), latest ts=2024-08-20T22:06:59.542000+00:00 msg-id=148
+carrier_tx:NR102.TX32_4_1_25: 2 version(s), latest ts=2024-08-20T22:06:59.542000+00:00 msg-id=148
+carrier_tx:NR102.TX33_4_1_32: 2 version(s), latest ts=2024-08-20T22:06:54.311000+00:00 msg-id=102
+carrier_tx:NR102.TX33_4_1_33: 2 version(s), latest ts=2024-08-20T22:06:54.311000+00:00 msg-id=102
+carrier_tx:NR102.TX33_4_1_40: 2 version(s), latest ts=2024-08-20T22:06:54.311000+00:00 msg-id=102
+carrier_tx:NR102.TX33_4_1_41: 2 version(s), latest ts=2024-08-20T22:06:54.311000+00:00 msg-id=102
+endpoint_rx:Static-LLRE-000: 2 version(s), latest ts=2024-08-20T22:06:57.036000+00:00 msg-id=-
+endpoint_rx:Static-LLRE-001: 2 version(s), latest ts=2024-08-20T22:06:57.036000+00:00 msg-id=-
+endpoint_rx:Static-LLRE-002: 2 version(s), latest ts=2024-08-20T22:06:57.036000+00:00 msg-id=-
+endpoint_rx:Static-LLRE-003: 2 version(s), latest ts=2024-08-20T22:06:57.036000+00:00 msg-id=-
+endpoint_rx:Static-LLRE-004: 2 version(s), latest ts=2024-08-20T22:06:57.036000+00:00 msg-id=-
+endpoint_rx:Static-LLRE-005: 2 version(s), latest ts=2024-08-20T22:06:57.036000+00:00 msg-id=-
+endpoint_rx:Static-LLRE-006: 2 version(s), latest ts=2024-08-20T22:06:57.036000+00:00 msg-id=-
+endpoint_rx:Static-LLRE-007: 2 version(s), latest ts=2024-08-20T22:06:57.036000+00:00 msg-id=-
+endpoint_rx:Static-LLRE-008: 1 version(s), latest ts=2024-08-20T22:06:24.747000+00:00 msg-id=22
+endpoint_rx:Static-LLRE-009: 1 version(s), latest ts=2024-08-20T22:06:24.747000+00:00 msg-id=22
+endpoint_rx:Static-LLRE-010: 1 version(s), latest ts=2024-08-20T22:06:24.747000+00:00 msg-id=22
+endpoint_rx:Static-LLRE-011: 1 version(s), latest ts=2024-08-20T22:06:24.747000+00:00 msg-id=22
+endpoint_rx:Static-LLRE-012: 1 version(s), latest ts=2024-08-20T22:06:24.747000+00:00 msg-id=22
+endpoint_rx:Static-LLRE-013: 1 version(s), latest ts=2024-08-20T22:06:24.747000+00:00 msg-id=22
+endpoint_rx:Static-LLRE-014: 1 version(s), latest ts=2024-08-20T22:06:24.747000+00:00 msg-id=22
+endpoint_rx:Static-LLRE-015: 1 version(s), latest ts=2024-08-20T22:06:24.747000+00:00 msg-id=22
+endpoint_rx:Static-LLRE-080: 2 version(s), latest ts=2024-08-20T22:06:55.504000+00:00 msg-id=-
+endpoint_rx:Static-LLRE-081: 2 version(s), latest ts=2024-08-20T22:06:55.504000+00:00 msg-id=-
+endpoint_rx:Static-LLRE-082: 2 version(s), latest ts=2024-08-20T22:06:55.504000+00:00 msg-id=-
+endpoint_rx:Static-LLRE-083: 2 version(s), latest ts=2024-08-20T22:06:55.504000+00:00 msg-id=-
+endpoint_rx:Static-LLRE-084: 2 version(s), latest ts=2024-08-20T22:06:55.504000+00:00 msg-id=-
+endpoint_rx:Static-LLRE-085: 2 version(s), latest ts=2024-08-20T22:06:55.504000+00:00 msg-id=-
+endpoint_rx:Static-LLRE-086: 2 version(s), latest ts=2024-08-20T22:06:55.504000+00:00 msg-id=-
+endpoint_rx:Static-LLRE-087: 2 version(s), latest ts=2024-08-20T22:06:55.504000+00:00 msg-id=-
+endpoint_rx:Static-LLRE-088: 1 version(s), latest ts=2024-08-20T22:06:24.747000+00:00 msg-id=22
+endpoint_rx:Static-LLRE-089: 1 version(s), latest ts=2024-08-20T22:06:24.747000+00:00 msg-id=22
+endpoint_rx:Static-LLRE-090: 1 version(s), latest ts=2024-08-20T22:06:24.747000+00:00 msg-id=22
+endpoint_rx:Static-LLRE-091: 1 version(s), latest ts=2024-08-20T22:06:24.747000+00:00 msg-id=22
+endpoint_rx:Static-LLRE-092: 1 version(s), latest ts=2024-08-20T22:06:24.747000+00:00 msg-id=22
+endpoint_rx:Static-LLRE-093: 1 version(s), latest ts=2024-08-20T22:06:24.747000+00:00 msg-id=22
+endpoint_rx:Static-LLRE-094: 1 version(s), latest ts=2024-08-20T22:06:24.747000+00:00 msg-id=22
+endpoint_rx:Static-LLRE-095: 1 version(s), latest ts=2024-08-20T22:06:24.747000+00:00 msg-id=22
+endpoint_tx:Static-LLTE-000: 2 version(s), latest ts=2024-08-20T22:06:57.590000+00:00 msg-id=-
+endpoint_tx:Static-LLTE-001: 2 version(s), latest ts=2024-08-20T22:06:57.590000+00:00 msg-id=-
+endpoint_tx:Static-LLTE-002: 2 version(s), latest ts=2024-08-20T22:06:57.590000+00:00 msg-id=-
+endpoint_tx:Static-LLTE-003: 2 version(s), latest ts=2024-08-20T22:06:57.590000+00:00 msg-id=-
+endpoint_tx:Static-LLTE-004: 1 version(s), latest ts=2024-08-20T22:06:23.426000+00:00 msg-id=21
+endpoint_tx:Static-LLTE-005: 1 version(s), latest ts=2024-08-20T22:06:23.426000+00:00 msg-id=21
+endpoint_tx:Static-LLTE-006: 1 version(s), latest ts=2024-08-20T22:06:23.426000+00:00 msg-id=21
+endpoint_tx:Static-LLTE-007: 1 version(s), latest ts=2024-08-20T22:06:23.426000+00:00 msg-id=21
+endpoint_tx:Static-LLTE-032: 2 version(s), latest ts=2024-08-20T22:06:56.101000+00:00 msg-id=113
+endpoint_tx:Static-LLTE-033: 2 version(s), latest ts=2024-08-20T22:06:56.101000+00:00 msg-id=113
+endpoint_tx:Static-LLTE-034: 2 version(s), latest ts=2024-08-20T22:06:56.101000+00:00 msg-id=113
+endpoint_tx:Static-LLTE-035: 2 version(s), latest ts=2024-08-20T22:06:56.101000+00:00 msg-id=113
+endpoint_tx:Static-LLTE-036: 1 version(s), latest ts=2024-08-20T22:06:23.426000+00:00 msg-id=21
+endpoint_tx:Static-LLTE-037: 1 version(s), latest ts=2024-08-20T22:06:23.426000+00:00 msg-id=21
+endpoint_tx:Static-LLTE-038: 1 version(s), latest ts=2024-08-20T22:06:23.426000+00:00 msg-id=21
+endpoint_tx:Static-LLTE-039: 1 version(s), latest ts=2024-08-20T22:06:23.426000+00:00 msg-id=21
+endpoint_tx:Static-LLTE-056: 2 version(s), latest ts=2024-08-20T22:06:53.675000+00:00 msg-id=-
+endpoint_tx:Static-LLTE-057: 2 version(s), latest ts=2024-08-20T22:06:53.675000+00:00 msg-id=-
+endpoint_tx:Static-LLTE-058: 2 version(s), latest ts=2024-08-20T22:06:53.675000+00:00 msg-id=-
+endpoint_tx:Static-LLTE-059: 2 version(s), latest ts=2024-08-20T22:06:53.675000+00:00 msg-id=-
+endpoint_tx:Static-LLTE-060: 1 version(s), latest ts=2024-08-20T22:06:23.426000+00:00 msg-id=21
+endpoint_tx:Static-LLTE-061: 1 version(s), latest ts=2024-08-20T22:06:23.426000+00:00 msg-id=21
+endpoint_tx:Static-LLTE-062: 1 version(s), latest ts=2024-08-20T22:06:23.426000+00:00 msg-id=21
+endpoint_tx:Static-LLTE-063: 1 version(s), latest ts=2024-08-20T22:06:23.426000+00:00 msg-id=21
+link_rx:NR102.RLINK31_1_1: 1 version(s), latest ts=2024-08-20T22:06:56.345000+00:00 msg-id=114
+link_rx:NR102.RLINK31_1_10: 1 version(s), latest ts=2024-08-20T22:06:56.389000+00:00 msg-id=115
+link_rx:NR102.RLINK31_1_13: 1 version(s), latest ts=2024-08-20T22:06:56.504000+00:00 msg-id=117
+link_rx:NR102.RLINK31_1_14: 1 version(s), latest ts=2024-08-20T22:06:56.547000+00:00 msg-id=118
+link_rx:NR102.RLINK31_1_2: 1 version(s), latest ts=2024-08-20T22:06:56.670000+00:00 msg-id=120
+link_rx:NR102.RLINK31_1_5: 1 version(s), latest ts=2024-08-20T22:06:56.787000+00:00 msg-id=122
+link_rx:NR102.RLINK31_1_6: 1 version(s), latest ts=2024-08-20T22:06:56.831000+00:00 msg-id=123
+link_rx:NR102.RLINK31_1_9: 1 version(s), latest ts=2024-08-20T22:06:56.948000+00:00 msg-id=125
+link_rx:NR102.RLINK32_1_1: 1 version(s), latest ts=2024-08-20T22:06:57.834000+00:00 msg-id=131
+link_rx:NR102.RLINK32_1_10: 1 version(s), latest ts=2024-08-20T22:06:57.891000+00:00 msg-id=132
+link_rx:NR102.RLINK32_1_13: 1 version(s), latest ts=2024-08-20T22:06:57.992000+00:00 msg-id=134
+link_rx:NR102.RLINK32_1_14: 1 version(s), latest ts=2024-08-20T22:06:58.039000+00:00 msg-id=135
+link_rx:NR102.RLINK32_1_2: 1 version(s), latest ts=2024-08-20T22:06:58.142000+00:00 msg-id=137
+link_rx:NR102.RLINK32_1_5: 1 version(s), latest ts=2024-08-20T22:06:58.253000+00:00 msg-id=139
+link_rx:NR102.RLINK32_1_6: 1 version(s), latest ts=2024-08-20T22:06:58.301000+00:00 msg-id=140
+link_rx:NR102.RLINK32_1_9: 1 version(s), latest ts=2024-08-20T22:06:58.404000+00:00 msg-id=142
+link_tx:NR102.TLINK31_1_11: 1 version(s), latest ts=2024-08-20T22:06:56.432000+00:00 msg-id=116
+link_tx:NR102.TLINK31_1_15: 1 version(s), latest ts=2024-08-20T22:06:56.625000+00:00 msg-id=119
+link_tx:NR102.TLINK31_1_3: 1 version(s), latest ts=2024-08-20T22:06:56.726000+00:00 msg-id=121
+link_tx:NR102.TLINK31_1_7: 1 version(s), latest ts=2024-08-20T22:06:56.894000+00:00 msg-id=124
+link_tx:NR102.TLINK32_1_11: 1 version(s), latest ts=2024-08-20T22:06:57.937000+00:00 msg-id=133
+link_tx:NR102.TLINK32_1_15: 1 version(s), latest ts=2024-08-20T22:06:58.095000+00:00 msg-id=136
+link_tx:NR102.TLINK32_1_3: 1 version(s), latest ts=2024-08-20T22:06:58.197000+00:00 msg-id=138
+link_tx:NR102.TLINK32_1_7: 1 version(s), latest ts=2024-08-20T22:06:58.354000+00:00 msg-id=141
+link_tx:NR102.TLINK33_1_1: 1 version(s), latest ts=2024-08-20T22:06:53.910000+00:00 msg-id=96
+link_tx:NR102.TLINK33_1_3: 1 version(s), latest ts=2024-08-20T22:06:53.950000+00:00 msg-id=97
+link_tx:NR102.TLINK33_1_5: 1 version(s), latest ts=2024-08-20T22:06:53.998000+00:00 msg-id=98
+link_tx:NR102.TLINK33_1_7: 1 version(s), latest ts=2024-08-20T22:06:54.048000+00:00 msg-id=99
+prach:0: 1 version(s), latest ts=2024-08-20T22:06:55.130000+00:00 msg-id=105
+prach:1: 1 version(s), latest ts=2024-08-20T22:06:55.258000+00:00 msg-id=108
+processing_element:NR102.PE_4_1_0_1: 3 version(s), latest ts=2024-08-20T22:06:50.893000+00:00 msg-id=65

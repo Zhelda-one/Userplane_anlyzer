@@ -1,0 +1,28 @@
+{
+  "analyzed_at": "2026-03-09 09:59:28",
+  "show": "all",
+  "analyzer": "analyze_mplane_enhanced_nokia_patch_v2_with_array_srl.py",
+  "validations_count": 289,
+  "warnings_count": 39,
+  "counts": {
+    "carriers_tx": 12,
+    "carriers_rx": 12,
+    "endpoints_tx": 96,
+    "endpoints_rx": 192,
+    "links_tx": 12,
+    "links_rx": 0,
+    "prach_configs": 2,
+    "processing_elements": 4
+  },
+  "job_id": "20260309_095928_cf7f5a0d",
+  "original_name": "RMOD_L-1_RPC_0_XML.log",
+  "input_saved": "20260309_095928_cf7f5a0d.input",
+  "graph_stats": {
+    "nodes": 46,
+    "edges": 40,
+    "links_tx": 12,
+    "links_rx": 0,
+    "pe": 4,
+    "prach": 2
+  }
+}
