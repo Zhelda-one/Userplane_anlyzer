@@ -719,42 +719,6 @@ def render_report(state: StateStore, show: str = "all") -> str:
         else:
             w("(No endpoints)")
 
-    # Validation
-    if show in ("all", "validate"):
-        w("\n" + "=" * 120)
-        w("VALIDATION / ALARMS")
-        w("=" * 120)
-        if state.validations:
-            for v in state.validations:
-                w(v)
-        else:
-            w("(No validation findings)")
-
-    # Warnings / parse issues
-    if show in ("all", "warnings"):
-        w("\n" + "=" * 120)
-        w("PARSER WARNINGS")
-        w("=" * 120)
-        if not state.warnings:
-            w("(No parser warnings)")
-        else:
-            for wi in state.warnings:
-                w(f"[{wi.phase}] tag={wi.tag} msg={wi.message} ts={wi.ts} msg-id={wi.message_id}")
-                if wi.fragment:
-                    w(f"   fragment: {wi.fragment}")
-
-    # Optional history summary
-    if show in ("all", "history"):
-        w("\n" + "=" * 120)
-        w("OBJECT HISTORY SUMMARY")
-        w("=" * 120)
-        if not state.history:
-            w("(No history)")
-        else:
-            for key in sorted(state.history.keys()):
-                vers = state.history[key]
-                w(f"{key}: {len(vers)} version(s), latest ts={fmt(vers[-1].ts)} msg-id={fmt(vers[-1].message_id)}")
-
     return "\n".join(lines)
 
 
