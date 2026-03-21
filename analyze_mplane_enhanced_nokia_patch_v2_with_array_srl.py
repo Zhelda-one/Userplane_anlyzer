@@ -48,7 +48,7 @@ def clean_xml_fragment(xml_string: str) -> str:
     # Remove prefixes from element tags: <nc:foo> -> <foo>
     xml_string = re.sub(r'(</?)[a-zA-Z0-9_\-]+:([a-zA-Z0-9_\-]+)', r'\1\2', xml_string)
     # Remove prefixed attributes that become unbound after xmlns stripping, e.g. nc:operation="create"
-    xml_string = re.sub(r'\s+[A-Za-z_][\w\-\.]*:[A-Za-z_][\w\-\.]*\s*=\s*"[^"]*"', '', xml_string)
+    xml_string = re.sub(r'\s+[A-Za-z_][\w\-\.]*:([A-Za-z_][\w\-\.]*)\s*=\s*"([^"]*)"', r' \1="\2"', xml_string)
     return xml_string.strip()
 
 
@@ -79,6 +79,15 @@ def as_list(x: Any) -> List[Any]:
     if x is None:
         return []
     return x if isinstance(x, list) else [x]
+
+
+def extract_operation_attr(node: ET.Element) -> Optional[str]:
+    """Extract NETCONF operation attribute (operation / nc:operation / {ns}operation)."""
+    for k, v in node.attrib.items():
+        key = str(k)
+        if key == "operation" or key.endswith(":operation") or key.endswith("}operation"):
+            return str(v).strip().lower()
+    return None
 
 
 def deep_merge_dict(dst: Dict[str, Any], src: Dict[str, Any]) -> Dict[str, Any]:
@@ -347,7 +356,7 @@ def record_history(state: StateStore, category: str, name: str, data: Dict[str, 
     ))
 
 
-def upsert_named(target: Dict[str, Dict[str, Any]], category: str, item: Dict[str, Any], state: StateStore, ctx: Dict[str, Any], source: str):
+def upsert_named(target: Dict[str, Dict[str, Any]], category: str, item: Dict[str, Any], state: StateStore, ctx: Dict[str, Any], source: str, operation: Optional[str] = None):
     name = item.get("name")
     if not name:
         state.warnings.append(WarningItem(
@@ -356,7 +365,25 @@ def upsert_named(target: Dict[str, Dict[str, Any]], category: str, item: Dict[st
         ))
         return
     existing = target.get(name, {})
-    merged = deep_merge_dict(existing, item)
+
+    if operation in {"delete", "remove"}:
+        if name in target:
+            del target[name]
+            tombstone = add_meta({"name": name, "_operation": operation, "_deleted": True}, ctx, source)
+            record_history(state, category, name, tombstone, ctx, source)
+        else:
+            state.warnings.append(WarningItem(
+                phase="upsert", tag=category, message=f"Delete/remove for missing object '{name}'",
+                message_id=ctx.get("message_id"), ts=ctx.get("ts")
+            ))
+        return
+
+    if operation == "replace":
+        merged = deepcopy(item)
+    else:
+        merged = deep_merge_dict(existing, item)
+
+    merged["_operation"] = operation or "merge"
     merged = add_meta(merged, ctx, source)
     target[name] = merged
     record_history(state, category, name, merged, ctx, source)
@@ -388,7 +415,7 @@ def parse_user_plane_configuration(block: str, state: StateStore, ctx: Dict[str,
         for node in root.findall(tag):
             d = normalize_leaflist(xml_to_dict(node))
             if isinstance(d, dict):
-                upsert_named(store_name, cat, d, state, ctx, "user-plane-configuration")
+                upsert_named(store_name, cat, d, state, ctx, "user-plane-configuration", extract_operation_attr(node))
 
     # endpoints (support both static/non-static)
     endpoint_tags = [
@@ -402,7 +429,7 @@ def parse_user_plane_configuration(block: str, state: StateStore, ctx: Dict[str,
             d = normalize_leaflist(xml_to_dict(node))
             if isinstance(d, dict):
                 d["_endpoint_tag"] = tag
-                upsert_named(store, cat, d, state, ctx, "user-plane-configuration")
+                upsert_named(store, cat, d, state, ctx, "user-plane-configuration", extract_operation_attr(node))
 
     # links
     for tag, store, ltype, cat in [
@@ -413,7 +440,7 @@ def parse_user_plane_configuration(block: str, state: StateStore, ctx: Dict[str,
             d = normalize_leaflist(xml_to_dict(node))
             if isinstance(d, dict):
                 d["_type"] = ltype
-                upsert_named(store, cat, d, state, ctx, "user-plane-configuration")
+                upsert_named(store, cat, d, state, ctx, "user-plane-configuration", extract_operation_attr(node))
 
     # PRACH configs
     for node in root.findall("static-prach-configurations"):
@@ -429,8 +456,16 @@ def parse_user_plane_configuration(block: str, state: StateStore, ctx: Dict[str,
                 message_id=ctx.get("message_id"), ts=ctx.get("ts")
             ))
             continue
+        operation = extract_operation_attr(node)
+        if operation in {"delete", "remove"}:
+            if key in state.prach_configs:
+                del state.prach_configs[key]
+                tombstone = add_meta({"static-prach-config-id": key, "_operation": operation, "_deleted": True}, ctx, "user-plane-configuration")
+                record_history(state, "prach", key, tombstone, ctx, "user-plane-configuration")
+            continue
         existing = state.prach_configs.get(key, {})
-        merged = deep_merge_dict(existing, d)
+        merged = deepcopy(d) if operation == "replace" else deep_merge_dict(existing, d)
+        merged["_operation"] = operation or "merge"
         merged = add_meta(merged, ctx, "user-plane-configuration")
         state.prach_configs[key] = merged
         record_history(state, "prach", key, merged, ctx, "user-plane-configuration")
@@ -446,20 +481,59 @@ def parse_processing_elements(block: str, state: StateStore, ctx: Dict[str, Any]
     for node in ru_elements:
         d = normalize_leaflist(xml_to_dict(node))
         if isinstance(d, dict):
-            upsert_named(state.processing_elements, "processing_element", d, state, ctx, "processing-elements")
+            upsert_named(state.processing_elements, "processing_element", d, state, ctx, "processing-elements", extract_operation_attr(node))
+
+
+def _apply_notification_carrier_states(change_tag: str, carriers: Any, state: StateStore, ctx: Dict[str, Any]):
+    direction = "RX" if change_tag.startswith("rx-") else "TX"
+    store = state.carriers_rx if direction == "RX" else state.carriers_tx
+    for carrier in as_list(carriers):
+        if not isinstance(carrier, dict):
+            continue
+        name = carrier.get("name")
+        notif_state = carrier.get("state")
+        if not name or notif_state in (None, ""):
+            continue
+        existing = store.get(str(name))
+        if not isinstance(existing, dict):
+            state.warnings.append(WarningItem(
+                phase="notification", tag=change_tag,
+                message=f"Notification references unknown carrier '{name}'",
+                fragment=short_fragment(json.dumps(carrier, ensure_ascii=False)),
+                message_id=ctx.get("message_id"), ts=ctx.get("ts")
+            ))
+            continue
+        updated = deepcopy(existing)
+        updated["active"] = notif_state
+        updated = add_meta(updated, ctx, "notification")
+        store[str(name)] = updated
+        record_history(state, f"carrier_{direction.lower()}", str(name), updated, ctx, "notification")
 
 
 def parse_notifications(body: str, state: StateStore, ctx: Dict[str, Any]):
-    # Optional lightweight extraction for user-plane related notifications
-    # Keep generic; store only warning-like notes instead of complex state machine.
+    # Optional lightweight extraction for user-plane related notifications.
+    # Besides recording a warning, attempt to merge carrier state-change notifications
+    # back into the current carrier objects by name.
     if "<notification" not in body:
         return
-    if "rx-array-carriers-state-change" in body or "tx-array-carriers-state-change" in body:
-        state.warnings.append(WarningItem(
-            phase="notification", tag="user-plane-state-change",
-            message="User-plane state-change notification observed (not fully merged into config state)",
-            fragment=short_fragment(body), message_id=ctx.get("message_id"), ts=ctx.get("ts")
-        ))
+    if "rx-array-carriers-state-change" not in body and "tx-array-carriers-state-change" not in body:
+        return
+
+    state.warnings.append(WarningItem(
+        phase="notification", tag="user-plane-state-change",
+        message="User-plane state-change notification observed",
+        fragment=short_fragment(body), message_id=ctx.get("message_id"), ts=ctx.get("ts")
+    ))
+
+    root = parse_xml_block(body, "notification", "notification", state, ctx)
+    if root is None:
+        return
+
+    for change_tag in ("rx-array-carriers-state-change", "tx-array-carriers-state-change"):
+        for node in root.findall(change_tag):
+            carriers = xml_to_dict(node)
+            if isinstance(carriers, dict):
+                _apply_notification_carrier_states(change_tag, carriers.get(change_tag.replace("-state-change", "")), state, ctx)
 
 
 def parse_mplane_log(file_path: str) -> StateStore:
@@ -913,7 +987,7 @@ def render_report(state: StateStore, show: str = "chain") -> str:
                 w("      (No Processing Element Details)")
 
     # Endpoint summary table (text)
-    if False and show in ("all", "endpoint"):
+    if show in ("all", "endpoint"):
         w("\n" + "=" * 120)
         w("ENDPOINT SUMMARY")
         w("=" * 120)
@@ -949,7 +1023,7 @@ def render_report(state: StateStore, show: str = "chain") -> str:
             w("(No endpoints)")
 
     # Validation
-    if False and show in ("all", "validate"):
+    if show in ("all", "validate"):
         w("\n" + "=" * 120)
         w("VALIDATION / ALARMS")
         w("=" * 120)
@@ -960,7 +1034,7 @@ def render_report(state: StateStore, show: str = "chain") -> str:
             w("(No validation findings)")
 
     # Warnings / parse issues
-    if False and show in ("all", "warnings"):
+    if show in ("all", "warnings"):
         w("\n" + "=" * 120)
         w("PARSER WARNINGS")
         w("=" * 120)
@@ -973,7 +1047,7 @@ def render_report(state: StateStore, show: str = "chain") -> str:
                     w(f"   fragment: {wi.fragment}")
 
     # Optional history summary
-    if False and show in ("all", "history"):
+    if show in ("all", "history"):
         w("\n" + "=" * 120)
         w("OBJECT HISTORY SUMMARY")
         w("=" * 120)
