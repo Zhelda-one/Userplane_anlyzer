@@ -552,17 +552,56 @@ def parse_processing_elements(block: str, state: StateStore, ctx: Dict[str, Any]
             upsert_named(state.processing_elements, "processing_element", d, state, ctx, "processing-elements", extract_operation_attr(node))
 
 
+def _apply_notification_carrier_states(change_tag: str, carriers: Any, state: StateStore, ctx: Dict[str, Any]):
+    direction = "RX" if change_tag.startswith("rx-") else "TX"
+    store = state.carriers_rx if direction == "RX" else state.carriers_tx
+    for carrier in as_list(carriers):
+        if not isinstance(carrier, dict):
+            continue
+        name = carrier.get("name")
+        notif_state = carrier.get("state")
+        if not name or notif_state in (None, ""):
+            continue
+        existing = store.get(str(name))
+        if not isinstance(existing, dict):
+            state.warnings.append(WarningItem(
+                phase="notification", tag=change_tag,
+                message=f"Notification references unknown carrier '{name}'",
+                fragment=short_fragment(json.dumps(carrier, ensure_ascii=False)),
+                message_id=ctx.get("message_id"), ts=ctx.get("ts")
+            ))
+            continue
+        updated = deepcopy(existing)
+        updated["active"] = notif_state
+        updated = add_meta(updated, ctx, "notification")
+        store[str(name)] = updated
+        record_history(state, f"carrier_{direction.lower()}", str(name), updated, ctx, "notification")
+
+
 def parse_notifications(body: str, state: StateStore, ctx: Dict[str, Any]):
     # Optional lightweight extraction for user-plane related notifications.
-    # Keep generic; store only warning-like notes instead of complex state machine.
+    # Besides recording a warning, attempt to merge carrier state-change notifications
+    # back into the current carrier objects by name.
     if "<notification" not in body:
         return
-    if "rx-array-carriers-state-change" in body or "tx-array-carriers-state-change" in body:
-        state.warnings.append(WarningItem(
-            phase="notification", tag="user-plane-state-change",
-            message="User-plane state-change notification observed (not fully merged into config state)",
-            fragment=short_fragment(body), message_id=ctx.get("message_id"), ts=ctx.get("ts")
-        ))
+    if "rx-array-carriers-state-change" not in body and "tx-array-carriers-state-change" not in body:
+        return
+
+    state.warnings.append(WarningItem(
+        phase="notification", tag="user-plane-state-change",
+        message="User-plane state-change notification observed",
+        fragment=short_fragment(body), message_id=ctx.get("message_id"), ts=ctx.get("ts")
+    ))
+
+    root = parse_xml_block(body, "notification", "notification", state, ctx)
+    if root is None:
+        return
+
+    for change_tag in ("rx-array-carriers-state-change", "tx-array-carriers-state-change"):
+        for node in root.findall(change_tag):
+            carriers = xml_to_dict(node)
+            if isinstance(carriers, dict):
+                _apply_notification_carrier_states(change_tag, carriers.get(change_tag.replace("-state-change", "")), state, ctx)
 
 
 def parse_mplane_log(file_path: str) -> StateStore:
@@ -1023,7 +1062,7 @@ def render_report(state: StateStore, show: str = "chain") -> str:
 
     # Endpoint summary table (text)
     if show in ("all", "endpoint"):
-        w("\n" + "=" * 160)
+        w("\n" + "=" * 120)
         w("ENDPOINT SUMMARY")
         w("=" * 160)
         rows = []
