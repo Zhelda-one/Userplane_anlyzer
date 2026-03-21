@@ -580,28 +580,15 @@ def _apply_notification_carrier_states(change_tag: str, carriers: Any, state: St
 
 def parse_notifications(body: str, state: StateStore, ctx: Dict[str, Any]):
     # Optional lightweight extraction for user-plane related notifications.
-    # Besides recording a warning, attempt to merge carrier state-change notifications
-    # back into the current carrier objects by name.
+    # Keep generic; store only warning-like notes instead of complex state machine.
     if "<notification" not in body:
         return
-    if "rx-array-carriers-state-change" not in body and "tx-array-carriers-state-change" not in body:
-        return
-
-    state.warnings.append(WarningItem(
-        phase="notification", tag="user-plane-state-change",
-        message="User-plane state-change notification observed",
-        fragment=short_fragment(body), message_id=ctx.get("message_id"), ts=ctx.get("ts")
-    ))
-
-    root = parse_xml_block(body, "notification", "notification", state, ctx)
-    if root is None:
-        return
-
-    for change_tag in ("rx-array-carriers-state-change", "tx-array-carriers-state-change"):
-        for node in root.findall(change_tag):
-            carriers = xml_to_dict(node)
-            if isinstance(carriers, dict):
-                _apply_notification_carrier_states(change_tag, carriers.get(change_tag.replace("-state-change", "")), state, ctx)
+    if "rx-array-carriers-state-change" in body or "tx-array-carriers-state-change" in body:
+        state.warnings.append(WarningItem(
+            phase="notification", tag="user-plane-state-change",
+            message="User-plane state-change notification observed (not fully merged into config state)",
+            fragment=short_fragment(body), message_id=ctx.get("message_id"), ts=ctx.get("ts")
+        ))
 
 
 def parse_mplane_log(file_path: str) -> StateStore:
@@ -1062,7 +1049,7 @@ def render_report(state: StateStore, show: str = "chain") -> str:
 
     # Endpoint summary table (text)
     if show in ("all", "endpoint"):
-        w("\n" + "=" * 120)
+        w("\n" + "=" * 160)
         w("ENDPOINT SUMMARY")
         w("=" * 160)
         rows = []
