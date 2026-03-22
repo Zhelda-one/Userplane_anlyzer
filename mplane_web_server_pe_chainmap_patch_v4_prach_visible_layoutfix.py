@@ -88,23 +88,258 @@ def html_page(title: str, body: str) -> bytes:
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{html.escape(title)}</title>
 <style>
-body {{ font-family: Arial, sans-serif; margin: 24px; line-height: 1.4; }}
-.container {{ max-width: 1400px; margin: auto; }}
-.card {{ border: 1px solid #ddd; border-radius: 10px; padding: 16px; margin-bottom: 16px; }}
-pre {{ background: #f7f7f7; border: 1px solid #eee; padding: 12px; overflow-x: auto; white-space: pre-wrap; }}
-code {{ background: #f3f3f3; padding: 1px 4px; border-radius: 4px; }}
-label {{ display: inline-block; min-width: 140px; margin-top: 6px; }}
-input[type=file], select, input[type=text] {{ min-width: 320px; max-width: 100%; }}
-button {{ padding: 8px 14px; cursor: pointer; }}
-.muted {{ color: #666; }}
-.row {{ margin: 8px 0; }}
-.alert {{ background:#fff8e1; border:1px solid #f0d97a; padding:10px; border-radius:8px; }}
-.err {{ background:#ffecec; border-color:#ef9a9a; }}
-a {{ text-decoration: none; }}
+* {{ box-sizing: border-box; }}
+:root {{
+  color-scheme: light;
+  --bg: linear-gradient(180deg, #f4f7ff 0%, #eef4ff 35%, #f7f9fc 100%);
+  --card: rgba(255,255,255,0.82);
+  --card-strong: rgba(255,255,255,0.96);
+  --border: rgba(123, 145, 194, 0.22);
+  --shadow: 0 18px 60px rgba(36, 62, 120, 0.10);
+  --text: #16304d;
+  --muted: #5f728c;
+  --primary: #3867ff;
+  --primary-2: #6c4dff;
+  --accent: #00b8d9;
+  --success: #0f9d7a;
+  --warn-bg: rgba(255, 243, 205, 0.95);
+  --warn-border: rgba(217, 171, 32, 0.35);
+  --err-bg: rgba(255, 233, 233, 0.96);
+  --err-border: rgba(226, 85, 85, 0.30);
+}}
+html, body {{ min-height: 100%; }}
+body {{
+  font-family: Inter, "Segoe UI", Arial, sans-serif;
+  margin: 0;
+  color: var(--text);
+  line-height: 1.5;
+  background:
+    radial-gradient(circle at top left, rgba(108, 77, 255, 0.14), transparent 28%),
+    radial-gradient(circle at top right, rgba(0, 184, 217, 0.16), transparent 24%),
+    var(--bg);
+}}
+body::before {{
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(115deg, rgba(255,255,255,0.30), transparent 35%),
+    linear-gradient(235deg, rgba(255,255,255,0.14), transparent 42%);
+}}
+.container {{ max-width: 1440px; margin: auto; padding: 28px 24px 44px; position: relative; z-index: 1; }}
+.page-stack {{ display:flex; flex-direction:column; gap:18px; }}
+.hero {{
+  position: relative;
+  overflow: hidden;
+  padding: 30px 32px;
+  border-radius: 28px;
+  color: #fff;
+  background: linear-gradient(135deg, #183b8c 0%, #315efb 45%, #23b8d4 100%);
+  box-shadow: 0 24px 80px rgba(36, 62, 120, 0.25);
+}}
+.hero::after {{
+  content: "";
+  position: absolute;
+  right: -90px;
+  top: -70px;
+  width: 260px;
+  height: 260px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.12);
+}}
+.hero h1, .hero h2 {{ margin: 0 0 8px; line-height: 1.1; }}
+.hero p {{ margin: 0; color: rgba(255,255,255,0.85); max-width: 860px; }}
+.hero-grid {{ display:grid; grid-template-columns: minmax(0, 1.7fr) minmax(280px, 1fr); gap: 20px; align-items: end; }}
+.hero-stats, .chip-row {{ display:flex; flex-wrap:wrap; gap:10px; }}
+.hero-stat, .chip {{
+  display:inline-flex; align-items:center; gap:8px;
+  padding: 10px 14px; border-radius: 999px;
+  background: rgba(255,255,255,0.14);
+  border: 1px solid rgba(255,255,255,0.16);
+  backdrop-filter: blur(12px);
+}}
+.hero-stat strong {{ font-size: 15px; }}
+.card {{
+  border: 1px solid var(--border);
+  border-radius: 24px;
+  padding: 22px;
+  margin-bottom: 0;
+  background: var(--card);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(16px);
+}}
+.card strong {{ color: var(--text); }}
+.card-title {{ display:flex; justify-content:space-between; align-items:flex-start; gap:18px; margin-bottom: 16px; }}
+.card-title h3 {{ margin:0; font-size: 22px; }}
+.card-title p {{ margin:6px 0 0; color: var(--muted); }}
+.eyebrow {{
+  display:inline-flex; align-items:center; gap:8px;
+  font-size: 12px; font-weight: 700; text-transform: uppercase;
+  letter-spacing: 0.08em; color: var(--primary-2);
+}}
+pre {{
+  background: rgba(17, 31, 58, 0.96);
+  color: #eaf1ff;
+  border: 1px solid rgba(71, 100, 162, 0.35);
+  padding: 16px;
+  overflow-x: auto;
+  white-space: pre-wrap;
+  border-radius: 18px;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.06);
+}}
+code {{
+  background: rgba(53, 88, 169, 0.10);
+  color: #20407a;
+  padding: 2px 6px;
+  border-radius: 8px;
+}}
+label {{ display:block; margin: 0 0 8px; font-size: 13px; font-weight: 700; color: var(--muted); }}
+input[type=file], select, input[type=text] {{
+  width: 100%;
+  min-width: 0;
+  max-width: 100%;
+  padding: 14px 16px;
+  border-radius: 16px;
+  border: 1px solid rgba(111, 135, 180, 0.22);
+  background: rgba(255,255,255,0.94);
+  color: var(--text);
+  outline: none;
+  transition: border-color .2s ease, box-shadow .2s ease, transform .2s ease;
+}}
+input[type=file]:focus, select:focus, input[type=text]:focus {{
+  border-color: rgba(56, 103, 255, 0.55);
+  box-shadow: 0 0 0 4px rgba(56, 103, 255, 0.10);
+}}
+button, .btn {{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  padding: 12px 18px;
+  border-radius: 16px;
+  border: 0;
+  cursor: pointer;
+  font-weight: 700;
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-2) 100%);
+  color: #fff;
+  text-decoration: none;
+  box-shadow: 0 14px 30px rgba(74, 94, 230, 0.24);
+  transition: transform .18s ease, box-shadow .18s ease, opacity .18s ease;
+}}
+button:hover, .btn:hover {{ transform: translateY(-1px); box-shadow: 0 16px 34px rgba(74, 94, 230, 0.28); text-decoration:none; }}
+.btn.secondary {{
+  background: rgba(255,255,255,0.88);
+  color: var(--text);
+  border: 1px solid rgba(111, 135, 180, 0.22);
+  box-shadow: none;
+}}
+.btn.ghost {{
+  background: rgba(255,255,255,0.10);
+  color: #fff;
+  border: 1px solid rgba(255,255,255,0.18);
+  box-shadow: none;
+}}
+.muted {{ color: var(--muted); }}
+.row {{ margin: 0; }}
+.form-grid {{ display:grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 16px; }}
+.span-12 {{ grid-column: span 12; }}
+.span-6 {{ grid-column: span 6; }}
+.span-4 {{ grid-column: span 4; }}
+.span-8 {{ grid-column: span 8; }}
+.alert {{
+  background: var(--warn-bg);
+  border: 1px solid var(--warn-border);
+  padding: 14px 16px;
+  border-radius: 18px;
+  color: #6c4f00;
+}}
+.err {{ background: var(--err-bg); border-color: var(--err-border); color: #8a2020; }}
+a {{ color: inherit; text-decoration: none; }}
 a:hover {{ text-decoration: underline; }}
-.grid {{ display:grid; grid-template-columns: 1fr 1fr; gap: 12px; }}
-.grid3 {{ display:grid; grid-template-columns: 2fr 1fr; gap: 12px; }}
-@media (max-width: 1100px) {{ .grid {{ grid-template-columns: 1fr; }} .grid3 {{ grid-template-columns: 1fr; }} }}
+.grid {{ display:grid; grid-template-columns: 1fr 1fr; gap: 18px; }}
+.grid3 {{ display:grid; grid-template-columns: 2fr 1fr; gap: 18px; }}
+.feature-list, .metric-grid {{ display:grid; gap: 12px; }}
+.feature-list {{ grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }}
+.feature-item, .metric-card {{
+  border-radius: 20px;
+  padding: 16px;
+  border: 1px solid rgba(111, 135, 180, 0.18);
+  background: var(--card-strong);
+}}
+.feature-item strong, .metric-card strong {{ display:block; font-size: 15px; margin-bottom: 6px; }}
+.metric-grid {{ grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); }}
+.metric-card .metric-value {{ font-size: 28px; font-weight: 800; line-height: 1.1; }}
+.metric-card .metric-label {{ color: var(--muted); font-size: 13px; }}
+.badge {{
+  display:inline-flex; align-items:center; gap:6px;
+  padding: 6px 10px; border-radius: 999px;
+  background: rgba(56, 103, 255, 0.10); color: var(--primary-2);
+  font-size: 12px; font-weight: 700;
+}}
+.toolbar {{ display:flex; flex-wrap:wrap; gap: 10px; align-items:center; }}
+.dropzone {{
+  position: relative;
+  border: 1.5px dashed rgba(96, 120, 171, 0.32);
+  border-radius: 22px;
+  padding: 22px;
+  background: linear-gradient(180deg, rgba(243, 247, 255, 0.96), rgba(255,255,255,0.92));
+  transition: border-color .18s ease, transform .18s ease, background .18s ease;
+}}
+.dropzone.dragover {{
+  border-color: rgba(56, 103, 255, 0.68);
+  transform: translateY(-1px);
+  background: linear-gradient(180deg, rgba(234, 241, 255, 0.98), rgba(255,255,255,0.96));
+}}
+.dropzone input[type=file] {{
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  cursor: pointer;
+}}
+.dropzone-main {{ pointer-events:none; display:flex; flex-direction:column; gap:10px; align-items:flex-start; }}
+.dropzone-icon {{
+  width: 46px; height: 46px; border-radius: 14px;
+  display:grid; place-items:center;
+  background: linear-gradient(135deg, rgba(56, 103, 255, 0.16), rgba(108, 77, 255, 0.18));
+  font-size: 22px;
+}}
+.file-pill {{
+  display:none;
+  align-items:center;
+  gap:8px;
+  padding: 8px 12px;
+  border-radius: 999px;
+  background: rgba(16, 185, 129, 0.10);
+  color: #0f7a64;
+  font-size: 13px;
+  font-weight: 700;
+}}
+.file-pill.ready {{ display:inline-flex; }}
+.result-topbar {{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:14px;
+  flex-wrap:wrap;
+}}
+.link-inline {{ color: var(--primary); font-weight: 700; }}
+.subtle-divider {{ height:1px; background: linear-gradient(90deg, transparent, rgba(123,145,194,0.25), transparent); margin: 8px 0 4px; }}
+mark {{
+  background: rgba(255, 213, 79, 0.28);
+  color: inherit;
+  border-radius: 6px;
+  padding: 1px 3px;
+}}
+@media (max-width: 1100px) {{
+  .grid, .grid3, .hero-grid {{ grid-template-columns: 1fr; }}
+}}
+@media (max-width: 840px) {{
+  .container {{ padding: 18px 14px 32px; }}
+  .hero {{ padding: 24px 20px; border-radius: 22px; }}
+  .card {{ padding: 18px; border-radius: 20px; }}
+  .span-6, .span-4, .span-8 {{ grid-column: span 12; }}
+}}
 /* interactive graph */
 .mm-wrap {{ border:1px solid #e6e6e6; border-radius:10px; background:#fff; }}
 .mm-toolbar {{ display:flex; flex-wrap:wrap; gap:10px; align-items:center; padding:10px; border-bottom:1px solid #eee; }}
@@ -143,29 +378,148 @@ small.kv {{ color:#555; }}
 def render_index(message: str = "", error: bool = False) -> bytes:
     msg_html = f'<div class="alert {"err" if error else ""}">{html.escape(message)}</div>' if message else ''
     body = f"""
-<h1>User plane configurattion Analyzer - RL1 PD US EngSupport & PoC</h1>
+<div class="page-stack">
+  <section class="hero">
+    <div class="hero-grid">
+      <div>
+        <div class="eyebrow">⚡ RL1 PD US EngSupport &amp; PoC</div>
+        <h1>User Plane Configuration Analyzer</h1>
+        <p>업로드한 M-Plane NETCONF 로그를 빠르게 파싱하고, Link → Endpoint → Carrier → PE → Transport Flow 체인을 시각적으로 확인할 수 있도록 설계된 웹 분석기입니다.</p>
+        <div class="chip-row" style="margin-top:16px;">
+          <span class="chip">📡 Nokia trace friendly</span>
+          <span class="chip">🧭 Chain map explorer</span>
+          <span class="chip">🧪 Validation &amp; warnings</span>
+        </div>
+      </div>
+      <div class="hero-stats">
+        <span class="hero-stat"><strong>TXT / XML / LOG</strong> 업로드 지원</span>
+        <span class="hero-stat"><strong>JSON + TXT</strong> 결과 다운로드</span>
+        <span class="hero-stat"><strong>SVG / vis-network</strong> 그래프 뷰</span>
+      </div>
+    </div>
+  </section>
 
-{msg_html}
-<div class="card">
-<form method="post" action="/analyze" enctype="multipart/form-data">
-  <div class="row"><label>Input file</label><input type="file" name="mplane_file" accept=".txt,.xml,.log,text/plain,application/xml,text/xml" required></div>
-  <div class="row"><label>Report section</label>
-    <select name="show">
-      <option value="all" selected>all</option>
-      <option value="chain">chain</option>
-      <option value="endpoint">endpoint</option>
-      <option value="validate">validate</option>
-      <option value="warnings">warnings</option>
-      <option value="history">history</option>
-    </select>
+  {msg_html}
+
+  <div class="grid3">
+    <section class="card">
+      <div class="card-title">
+        <div>
+          <div class="eyebrow">Analyze</div>
+          <h3>로그 업로드</h3>
+          <p>드래그 앤 드롭 또는 파일 선택으로 분석을 시작하세요.</p>
+        </div>
+        <span class="badge">No external deps</span>
+      </div>
+      <form method="post" action="/analyze" enctype="multipart/form-data" id="uploadForm">
+        <div class="form-grid">
+          <div class="span-12 row">
+            <label for="mplaneFile">Input file</label>
+            <div class="dropzone" id="dropzone">
+              <input id="mplaneFile" type="file" name="mplane_file" accept=".txt,.xml,.log,text/plain,application/xml,text/xml" required>
+              <div class="dropzone-main">
+                <div class="dropzone-icon">📁</div>
+                <div>
+                  <strong style="display:block; font-size:18px;">M-Plane 로그 파일을 여기로 드롭</strong>
+                  <div class="muted">또는 클릭해서 <code>.txt</code>, <code>.xml</code>, <code>.log</code> 파일을 선택하세요.</div>
+                </div>
+                <div id="selectedFilePill" class="file-pill">✅ <span id="selectedFileName">No file selected</span></div>
+              </div>
+            </div>
+          </div>
+          <div class="span-6 row">
+            <label for="showMode">Report section</label>
+            <select id="showMode" name="show">
+              <option value="all" selected>all</option>
+              <option value="chain">chain</option>
+              <option value="endpoint">endpoint</option>
+              <option value="validate">validate</option>
+              <option value="warnings">warnings</option>
+              <option value="history">history</option>
+            </select>
+          </div>
+          <div class="span-6 row">
+            <label for="jobLabel">Job label (optional)</label>
+            <input id="jobLabel" type="text" name="job_label" placeholder="e.g. nokia_rmod">
+          </div>
+          <div class="span-12 row toolbar">
+            <button type="submit" id="analyzeBtn">🚀 Analyze &amp; Show Result</button>
+            <span class="muted">업로드 후 결과 화면에서 TXT / JSON 다운로드와 interactive chain map 탐색이 가능합니다.</span>
+          </div>
+        </div>
+      </form>
+    </section>
+
+    <aside class="card">
+      <div class="card-title">
+        <div>
+          <div class="eyebrow">Highlights</div>
+          <h3>지원 기능</h3>
+          <p>실무 분석에 필요한 핵심 포인트를 빠르게 볼 수 있습니다.</p>
+        </div>
+      </div>
+      <div class="feature-list">
+        <div class="feature-item">
+          <strong>NETCONF trace parsing</strong>
+          <div class="muted">semicolon 로그와 Nokia <code>Sending message:/Received message:</code> 포맷을 모두 처리합니다.</div>
+        </div>
+        <div class="feature-item">
+          <strong>Topology-style chain view</strong>
+          <div class="muted">Link, Endpoint, Carrier, PRACH, PE, TF 관계를 연결 그래프로 탐색할 수 있습니다.</div>
+        </div>
+        <div class="feature-item">
+          <strong>Downloadable artifacts</strong>
+          <div class="muted">리포트 텍스트와 JSON 상태 덤프를 모두 저장/다운로드할 수 있습니다.</div>
+        </div>
+      </div>
+    </aside>
   </div>
-  <div class="row"><label>Job label (optional)</label><input type="text" name="job_label" placeholder="e.g. nokia_rmod"></div>
-  <div class="row"><button type="submit">Analyze &amp; Show Result</button></div>
-</form>
 </div>
-<div class="card">
-  <b>Supported:</b> generic semicolon NETCONF traces, Nokia <code>Sending message:/Received message:</code> traces (patched analyzer), raw XML dumps.
-</div>
+<script>
+(function() {{
+  const form = document.getElementById('uploadForm');
+  const fileInput = document.getElementById('mplaneFile');
+  const analyzeBtn = document.getElementById('analyzeBtn');
+  const dropzone = document.getElementById('dropzone');
+  const pill = document.getElementById('selectedFilePill');
+  const fileName = document.getElementById('selectedFileName');
+
+  function updateFileName() {{
+    const file = fileInput && fileInput.files && fileInput.files[0];
+    if (!file) {{
+      pill.classList.remove('ready');
+      fileName.textContent = 'No file selected';
+      return;
+    }}
+    pill.classList.add('ready');
+    fileName.textContent = `${{file.name}} · ${{Math.max(1, Math.round(file.size / 1024))}} KB`;
+  }}
+
+  if (fileInput) fileInput.addEventListener('change', updateFileName);
+  if (dropzone && fileInput) {{
+    ['dragenter', 'dragover'].forEach(evt => dropzone.addEventListener(evt, (e) => {{
+      e.preventDefault();
+      dropzone.classList.add('dragover');
+    }}));
+    ['dragleave', 'drop'].forEach(evt => dropzone.addEventListener(evt, (e) => {{
+      e.preventDefault();
+      dropzone.classList.remove('dragover');
+    }}));
+    dropzone.addEventListener('drop', (e) => {{
+      if (e.dataTransfer && e.dataTransfer.files && e.dataTransfer.files.length) {{
+        fileInput.files = e.dataTransfer.files;
+        updateFileName();
+      }}
+    }});
+  }}
+  if (form && analyzeBtn) {{
+    form.addEventListener('submit', () => {{
+      analyzeBtn.disabled = true;
+      analyzeBtn.textContent = '⏳ Analyzing...';
+    }});
+  }}
+}})();
+</script>
 """
     return html_page("User plane config Analyzer", body)
 
@@ -938,38 +1292,102 @@ def render_result(job_id: str, original_name: str, report_text: str, summary: di
     preview = report_text[:preview_limit] + ("\n\n... [TRUNCATED IN BROWSER PREVIEW] ..." if truncated else "")
     counts = summary.get("counts", {})
     graph_card = render_chain_map_card(chain_graph or {"nodes": [], "edges": []})
+    metric_cards = [
+        ("TX carriers", counts.get("carriers_tx", 0)),
+        ("RX carriers", counts.get("carriers_rx", 0)),
+        ("TX endpoints", counts.get("endpoints_tx", 0)),
+        ("RX endpoints", counts.get("endpoints_rx", 0)),
+        ("TX links", counts.get("links_tx", 0)),
+        ("RX links", counts.get("links_rx", 0)),
+        ("PRACH configs", counts.get("prach_configs", 0)),
+        ("Processing elements", counts.get("processing_elements", 0)),
+        ("Validations", summary.get("validations_count", 0)),
+        ("Parser warnings", summary.get("warnings_count", 0)),
+    ]
+    metrics_html = "".join(
+        f'<div class="metric-card"><div class="metric-value">{html.escape(str(value))}</div><div class="metric-label">{html.escape(label)}</div></div>'
+        for label, value in metric_cards
+    )
     body = f"""
-<h1>Analysis Result - RL1 PD US EngSupport & PoC</h1>
-<p><a href="/">← Back to upload</a></p>
-<div class="card">
-  <div class="grid">
-    <div>
-      <div><b>Job ID:</b> <code>{html.escape(job_id)}</code></div>
-      <div><b>Uploaded file:</b> {html.escape(original_name)}</div>
-      <div><b>Analyzed at:</b> {html.escape(summary.get('analyzed_at','-'))}</div>
-      <div><b>Show mode:</b> {html.escape(summary.get('show','all'))}</div>
-      <div><b>Analyzer:</b> <code>{html.escape(summary.get('analyzer','-'))}</code></div>
+<div class="page-stack">
+  <section class="hero">
+    <div class="result-topbar">
+      <a class="btn ghost" href="/">← Back to upload</a>
+      <div class="chip-row">
+        <span class="chip">🧠 Analyzer: {html.escape(summary.get('analyzer','-'))}</span>
+        <span class="chip">🕒 {html.escape(summary.get('analyzed_at','-'))}</span>
+      </div>
     </div>
-    <div>
-      <div><b>Counts:</b></div>
-      <ul>
-        <li>TX carriers: {counts.get('carriers_tx', 0)} / RX carriers: {counts.get('carriers_rx', 0)}</li>
-        <li>TX endpoints: {counts.get('endpoints_tx', 0)} / RX endpoints: {counts.get('endpoints_rx', 0)}</li>
-        <li>TX links: {counts.get('links_tx', 0)} / RX links: {counts.get('links_rx', 0)}</li>
-        <li>PRACH configs: {counts.get('prach_configs', 0)} / Processing elements: {counts.get('processing_elements', 0)}</li>
-        <li>Validations: {summary.get('validations_count', 0)} / Parser warnings: {summary.get('warnings_count', 0)}</li>
-      </ul>
+    <div style="margin-top:18px;">
+      <div class="eyebrow">Analysis Result</div>
+      <h2 style="margin-top:8px;">{html.escape(original_name)}</h2>
+      <p>Job ID <code>{html.escape(job_id)}</code> · 현재 표시 모드 <strong>{html.escape(summary.get('show','all'))}</strong> · 텍스트 리포트와 JSON 상태를 함께 내려받을 수 있습니다.</p>
     </div>
-  </div>
-  <p>
-    <a href="{html.escape(txt_url)}">⬇ Download TXT report</a> &nbsp; | &nbsp;
-    <a href="{html.escape(json_url)}">⬇ Download JSON report</a>
-  </p>
+  </section>
+
+  <section class="card">
+    <div class="card-title">
+      <div>
+        <div class="eyebrow">Overview</div>
+        <h3>분석 요약</h3>
+        <p>오브젝트 수, 경고 수, 검증 수를 한눈에 볼 수 있도록 정리했습니다.</p>
+      </div>
+      <div class="toolbar">
+        <a class="btn" href="{html.escape(txt_url)}">⬇ Download TXT</a>
+        <a class="btn secondary" href="{html.escape(json_url)}">⬇ Download JSON</a>
+      </div>
+    </div>
+    <div class="metric-grid">{metrics_html}</div>
+    <div class="subtle-divider"></div>
+    <div class="grid" style="margin-top:10px;">
+      <div class="feature-item">
+        <strong>Uploaded file</strong>
+        <div class="muted">{html.escape(original_name)}</div>
+      </div>
+      <div class="feature-item">
+        <strong>Show mode</strong>
+        <div class="muted">{html.escape(summary.get('show','all'))}</div>
+      </div>
+    </div>
+  </section>
+
+  {graph_card}
+
+  <section class="card">
+    <div class="card-title">
+      <div>
+        <div class="eyebrow">Preview</div>
+        <h3>Report Preview {"(truncated)" if truncated else ""}</h3>
+        <p>그래프에서 노드를 더블 클릭하면 아래 리포트에서 해당 텍스트 위치로 점프합니다.</p>
+      </div>
+      <div class="toolbar">
+        <button type="button" class="btn secondary" id="copyJobIdBtn" data-job-id="{html.escape(job_id)}">📋 Copy Job ID</button>
+        <a class="link-inline" href="{html.escape(txt_url)}">open raw txt</a>
+      </div>
+    </div>
+    <pre id="reportPreview">{html.escape(preview)}</pre>
+  </section>
 </div>
-
-{graph_card}
-
-<div class="card"><h3>Report Preview {"(truncated)" if truncated else ""}</h3><pre id="reportPreview">{html.escape(preview)}</pre></div>
+<script>
+(function() {{
+  const copyBtn = document.getElementById('copyJobIdBtn');
+  if (!copyBtn) return;
+  copyBtn.addEventListener('click', async () => {{
+    const jobId = copyBtn.getAttribute('data-job-id') || '';
+    try {{
+      if (navigator.clipboard && navigator.clipboard.writeText) {{
+        await navigator.clipboard.writeText(jobId);
+        copyBtn.textContent = '✅ Copied';
+      }} else {{
+        copyBtn.textContent = '⚠ Clipboard unavailable';
+      }}
+    }} catch (err) {{
+      copyBtn.textContent = '⚠ Copy failed';
+    }}
+    setTimeout(() => {{ copyBtn.textContent = '📋 Copy Job ID'; }}, 1800);
+  }});
+}})();
+</script>
 """
     return html_page("Analysis Result", body)
 
