@@ -611,26 +611,25 @@ def parse_mplane_log(file_path: str) -> StateStore:
             fragment=None, message_id=None, ts=None
         ))
 
-        # [추가] raw content에서 static endpoint만 직접 복구 시도
-# (큰 user-plane-configuration 블록이 세그먼트/헤더 때문에 실패하는 경우 대비)
+        # Recover static endpoints directly from raw content only during fallback.
+        # This avoids overwriting correctly parsed segment-derived endpoint metadata.
+        fallback_ctx = {
+            "raw_ts": None, "ts": None, "direction": "RECV", "size_bytes": None,
+            "message_id": "raw-static-recover", "rpc_type": "raw-fallback", "log_format": "raw_fallback"
+        }
 
-    fallback_ctx = {
-        "raw_ts": None, "ts": None, "direction": "RECV", "size_bytes": None,
-        "message_id": "raw-static-recover", "rpc_type": "raw-fallback", "log_format": "raw_fallback"
-    }
-
-    for tag, store, cat in [
-        ("static-low-level-tx-endpoints", state.endpoints_tx, "endpoint_tx"),
-        ("static-low-level-rx-endpoints", state.endpoints_rx, "endpoint_rx"),
-    ]:
-        for blk in find_xml_blocks(tag, content):
-            root = parse_xml_block(blk, "raw_static_recover", tag, state, fallback_ctx)
-            if root is None:
-                continue
-            d = normalize_leaflist(xml_to_dict(root))
-            if isinstance(d, dict):
-                d["_endpoint_tag"] = tag
-                upsert_named(store, cat, d, state, fallback_ctx, "raw-static-endpoint-recovery")
+        for tag, store, cat in [
+            ("static-low-level-tx-endpoints", state.endpoints_tx, "endpoint_tx"),
+            ("static-low-level-rx-endpoints", state.endpoints_rx, "endpoint_rx"),
+        ]:
+            for blk in find_xml_blocks(tag, content):
+                root = parse_xml_block(blk, "raw_static_recover", tag, state, fallback_ctx)
+                if root is None:
+                    continue
+                d = normalize_leaflist(xml_to_dict(root))
+                if isinstance(d, dict):
+                    d["_endpoint_tag"] = tag
+                    upsert_named(store, cat, d, state, fallback_ctx, "raw-static-endpoint-recovery")
 
     validate_state(state)
     return state
@@ -924,7 +923,7 @@ def render_report(state: StateStore, show: str = "chain") -> str:
                     if v not in (None, "", "-", "?:?"):
                         w(f"      ├── {k}: {fmt(v)}")
 
-                # restricted-interfaces 상세 출력
+                # Render restricted-interfaces details
                 ri = ep.get("restricted-interfaces")
                 if ri:
                     if isinstance(ri, list):
@@ -934,7 +933,7 @@ def render_report(state: StateStore, show: str = "chain") -> str:
                     else:
                         w(f"      ├── restricted-interfaces: {fmt(ri)}")
 
-                # supported-reference-level 상세 출력
+                # Render supported-reference-level details
                 srl = ep.get("supported-reference-level")
                 if srl:
                     srl_list = srl if isinstance(srl, list) else [srl]
@@ -1060,7 +1059,7 @@ def render_report(state: StateStore, show: str = "chain") -> str:
                     "prach-ref": prach_ref,
                 }
                 if _has_meaningful_endpoint_summary_row(row):
-                    # 링크에서 carrier 이름 역추적
+                    # Backfill carrier name from the linked relation
                     for link in (state.links_tx if direction == "TX" else state.links_rx).values():
                         ep_key = "low-level-tx-endpoint" if direction == "TX" else "low-level-rx-endpoint"
                         car_key = "tx-array-carrier" if direction == "TX" else "rx-array-carrier"
@@ -1068,7 +1067,7 @@ def render_report(state: StateStore, show: str = "chain") -> str:
                             row["carrier"] = link.get(car_key, "-")
                             break
 
-                    # carrier가 없는 endpoint는 표시 제외
+                    # Skip endpoints that still have no carrier/eAxC signal to show
                     if row.get("eaxc") not in (None, "", "-"):
                         rows.append(row)
         if rows:
