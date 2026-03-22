@@ -611,26 +611,25 @@ def parse_mplane_log(file_path: str) -> StateStore:
             fragment=None, message_id=None, ts=None
         ))
 
-        # [추가] raw content에서 static endpoint만 직접 복구 시도
-# (큰 user-plane-configuration 블록이 세그먼트/헤더 때문에 실패하는 경우 대비)
+        # Recover static endpoints directly from raw content only during fallback.
+        # This avoids overwriting correctly parsed segment-derived endpoint metadata.
+        fallback_ctx = {
+            "raw_ts": None, "ts": None, "direction": "RECV", "size_bytes": None,
+            "message_id": "raw-static-recover", "rpc_type": "raw-fallback", "log_format": "raw_fallback"
+        }
 
-    fallback_ctx = {
-        "raw_ts": None, "ts": None, "direction": "RECV", "size_bytes": None,
-        "message_id": "raw-static-recover", "rpc_type": "raw-fallback", "log_format": "raw_fallback"
-    }
-
-    for tag, store, cat in [
-        ("static-low-level-tx-endpoints", state.endpoints_tx, "endpoint_tx"),
-        ("static-low-level-rx-endpoints", state.endpoints_rx, "endpoint_rx"),
-    ]:
-        for blk in find_xml_blocks(tag, content):
-            root = parse_xml_block(blk, "raw_static_recover", tag, state, fallback_ctx)
-            if root is None:
-                continue
-            d = normalize_leaflist(xml_to_dict(root))
-            if isinstance(d, dict):
-                d["_endpoint_tag"] = tag
-                upsert_named(store, cat, d, state, fallback_ctx, "raw-static-endpoint-recovery")
+        for tag, store, cat in [
+            ("static-low-level-tx-endpoints", state.endpoints_tx, "endpoint_tx"),
+            ("static-low-level-rx-endpoints", state.endpoints_rx, "endpoint_rx"),
+        ]:
+            for blk in find_xml_blocks(tag, content):
+                root = parse_xml_block(blk, "raw_static_recover", tag, state, fallback_ctx)
+                if root is None:
+                    continue
+                d = normalize_leaflist(xml_to_dict(root))
+                if isinstance(d, dict):
+                    d["_endpoint_tag"] = tag
+                    upsert_named(store, cat, d, state, fallback_ctx, "raw-static-endpoint-recovery")
 
     validate_state(state)
     return state
