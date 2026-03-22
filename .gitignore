@@ -1,6 +1,7 @@
 # Python
 __pycache__/
 
+mplane_web_results/
 .venv/
 venv/
 env/
