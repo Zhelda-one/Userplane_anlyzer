@@ -384,7 +384,7 @@ def render_index(message: str = "", error: bool = False) -> bytes:
       <div>
         <div class="eyebrow">⚡ RL1 PD US EngSupport &amp; PoC</div>
         <h1>User Plane Configuration Analyzer</h1>
-        <p>업로드한 M-Plane NETCONF 로그를 빠르게 파싱하고, Link → Endpoint → Carrier → PE → Transport Flow 체인을 시각적으로 확인할 수 있도록 설계된 웹 분석기입니다.</p>
+        <p>A web analyzer designed to quickly parse uploaded M-Plane NETCONF logs and visually trace Link → Endpoint → Carrier → PE → Transport Flow relationships.</p>
         <div class="chip-row" style="margin-top:16px;">
           <span class="chip">📡 Nokia trace friendly</span>
           <span class="chip">🧭 Chain map explorer</span>
@@ -392,9 +392,9 @@ def render_index(message: str = "", error: bool = False) -> bytes:
         </div>
       </div>
       <div class="hero-stats">
-        <span class="hero-stat"><strong>TXT / XML / LOG</strong> 업로드 지원</span>
-        <span class="hero-stat"><strong>JSON + TXT</strong> 결과 다운로드</span>
-        <span class="hero-stat"><strong>SVG / vis-network</strong> 그래프 뷰</span>
+        <span class="hero-stat"><strong>TXT / XML / LOG</strong> upload support</span>
+        <span class="hero-stat"><strong>JSON + TXT</strong> downloadable outputs</span>
+        <span class="hero-stat"><strong>SVG / vis-network</strong> graph views</span>
       </div>
     </div>
   </section>
@@ -406,8 +406,8 @@ def render_index(message: str = "", error: bool = False) -> bytes:
       <div class="card-title">
         <div>
           <div class="eyebrow">Analyze</div>
-          <h3>로그 업로드</h3>
-          <p>드래그 앤 드롭 또는 파일 선택으로 분석을 시작하세요.</p>
+          <h3>Upload a log</h3>
+          <p>Start analysis by dragging in a file or selecting one from disk.</p>
         </div>
         <span class="badge">No external deps</span>
       </div>
@@ -420,8 +420,8 @@ def render_index(message: str = "", error: bool = False) -> bytes:
               <div class="dropzone-main">
                 <div class="dropzone-icon">📁</div>
                 <div>
-                  <strong style="display:block; font-size:18px;">M-Plane 로그 파일을 여기로 드롭</strong>
-                  <div class="muted">또는 클릭해서 <code>.txt</code>, <code>.xml</code>, <code>.log</code> 파일을 선택하세요.</div>
+                  <strong style="display:block; font-size:18px;">Drop your M-Plane log file here</strong>
+                  <div class="muted">Or click to choose a <code>.txt</code>, <code>.xml</code>, or <code>.log</code> file.</div>
                 </div>
                 <div id="selectedFilePill" class="file-pill">✅ <span id="selectedFileName">No file selected</span></div>
               </div>
@@ -444,7 +444,7 @@ def render_index(message: str = "", error: bool = False) -> bytes:
           </div>
           <div class="span-12 row toolbar">
             <button type="submit" id="analyzeBtn">🚀 Analyze &amp; Show Result</button>
-            <span class="muted">업로드 후 결과 화면에서 TXT / JSON 다운로드와 interactive chain map 탐색이 가능합니다.</span>
+            <span class="muted">After upload, the result page lets you download TXT / JSON outputs and explore the interactive chain map.</span>
           </div>
         </div>
       </form>
@@ -454,22 +454,22 @@ def render_index(message: str = "", error: bool = False) -> bytes:
       <div class="card-title">
         <div>
           <div class="eyebrow">Highlights</div>
-          <h3>지원 기능</h3>
-          <p>실무 분석에 필요한 핵심 포인트를 빠르게 볼 수 있습니다.</p>
+          <h3>Key features</h3>
+          <p>Quickly surface the information that matters most during analysis.</p>
         </div>
       </div>
       <div class="feature-list">
         <div class="feature-item">
           <strong>NETCONF trace parsing</strong>
-          <div class="muted">semicolon 로그와 Nokia <code>Sending message:/Received message:</code> 포맷을 모두 처리합니다.</div>
+          <div class="muted">Handles both semicolon-formatted logs and Nokia <code>Sending message:/Received message:</code> traces.</div>
         </div>
         <div class="feature-item">
           <strong>Topology-style chain view</strong>
-          <div class="muted">Link, Endpoint, Carrier, PRACH, PE, TF 관계를 연결 그래프로 탐색할 수 있습니다.</div>
+          <div class="muted">Explore Link, Endpoint, Carrier, PRACH, PE, and TF relationships in a connected graph view.</div>
         </div>
         <div class="feature-item">
           <strong>Downloadable artifacts</strong>
-          <div class="muted">리포트 텍스트와 JSON 상태 덤프를 모두 저장/다운로드할 수 있습니다.</div>
+          <div class="muted">Save and download both the text report and the JSON state dump.</div>
         </div>
       </div>
     </aside>
@@ -1321,7 +1321,7 @@ def render_result(job_id: str, original_name: str, report_text: str, summary: di
     <div style="margin-top:18px;">
       <div class="eyebrow">Analysis Result</div>
       <h2 style="margin-top:8px;">{html.escape(original_name)}</h2>
-      <p>Job ID <code>{html.escape(job_id)}</code> · 현재 표시 모드 <strong>{html.escape(summary.get('show','all'))}</strong> · 텍스트 리포트와 JSON 상태를 함께 내려받을 수 있습니다.</p>
+      <p>Job ID <code>{html.escape(job_id)}</code> · current display mode <strong>{html.escape(summary.get('show','all'))}</strong> · text reports and JSON state can be downloaded together.</p>
     </div>
   </section>
 
@@ -1329,8 +1329,8 @@ def render_result(job_id: str, original_name: str, report_text: str, summary: di
     <div class="card-title">
       <div>
         <div class="eyebrow">Overview</div>
-        <h3>분석 요약</h3>
-        <p>오브젝트 수, 경고 수, 검증 수를 한눈에 볼 수 있도록 정리했습니다.</p>
+        <h3>Analysis overview</h3>
+        <p>Counts, warnings, and validations are summarized here for quick review.</p>
       </div>
       <div class="toolbar">
         <a class="btn" href="{html.escape(txt_url)}">⬇ Download TXT</a>
@@ -1358,7 +1358,7 @@ def render_result(job_id: str, original_name: str, report_text: str, summary: di
       <div>
         <div class="eyebrow">Preview</div>
         <h3>Report Preview {"(truncated)" if truncated else ""}</h3>
-        <p>그래프에서 노드를 더블 클릭하면 아래 리포트에서 해당 텍스트 위치로 점프합니다.</p>
+        <p>Double-click a graph node to jump to the matching text position in the report preview below.</p>
       </div>
       <div class="toolbar">
         <button type="button" class="btn secondary" id="copyJobIdBtn" data-job-id="{html.escape(job_id)}">📋 Copy Job ID</button>
